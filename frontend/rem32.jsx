@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import Root from './components/root';
 import configureStore from './store/store';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   const store = configureStore();
 
+  // TESTING START
   window.getState = store.getState;
   window.dispatch = store.dispatch;
+  // TESTING END
   
-  ReactDOM.render(<h1>Welcome to Rem32</h1>, root);
+  ReactDOM.render(<Root store={store} />, root);
 });
