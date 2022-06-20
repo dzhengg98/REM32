@@ -13,6 +13,7 @@ const mDTP = dispatch => {
   return {
     processForm: (user) => dispatch(login(user)),
     clearErrors: () => dispatch(clearErrors()),
+    demoUserLogin: (user) => dispatch(login(user)),
   };
 };
 
