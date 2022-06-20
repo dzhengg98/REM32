@@ -1,8 +1,12 @@
 import React from 'react';
+import HeaderContainer from "./header/header_container";
 
 const App = () => (
   <div>
-    <h1>REM32</h1>
+    <header>
+      <h1>REM32</h1>
+      <HeaderContainer />
+    </header>
   </div>
 );
 
