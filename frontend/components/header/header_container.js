@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import Header from './header';
 
-const mSTP = ({ session, entities: { users }}) => {
+const mSTP = (state) => {
   return {
-    currentUser: users[session.id]
+    currentUser: state.entities.users[state.session.id]
   };
 };
 

@@ -1,76 +1,100 @@
 import React from 'react';
+import { Link, Redirect } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      password: ''
+      username: "",
+      password: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+  componentWillUnmount() {
+    if (this.props.errors.length) {
+      this.props.clearErrors();
+    }
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(this.state);
   }
 
-  renderErrors() {
-    return(
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
+  update(field) {
+    return (e) => {
+      this.setState({ [field]: e.currentTarget.value });
+    };
+  }
+
+  showHeader() {
+    return this.props.formType === "login" ? (
+      <h1>Log in to REM32</h1>
+    ) : (
+      <div>
+        <h1>Join REM32</h1>
+        <p>Find, share, and discover amazing photos.</p>
+      </div>
     );
   }
 
-  render() {
+  renderLink() {
+    return this.props.formType === "login" ? (
+      <p>
+        Don't have an account? 
+        <Link to="/signup">Sign Up</Link>
+      </p>
+    ) : (
+      <p>
+        Already have an account? 
+        <Link to="/login">Log in</Link>
+      </p>
+    );
+  }
+
+  renderErrors() {
+    const errs = this.props.errors.map((err, i) => {
+      return <li key={i}>{err}</li>
+    })
+    return this.props.errors ? errs : "&nbsp;";
+  }
+
+  render(){
     return (
       <div>
-        <form onSubmit={this.handleSubmit} >
-          Welcome to REM32!
-          <br/>
-          Please {this.props.formType} or {this.props.navLink}
-          {this.renderErrors()}
-          <div >
-            <br/>
-            <label>Username:
-              <input 
-                type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-                placeholder="Username"
-              />
-            </label>
-            <br/>
-            <label>Password:
-              <input 
-                type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                placeholder="Password"
-              />
-            </label>
-            <br/>
-            <input 
-              type="submit" 
-              value={this.props.formType} 
+        {/* session_form */}
+        <form onSubmit={this.handleSubmit}>
+          {this.showHeader()}
+          <label>Username:
+            <input
+              type="text"
+              value={this.state.username}
+              onChange={this.update("username")}
+              placeholder="username"
             />
-          </div>
+          </label>
+
+          <label>Password:
+            <input
+              type="password"
+              value={this.state.password}
+              onChange={this.update("password")}
+              placeholder="password"
+            />
+          </label>
+          <ul>{this.renderErrors()}</ul>
+          {/* errors */}
+          <input
+            type="submit"
+            value={this.props.formType === "login" ? "Log in" : "Sign up"}
+          />
+          {/* button */}
+          {this.renderLink()}
         </form>
       </div>
     );
   }
 }
 
-export default SessionForm;
+export default SessionForm; 

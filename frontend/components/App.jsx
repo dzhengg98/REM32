@@ -1,21 +1,21 @@
 import React from 'react';
-import HeaderContainer from "./header/header_container";
-import { Route, Switch } from 'react-router-dom';
-import LoginFormContainer from './session_form/login_form_container';
-import SignupFormContainer from './session_form/signup_form_container';
-import { AuthRoute } from '../util/route_util';
+import { Route } from 'react-router';
+import Logo from './header/logo';
+import HeaderContainer from './header/header_container';
+import login_form_container from './session_form/login_form_container';
+import signup_form_container from './session_form/signup_form_container';
+import { AuthRoute } from "../util/route_util";
 
 const App = () => (
   <div>
     <header>
-      <h1>REM32</h1>
+      <Logo />
       <HeaderContainer />
     </header>
-    <Switch>
-      <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <AuthRoute exact path="/signup" component={SignupFormContainer} />
-    </Switch>
+
+    <AuthRoute path="/login" component={login_form_container} />
+    <AuthRoute path="/signup" component={signup_form_container} />
   </div>
-);
+)
 
 export default App;

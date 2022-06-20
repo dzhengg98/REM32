@@ -1,23 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = ({ currentUser, logout }) => {
-  const Links = () => (
-    <nav>
-      <Link to="/login">Log In</Link>
-      &nbsp;or&nbsp;
-      <Link to="/signup">Sign Up</Link>
-    </nav>
-  )
+const Header = props => {
+  const logoutUser = (e) => {
+    e.preventDefault();
+    props.logout();
+  }
 
-  const display = () => (
+  const showInfo = () => props.currentUser ? (
+    <li>
+      <a onClick={logoutUser}>Logout</a>{" "}
+    </li>
+  ) : (
+    [
+      <li key="login">
+        <Link to="/login">Log in</Link>
+      </li>,
+      <li key="signup">
+        <Link to="/signup">Sign up</Link>
+        {/* button */}
+      </li>,
+    ]
+  );
+
+  return (
     <div>
-      <h2>Hi {currentUser.username}!</h2>
-      <button onClick={logout}>Log Out</button>
+      <ul>{ showInfo() }</ul>
+      {/* auth-btns */}
     </div>
   )
-
-  return currentUser ? display() : Links();
-};
+}
 
 export default Header;
