@@ -6,12 +6,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 250px;
 }
 
 form {
   width: 338px;
   background-color: $white;
-  border: 1px solid rgb(238, 239, 242);
+  border: 1px solid $lighterGrey;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -21,4 +22,74 @@ form {
 .form-statement {
   padding-top: 30px;
   margin-bottom: -5px;
+  text-align: center;
+  width: 100%;
+}
+
+.form-statement > a {
+  color: $primaryBlue;
+  font-weight: 400;
+}
+
+.auth-header {
+  font-size: 24px;
+  color: $veryDarkGrey;
+  font-weight: $mediumFontWeight;
+  text-align: center;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+p {
+  color: $mediumGrey;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+p > a {
+  margin-left: 5px;
+}
+
+.form-statement > a:hover {
+  text-decoration: underline;
+}
+
+.auth-label {
+  width: 90%;
+  font-size: 14px;
+  color: $mediumGrey;
+}
+
+.auth-description {
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: $veryDarkGrey;
+  margin-bottom: 25px;
+}
+
+.auth-input {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 4px;
+  border: 1px solid $grey;
+  padding: 12px 16px;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+label input[type=text] {
+  margin-bottom: 15px;
+}
+
+input[type=submit] {
+  font-size: 16px;
+  background-color: $primaryBlue;
+  color: $white;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+  max-height: 48px;
+  padding: 12px 22px;
 }
