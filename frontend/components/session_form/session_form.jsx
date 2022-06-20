@@ -108,7 +108,7 @@ class SessionForm extends React.Component {
             className = "button"
             value={this.props.formType === "login" ? "Log in" : "Sign up"}
           />
-          {this.renderDemoLogin()}
+          {this.props.formType === "login" ? this.renderDemoLogin() : " "}
           {this.renderLink()}
         </form>
       </div>
