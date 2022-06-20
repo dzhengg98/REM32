@@ -7,26 +7,31 @@ const Header = props => {
     props.logout();
   }
 
+  const welcomeMessage = () => props.currentUser ? (
+    <p>Hi {props.currentUser.username}!</p>
+  ) : (
+    <p>{" "}</p>
+  )
+
   const showInfo = () => props.currentUser ? (
-    <li>
-      <a onClick={logoutUser}>Logout</a>{" "}
+    <li className="log-out">
+      <a onClick={logoutUser}>Logout</a>
     </li>
   ) : (
     [
-      <li key="login">
+      <li key="login" className="log-in">
         <Link to="/login">Log in</Link>
       </li>,
-      <li key="signup">
+      <li key="signup" className="sign-up-button">
         <Link to="/signup">Sign up</Link>
-        {/* button */}
       </li>,
     ]
   );
 
   return (
     <div>
-      <ul>{ showInfo() }</ul>
-      {/* auth-btns */}
+      <h2>{ welcomeMessage() }</h2>
+      <ul className="user-auth-buttons">{ showInfo() }</ul>
     </div>
   )
 }

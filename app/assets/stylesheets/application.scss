@@ -13,4 +13,48 @@
  *= require_self
  */
 
- @import "reset";
+@import "./reset.scss";
+@import "./variables.scss";
+@import "./components/header.scss";
+@import "./components/session_form.scss";
+
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+  // 62.5%
+  // 1 rem
+}
+
+body {
+  background-color: $lighterGrey;
+  font-family: $primaryFont;
+  color: $black;
+  font-weight: $lightFontWeight;
+  font-size: 16px;  // $font-size 
+}
+
+a {
+  color: $black;
+  text-decoration: none;
+  font-weight: $mediumFontWeight;
+  cursor: pointer;
+}
+
+a:hover {
+  color: $primaryBlueHover;
+}
+
+.button {
+  border-radius: 20px;
+  padding: 6px 16px;
+  background-color: $primaryBlue;
+  color: $white;
+}
+
+.button:hover {
+  background-color: $primaryBlueHover;
+}
+
+.error-color {
+  color: $errors-color;
+}

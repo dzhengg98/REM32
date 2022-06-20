@@ -34,22 +34,16 @@ class SessionForm extends React.Component {
     ) : (
       <div>
         <h1>Join REM32</h1>
-        <p>Find, share, and discover amazing photos.</p>
+        <p>Discover and share incredible photos, gain global exposure, and get paid for your work.</p>
       </div>
     );
   }
 
   renderLink() {
     return this.props.formType === "login" ? (
-      <p>
-        Don't have an account? 
-        <Link to="/signup">Sign Up</Link>
-      </p>
+      <p class="form-statement">Don't have an account? <Link to="/signup">Sign Up</Link></p>
     ) : (
-      <p>
-        Already have an account? 
-        <Link to="/login">Log in</Link>
-      </p>
+      <p class="form-statement">Already have an account? <Link to="/login">Log in</Link></p>
     );
   }
 
@@ -62,11 +56,10 @@ class SessionForm extends React.Component {
 
   render(){
     return (
-      <div>
-        {/* session_form */}
+      <div className="session_form">
         <form onSubmit={this.handleSubmit}>
           {this.showHeader()}
-          <label>Username:
+          <label>Username 
             <input
               type="text"
               value={this.state.username}
@@ -75,7 +68,7 @@ class SessionForm extends React.Component {
             />
           </label>
 
-          <label>Password:
+          <label>Password 
             <input
               type="password"
               value={this.state.password}
@@ -83,13 +76,12 @@ class SessionForm extends React.Component {
               placeholder="password"
             />
           </label>
-          <ul>{this.renderErrors()}</ul>
-          {/* errors */}
+          <ul className="error-color">{this.renderErrors()}</ul>
           <input
             type="submit"
+            className = "button"
             value={this.props.formType === "login" ? "Log in" : "Sign up"}
           />
-          {/* button */}
           {this.renderLink()}
         </form>
       </div>

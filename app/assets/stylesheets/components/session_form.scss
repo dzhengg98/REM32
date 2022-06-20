@@ -1,0 +1,24 @@
+@import "../variables.scss";
+
+.session_form {
+  height: 95%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 338px;
+  background-color: $white;
+  border: 1px solid rgb(238, 239, 242);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.form-statement {
+  padding-top: 30px;
+  margin-bottom: -5px;
+}
