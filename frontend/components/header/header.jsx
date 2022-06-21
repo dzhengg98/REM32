@@ -8,7 +8,7 @@ const Header = props => {
   }
 
   const welcomeMessage = () => props.currentUser ? (
-    <p className="welcome-message">Welcome back {props.currentUser.username}!</p>
+    <p className="welcome-message">Hello {props.currentUser.username}!</p>
   ) : (
     <p>{" "}</p>
   )
@@ -54,7 +54,7 @@ const Header = props => {
 
   return (
     <div className="header-right">
-      {/* <h2>{ welcomeMessage() }</h2> */}
+      <h2>{ welcomeMessage() }</h2>
       <h2>{ userProfile() }</h2>
       <h2>{ userMessage() }</h2>
       <h2>{ userNotification() }</h2>
