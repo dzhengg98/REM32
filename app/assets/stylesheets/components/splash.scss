@@ -1,0 +1,62 @@
+@import "../variables.scss";
+
+.splash-page {
+  height: 100vh;
+  font-size: 20px;
+}
+
+.splash-title {
+  font-size: 40px;
+  font-weight: $boldFontWeight;
+  max-width: 500px;
+  min-width: 400px;
+
+  // text-align: center;
+  // margin: 20px auto;
+
+  position: relative;
+  left: 15%;
+  top: 10%;
+  // top: 100px;
+}
+
+.splash-description {
+  max-width: 500px;
+  min-width: 425px;
+  color: $black;
+
+  // text-align: center;
+  // margin: 20px auto;
+
+  position: relative;
+  left: 15%;
+  top: 12%;
+}
+
+.splash-sign-up-button {
+  position: relative;
+  left: 15%;
+  top: 15%;
+
+  // margin: 0;
+  // position: absolute;
+  // left: 40%;
+
+  background-color: $white;
+  color: $black;
+  border-radius: 25px;
+  margin: 16px 0 0;
+  padding: 0 32px;
+  width: 216px;
+  height: 56px;
+  border: none;
+}
+
+.splash-sign-up-button:hover {
+  background-color: $grey;
+}
+
+.splash-sign-up-button > span {
+  font-size: 24px;
+  font-weight: $boldFontWeight;
+}
