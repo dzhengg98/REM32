@@ -7,6 +7,13 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
+    <script type="text/javascript">
+      window.userIcon = '<%= image_url('userpic.png') %>';
+      window.messageIcon = '<%= image_url('messagepic.png') %>';
+      window.notificationIcon = '<%= image_url('notificationpic.png') %>';
+    </script>
+
   </head>
 
   <body>

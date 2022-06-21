@@ -8,7 +8,7 @@ const Header = props => {
   }
 
   const welcomeMessage = () => props.currentUser ? (
-    <p>Hi {props.currentUser.username}!</p>
+    <p className="welcome-message">Welcome back {props.currentUser.username}!</p>
   ) : (
     <p>{" "}</p>
   )
@@ -28,9 +28,36 @@ const Header = props => {
     ]
   );
 
+  const userProfile = () => props.currentUser ? (
+    <a href="#">
+      <img src={window.userIcon} />
+    </a>
+  ) : (
+    <p>{" "}</p>
+  )
+
+  const userMessage = () => props.currentUser ? (
+    <a href="#">
+      <img src={window.messageIcon} />
+    </a>
+  ) : (
+    <p>{" "}</p>
+  )
+
+  const userNotification = () => props.currentUser ? (
+    <a href="#">
+      <img src={window.notificationIcon} />
+    </a>
+  ) : (
+    <p>{" "}</p>
+  )
+
   return (
-    <div>
-      <h2>{ welcomeMessage() }</h2>
+    <div className="header-right">
+      {/* <h2>{ welcomeMessage() }</h2> */}
+      <h2>{ userProfile() }</h2>
+      <h2>{ userMessage() }</h2>
+      <h2>{ userNotification() }</h2>
       <ul className="user-auth-buttons">{ showInfo() }</ul>
     </div>
   )

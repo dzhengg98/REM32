@@ -1,10 +1,10 @@
 import React from 'react';
-import { Route } from 'react-router';
+import { Switch, Route } from 'react-router';
 import Logo from './header/logo';
 import HeaderContainer from './header/header_container';
 import login_form_container from './session_form/login_form_container';
 import signup_form_container from './session_form/signup_form_container';
-import { AuthRoute } from "../util/route_util";
+import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
 const App = () => (
   <div>
@@ -13,8 +13,10 @@ const App = () => (
       <HeaderContainer />
     </header>
 
-    <AuthRoute path="/login" component={login_form_container} />
-    <AuthRoute path="/signup" component={signup_form_container} />
+    <Switch>
+      <AuthRoute path="/login" component={login_form_container} />
+      <AuthRoute path="/signup" component={signup_form_container} />
+    </Switch>
   </div>
 )
 
