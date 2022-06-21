@@ -74,11 +74,6 @@ class SessionForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           {this.showHeader()}
 
-          <div>
-            {this.props.errors.map((error, i) => (
-              <p className="error-color" key={i}>{error}</p>
-            ))}
-          </div>
 
           <label className="auth-label">Username 
             <input
@@ -87,7 +82,7 @@ class SessionForm extends React.Component {
               value={this.state.username}
               onChange={this.update("username")}
               placeholder="username"
-            />
+              />
           </label>
 
           <label className="auth-label">Password 
@@ -97,14 +92,21 @@ class SessionForm extends React.Component {
               value={this.state.password}
               onChange={this.update("password")}
               placeholder="password"
-            />
+              />
           </label>
+
+          <div>
+            {this.props.errors.map((error, i) => (
+              <p className="error-color" key={i}>{error}</p>
+            ))}
+          </div>
 
           <input
             type="submit"
             className = "button"
             value={this.props.formType === "login" ? "Log in" : "Sign up"}
           />
+          
           {this.props.formType === "login" ? this.renderDemoLogin() : " "}
           {this.renderLink()}
         </form>
