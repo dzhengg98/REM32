@@ -48,13 +48,6 @@ class SessionForm extends React.Component {
     );
   }
 
-  renderErrors() {
-    const errors = this.props.errors.map((error, i) => {
-      return <li key={i}>{error}</li>
-    })
-    return this.props.errors ? errors : "&nbsp;";
-  }
-
   demoLogin(e) {
     e.preventDefault();
     const demoUser = {
@@ -81,6 +74,12 @@ class SessionForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           {this.showHeader()}
 
+          <div>
+            {this.props.errors.map((error, i) => (
+              <p className="error-color" key={i}>{error}</p>
+            ))}
+          </div>
+
           <label className="auth-label">Username 
             <input
               className="auth-input"
@@ -100,8 +99,6 @@ class SessionForm extends React.Component {
               placeholder="password"
             />
           </label>
-
-          <ul className="error-color">{this.renderErrors()}</ul>
 
           <input
             type="submit"
