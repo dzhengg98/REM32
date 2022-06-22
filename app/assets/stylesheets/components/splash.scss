@@ -56,7 +56,8 @@
   background-color: $grey;
 }
 
-.splash-sign-up-button > span {
+.splash-sign-up-button > a > span {
   font-size: 24px;
   font-weight: $boldFontWeight;
+  color: $black;
 }
