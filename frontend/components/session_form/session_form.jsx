@@ -31,10 +31,10 @@ class SessionForm extends React.Component {
 
   showHeader() {
     return this.props.formType === "login" ? (
-      <h1 className="auth-header">Log in to REM32</h1>
+      <h2 className="auth-header">Log in to REM32</h2>
     ) : (
       <div>
-        <h1 className="auth-header">Join REM32</h1>
+        <h2 className="auth-header">Join REM32</h2>
         <p className="auth-description">Discover and share incredible photos, gain global exposure, and get paid for your work.</p>
       </div>
     );

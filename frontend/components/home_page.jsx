@@ -16,7 +16,6 @@ const Home = (props) => {
 };
 
 const mSTP = (state) => {
-  // debugger
   return {
     user: state.entities.users[state.session.id]
   }
