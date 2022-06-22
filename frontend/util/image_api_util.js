@@ -11,7 +11,7 @@ export const fetchImage = (imageId) => {
   return (
     $.ajax({
       method: 'GET',
-      url: `/api/posts/${imageId}`,
+      url: `/api/images/${imageId}`,
     })
   )
 };

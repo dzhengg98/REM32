@@ -1,0 +1,32 @@
+@import "../variables.scss";
+
+.home-page {
+  height: 100vh;
+  font-size: 2rem;
+  // background-color: $white;
+}
+
+.home-wrapper {
+  background-color: $white;
+  padding: 5px 0 20px 0;
+}
+
+.home-title {
+  color: $veryDarkGrey;
+  font-size: 3.6rem;
+  line-height: 40px;
+  font-weight: $boldFontWeight;
+  box-sizing: border-box;
+  margin-left: 50px;
+  padding: 16px 0 0;
+}
+
+.home-description {
+  margin-left: 50px;
+  margin-top: 10px;
+  font-size: 1.6rem;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-transform: none;
+  color: rgb(109, 115, 120);
+}

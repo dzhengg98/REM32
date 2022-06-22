@@ -7,5 +7,34 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Image.destroy_all
 
-demo_user = User.create!({ username: "demoUser", password: "demouser"})
+ApplicationRecord.connection.reset_pk_sequence!('users')
+ApplicationRecord.connection.reset_pk_sequence!('images')
+
+# USERS
+demo_user = User.create!({ 
+  username: "demoUser", 
+  password: "demouser" 
+})
+user1 = User.create!({ 
+  username: "david", 
+  password: "123456" 
+})
+
+# IMAGES
+image1 = Image.create!({ 
+  title: "first image on the site", 
+  description: "fun fun fun", 
+  uploader_id: demo_user.id 
+})
+image2 = Image.create!({ 
+  title: "second image on the site", 
+  description: "test test test", 
+  uploader_id: demo_user.id 
+})
+image3 = Image.create!({ 
+  title: "third image on the site", 
+  description: "david's image", 
+  uploader_id: user1.id 
+})
