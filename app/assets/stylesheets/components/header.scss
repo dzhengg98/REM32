@@ -57,3 +57,28 @@ img {
   position: relative;
   top: 10px;
 }
+
+.header-icon {
+  margin-right: 15px;
+}
+
+.header-search {
+  background-color: rgb(247, 248, 250);
+  border: none;
+  border-radius: 25px;
+  width: 312px;
+  // widht: 203px;
+  font-size: 16px;
+  height: 40px;
+  text-indent: 48px;
+  padding: 0px;
+  margin-right: 25px;
+}
+
+.header-search:focus {
+  outline: none;
+}
+
+input::placeholder {
+  color: #97a0a8;
+}
