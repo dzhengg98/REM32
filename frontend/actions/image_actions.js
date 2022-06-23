@@ -4,21 +4,21 @@ export const RECEIVE_IMAGES = 'RECEIVE_IMAGES';
 export const RECEIVE_IMAGE = 'RECEIVE_IMAGE';
 export const REMOVE_IMAGE = 'REMOVE_IMAGE';
 
-const receiveImages = (images) => {
+export const receiveImages = (images) => {
   return ({
     type: RECEIVE_IMAGES,
     images,
   })
 };
 
-const receiveImage = (image) => {
+export const receiveImage = (image) => {
   return ({
     type: RECEIVE_IMAGE,
     image,
   })
 };
 
-const removeImage = (imageId) => {
+export const removeImage = (imageId) => {
   return ({
     type: REMOVE_IMAGE,
     imageId,

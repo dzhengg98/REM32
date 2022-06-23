@@ -1,1 +1,1 @@
-json.extract! @image, :id, :title, :description, :uploader_id
+json.partial! "api/images/image", image: @image

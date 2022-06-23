@@ -7,7 +7,7 @@ class Api::ImagesController < ApplicationController
   end
 
   def show
-    @image = Image.find(id: params[:id])
+    @image = Image.find_by(id: params[:id])
   end
 
   def create
