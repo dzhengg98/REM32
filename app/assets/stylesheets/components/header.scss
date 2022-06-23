@@ -7,7 +7,7 @@ header {
   justify-content: space-between;
   align-items: center;
   font-size: 16px;
-  padding: 22px 0px;
+  padding: 16px 0px;
 }
 
 header > a {
@@ -42,6 +42,20 @@ header > div > .user-auth-buttons li a {
   border-radius: 20px;
   border: 2px solid $black;
   padding: 6px 16px;
+}
+
+.upload-button {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: bold;
+  margin: 0px;
+  border: 2px solid $black;
+  border-radius: 28px;
+  cursor: pointer;
+  text-align: center;
+  padding: 10px 22px 10px 14px;
+  width: 84px;
+  height: 24px;
 }
 
 img {

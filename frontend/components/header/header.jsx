@@ -16,6 +16,7 @@ const Header = props => {
       <h2 className="header-icon"><a href="#"><img src={window.notificationIcon} /></a></h2>
       <ul className="user-auth-buttons">
         <li key="logout" className="log-out"><a onClick={logoutUser}>Logout</a></li>
+        <li key="upload" className="upload-button"><Link to="/images/new">Upload</Link></li>
       </ul>
     </div>
   ) : (
