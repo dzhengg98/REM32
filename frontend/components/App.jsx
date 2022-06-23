@@ -12,10 +12,12 @@ import image_form_container from './Images/image_form_container';
 
 const App = () => (
   <div>
-    <header>
-      <Logo />
-      <HeaderContainer />
-    </header>
+    <nav>
+      <header>
+        <Logo />
+        <HeaderContainer />
+      </header>
+    </nav>
 
     <Switch>
       <AuthRoute path="/" exact component={Splash} />
