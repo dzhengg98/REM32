@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ImageIndexContainer from './images/image_index_container';
+import ImageIndexContainer from '../images/image_index_container';
 
 const Home = (props) => {
   return (

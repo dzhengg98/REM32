@@ -5,8 +5,8 @@ import HeaderContainer from './header/header_container';
 import login_form_container from './session_form/login_form_container';
 import signup_form_container from './session_form/signup_form_container';
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
-import Splash from './splash_page';
-import Home from './home_page';
+import Splash from './splash/splash_page';
+import Home from './splash/home_page';
 
 const App = () => (
   <div>
