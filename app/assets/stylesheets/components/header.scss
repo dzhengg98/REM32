@@ -24,11 +24,14 @@ header > div > .user-auth-buttons {
   display: flex;
   align-items: center;
   flex-direction: row;
-  gap: 10px;
 }
 
 header > div > .user-auth-buttons li {
-  margin-right: 35px;
+  margin-right: 20px;
+}
+
+header > div > .user-auth-buttons li:last-child {
+  margin-right: 55px;
 }
 
 header > div > .user-auth-buttons li a {
