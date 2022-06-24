@@ -1,7 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router';
-import Logo from './header/logo';
-import HeaderContainer from './header/header_container';
+import NavBarContainer from './header/nav_bar_container';
 import login_form_container from './session_form/login_form_container';
 import signup_form_container from './session_form/signup_form_container';
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
@@ -12,13 +11,7 @@ import image_form_container from './Images/image_form_container';
 
 const App = () => (
   <div>
-    <nav>
-      <header>
-        <Logo />
-        <HeaderContainer />
-      </header>
-    </nav>
-
+    <NavBarContainer />
     <Switch>
       <AuthRoute path="/" exact component={Splash} />
       <ProtectedRoute path="/home" component={Home} />

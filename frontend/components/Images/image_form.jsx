@@ -22,26 +22,28 @@ class ImageForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h2>{this.props.formType}</h2>
+      <div className="upload-image-form">
+        <form onSubmit={this.handleSubmit}>
+          <h2>{this.props.formType}</h2>
 
-        <label>Title:
-          <input 
-            type="text"
-            value={this.state.title}
-            onChange={this.update('title')}
-          />
-        </label>
+          <label>Title:
+            <input 
+              type="text"
+              value={this.state.title}
+              onChange={this.update('title')}
+            />
+          </label>
 
-        <label>Description:
-          <textarea
-            value={this.state.description}
-            onChange={this.update('description')}
-          />
-        </label>
+          <label>Description:
+            <textarea
+              value={this.state.description}
+              onChange={this.update('description')}
+            />
+          </label>
 
-        <input type="submit" value={this.props.formType} />
-      </form>
+          <input type="submit" value={this.props.formType} />
+        </form>
+      </div>
     )
   }
 }
