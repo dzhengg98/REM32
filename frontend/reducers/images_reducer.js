@@ -1,4 +1,4 @@
-import { RECEIVE_IMAGES, RECEIVE_IMAGE } from '../actions/image_actions';
+import { RECEIVE_IMAGES, RECEIVE_IMAGE, REMOVE_IMAGE } from '../actions/image_actions';
 
 const imagesReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -9,6 +9,9 @@ const imagesReducer = (state = {}, action) => {
       return Object.assign({}, newState, action.images);
     case RECEIVE_IMAGE:
       return Object.assign({}, newState, {[action.image.id]: action.image});
+    case REMOVE_IMAGE:
+      delete newState[action.imageId];
+      return newState;
     default:
       return state;
   }

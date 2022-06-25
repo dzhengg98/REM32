@@ -7,7 +7,8 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import Splash from './splash/splash_page';
 import Home from './splash/home_page';
 import ErrorPage from './404/404_page';
-import image_form_container from './Images/image_form_container';
+import image_create_form_container from './Images/image_create_form_container';
+import image_show_container from './Images/image_show_container';
 
 const App = () => (
   <div>
@@ -17,7 +18,8 @@ const App = () => (
       <ProtectedRoute path="/home" component={Home} />
       <AuthRoute path="/login" component={login_form_container} />
       <AuthRoute path="/signup" component={signup_form_container} />
-      <ProtectedRoute path="/images/new" component={image_form_container} />
+      <ProtectedRoute path="/images/new" exact component={image_create_form_container} />
+      <ProtectedRoute path="/images/:imageId" component={image_show_container} />
       <ErrorPage />
     </Switch>
   </div>

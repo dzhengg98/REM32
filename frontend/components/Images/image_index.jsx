@@ -12,12 +12,10 @@ class ImageIndex extends React.Component {
 
   render() {
     return (
-      <div>
-        <ul>
-          {
-            this.props.images.map((image) => <ImageIndexItem key={image.id} image={image} />)
-          }
-        </ul>
+      <div className="images-gallery-container">
+        {
+          this.props.images.map((image) => <ImageIndexItem key={image.id} image={image} />)
+        }
       </div>
     )
   }

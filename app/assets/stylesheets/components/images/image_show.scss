@@ -1,0 +1,80 @@
+@import "../../variables.scss";
+
+.top-margin {
+  margin-top: 80px;
+}
+.image-container {
+  background-color: #222;
+  height: 937px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.show-image {
+  width: auto;
+  height: auto !important;
+  max-height: 80%;
+  max-width: 80%;
+}
+
+.outer-info-comment-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.inner-info-comment-container {
+  display: flex;
+}
+
+.image-info-container, .image-comment-container {
+  background-color: #fff;
+}
+
+.image-info-container {
+  width: 933px;
+  min-width: auto;
+  height: auto;
+  margin-right: 10px;
+}
+
+.image-comment-container {
+  width: 400px;
+  height: auto;
+  margin-left: 10px;
+}
+
+.icons {
+  display: flex;
+  padding: 20px;
+}
+
+.svg-icon {
+  margin-right: 30px;
+}
+
+.image-show-title {
+  margin: 20px 50px;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: bold;
+  text-transform: none;
+  color: rgb(34, 34,34);
+}
+
+.image-show-description {
+  margin: 20px 50px;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-transform: none;
+  color: rgb(34, 34, 34);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.is-disabled {
+  cursor: not-allowed;
+}

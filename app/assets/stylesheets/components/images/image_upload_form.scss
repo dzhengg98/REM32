@@ -1,0 +1,263 @@
+@import "../../variables.scss";
+
+.block-space {
+  margin-top: 80px;
+}
+
+.upload-text {
+  height: 56px;
+  line-height: 56px;
+  width: 100%;
+  background-color: #fff;
+  color: #222;
+  font-size: 21px;
+  font-family: Helvetica;
+  font-weight: 700;
+  box-sizing: border-box;
+  padding: 0 0 0 64px;
+  display: flex;
+  align-items: center;
+}
+
+.upload-text > span {
+  position: relative;
+  left: -18px;
+}
+
+.inner-image-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.upload-image-display {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.home-upload-image-main {
+  margin: 35px;
+}
+
+.home-upload-image-icon {
+  margin-bottom: 30px;
+}
+
+.home-upload-main-text {
+  margin-bottom: 24px;
+  font-size: 21px;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  box-sizing: border-box;
+  display: block;
+}
+
+.image-photo-button {
+  cursor: pointer;
+  width: 153px;
+  height: 48px;
+  line-height: 48px;
+  background: #0870d1;
+  border-radius: 28px;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+  font-weight: 700;
+  padding: 14px 20px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.home-upload-text {
+  margin-top: 30px;
+  color: #000;
+  font-size: 16px;
+  text-align: center;
+}
+
+.home-upload-image-requirements {
+  box-sizing: border-box;
+  width: 390px;
+  height: 198px;
+  background: #eeeff2;
+  margin: 30px auto 0;
+  color: #222;
+  font-size: 16px;
+}
+
+.photo-requirements-container, .licensing-requirements-container {
+  margin-left: 15px;
+}
+
+.photo-requirements-title, .licensing-requirements-title {
+  padding-top: 20px;
+  text-align: left;
+  color: #222;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  display: block;
+}
+
+.photo-requirements-list, .licensing-requirements-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  display: block;
+  text-align: left;
+  color: #222;
+  font-size: 16px;
+}
+
+.photo-requirements-item {
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  list-style: none;
+  color: #222;
+  font-size: 16px;
+}
+
+.more-info-icon {
+  background-size: 20px 20x;
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
+  cursor: not-allowed;
+}
+
+.photo-requirements-icon {
+  background-size: inherit;
+  width: inherit;
+  height: inherit;
+}
+
+.inner-image-update-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 60px 0 60px;
+}
+
+.image-preview-img {
+  height: auto;
+  width: 285px;
+  border: 2px solid #0870d1;
+  padding: 1px;
+}
+
+.image-preview-img:hover {
+  opacity: 0.9;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.info-container {
+  border: 1px solid #eeeff2;
+  height: 100%;
+  background: #fff;
+  position: relative;
+  overflow-y: hidden;
+  box-sizing: border-box;
+  display: block;
+  width: 400px;
+  padding: 0px 30px;
+}
+
+.upload-title-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 52px;
+  line-height: 52px;
+  text-align: center;
+  font-size: 16px;
+  color: #222;
+  font-family: Helvetica;
+  font-weight: 700;
+}
+
+.image-title-container, .image-description-container {
+  max-width: 512px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.upload-image-title, .upload-image-description {
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  color: rgb(109, 115, 120);
+  margin-bottom: 4px;
+}
+
+.upload-image-description {
+  margin-top: 40px;
+}
+
+.image-title-field {
+  outline: none;
+  touch-action: manipulation;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(215, 216, 219);
+  border-radius: 4px;
+  height: 44px;
+  font-size: 16px;
+  padding: 0px 12px;
+  flex: 0 0 auto;
+  color: rgb(34, 34, 34);
+  width: initial;
+  overflow: visible;
+}
+
+.image-description-field {
+  outline: none;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(215, 216, 219);
+  border-radius: 4px;
+  flex: 0 0 auto;
+  padding: 16px 16px 0px 16px;
+  height: 84px;
+  color: rgb(34, 34, 34);
+  resize: none;
+  overflow: auto;
+}
+
+.create-image-button-container {
+  margin: 20px 0px;
+}
+
+.create-image-button {
+  min-width: 140px;
+  height: 48px;
+  line-height: 48px;
+  background: #0870d1;
+  border-radius: 28px;
+  border: none;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  margin-left: 24px;
+  cursor: pointer;
+  padding: 0px 24px;
+  box-sizing: border-box;
+  display: block;
+  font-family: Helvetica;
+  position: relative;
+  left: 190px;
+}
+
+.image-create-errors {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #DB3838;
+  line-height: 20px;
+}
