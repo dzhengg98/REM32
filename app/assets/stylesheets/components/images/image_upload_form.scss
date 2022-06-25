@@ -261,3 +261,11 @@ input[type="file"] {
   color: #DB3838;
   line-height: 20px;
 }
+
+@media (max-width: 850px) {
+  .inner-image-update-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+}

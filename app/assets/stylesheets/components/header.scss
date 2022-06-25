@@ -79,7 +79,7 @@ img {
   top: 10px;
 }
 
-.header-icon {
+.header-icon-user, .header-icon-null {
   margin-right: 15px;
 }
 
@@ -103,4 +103,16 @@ img {
 
 input::placeholder {
   color: #97a0a8;
+}
+
+@media (max-width: 900px) {
+  .header-search {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-icon-null {
+    display: none;
+  }
 }
