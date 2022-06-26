@@ -8,7 +8,7 @@ const mSTP = (state, ownProps) => {
     image: state.entities.images[ownProps.match.params.imageId],
     currentUserId: state.session.id
   }
-  // debugger
+  //debugger
 }
 
 const mDTP = (dispatch, ownProps) => ({

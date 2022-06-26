@@ -143,11 +143,11 @@ input[type="file"] {
   width: 285px;
   border: 2px solid #0870d1;
   padding: 1px;
+  filter: brightness(100%);
 }
 
 .image-preview-img:hover {
-  opacity: 0.9;
-  background-color: rgba(0, 0, 0, 0.1);
+  filter: brightness(90%);
 }
 
 .info-container {

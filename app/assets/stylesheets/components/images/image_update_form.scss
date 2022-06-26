@@ -28,6 +28,7 @@
   line-height: 36px;
   font-size: 16px;
   font-weight: 700px;
+  border-bottom: 2px solid #2986f7;
   cursor: pointer;
   svg {
     margin-right: 10px;
@@ -36,8 +37,9 @@
   }
 }
 
-.image-update-bar-all-photos:hover {
+.image-update-bar-all-photos:hover, .image-update-bar-licensing:hover {
   color: #0870d1 ;
+  border-bottom: 2px solid #2986f7;
 }
 
 .image-update-bar-licensing {
@@ -53,10 +55,6 @@
     position: relative;
     top: 5px;
   }
-}
-
-.image-update-bar-licensing:hover {
-  color: #0870d1;
 }
 
 .inner-image-update-container {
