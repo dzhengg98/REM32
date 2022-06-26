@@ -9,7 +9,6 @@ const Home = (props) => {
         <h1 className="home-title">Home Feed</h1>
         <p className="home-description">See photos and published Galleries from people you follow.</p>
       </div>
-
       <ImageIndexContainer />
     </div>
   );
