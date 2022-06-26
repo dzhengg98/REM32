@@ -17,6 +17,7 @@ export const fetchImage = (imageId) => {
 };
 
 export const createImage = (image) => {
+  //debugger
   return (
     $.ajax({
       method: 'POST',
@@ -26,6 +27,7 @@ export const createImage = (image) => {
       processData: false,
     })
   )
+  //debugger
 };
 
 export const editImage = (image) => {

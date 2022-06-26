@@ -37,9 +37,9 @@ class Api::ImagesController < ApplicationController
   def destroy
     @image = Image.find_by(id: params[:id])
     if @image && @image.destroy
-      render json: ["Deleted"], status: 200
+      render json: ["Images has been successfully deleted"], status: 200
     else
-      render json: ["Not Found"], status: 404
+      render json: ["Image was not found"], status: 404
     end
   end
 

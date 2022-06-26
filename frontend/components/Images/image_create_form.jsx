@@ -2,27 +2,33 @@ import React from 'react';
 
 class ImageCreateForm extends React.Component {
   constructor(props) {
+    //debugger
     super(props);
+    //debugger
     this.state = {
       title: "",
       description: "",
       imageFile: null,
       imageUrl: null,
     }
+    //debugger
     this.handleImageSubmit = this.handleImageSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
   }
 
   update = (field) => {
+    //debugger
     return e => {this.setState({[field]: e.target.value})}
   }
 
   handleFile(e) {
+    //debugger
     e.preventDefault();
     const fileReader = new FileReader();
     const file = e.currentTarget.files[0];
 
     fileReader.onloadend = () => {
+      //debugger
       this.setState({
         imageFile: file,
         imageUrl: fileReader.result,
@@ -30,26 +36,36 @@ class ImageCreateForm extends React.Component {
     }
 
     if (file) {
+      //debugger
       fileReader.readAsDataURL(file);
     } else {
+      //debugger
       this.setState({
         imageFile: null,
         imageUrl: null,
       })
+      //debugger
     }
   }
 
   handleImageSubmit(e) {
+    //debugger
     e.preventDefault();
     const formData = new FormData();
     if (this.state.imageFile) {
+      //debugger
       formData.append('image[title]', this.state.title);
       formData.append('image[description]', this.state.description);
       formData.append('image[image]', this.state.imageFile);
+      //debugger
     }
+    //debugger
     this.props.createImage(formData).then(() => {
+      //debugger
       this.props.history.goBack();
+      //debugger
     })
+    //debugger
   }
 
   preview() {
