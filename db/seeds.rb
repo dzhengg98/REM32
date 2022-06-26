@@ -313,7 +313,7 @@ imagepost25 = Image.create({
   description: "Sunset mountain view in New Zealand",
   uploader_id: user3.id
 })
-image25 = open("https://rem32-seeds.s3.amazonaws.com/mountain-sunset-comet.jpg")
+image25 = open("https://rem32-seeds.s3.amazonaws.com/mountain-sunset-new-zealand.jpg")
 imagepost25.image.attach(io: image25, filename: "mountainsunsetcomet.jpg")
 imagepost25.save!
 
@@ -417,12 +417,112 @@ image35 = open("https://rem32-seeds.s3.amazonaws.com/turtles-kefalonia-cephaloni
 imagepost35.image.attach(io: image35, filename: "turtleskefaloniacephaloniagreece.jpg")
 imagepost35.save!
 
-#35
-# imagepost35 = Image.create({
+#36
+imagepost36 = Image.create({
+  title: "Siberian Huskie",
+  description: "Cute Siberian Huskie Dog near a fence",
+  uploader_id: user5.id
+})
+image36 = open("https://rem32-seeds.s3.amazonaws.com/siberianhuskie.jpg")
+imagepost36.image.attach(io: image36, filename: "siberianhuskie.jpg")
+imagepost36.save!
+
+#37
+imagepost37 = Image.create({
+  title: "Sphinx",
+  description: "Sphinx has 9 lives",
+  uploader_id: user6.id
+})
+image37 = open("https://rem32-seeds.s3.amazonaws.com/sphinx.jpg")
+imagepost37.image.attach(io: image37, filename: "sphinx.jpg")
+imagepost37.save!
+
+#38
+imagepost38 = Image.create({
+  title: "Surfs up!",
+  description: "Surfing image in waves on black and white",
+  uploader_id: user7.id
+})
+image38 = open("https://rem32-seeds.s3.amazonaws.com/surfing.jpg")
+imagepost38.image.attach(io: image38, filename: "surfing.jpg")
+imagepost38.save!
+
+#39
+imagepost39 = Image.create({
+  title: "Pisa",
+  description: "In them mean streets of Pisa!",
+  uploader_id: user8.id
+})
+image39 = open("https://rem32-seeds.s3.amazonaws.com/pisa.jpg")
+imagepost39.image.attach(io: image39, filename: "pisa.jpg")
+imagepost39.save!
+
+#40
+imagepost40 = Image.create({
+  title: "Rome",
+  description: "When in Rome ... Do as the Romans do ...",
+  uploader_id: user9.id
+})
+image40 = open("https://rem32-seeds.s3.amazonaws.com/rome.jpg")
+imagepost40.image.attach(io: image40, filename: "rome.jpg")
+imagepost40.save!
+
+#41
+imagepost41 = Image.create({
+  title: "Deer",
+  description: "Deer, dare, dear, there, they're, their?",
+  uploader_id: user1.id
+})
+image41 = open("https://rem32-seeds.s3.amazonaws.com/deer.jpg")
+imagepost41.image.attach(io: image41, filename: "deer.jpg")
+imagepost41.save!
+
+#42
+imagepost42 = Image.create({
+  title: "Gecko",
+  description: "Gecko can camo?",
+  uploader_id: user2.id
+})
+image42 = open("https://rem32-seeds.s3.amazonaws.com/gecko.jpg")
+imagepost42.image.attach(io: image42, filename: "gecko.jpg")
+imagepost42.save!
+
+#43
+imagepost43 = Image.create({
+  title: "Boats",
+  description: "Lots of boats by the harbor today",
+  uploader_id: user3.id
+})
+image43 = open("https://rem32-seeds.s3.amazonaws.com/million_boats.jpg")
+imagepost43.image.attach(io: image43, filename: "million_boats.jpg")
+imagepost43.save!
+
+#44
+imagepost44 = Image.create({
+  title: "Bridge",
+  description: "Bridge towering over a measly lake",
+  uploader_id: user4.id
+})
+image44 = open("https://rem32-seeds.s3.amazonaws.com/bridge_lake.jpg")
+imagepost44.image.attach(io: image44, filename: "bridge_lake.jpg")
+imagepost44.save!
+
+#36
+imagepost45 = Image.create({
+  title: "Camera",
+  description: "Camera goes click",
+  uploader_id: user5.id
+})
+image45 = open("https://rem32-seeds.s3.amazonaws.com/camera.jpg")
+imagepost45.image.attach(io: image45, filename: "camera.jpg")
+imagepost45.save!
+
+#46
+# imagepost46 = Image.create({
 #   title: "",
 #   description: "",
-#   uploader_id: user4.id
+#   uploader_id: user6.id
 # })
-# image35 = open("")
-# imagepost35.image.attach(io: image35, filename: "")
-# imagepost35.save!
+# image46 = open("")
+# imagepost46.image.attach(io: image46, filename: "")
+# imagepost46.save!
