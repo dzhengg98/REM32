@@ -7,6 +7,8 @@ class User < ApplicationRecord
   attr_reader :password
   after_initialize :ensure_session_token
 
+  has_one_attached :profile_picture
+
   has_many :images,
   foreign_key: :uploader_id,
   class_name: :Image
