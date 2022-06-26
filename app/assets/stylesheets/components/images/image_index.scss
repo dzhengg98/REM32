@@ -21,8 +21,19 @@
   margin-bottom: 10px;
 }
 
-.image-display:hover {
+.image-link:hover {
   opacity: 0.8;
+  .image-display-title {
+    display: inline;
+    position: relative;
+    left: 15px;
+    top: -12px;
+    color: white;
+  }
+}
+
+.image-display-title {
+  display: none;
 }
 
 @media (max-width: 1300px) {
