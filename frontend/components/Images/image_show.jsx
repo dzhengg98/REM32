@@ -25,7 +25,7 @@ class ImageShow extends React.Component {
         </svg>
       </Link>
     ):(
-      <div className="is-disabled">
+      <div className="is_disabled">
         <svg 
           width="24" 
           height="24" 
@@ -54,7 +54,7 @@ class ImageShow extends React.Component {
             <div className="image-info-container">
               <div className="icons">
                 <div className="svg-icon">
-                  <div className="is-disabled">
+                  <div className="is">
                     <svg 
                       width="24" 
                       height="24" 
@@ -67,7 +67,7 @@ class ImageShow extends React.Component {
                   </div>
                 </div>
                 <div className="svg-icon">
-                  <div className="is-disabled">
+                  <div className="is">
                     <svg
                       width="24"
                       height="24"
@@ -83,7 +83,7 @@ class ImageShow extends React.Component {
                   </div>
                 </div>
                 <div className="svg-icon">
-                  <div className="is-disabled">
+                  <div className="is">
                     <svg 
                       width="24" 
                       height="24" 
