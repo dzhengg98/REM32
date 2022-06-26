@@ -22,7 +22,7 @@ class ImageCreateForm extends React.Component {
     }
   }
 
-  update = (field) => {
+  update(field) {
     //debugger
     return e => {this.setState({[field]: e.target.value})}
   }
@@ -87,10 +87,10 @@ class ImageCreateForm extends React.Component {
 
   uploadStage() {
     return this.state.imageUrl ? (
-      <div className="image-update-container">
+      <div className="image-create-container">
         <div className="block-space"></div>
         <div className="upload-text"><span>Upload</span></div>
-        <div className="inner-image-update-container">
+        <div className="inner-image-create-container">
           <div className="image-preview">
             {this.preview()}
           </div>

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import ErrorPage from '../404/404_page';
 
 class ImageShow extends React.Component {
   constructor(props) {
@@ -9,8 +11,36 @@ class ImageShow extends React.Component {
     this.props.fetchImage();
   }
 
+  editable() {
+    return this.props.image.uploaderId === this.props.currentUserId ? (
+      <Link to={`/images/${this.props.image.id}/edit`}>
+        <svg 
+          width="24" 
+          height="24" 
+          xmlns="http://www.w3.org/2000/svg" 
+          fillRule="evenodd" 
+          clipRule="evenodd"
+        >
+          <path d="M8.071 21.586l-7.071 1.414 1.414-7.071 14.929-14.929 5.657 5.657-14.929 14.929zm-.493-.921l-4.243-4.243-1.06 5.303 5.303-1.06zm9.765-18.251l-13.3 13.301 4.242 4.242 13.301-13.3-4.243-4.243z"/>
+        </svg>
+      </Link>
+    ):(
+      <div className="is-disabled">
+        <svg 
+          width="24" 
+          height="24" 
+          xmlns="http://www.w3.org/2000/svg" 
+          fillRule="evenodd" 
+          clipRule="evenodd"
+        >
+          <path d="M8.071 21.586l-7.071 1.414 1.414-7.071 14.929-14.929 5.657 5.657-14.929 14.929zm-.493-.921l-4.243-4.243-1.06 5.303 5.303-1.06zm9.765-18.251l-13.3 13.301 4.242 4.242 13.301-13.3-4.243-4.243z"/>
+        </svg>
+      </div>
+    )
+  }
+
   render() {
-    if (!this.props.image) return <div></div>
+    if (!this.props.image) return <ErrorPage />
 
     return (
       <div className="image-show-container">
@@ -43,7 +73,7 @@ class ImageShow extends React.Component {
                       height="24"
                       clipRule="evenodd" 
                       fillRule="evenodd" 
-                      strokeLineJoin="round" 
+                      strokeLinejoin="round" 
                       strokeMiterlimit="2" 
                       viewBox="0 0 24 24" 
                       xmlns="http://www.w3.org/2000/svg"
@@ -66,20 +96,7 @@ class ImageShow extends React.Component {
                   </div>
                 </div>
                 <div className="svg-icon">
-                  <div className="is-disabled">
-                    <svg 
-                      width="24"
-                      height="24"
-                      clipRule="evenodd" 
-                      fillRule="evenodd" 
-                      strokeLineJoin="round" 
-                      strokeMiterlimit="2" 
-                      viewBox="0 0 24 24" 
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="m16.5 11.995c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25z"/>
-                    </svg>
-                  </div>
+                  {this.editable()}
                 </div>
               </div>
               <h2 className="image-show-title">{this.props.image.title}</h2>

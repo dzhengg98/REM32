@@ -136,7 +136,7 @@ input[type="file"] {
   height: inherit;
 }
 
-.inner-image-update-container {
+.inner-image-create-container {
   display: flex;
   justify-content: space-between;
   margin: 50px 60px 0 60px;
@@ -263,7 +263,7 @@ input[type="file"] {
 }
 
 @media (max-width: 850px) {
-  .inner-image-update-container {
+  .inner-image-create-container {
     display: flex;
     flex-direction: column;
     gap: 50px;
