@@ -1,6 +1,5 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import ErrorPage from '../404/404_page';
 
 class ImageUpdateForm extends React.Component {
   constructor(props) {
@@ -13,6 +12,12 @@ class ImageUpdateForm extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.delete = this.delete.bind(this);
+  }
+
+  componentWillUnmount() {
+    if (this.props.errors.length) {
+      this.props.clearImageErrors();
+    }
   }
 
   componentDidMount() {
