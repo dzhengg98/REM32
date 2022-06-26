@@ -16,6 +16,12 @@ class ImageCreateForm extends React.Component {
     this.handleFile = this.handleFile.bind(this);
   }
 
+  componentWillUnmount() {
+    if (this.props.errors.length) {
+      this.props.clearImageErrors();
+    }
+  }
+
   update = (field) => {
     //debugger
     return e => {this.setState({[field]: e.target.value})}

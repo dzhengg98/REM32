@@ -4,35 +4,42 @@ export const RECEIVE_IMAGES = 'RECEIVE_IMAGES';
 export const RECEIVE_IMAGE = 'RECEIVE_IMAGE';
 export const REMOVE_IMAGE = 'REMOVE_IMAGE';
 export const RECEIVE_IMAGE_ERRORS = 'RECEIVE_IMAGE_ERRORS';
+export const CLEAR_IMAGE_ERRORS = 'CLEAR_IMAGE_ERRORS';
 
-const receiveImages = (images) => {
+export const receiveImages = (images) => {
   return {
     type: RECEIVE_IMAGES,
     images
   }
 };
 
-const receiveImage = (image) => {
+export const receiveImage = (image) => {
   return {
     type: RECEIVE_IMAGE,
     image
   }
 };
 
-const removeImage = (imageId) => {
+export const removeImage = (imageId) => {
   return {
     type: REMOVE_IMAGE,
     imageId
   }
 };
 
-const receiveImageErrors = (errors) => {
+export const receiveImageErrors = (errors) => {
   //debugger
   return {
     type: RECEIVE_IMAGE_ERRORS,
     errors
   }
 };
+
+export const clearImageErrors = () => {
+  return {
+    type: CLEAR_IMAGE_ERRORS
+  }
+}
 
 export const fetchImages = () => {
   //debugger
@@ -67,7 +74,9 @@ export const createImage = (image) => {
 };
 
 export const editImage = (image) => {
+  // debugger
   return (dispatch) => {
+    // debugger
     return ImageAPIUtil.editImage(image).then(image =>
       dispatch(receiveImage(image)), err =>
       dispatch(receiveImageErrors(err.responseJSON))
