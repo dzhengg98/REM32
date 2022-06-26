@@ -31,6 +31,7 @@ export const createImage = (image) => {
 };
 
 export const editImage = (image) => {
+  //debugger
   return (
     $.ajax({
       method: 'PATCH',
@@ -38,13 +39,16 @@ export const editImage = (image) => {
       data: { image },
     })
   )
+  //debugger
 };
 
 export const deleteImage = (imageId) => {
+  //debugger
   return (
     $.ajax({
       method: 'DELETE',
       url: `/api/images/${imageId}`,
     })
   )
+  //debugger
 };

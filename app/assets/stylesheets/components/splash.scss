@@ -144,6 +144,7 @@
 .splash-app {
   display: flex;
   justify-content: space-around;
+  margin-top: 120px;
 }
 
 .devices-image {
@@ -176,4 +177,49 @@
   margin-bottom: 20px;
   color: rgb(34, 34, 34);
   max-width: 470px;
+}
+
+@media (max-width: 1275px) {
+  .splash-app {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .splash-title {
+    width: 500px;
+  }
+  .splash-description {
+    width: 400px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .splash-about-contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 750px) {
+  .splash-sign-up-button {
+    display: none;
+  }
+  .splash-title {
+    width: 400px;
+  }
+}
+
+@media (max-width: 700px) {
+  .splash-description {
+    display: none;
+  }
+}
+
+@media (max-width: 550px) {
+  .splash-title {
+    width: 300px;
+  }
 }

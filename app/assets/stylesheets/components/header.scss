@@ -89,12 +89,19 @@ img {
   border: none;
   border-radius: 25px;
   width: 312px;
-  // widht: 203px;
   font-size: 16px;
   height: 40px;
   text-indent: 48px;
   padding: 0px;
   margin-right: 25px;
+}
+
+.header-search-icon {
+  position: relative;
+  top: 8px;
+  left: 30px;
+  z-index: 1;
+  cursor: not-allowed;
 }
 
 .header-search:focus {
@@ -107,6 +114,12 @@ input::placeholder {
 
 @media (max-width: 900px) {
   .header-search {
+    width: 200px;
+  }
+}
+
+@media (max-width: 700px) {
+  .header-search, .header-search-icon {
     display: none;
   }
 }
