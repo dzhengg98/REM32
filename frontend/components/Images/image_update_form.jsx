@@ -70,22 +70,23 @@ class ImageUpdateForm extends React.Component {
             >
               <path d="M16.896 10l-4.896-8-4.896 8-7.104-4 3 11v5h18v-5l3-11-7.104 4zm-11.896 10v-2h14v2h-14zm14.2-4h-14.4l-1.612-5.909 4.615 2.598 4.197-6.857 4.197 6.857 4.615-2.598-1.612 5.909z"/>
             </svg>
+            <span>Licensing</span>
           </div>
         </div>
         <div className="inner-image-update-container">
-          <div className="image-preview">
-            <div className="image-amount">1 photo</div>
-            <div className="image-status">Public</div>
-            <div className="image-status-description">Accessible everywhere, including on Profile</div>
+          <div className="image-update-preview">
+            <div className="image-update-amount">1 photo</div>
+            <div className="image-update-status">Public</div>
+            <div className="image-update-status-description">Accessible everywhere, including on Profile</div>
             <img 
-              className="image-preview-image" 
+              className="image-update-preview-image" 
               src={this.state.imageUrl} 
             />
           </div>
 
-          <div className="info-container">
-            <div className="update-title-container">
-              <h2 className="update-title">Edit 1 photo</h2>
+          <div className="image-update-info-container">
+            <div className="image-update-main-title-container">
+              <h2 className="image-update-main-title">Edit 1 photo</h2>
             </div>
             <div className="image-update-title-container">
               <label className="update-image-title" htmlFor="image-update-title">
@@ -96,6 +97,7 @@ class ImageUpdateForm extends React.Component {
                 className="image-update-title-field"
                 type="text"
                 value={this.state.title}
+                placeholder="Title"
                 onChange={this.update('title')}
                 required
               />
@@ -109,6 +111,7 @@ class ImageUpdateForm extends React.Component {
                 className="image-update-description-field"
                 type="text"
                 value={this.state.description}
+                placeholder="e.g. Low angle view of young African man surfing in the ocean with a clear blue sky"
                 onChange={this.update('description')}
                 required
               />
@@ -118,19 +121,19 @@ class ImageUpdateForm extends React.Component {
                 <p key={i} className="image-update-errors">{error}</p>
               ))}
             </div>
-            <div className="image-buttons-container">
+            <div className="update-image-buttons-container">
               <div className="delete-image-button-container">
                 <button
                   className="delete-image-button"
                   onClick={this.delete}
-                > Delete
+                >Delete photo
                 </button>
               </div>
               <div className="update-image-button-container">
                 <button
                   className="update-image-button"
                   onClick={this.handleSubmit}
-                >Update
+                >Save changes
                 </button>
               </div>
             </div>

@@ -23,6 +23,7 @@
 @import "./components/images/image_index.scss";
 @import "./components/images/image_show.scss";
 @import "./components/images/image_upload_form.scss";
+@import "./components/images/image_update_form.scss";
 
 html {
   box-sizing: border-box;
@@ -57,4 +58,8 @@ a:hover {
 
 .button:hover {
   background-color: $primaryBlueHover;
+}
+
+.block-space {
+  margin-top: 80px;
 }

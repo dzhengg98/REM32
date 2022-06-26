@@ -44,7 +44,7 @@ class ImageShow extends React.Component {
 
     return (
       <div className="image-show-container">
-        <div className="top-margin"></div>
+        <div className="block-space"></div>
         <div className="image-container">
           <img className="show-image" src={this.props.image.imageUrl}/>
         </div>

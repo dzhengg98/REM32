@@ -1,0 +1,246 @@
+@import "../../variables.scss";
+
+.photo-manager-text {
+  height: 59px;
+  line-height: 59px;
+  font-size: 24px;
+  color: #222222;
+  font-weight: 700;
+  background-color: #ffffff;
+  padding-left: 50px;
+  font-family: Helvetica;
+  box-sizing: border-box;
+}
+
+.image-update-bar {
+  display: flex;
+  padding-left: 50px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  padding-bottom: 5px;
+}
+
+.image-update-bar-all-photos {
+  margin-right: 25px;
+  color: #2986f7;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  font-size: 16px;
+  font-weight: 700px;
+  cursor: pointer;
+  svg {
+    margin-right: 10px;
+    position: relative;
+    top: 5px;
+  }
+}
+
+.image-update-bar-all-photos:hover {
+  color: #0870d1 ;
+}
+
+.image-update-bar-licensing {
+  color: #222222;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  font-size: 16px;
+  font-weight: 700px;
+  cursor: not-allowed;
+  svg {
+    margin-right: 10px;
+    position: relative;
+    top: 5px;
+  }
+}
+
+.image-update-bar-licensing:hover {
+  color: #0870d1;
+}
+
+.inner-image-update-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-update-preview {
+  margin-left: 50px;
+  margin-top: 80px;
+}
+
+.image-update-amount {
+  font-size: 21px;
+  line-height: 24px;
+  color: #222222;
+  font-weight: 700;
+  box-sizing: border-box;
+  display: block;
+  margin-bottom: 30px;
+}
+
+.image-update-status {
+  font-size: 16px;
+  line-height: 20px;
+  color: #000;
+  font-weight: 700;
+  box-sizing: border-box;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.image-update-status-description {
+  margin: 4px 0 16px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #222;
+  box-sizing: border-box;
+  display: block;
+}
+
+.image-update-preview-image {
+  border: 2px solid #0870d1;
+  padding: 2px;
+  height: 120px;
+  width: 160px;
+  position: relative;
+  left: -10px;
+  filter: brightness(100%);
+}
+
+.image-update-preview-image:hover {
+  filter: brightness(90%);
+}
+
+.image-update-info-container {
+  height: 100%;
+  width: 325px;
+  overflow-y: auto;
+  border: 1px solid #eeeff2;
+  background: #ffffff;
+  margin-top: 25px;
+  margin-right: 60px;
+  padding: 0px 30px;
+}
+
+.image-update-main-title-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 52px;
+  line-height: 52px;
+  text-align: center;
+  font-size: 16px;
+  color: #222;
+  font-family: Helvetica, serif;
+  font-weight: 700;
+}
+
+.image-update-title-container, .image-update-description-container {
+  max-width: 512px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.update-image-title, .update-image-description {
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  color: rgb(109, 115, 120);
+  margin-bottom: 4px;
+}
+
+.update-image-description {
+  margin-top: 40px;
+}
+
+.image-update-title-field {
+  outline: none;
+  touch-action: manipulation;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(215, 216, 219);
+  border-radius: 4px;
+  height: 44px;
+  font-size: 16px;
+  padding: 0px 12px;
+  flex: 0 0 auto;
+  color: rgb(34, 34, 34);
+  width: initial;
+  overflow: visible;
+}
+
+.image-update-description-field {
+  outline: none;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(215, 216, 219);
+  border-radius: 4px;
+  flex: 0 0 auto;
+  padding: 16px 16px 0px 16px;
+  height: 84px;
+  color: rgb(34, 34, 34);
+  resize: none;
+  overflow: auto;
+  font-family: Helvetica;
+  font-size: 14px;
+}
+
+.update-image-buttons-container {
+  margin: 25px 0px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.update-image-button {
+  min-width: 140px;
+  height: 48px;
+  line-height: 48px;
+  background: #0870d1;
+  border-radius: 28px;
+  border: none;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  margin-left: 24px;
+  cursor: pointer;
+  padding: 0px 24px;
+  box-sizing: border-box;
+  display: block;
+  font-family: Helvetica;
+}
+
+.delete-image-button {
+  min-width: 140px;
+  height: 48px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Helvetica;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: bold;
+  border-width: 2px;
+  border-radius: 28px;
+  border-style: solid;
+  cursor: pointer;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(219, 56, 56);
+  color: rgb(219, 56, 56);
+}
+
+.delete-image-button:hover {
+  background-color: #d7d8db;
+}
+
+.image-update-errors {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #DB3838;
+  line-height: 20px;
+}
