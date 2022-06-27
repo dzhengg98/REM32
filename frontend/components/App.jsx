@@ -10,6 +10,7 @@ import ErrorPage from './404/404_page';
 import image_create_form_container from './Images/image_create_form_container';
 import image_show_container from './Images/image_show_container';
 import image_update_form_container from './Images/image_update_form_container';
+import user_show_container from './users/user_show_container';
 
 const App = () => (
   <div>
@@ -22,6 +23,7 @@ const App = () => (
       <ProtectedRoute path="/images/new" exact component={image_create_form_container} />
       <ProtectedRoute path="/images/:imageId" exact component={image_show_container} />
       <ProtectedRoute path="/images/:imageId/edit" component={image_update_form_container} />
+      <ProtectedRoute path="/users/:userId" component={user_show_container} />
       <ErrorPage />
     </Switch>
   </div>

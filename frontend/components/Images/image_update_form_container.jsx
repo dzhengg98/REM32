@@ -14,14 +14,14 @@ const mSTP = (state, ownProps) => {
 }
 
 const mDTP = (dispatch) => {
-  debugger
+  //debugger
   return {
     editImage: (image) => dispatch(editImage(image)),
     deleteImage: (imageId) => dispatch(deleteImage(imageId)),
     fetchImage: (imageId) => dispatch(fetchImage(imageId)),
     clearImageErrors: () => dispatch(clearImageErrors()),
   }
-  debugger
+  //debugger
 }
 
 export default connect(mSTP, mDTP)(ImageUpdateForm);

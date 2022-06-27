@@ -4,9 +4,11 @@ import { logout } from '../../actions/session_actions';
 import Header from './header';
 
 const mSTP = (state) => {
+  // debugger
   return {
     currentUser: state.entities.users[state.session.id]
   };
+  // debugger
 };
 
 const mDTP = dispatch => {
