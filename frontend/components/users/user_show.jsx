@@ -14,6 +14,147 @@ class userShow extends React.Component {
     this.props.fetchUser(this.props.user.id);
   }
 
+  userProfileLocation() {
+    return (this.props.user.city && this.props.user.country) ? (
+      <div className="user-profile-location-container">
+        <div className="user-profile-location-icon">
+          <svg 
+            width="24" 
+            height="24" 
+            xmlns="http://www.w3.org/2000/svg" 
+            fillRule="evenodd" 
+            clipRule="evenodd"
+          >
+            <path d="M12 10c-1.104 0-2-.896-2-2s.896-2 2-2 2 .896 2 2-.896 2-2 2m0-5c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3m-7 2.602c0-3.517 3.271-6.602 7-6.602s7 3.085 7 6.602c0 3.455-2.563 7.543-7 14.527-4.489-7.073-7-11.072-7-14.527m7-7.602c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602"/>
+          </svg>
+        </div>
+        <div className="user-profile-location-city">{this.props.user.city}, </div>
+        <div className="user-profile-location-state">{this.props.user.country}</div>
+      </div>
+    ) : (
+      (this.props.user.city) ? (
+        <div className="user-profile-location-container">
+          <div className="user-profile-location-icon">
+            <svg 
+              width="24" 
+              height="24" 
+              xmlns="http://www.w3.org/2000/svg" 
+              fillRule="evenodd" 
+              clipRule="evenodd"
+            >
+              <path d="M12 10c-1.104 0-2-.896-2-2s.896-2 2-2 2 .896 2 2-.896 2-2 2m0-5c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3m-7 2.602c0-3.517 3.271-6.602 7-6.602s7 3.085 7 6.602c0 3.455-2.563 7.543-7 14.527-4.489-7.073-7-11.072-7-14.527m7-7.602c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602"/>
+            </svg>
+          </div>
+          <div className="user-profile-location-city">{this.props.user.city}</div>
+        </div>
+      ) : (
+        (this.props.user.country) ? (
+          <div className="user-profile-location-container">
+            <div className="user-profile-location-icon">
+              <svg 
+                width="24" 
+                height="24" 
+                xmlns="http://www.w3.org/2000/svg" 
+                fillRule="evenodd" 
+                clipRule="evenodd"
+              >
+                <path d="M12 10c-1.104 0-2-.896-2-2s.896-2 2-2 2 .896 2 2-.896 2-2 2m0-5c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3m-7 2.602c0-3.517 3.271-6.602 7-6.602s7 3.085 7 6.602c0 3.455-2.563 7.543-7 14.527-4.489-7.073-7-11.072-7-14.527m7-7.602c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602"/>
+              </svg>
+            </div>
+            <div className="user-profile-location-state">{this.props.user.country}</div>
+          </div>
+        ) : (
+          <div></div>
+        )
+      )
+    )
+  }
+
+  userProfileAbout() {
+    return this.props.user.about ? (
+      <div className="user-profile-about">{this.props.user.about}</div>
+    ) : (
+      <div></div>
+    )
+  }
+
+  userTwitterLink() {
+    return this.props.user.twitter ? (
+      <div className="user-profile-twitter-link">
+        <a href={`${this.props.user.twitter}`}>
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            width="24" 
+            height="24" 
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.5 8.778c-.441.196-.916.328-1.414.388.509-.305.898-.787 1.083-1.362-.476.282-1.003.487-1.564.597-.448-.479-1.089-.778-1.796-.778-1.59 0-2.758 1.483-2.399 3.023-2.045-.103-3.86-1.083-5.074-2.572-.645 1.106-.334 2.554.762 3.287-.403-.013-.782-.124-1.114-.308-.027 1.14.791 2.207 1.975 2.445-.346.094-.726.116-1.112.042.313.978 1.224 1.689 2.3 1.709-1.037.812-2.34 1.175-3.647 1.021 1.09.699 2.383 1.106 3.773 1.106 4.572 0 7.154-3.861 6.998-7.324.482-.346.899-.78 1.229-1.274z"/>
+          </svg>
+        </a>
+      </div>
+    ) : (
+      <div></div>
+    )
+  }
+
+  userInstagramLink() {
+    return this.props.user.instagram ? (
+      <div className="user-profile-instagram-link">
+        <a href={`${this.props.user.instagram}`}>
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            width="24" 
+            height="24" 
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.615 6h-9.23c-.766 0-1.385.62-1.385 1.384v9.23c0 .766.619 1.386 1.385 1.386h9.23c.766 0 1.385-.62 1.385-1.385v-9.23c0-.765-.619-1.385-1.385-1.385zm-4.615 3.693c1.274 0 2.309 1.032 2.309 2.307s-1.035 2.307-2.309 2.307-2.307-1.033-2.307-2.307 1.033-2.307 2.307-2.307zm4.5 6.346c0 .255-.207.461-.461.461h-8.078c-.254 0-.461-.207-.461-.461v-5.039h.949c-.045.158-.078.32-.102.486-.023.168-.038.339-.038.514 0 2.04 1.652 3.693 3.691 3.693s3.691-1.653 3.691-3.693c0-.174-.015-.346-.039-.514-.023-.166-.058-.328-.102-.486h.95v5.039zm0-6.991c0 .255-.207.462-.461.462h-1.088c-.256 0-.461-.208-.461-.462v-1.087c0-.255.205-.461.461-.461h1.088c.254 0 .461.207.461.461v1.087z"/>
+          </svg>
+        </a>
+      </div>
+    ) : (
+      <div></div>
+    )
+  }
+
+  userFacebookLink() {
+    return this.props.user.facebook ? (
+      <div className="user-profile-facebook-link">
+        <a href={`${this.props.user.facebook}`}>
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            width="24" 
+            height="24" 
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 10h-2v2h2v6h3v-6h1.82l.18-2h-2v-.833c0-.478.096-.667.558-.667h1.442v-2.5h-2.404c-1.798 0-2.596.792-2.596 2.308v1.692z"/>
+          </svg>
+        </a>
+      </div>
+    ) : (
+      <div></div>
+    )
+  }
+
+  userWebsiteLink() {
+    return this.props.user.website ? (
+      <div className="user-profile-website-link">
+        <a href={`${this.props.user.website}`}>
+          <svg 
+            width="24" 
+            height="24" 
+            xmlns="http://www.w3.org/2000/svg" 
+            fillRule="evenodd" 
+            clipRule="evenodd"
+          >
+            <path d="M12.02 0c6.614.011 11.98 5.383 11.98 12 0 6.623-5.376 12-12 12-6.623 0-12-5.377-12-12 0-6.617 5.367-11.989 11.981-12h.039zm3.694 16h-7.427c.639 4.266 2.242 7 3.713 7 1.472 0 3.075-2.734 3.714-7m6.535 0h-5.523c-.426 2.985-1.321 5.402-2.485 6.771 3.669-.76 6.671-3.35 8.008-6.771m-14.974 0h-5.524c1.338 3.421 4.34 6.011 8.009 6.771-1.164-1.369-2.059-3.786-2.485-6.771m-.123-7h-5.736c-.331 1.166-.741 3.389 0 6h5.736c-.188-1.814-.215-3.925 0-6m8.691 0h-7.685c-.195 1.8-.225 3.927 0 6h7.685c.196-1.811.224-3.93 0-6m6.742 0h-5.736c.062.592.308 3.019 0 6h5.736c.741-2.612.331-4.835 0-6m-12.825-7.771c-3.669.76-6.671 3.35-8.009 6.771h5.524c.426-2.985 1.321-5.403 2.485-6.771m5.954 6.771c-.639-4.266-2.242-7-3.714-7-1.471 0-3.074 2.734-3.713 7h7.427zm-1.473-6.771c1.164 1.368 2.059 3.786 2.485 6.771h5.523c-1.337-3.421-4.339-6.011-8.008-6.771"/>
+          </svg>
+        </a>
+      </div>
+    ) : (
+      <div></div>
+    )
+  }
+
     // this.props.currentUser.id === Number(this.props.match.params.userId) 
     // if these two matches, then we know the user is viewing his own profile page
     // if it does not match, then we know the user is viewing another user's profile pages
@@ -22,24 +163,75 @@ class userShow extends React.Component {
     return this.props.currentUser.id === Number(this.props.match.params.userId) ? (
       <div>
         <div>You are the current user</div>
-        <div className="arrow"></div>
+        <div className="arrow">
+          <svg
+            height="24"
+            width="24"
+            clipRule="evenodd" 
+            fillRule="evenodd" 
+            strokeLinejoin="round" 
+            strokeMiterlimit="2" 
+            viewBox="0 0 24 24" 
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="m9.474 5.209s-4.501 4.505-6.254 6.259c-.147.146-.22.338-.22.53s.073.384.22.53c1.752 1.754 6.252 6.257 6.252 6.257.145.145.336.217.527.217.191-.001.383-.074.53-.221.293-.293.294-.766.004-1.057l-4.976-4.976h14.692c.414 0 .75-.336.75-.75s-.336-.75-.75-.75h-14.692l4.978-4.979c.289-.289.287-.761-.006-1.054-.147-.147-.339-.221-.53-.221-.191-.001-.38.071-.525.215z" fillRule="nonzero"/>
+          </svg>
+        </div>
         <div className="user-profile-main-container">
-          <div className="user-profile-picture-image"></div>
-          <div className="user-profile-edit-icon">Pencil</div>
-          <div className="user-profile-share-icon">Share</div>
-          <div className="user-profile-portfolio-icon">Briefcase</div>
-          <div className="user-profile-more-icon-container">Dots
-            <div className="user-profile-manage-photos-icon">photos</div>
-            <div className="user-profile-settings-icon">cog</div>
+          <div className="user-profile-picture-image">
+            <img src={window.userIcon}/>
+          </div>
+          <div className="user-profile-edit-icon">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="24" 
+              height="24" 
+              viewBox="0 0 24 24"
+            >
+              <path d="M18.363 8.464l1.433 1.431-12.67 12.669-7.125 1.436 1.439-7.127 12.665-12.668 1.431 1.431-12.255 12.224-.726 3.584 3.584-.723 12.224-12.257zm-.056-8.464l-2.815 2.817 5.691 5.692 2.817-2.821-5.693-5.688zm-12.318 18.718l11.313-11.316-.705-.707-11.313 11.314.705.709z"/>
+            </svg>
+          </div>
+          <div className="user-profile-share-icon">
+            <svg 
+              width="24" 
+              height="24" 
+              xmlns="http://www.w3.org/2000/svg" 
+              fillRule="evenodd" 
+              clipRule="evenodd"
+            >
+              <path d="M16.272 5.451c-.176-.45-.272-.939-.272-1.451 0-2.208 1.792-4 4-4s4 1.792 4 4-1.792 4-4 4c-1.339 0-2.525-.659-3.251-1.67l-7.131 3.751c.246.591.382 1.239.382 1.919 0 .681-.136 1.33-.384 1.922l7.131 3.751c.726-1.013 1.913-1.673 3.253-1.673 2.208 0 4 1.792 4 4s-1.792 4-4 4-4-1.792-4-4c0-.51.096-.999.27-1.447l-7.129-3.751c-.9 1.326-2.419 2.198-4.141 2.198-2.76 0-5-2.24-5-5s2.24-5 5-5c1.723 0 3.243.873 4.143 2.201l7.129-3.75zm3.728 11.549c1.656 0 3 1.344 3 3s-1.344 3-3 3-3-1.344-3-3 1.344-3 3-3zm-15-9c2.208 0 4 1.792 4 4s-1.792 4-4 4-4-1.792-4-4 1.792-4 4-4zm15-7c1.656 0 3 1.344 3 3s-1.344 3-3 3-3-1.344-3-3 1.344-3 3-3z"/>
+            </svg>
+          </div>
+          <div className="user-profile-portfolio-icon">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="24" 
+              height="24" 
+              viewBox="0 0 24 24"
+            >
+              <path d="M0 7v15h24v-15h-24zm22 13h-20v-6h6v-2h-6v-3h20v3h-6v2h6v6zm-13-15.5c0-.276.224-.5.5-.5h5c.276 0 .5.224.5.5v1.5h2v-2c0-1.104-.896-2-2-2h-6c-1.104 0-2 .896-2 2v2h2v-1.5zm5 6.5h-4v4h4v-4z"/>
+            </svg>
+          </div>
+          <div className="user-profile-more-icon-container">
+            <svg
+              width="24"
+              height="24"
+              clipRule="evenodd" 
+              fillRule="evenodd" 
+              strokeLinejoin="round" 
+              strokeMiterlimit="2" 
+              viewBox="0 0 24 24" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="m16.5 11.995c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25z"/>
+            </svg>
+            {/* <div className="user-profile-manage-photos-icon">photos</div>
+            <div className="user-profile-settings-icon">cog</div> */}
           </div>
         </div>
         <div className="user-profile-username">{this.props.user.username}</div>
-        <div className="user-profile-location-container">
-          <div className="user-profile-location-icon">location icon</div>
-          <div className="user-profile-location-city">{this.props.user.city}, </div>
-          <div className="user-profile-location-state">{this.props.user.country}</div>
-        </div>
-        <div className="user-profile-about">{this.props.user.about}</div>
+        {this.userProfileLocation()}
+        {this.userProfileAbout()}
         {/* <div className="user-profile-likes-impressions-container">
           <div className="user-profile-likes">
             <span className="user-profile-likes-number"></span>
@@ -52,10 +244,10 @@ class userShow extends React.Component {
           <div className="user-profile-impressions-info"></div>
         </div> */}
         <div className="user-profile-links-container">
-          <div className="user-profile-twitter-link"><a href={`${this.props.user.twitter}`}></a></div>
-          <div className="user-profile-instagram-link"><a href={`${this.props.user.instagram}`}></a></div>
-          <div className="user-profile-facebook-link"><a href={`${this.props.user.facebook}`}></a></div>
-          <div className="user-profile-website-link"><a href={`${this.props.user.website}`}></a></div>
+          {this.userTwitterLink()}
+          {this.userInstagramLink()}
+          {this.userFacebookLink()}
+          {this.userWebsiteLink()}
         </div>
         <div className="user-profile-nav-bar-container">
           <div className="user-profile-nav-bar-link">Photos {this.props.user.images.length}</div>
@@ -70,18 +262,16 @@ class userShow extends React.Component {
       <div>
         <div>You are viewing another user</div>
         <div className="user-profile-main-container">
-          <div className="user-profile-picture-image"></div>
+          <div className="user-profile-picture-image">
+            <img src={window.userIcon}/>
+          </div>
         </div>
         <div className="user-profile-username">{this.props.user.username}</div>
-        <div className="user-profile-location-container">
-          <div className="user-profile-location-icon">location icon</div>
-          <div className="user-profile-location-city">{this.props.user.city}, </div>
-          <div className="user-profile-location-state">{this.props.user.country}</div>
-        </div>
+        {this.userProfileLocation()}
         <div className="user-profile-follow-button">
           <button>Follow</button>
         </div>
-        <div className="user-profile-about">{this.props.user.about}</div>
+        {this.userProfileAbout()}
         {/* <div className="user-profile-likes-impressions-container">
           <div className="user-profile-followers">
             <span className="user-profile-followers-number"></span>
@@ -102,10 +292,10 @@ class userShow extends React.Component {
           <div className="user-profile-impressions-info"></div>
         </div> */}
         <div className="user-profile-links-container">
-          <div className="user-profile-twitter-link"><a href={`${this.props.user.twitter}`}></a></div>
-          <div className="user-profile-instagram-link"><a href={`${this.props.user.instagram}`}></a></div>
-          <div className="user-profile-facebook-link"><a href={`${this.props.user.facebook}`}></a></div>
-          <div className="user-profile-website-link"><a href={`${this.props.user.website}`}></a></div>
+          {this.userTwitterLink()}
+          {this.userInstagramLink()}
+          {this.userFacebookLink()}
+          {this.userFacebookLink()}
         </div>
         <div className="user-profile-nav-bar-container">
           <div className="user-profile-nav-bar-link">Photos {this.props.user.images.length}</div>
@@ -125,7 +315,6 @@ class userShow extends React.Component {
     return (
       <div>
         <div className="block-space"></div>
-        <p>This is the user show page</p>
         {this.userProfileInfo()}
         <div>
           {
