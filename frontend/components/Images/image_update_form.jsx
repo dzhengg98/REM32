@@ -37,7 +37,7 @@ class ImageUpdateForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.editImage(this.state).then(() => {this.props.history.push(`/`);})
+    this.props.editImage(this.state).then(() => {this.props.history.push(`/images/${this.props.image.id}`);})
   }
 
   update(field) {

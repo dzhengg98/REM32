@@ -12,7 +12,7 @@ class userShow extends React.Component {
   }
 
   render() {
-    debugger
+    // debugger
     const images = this.props.images.filter((image) => image.uploaderId === Number(this.props.match.params.userId))
 
     return (
