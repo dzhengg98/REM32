@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import userShow from './user_show';
 import { fetchImages, fetchImage } from '../../actions/image_actions';
-import { fetchUser, fetchUsers, updateUser, updateUserProfilePic } from '../../actions/user_actions';
+import { fetchUser, fetchUsers } from '../../actions/user_actions'; //, updateUser, updateUserProfilePic
 
 const mSTP = (state, ownProps) => {
   // debugger
@@ -20,8 +20,8 @@ const mDTP = dispatch => {
     fetchImage: (imageId) => dispatch(fetchImage(imageId)),
     fetchUser: (userId) => dispatch(fetchUser(userId)),
     fetchUsers: () => dispatch(fetchUsers()),
-    updateUser: (user) => dispatch(updateUser(user)),
-    updateUserProfilePic: (image, userId) => dispatch(updateUserProfilePic(image, userId))
+    // updateUser: (user) => dispatch(updateUser(user)),
+    // updateUserProfilePic: (image, userId) => dispatch(updateUserProfilePic(image, userId))
   }
 };
 
