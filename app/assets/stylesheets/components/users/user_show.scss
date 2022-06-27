@@ -1,0 +1,235 @@
+@import "../../variables.scss";
+
+.user-profile-information,
+.other-user-profile-information {
+  background-color: #ffffff;
+}
+
+.user-profile-arrow {
+  margin-left: 50px; 
+}
+
+.user-profile-arrow:hover {
+  cursor: pointer;
+}
+
+.user-profile-main-container {
+  display: flex;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.user-profile-picture-image {
+  img {
+    height: 94px;
+    width: 94px;
+  }
+}
+
+.user-profile-main-icons {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  left: -300px;   // need to change left based on media query
+  .user-profile-edit-icon, 
+  .user-profile-share-icon, 
+  .user-profile-portfolio-icon, 
+  .user-profile-more-icon-container {
+    margin-right: 20px;
+  }
+  .user-profile-edit-icon:hover, 
+  .user-profile-share-icon:hover, 
+  .user-profile-portfolio-icon:hover, 
+  .user-profile-more-icon-container:hover {
+    cursor: pointer;
+  }
+}
+
+.user-profile-username {
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: bold;
+  text-transform: none;
+  color: rgb(34, 34, 34);
+  // margin-top: 30px;
+}
+
+.user-profile-location-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  .user-profile-location-icon {
+    // margin-right: 10px;
+    position: relative;
+    top: -2px;
+  }
+  .user-profile-location-city, 
+  .user-profile-location-state {
+    margin-left: 5px;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-transform: none;
+    color: rgb(34, 34, 34);
+    border-bottom: 1px dashed rgb(34, 34, 34);
+  }
+
+  .user-profile-location-city:hover,
+  .user-profile-location-state:hover {
+    cursor: pointer;
+  }
+}
+
+.user-profile-about {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-transform: none;
+  color: rgb(34, 34, 34);
+  text-align: center;
+}
+
+.user-profile-links-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  .user-profile-twitter-link {
+    margin-left: 10px;
+  }
+  .user-profile-twitter-link,
+  .user-profile-instagram-link,
+  .user-profile-facebook-link,
+  .user-profile-website-link {
+    margin-right: 15px;
+  }
+}
+
+.user-profile-nav-bar-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding-bottom: 5px;
+  .user-profile-nav-bar-link,
+  .user-profile-nav-bar-link-main {
+    margin-right: 16px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-transform: none;
+    padding-bottom: 10px;
+  }
+  .user-profile-nav-bar-link {
+    color: rgb(109, 115, 120);
+  }
+  .user-profile-nav-bar-link-main {
+    color: rgb(8, 112, 209);
+    border-bottom: 1px solid rgb(8, 112, 209);
+  }
+  .user-profile-nav-bar-link:hover,
+  .user-profile-nav-bar-link-main:hover {
+    color: rgb(8, 112, 209);
+    border-bottom: 1px solid rgb(8, 112, 209);
+    cursor: pointer;
+  }
+}
+
+.user-show-image-title {
+  display: none;
+}
+
+.user-image-gallery-container {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(min-content, 490px));
+  justify-content: center;
+  column-gap: 10px;
+  
+  .user-show-image-container {
+    width: 100%;
+    height: 100%;
+  }
+  .user-show-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.other-user-profile-space {
+  padding-top: 50px;
+}
+
+.other-user-profile-main-container {
+  display: flex;
+  justify-content: center;
+}
+
+.other-user-profile-picture-image {
+  img {
+    height: 94px;
+    width: 94px;
+  }
+}
+
+.other-user-profile-picture-icon {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  left: -100px;
+  .other-user-profile-picture-icon-airplane,
+  .other-user-profile-picture-icon-share,
+  .other-user-profile-picture-icon-report {
+    margin-right: 20px;
+  }
+  .other-user-profile-picture-icon-airplane:hover,
+  .other-user-profile-picture-icon-share:hover,
+  .other-user-profile-picture-icon-report:hover {
+    cursor: pointer;
+  }
+}
+
+.other-user-profile-username {
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: bold;
+  text-transform: none;
+  color: rgb(34, 34, 34);
+}
+
+@media (max-width: 1400px) {
+  .user-profile-main-icons {
+    display: flex;
+    justify-content: center;
+    left: 20px;
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 1230px) {
+  .user-image-gallery-container {
+    grid-template-columns: repeat(3, minmax(min-content, 300px));
+  }
+}
+
+@media (max-width: 1000px) {
+  .user-image-gallery-container {
+    grid-template-columns: repeat(2, minmax(min-content, 300px));
+  }
+}
+
+@media (max-width: 600px) {
+  .user-image-gallery-container {
+    grid-template-columns: repeat(1, minmax(min-content, 300px));
+  }
+  .user-profile-nav-bar-link {
+    display: none;
+  }
+}
