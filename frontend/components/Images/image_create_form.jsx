@@ -59,18 +59,13 @@ class ImageCreateForm extends React.Component {
     e.preventDefault();
     const formData = new FormData();
     if (this.state.imageFile) {
-      //debugger
       formData.append('image[title]', this.state.title);
       formData.append('image[description]', this.state.description);
       formData.append('image[image]', this.state.imageFile);
       //debugger
     }
-    //debugger
-    this.props.createImage(formData).then(() => {
-      //debugger
-      this.props.history.goBack();
-      //debugger
-    })
+    debugger
+    this.props.createImage(formData).then(() => {this.props.history.push(`/`);})
     //debugger
   }
 
