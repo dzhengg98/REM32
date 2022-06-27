@@ -17,12 +17,30 @@ ApplicationRecord.connection.reset_pk_sequence!('images')
 # USERS
 demo_user = User.create!({ 
   username: "demoUser", 
-  password: "demouser" 
+  password: "demouser",
+  first_name: "Demo",
+  last_name: "User",
+  city: "New York City",
+  about: "This is the demoUser don't mess with him",
+  website: "www.demouser.com",
+  instagram: "www.instagram.com/demouser",
+  facebook: "www.facebook.com/demouser",
+  twitter: "www.twitter.com/demouser",
+  country: "United States",
 })
 
 user1 = User.create!({ 
   username: "david", 
-  password: "123456" 
+  password: "123456",
+  first_name: "David",
+  last_name: "Zheng",
+  city: "New York City",
+  about: "Hello, I am David",
+  website: "www.google.com",
+  instagram: "www.instagram.com/david",
+  facebook: "www.facebook.com/david",
+  twitter: "www.twitter.com/david",
+  country: "United States",
 })
 
 user2 = User.create!({
