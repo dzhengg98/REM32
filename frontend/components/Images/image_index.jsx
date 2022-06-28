@@ -8,6 +8,7 @@ class ImageIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchImages();
+    this.props.fetchUsers();
   };
 
   render() {

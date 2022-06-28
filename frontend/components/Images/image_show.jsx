@@ -6,16 +6,22 @@ import { formatDateTime, formatDate, formatTime } from '../../util/date_util';
 class ImageShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      uploaderUsername: ""
-    }
   }
 
   componentDidMount() {
     // debugger
     // this.props.fetchImage();
     this.props.fetchUsers().then(() => this.props.fetchImage())
+    // this.getAuthor();
   }
+
+  // getAuthor() {
+  //   const users = this.props.users
+  //   const author = users[this.props.image.uploaderId]['username']
+  //   return (
+  //     author
+  //   )
+  // }
 
   editable() {
     return this.props.image.uploaderId === this.props.currentUserId ? (
@@ -40,8 +46,8 @@ class ImageShow extends React.Component {
     // const uploaderId = this.props.image.uploaderId
 
     if (!this.props.image) return <ErrorPage />
-    console.log(this.props.image.createdAt)
-    console.log(formatDate(this.props.image.createdAt))
+    // console.log(this.props.image.createdAt)
+    // console.log(formatDate(this.props.image.createdAt))
     // console.log(this.props.image.uploaderId);
     // console.log(this.props.users)
     // console.log(this.props.users[this.props.image.uploaderId])

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ImageIndexItem = (props) => {
+  // debugger
   return (
     <div className="image-display-main">
       <Link to={`/images/${props.image.id}`} className="image-link">
