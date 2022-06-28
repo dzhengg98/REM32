@@ -23,65 +23,112 @@ demo_user = User.create!({
   city: "New York City",
   about: "This is the demoUser don't mess with him",
   website: "www.demouser.com",
-  instagram: "www.instagram.com/demouser",
-  facebook: "www.facebook.com/demouser",
-  twitter: "www.twitter.com/demouser",
+  instagram: "www.instagram.com/",
+  facebook: "www.facebook.com/",
+  twitter: "www.twitter.com/",
   country: "United States",
 })
 
 user1 = User.create!({ 
-  username: "david", 
+  username: "dzhengg98", 
   password: "123456",
   first_name: "David",
   last_name: "Zheng",
   city: "New York City",
   about: "Hello, I am David",
-  website: "www.google.com",
-  instagram: "www.instagram.com/david",
-  facebook: "www.facebook.com/david",
-  twitter: "www.twitter.com/david",
+  twitter: "www.twitter.com/dzhengg1",
   country: "United States",
 })
 
 user2 = User.create!({
-  username: "alvin",
-  password: "123456"
+  username: "alvintheprogrammer",
+  password: "123456",
+  first_name: "Alvin",
+  last_name: "Zablan",
+  city: "New York City",
+  about: "Software Engineer",
+  website: "www.structy.com",
+  country: "United States"
 })
 
 user3 = User.create!({
-  username: "bob",
-  password: "123456"
+  username: "king da ka",
+  password: "123456",
+  first_name: "KinKa",
+  last_name: "Tse",
+  city: "New York City",
+  about: "I like anime",
+  country: "United States"
 })
 
 user4 = User.create!({
-  username: "candy",
-  password: "123456"
+  username: "Spence",
+  password: "123456",
+  first_name: "Spencer",
+  last_name: "Iascone",
+  city: "Boulder",
+  about: "I am a programmer consumed by nature and music.",
+  country: "United States",
+  website: "http://spenceriascone.com/"
 })
 
 user5 = User.create!({
-  username: "elaine",
-  password: "123456"
+  username: "Ayce in Space",
+  password: "123456",
+  first_name: "Ayce",
+  last_name: "LaCap",
+  city: "San Francisco",
+  about: "I appreciate how drastically technology has improved the quality of life.",
+  country: "United States",
 })
 
 user6 = User.create!({
-  username: "francis",
-  password: "123456"
+  username: "JWong",
+  password: "123456",
+  first_name: "Jonathan",
+  last_name: "Wong",
+  city: "Union",
+  about: "Hi! My name is Jonathan Wong, and I am a Full-Stack developer.",
+  country: "United States"
 })
 
 user7 = User.create!({
-  username: "george",
-  password: "123456"
+  username: "Victor He",
+  password: "123456",
+  first_name: "Victor",
+  last_name: "He",
+  city: "New York City",
+  about: "I'm incredibly passionate about powerlifting.",
+  country: "United States",
+  website: "https://victorhedev.github.io/portfolio/"
 })
 
 user8 = User.create!({
-  username: "harris",
-  password: "123456"
+  username: "cumbersomecete",
+  password: "123456",
+  first_name: "Ken",
+  city: "Oakland",
+  country: "United States",
+  facebook: "www.facebook.com/ken"
 })
 
 user9 = User.create!({
-  username: "issac",
-  password: "123456"
+  username: "boxerssubmit",
+  password: "123456",
+  first_name: "James",
+  about: "I do not know what to say",
+  country: "Italy",
 })
+
+user10 = User.create!({
+  username: "terrorriband",
+  password: "123456",
+  first_name: "Chynna",
+  last_name: "Varhe",
+  country: "Germany",
+  about: "I like taking pictures"
+})
+
 
 # IMAGES
 
@@ -525,7 +572,7 @@ image44 = open("https://rem32-seeds.s3.amazonaws.com/bridge_lake.jpg")
 imagepost44.image.attach(io: image44, filename: "bridge_lake.jpg")
 imagepost44.save!
 
-#36
+#45
 imagepost45 = Image.create({
   title: "Camera",
   description: "Camera goes click",
@@ -536,11 +583,221 @@ imagepost45.image.attach(io: image45, filename: "camera.jpg")
 imagepost45.save!
 
 #46
-# imagepost46 = Image.create({
+imagepost46 = Image.create({
+  title: "Liquor",
+  description: "Bar filled with liquor",
+  uploader_id: user6.id
+})
+image46 = open("https://rem32-seeds.s3.amazonaws.com/bar-filled-with-liquor.jpg")
+imagepost46.image.attach(io: image46, filename: "bar-filled-with-liquor.jpg")
+imagepost46.save!
+
+#47
+imagepost47 = Image.create({
+  title: "Camera Lens",
+  description: "Camera lens photo taking",
+  uploader_id: user7.id
+})
+image47 = open("https://rem32-seeds.s3.amazonaws.com/camera-lens-photo-taking.jpg")
+imagepost47.image.attach(io: image47, filename: "camera-les-photo-taking.jpg")
+imagepost47.save!
+
+#48
+imagepost48 = Image.create({
+  title: "Cameraseption",
+  description: "Cameraseption at it's finest",
+  uploader_id: user8.id
+})
+image48 = open("https://rem32-seeds.s3.amazonaws.com/cameraseption-by-lake.jpg")
+imagepost48.image.attach(io: image48, filename: "cameraseption-by-lake.jpg")
+imagepost48.save!
+
+#49
+imagepost49 = Image.create({
+  title: "Chapel",
+  description: "A great city view",
+  uploader_id: user9.id
+})
+image49 = open("https://rem32-seeds.s3.amazonaws.com/chapel-trees-nature.jpg")
+imagepost49.image.attach(io: image49, filename: "chapel-trees-nature.jpg")
+imagepost49.save!
+
+#50
+imagepost50 = Image.create({
+  title: "Patterns",
+  description: "Cool blue textures and patterns",
+  uploader_id: user10.id
+})
+image50 = open("https://rem32-seeds.s3.amazonaws.com/cool-blue-texture-patterns.jpg")
+imagepost50.image.attach(io: image50, filename: "cool-blue-texture-patterns.jpg")
+imagepost50.save!
+
+#51
+imagepost51 = Image.create({
+  title: "Cubes",
+  description: "Cool design cubes",
+  uploader_id: user1.id
+})
+image51 = open("https://rem32-seeds.s3.amazonaws.com/cool-design-cubes.jpg")
+imagepost51.image.attach(io: image51, filename: "cool-design-cubes.jpg")
+imagepost51.save!
+
+#52
+imagepost52 = Image.create({
+  title: "Cubeseption",
+  description: "cubes over bigger cubes",
+  uploader_id: user2.id
+})
+image52 = open("https://rem32-seeds.s3.amazonaws.com/cubes-bigger-cube.jpg")
+imagepost52.image.attach(io: image52, filename: "cubes-bigger-cube.jpg")
+imagepost52.save!
+
+#53
+imagepost53 = Image.create({
+  title: "Chibi",
+  description: "Cute chibi drawing",
+  uploader_id: user3.id
+})
+image53 = open("https://rem32-seeds.s3.amazonaws.com/cute-chibi-drawing.jpg")
+imagepost53.image.attach(io: image53, filename: "cute-chibi-drawing.jpg")
+imagepost53.save!
+
+#54
+imagepost54 = Image.create({
+  title: "Shapes",
+  description: "different shapes and sizes",
+  uploader_id: user4.id
+})
+image54 = open("https://rem32-seeds.s3.amazonaws.com/different-shapes-sizes.jpg")
+imagepost54.image.attach(io: image54, filename: "different-shapes-sizes.jpg")
+imagepost54.save!
+
+#55
+imagepost55 = Image.create({
+  title: "Not!",
+  description: "Getting work done",
+  uploader_id: user5.id
+})
+image55 = open("https://rem32-seeds.s3.amazonaws.com/getting-work-done.jpg")
+imagepost55.image.attach(io: image55, filename: "getting-work-done.jpg")
+imagepost55.save!
+
+#56
+imagepost56 = Image.create({
+  title: "King Street",
+  description: "King Street, East Toronto, Canada",
+  uploader_id: user6.id
+})
+image56 = open("https://rem32-seeds.s3.amazonaws.com/king-street-east-toronto-canada.jpg")
+imagepost56.image.attach(io: image56, filename: "king-street-east-toronto-canada.jpg")
+imagepost56.save!
+
+#57
+imagepost57 = Image.create({
+  title: "Lionesses",
+  description: "Flockings of lionesses",
+  uploader_id: user7.id
+})
+image57 = open("https://rem32-seeds.s3.amazonaws.com/lionesses-flocking-together.jpg")
+imagepost57.image.attach(io: image57, filename: "lionesses-flocking-together.jpg")
+imagepost57.save!
+
+#58
+imagepost58 = Image.create({
+  title: "Mic Check",
+  description: "Can you hear me?",
+  uploader_id: user8.id
+})
+image58 = open("https://rem32-seeds.s3.amazonaws.com/mic-check.jpg")
+imagepost58.image.attach(io: image58, filename: "mic-check.jpg")
+imagepost58.save!
+
+#59
+imagepost59 = Image.create({
+  title: "Nishiasakusa",
+  description: "Nishiasakusa, Taitocity, Tokyo, Japan",
+  uploader_id: user9.id
+})
+image59 = open("https://rem32-seeds.s3.amazonaws.com/nishiasakusa-taitocity-tokyo-japan.jpg")
+imagepost59.image.attach(io: image59, filename: "nishiasakusa-taitocity-tokyo-japan.jpg")
+imagepost59.save!
+
+#60
+imagepost60 = Image.create({
+  title: "Picnic Bag",
+  description: "Out for a picnic today",
+  uploader_id: user10.id
+})
+image60 = open("https://rem32-seeds.s3.amazonaws.com/picnic-bag-bicycle.jpg")
+imagepost60.image.attach(io: image60, filename: "picnic-bag-bicycle.jpg")
+imagepost60.save!
+
+#61
+imagepost61 = Image.create({
+  title: "Love not hate",
+  description: "Love not hate!",
+  uploader_id: user1.id
+})
+image61 = open("https://rem32-seeds.s3.amazonaws.com/pride-stop-hate.jpg")
+imagepost61.image.attach(io: image61, filename: "pride-stop-hate.jpg")
+imagepost61.save!
+
+#62
+imagepost62 = Image.create({
+  title: "Shovels, and toys",
+  description: "Game fair is today, let us win something!",
+  uploader_id: user2.id
+})
+image62 = open("https://rem32-seeds.s3.amazonaws.com/shovels-toys-nets-game-fair.jpg")
+imagepost62.image.attach(io: image62, filename: "shovels-toys-nets-game-fair.jpg")
+imagepost62.save!
+
+#63
+imagepost63 = Image.create({
+  title: "Osaka",
+  description: "Streets of Osaka, Japan",
+  uploader_id: user3.id
+})
+image63 = open("https://rem32-seeds.s3.amazonaws.com/streets-of-Osaka-Japan.jpg")
+imagepost63.image.attach(io: image63, filename: "streets-of-Osaka-Japan.jpg")
+imagepost63.save!
+
+#64
+imagepost64 = Image.create({
+  title: "France",
+  description: "Streets of Nice, France",
+  uploader_id: user4.id
+})
+image64 = open("https://rem32-seeds.s3.amazonaws.com/streets-of-nice-france.jpg")
+imagepost64.image.attach(io: image64, filename: "streets-of-nice-france.jpg")
+imagepost64.save!
+
+#65
+imagepost65 = Image.create({
+  title: "Summer House Slumbers",
+  description: "Summer time is about having fun",
+  uploader_id: user5.id
+})
+image65 = open("https://rem32-seeds.s3.amazonaws.com/summer-house-mount-shasta-ca.jpg")
+imagepost65.image.attach(io: image65, filename: "summer-house-mount-shasta-ca.jpg")
+imagepost65.save!
+
+#66
+imagepost66 = Image.create({
+  title: "Vintage",
+  description: "Can not believe I still have these things!",
+  uploader_id: user6.id
+})
+image66 = open("https://rem32-seeds.s3.amazonaws.com/typewriter-telephone-desk.jpg")
+imagepost66.image.attach(io: image66, filename: "typewriter-telephone-desk.jpg")
+imagepost66.save!
+
+# #67
+# imagepost67 = Image.create({
 #   title: "",
 #   description: "",
-#   uploader_id: user6.id
+#   uploader_id: user7.id
 # })
-# image46 = open("")
-# imagepost46.image.attach(io: image46, filename: "")
-# imagepost46.save!
+# image67 = open("")
+# imagepost67.image.attach(io: image67, filename: "")
+# imagepost67.save!
