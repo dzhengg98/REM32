@@ -14,7 +14,7 @@ class ImageIndex extends React.Component {
     return (
       <div className="images-gallery-container">
         {
-          this.props.images.map((image) => <ImageIndexItem key={image.id} image={image} />)
+          this.props.images.reverse().map((image) => <ImageIndexItem key={image.id} image={image} />)
         }
       </div>
     )

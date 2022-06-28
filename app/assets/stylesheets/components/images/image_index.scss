@@ -21,8 +21,12 @@
   margin-bottom: 10px;
 }
 
+.image-link {
+  filter: brightness(100%);
+}
+
 .image-link:hover {
-  opacity: 0.8;
+  filter: brightness(80%);
   .image-display-title {
     display: inline;
     position: relative;
