@@ -28,8 +28,7 @@ export const receiveUserErrors = (errors) => {
 export const fetchUsers = () => {
   return (dispatch) => {
     return UserAPIUtil.fetchUsers().then(users =>
-      dispatch(receiveUsers(users)), err =>
-      dispatch(receiveUserErrors(err.responseJSON))
+      dispatch(receiveUsers(users))
     )
   }
 };
@@ -37,8 +36,7 @@ export const fetchUsers = () => {
 export const fetchUser = (userId) => {
   return (dispatch) => {
     return UserAPIUtil.fetchUser(userId).then(user => 
-      dispatch(receiveUser(user)), err =>
-      dispatch(receiveUserErrors(err.responseJSON))
+      dispatch(receiveUser(user))
     )
   }
 };

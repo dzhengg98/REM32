@@ -11,7 +11,8 @@ class userShow extends React.Component {
     // debugger
     this.props.fetchImages();
     this.props.fetchUsers();
-    this.props.fetchUser(this.props.user.id);
+    // this.props.fetchUser();
+    // debugger
   }
 
   userProfileLocation() {

@@ -146,9 +146,10 @@
 .user-image-gallery-container {
   margin-top: 10px;
   display: grid;
-  grid-template-columns: repeat(4, minmax(min-content, 490px));
+  grid-template-columns: repeat(4, minmax(min-content, 480px));
   justify-content: center;
   column-gap: 10px;
+  row-gap: 10px;
   
   .user-show-image-container {
     width: 100%;
@@ -202,6 +203,13 @@
   font-weight: bold;
   text-transform: none;
   color: rgb(34, 34, 34);
+}
+
+@media (max-width: 2000px) {
+  .user-image-gallery-container {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
 }
 
 @media (max-width: 1400px) {
