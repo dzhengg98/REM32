@@ -252,7 +252,7 @@ class userShow extends React.Component {
         {this.userProfileInfo()}
         <div className="user-image-gallery-container">
           {
-            images.map((image) => <UserShowImageItem key={image.id} image={image} />)
+            images.reverse().map((image) => <UserShowImageItem key={image.id} image={image} />)
           }
         </div>
       </div>
