@@ -37,7 +37,13 @@
   .user-profile-more-icon-container {
     margin-right: 20px;
   }
-  .user-profile-edit-icon:hover, 
+  .user-profile-edit-icon:hover {
+    cursor: pointer;
+    outline: none;
+    opacity: 1;
+    background-color: rgba(34, 34, 34, 0.1);
+    text-decoration: none;
+  }
   .user-profile-share-icon:hover, 
   .user-profile-portfolio-icon:hover, 
   .user-profile-more-icon-container:hover {

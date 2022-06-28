@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class UserUpdateForm extends React.Component {
   constructor(props) {
@@ -192,7 +193,9 @@ class UserUpdateForm extends React.Component {
           />
         </div>
         <div className="user-update-buttons-container">
-          <button className="user-update-cancel-button">Cancel</button>
+          <div className="user-update-cancel-button">
+            <Link to={`/users/${this.props.currentUserId}`}>Cancel</Link>
+          </div>
           <button className="user-update-save-changes-button" onClick={this.handleSubmit}>Save changes</button>
         </div>
       </div>
