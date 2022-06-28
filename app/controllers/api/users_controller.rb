@@ -11,7 +11,6 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.profile_pic.attach(io: File.open("app/assets/images/userpic.png"), filename: "default-rem32-profile_pic.png")
     if @user.save
       login(@user)
       render :show

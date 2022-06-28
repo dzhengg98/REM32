@@ -4,14 +4,14 @@ import { fetchImages, fetchImage } from '../../actions/image_actions';
 import { fetchUsers } from '../../actions/user_actions'; //, updateUser, updateUserProfilePic
 
 const mSTP = (state, ownProps) => {
-  debugger
+  // debugger
   return {
     user: state.entities.users[ownProps.match.params.userId],
     currentUser: state.entities.users[state.session.id],
     images: Object.values(state.entities.images),
     users: state.entities.users
   }
-  debugger
+  // debugger
 };
 
 const mDTP = dispatch => {
