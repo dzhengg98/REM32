@@ -41,7 +41,7 @@
   .user-profile-share-icon:hover, 
   .user-profile-portfolio-icon:hover, 
   .user-profile-more-icon-container:hover {
-    cursor: pointer;
+    cursor: not-allowed;
   }
 }
 
@@ -78,7 +78,7 @@
 
   .user-profile-location-city:hover,
   .user-profile-location-state:hover {
-    cursor: pointer;
+    cursor: not-allowed;
   }
 }
 
@@ -137,6 +137,9 @@
     border-bottom: 1px solid rgb(8, 112, 209);
     cursor: pointer;
   }
+  .user-profile-nav-bar-link:hover {
+    cursor: not-allowed;
+  }  
 }
 
 .user-show-image-title {
@@ -168,6 +171,35 @@
   }
 }
 
+.user-profile-likes-impressions-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  .user-profile-likes,
+  .user-profile-impressions {
+    margin-right: 15px;
+    font-size: 14px;
+    line-height: 0px;
+    text-transform: none;
+    color: rgb(34, 34, 34);
+    font-family: "Helvetica Neue", HelveticaNeue, Helvetica, FreeSans, Arial sans-serif;
+    word-break: break-word;
+  }
+  .user-profile-impressions-info {
+    position: relative;
+    top: -8px;
+    left: -8px;
+  }
+  .user-profile-impressions-info:hover {
+    cursor: not-allowed;
+  }
+}
+
+.user-profile-likes-number,
+.user-profile-impressions-number {
+  margin-right: 5px;
+}
+
 .other-user-profile-space {
   padding-top: 50px;
 }
@@ -197,7 +229,7 @@
   .other-user-profile-picture-icon-airplane:hover,
   .other-user-profile-picture-icon-share:hover,
   .other-user-profile-picture-icon-report:hover {
-    cursor: pointer;
+    cursor: not-allowed;
   }
 }
 
@@ -233,7 +265,7 @@
 
   .other-user-profile-location-city:hover,
   .other-user-profile-location-state:hover {
-    cursor: pointer;
+    cursor: not-allowed;
   }
 }
 
@@ -252,7 +284,7 @@
     border-width: 2px;
     border-radius: 28px;
     border-style: solid;
-    cursor: pointer;
+    cursor: not-allowed;
     text-align: center;
     background-color: rgb(8, 112, 209);
     border-color: rgb(8, 112, 209);
@@ -294,7 +326,7 @@
     left: -8px;
   }
   .other-user-profile-impressions-info:hover {
-    cursor: pointer;
+    cursor: not-allowed;
   }
 }
 
@@ -349,6 +381,9 @@
     color: rgb(8, 112, 209);
     border-bottom: 1px solid rgb(8, 112, 209);
     cursor: pointer;
+  }
+  .other-user-profile-nav-bar-link:hover {
+    cursor: not-allowed;
   }
 }
 

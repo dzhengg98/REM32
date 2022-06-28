@@ -22,7 +22,7 @@ demo_user = User.create!({
   last_name: "User",
   city: "New York City",
   about: "This is the demoUser don't mess with him",
-  website: "www.demouser.com",
+  website: "www.google.com",
   instagram: "www.instagram.com/",
   facebook: "www.facebook.com/",
   twitter: "www.twitter.com/",
@@ -47,7 +47,7 @@ user2 = User.create!({
   last_name: "Zablan",
   city: "New York City",
   about: "Software Engineer",
-  website: "www.structy.com",
+  website: "https://www.structy.net/",
   country: "United States"
 })
 
@@ -93,7 +93,7 @@ user6 = User.create!({
 })
 
 user7 = User.create!({
-  username: "Victor He",
+  username: "VH",
   password: "123456",
   first_name: "Victor",
   last_name: "He",
