@@ -3,17 +3,17 @@ import { fetchUser, updateUser, updateUserProfilePic } from '../../actions/user_
 import UserUpdateForm from './user_update_form';
 
 const mSTP = (state, ownProps) => {
-  debugger
+  // debugger
   return {
     userId: ownProps.match.params.userId,
     user: state.entities.users[ownProps.match.params.userId],
-    errors: state.errors.users,
+    errors: state.errors.user,
     currentUserId: state.session.id,
   }
 }
 
 const mDTP = (dispatch) => {
-  debugger
+  // debugger
   return {
     fetchUser: (userId) => dispatch(fetchUser(userId)),
     updateUser: (user) => dispatch(updateUser(user)),
