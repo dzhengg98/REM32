@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import ImageShow from './image_show';
-import { fetchImage } from '../../actions/image_actions';
+import { fetchImage, fetchImages } from '../../actions/image_actions';
 import { fetchUsers, fetchUser } from '../../actions/user_actions';
 
 const mSTP = (state, ownProps) => {
@@ -15,6 +15,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch, ownProps) => {
   return {
+    fetchImages: () => dispatch(fetchImages()),
     fetchImage: () => dispatch(fetchImage(ownProps.match.params.imageId)),
     fetchUsers: () => dispatch(fetchUsers()),
     fetchUser: (uploaderId) => dispatch(fetchUser(uploaderId)),

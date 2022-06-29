@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router';
 import NavBarContainer from './header/nav_bar_container';
+import Footer from './footer/footer';
 import login_form_container from './session_form/login_form_container';
 import signup_form_container from './session_form/signup_form_container';
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
@@ -28,6 +29,7 @@ const App = () => (
       <ProtectedRoute path="/users/:userId/edit" component={user_update_form_container} />
       <ErrorPage />
     </Switch>
+    <Footer />
   </div>
 )
 

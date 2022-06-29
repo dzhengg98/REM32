@@ -10,9 +10,8 @@ class ImageShow extends React.Component {
 
   componentDidMount() {
     // debugger
-    // this.props.fetchImage();
-    this.props.fetchUsers().then(() => this.props.fetchImage())
-    // this.getAuthor();
+    this.props.fetchUsers().then(() => this.props.fetchImage());
+    this.props.fetchImages();
   }
 
   editable() {
