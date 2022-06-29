@@ -330,6 +330,40 @@ class UserShow extends React.Component {
     )
   }
 
+  // PROFILE NAVBAR 
+
+  userNavBar() {
+    return this.props.currentUser.id === this.props.user.id ? (
+      <div className="user-profile-nav-bar-container">
+        <div className="user-profile-nav-bar-link-main">
+          <span>Photos</span> {this.props.user.images.length}
+        </div>
+        <div className="user-profile-nav-bar-link">
+          <span>Galleries</span>
+        </div>
+        <div className="user-profile-nav-bar-link">
+          <span>Groups</span>
+        </div>
+        <div className="user-profile-nav-bar-link">
+          <span>Licensing</span>
+        </div>
+        <div className="user-profile-nav-bar-link">
+          <span>Resources</span>
+        </div>
+        <div className="user-profile-nav-bar-link">
+          <span>Resume</span>
+        </div>
+      </div>
+    ) : (
+      <div className="other-user-profile-nav-bar-container">
+        <div className="other-user-profile-nav-bar-link-main">Photos {this.props.user.images.length}</div>
+        <div className="other-user-profile-nav-bar-link">Galleries</div>
+        <div className="other-user-profile-nav-bar-link">Groups</div>
+        <div className="other-user-profile-nav-bar-link">Licensing</div>
+      </div>
+    )
+  }
+
   // PROFILE ALL INFO
 
   userProfileInfo() {
@@ -361,26 +395,7 @@ class UserShow extends React.Component {
           {this.userFacebookLink()}
           {this.userWebsiteLink()}
         </div>
-        <div className="user-profile-nav-bar-container">
-          <div className="user-profile-nav-bar-link-main">
-            <span>Photos</span> {this.props.user.images.length}
-          </div>
-          <div className="user-profile-nav-bar-link">
-            <span>Galleries</span>
-          </div>
-          <div className="user-profile-nav-bar-link">
-            <span>Groups</span>
-          </div>
-          <div className="user-profile-nav-bar-link">
-            <span>Licensing</span>
-          </div>
-          <div className="user-profile-nav-bar-link">
-            <span>Resources</span>
-          </div>
-          <div className="user-profile-nav-bar-link">
-            <span>Resume</span>
-          </div>
-        </div>
+        {this.userNavBar()}
       </div>
     ) : (
       <div className="other-user-profile-information">
@@ -403,12 +418,7 @@ class UserShow extends React.Component {
           {this.userFacebookLink()}
           {this.userWebsiteLink()}
         </div>
-        <div className="other-user-profile-nav-bar-container">
-          <div className="other-user-profile-nav-bar-link-main">Photos {this.props.user.images.length}</div>
-          <div className="other-user-profile-nav-bar-link">Galleries</div>
-          <div className="other-user-profile-nav-bar-link">Groups</div>
-          <div className="other-user-profile-nav-bar-link">Licensing</div>
-        </div>
+        {this.userNavBar()}
       </div>
     )
   }
