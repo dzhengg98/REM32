@@ -96,9 +96,9 @@ class SessionForm extends React.Component {
           </label>
 
           <div>
-            {this.props.errors.map((error, i) => (
+            {this.props.errors.length ? (this.props.errors.map((error, i) => (
               <p className="errors" key={i}>{error}</p>
-            ))}
+            ))) : (<div></div>)}
           </div>
 
           <input

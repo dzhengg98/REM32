@@ -122,9 +122,9 @@ class ImageCreateForm extends React.Component {
                 />
             </div>
             <div>
-              {this.props.errors.map((error, i) => (
+              {this.props.errors.length ? (this.props.errors.map((error, i) => (
                 <p key={i} className="image-create-errors">{error}</p>
-              ))}
+              ))): (<div></div>)}
             </div>
             <div className="create-image-button-container">
               <button

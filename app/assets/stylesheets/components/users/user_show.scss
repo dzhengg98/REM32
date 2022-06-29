@@ -81,11 +81,6 @@
     color: rgb(34, 34, 34);
     border-bottom: 1px dashed rgb(34, 34, 34);
   }
-
-  .user-profile-location-city:hover,
-  .user-profile-location-state:hover {
-    cursor: not-allowed;
-  }
 }
 
 .user-profile-about {
@@ -269,10 +264,10 @@
     border-bottom: 1px dashed rgb(34, 34, 34);
   }
 
-  .other-user-profile-location-city:hover,
-  .other-user-profile-location-state:hover {
-    cursor: not-allowed;
-  }
+  // .other-user-profile-location-city:hover,
+  // .other-user-profile-location-state:hover {
+  //   cursor: not-allowed;
+  // }
 }
 
 .other-user-profile-follow-button-container {

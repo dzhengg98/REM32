@@ -49,6 +49,7 @@ class ImageUpdateForm extends React.Component {
   }
 
   hasAccess() {
+    // debugger
     return this.props.image.uploaderId === this.props.currentUserId ? (
       <div className="image-update-container">
         <div className="block-space"></div>
@@ -122,9 +123,9 @@ class ImageUpdateForm extends React.Component {
               />
             </div>
             <div>
-              {this.props.errors.map((error, i) => (
+              {this.props.errors.length ? (this.props.errors.map((error, i) => (
                 <p key={i} className="image-update-errors">{error}</p>
-              ))}
+              ))) : (<div></div>)}
             </div>
             <div className="update-image-buttons-container">
               <div className="delete-image-button-container">
