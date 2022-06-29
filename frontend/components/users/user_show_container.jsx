@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import userShow from './user_show';
+import UserShow from './user_show';
 import { fetchImages, fetchImage } from '../../actions/image_actions';
 import { fetchUsers, updateUserProfilePic } from '../../actions/user_actions'; //, updateUser, updateUserProfilePic
 
@@ -24,4 +24,4 @@ const mDTP = dispatch => {
   }
 };
 
-export default connect(mSTP, mDTP)(userShow);
+export default connect(mSTP, mDTP)(UserShow);

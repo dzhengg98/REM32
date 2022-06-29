@@ -3,7 +3,7 @@ import ErrorPage from '../404/404_page';
 import UserShowImageItem from './user_show_image_item';
 import { Link } from 'react-router-dom';
 
-class userShow extends React.Component {
+class UserShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,7 +19,8 @@ class userShow extends React.Component {
     // debugger
     this.props.fetchImages();
     this.props.fetchUsers();
-    this.setState({id: this.props.user.id})
+
+    this.props.user ? this.setState({id: this.props.user.id}) : this.setState({id: Number(this.props.match.params.userId)})
     // this.props.fetchUser();
     // debugger
   }
@@ -328,4 +329,4 @@ class userShow extends React.Component {
   }
 }
 
-export default userShow;
+export default UserShow;

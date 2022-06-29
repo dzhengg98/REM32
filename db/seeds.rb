@@ -39,6 +39,9 @@ user1 = User.create!({
   twitter: "www.twitter.com/dzhengg1",
   country: "United States",
 })
+profilepic1 = open("https://rem32-seeds.s3.amazonaws.com/chibi1.jpeg")
+user1.profilepic.attach(io: profilepic1, filename: 'chibi1.jpg')
+user1.save!
 
 user2 = User.create!({
   username: "alvintheprogrammer",
@@ -50,6 +53,9 @@ user2 = User.create!({
   website: "https://www.structy.net/",
   country: "United States"
 })
+profilepic2 = open("https://rem32-seeds.s3.amazonaws.com/chibi2.png")
+user2.profilepic.attach(io: profilepic2 , filename: 'chibi2.png')
+user2.save!
 
 user3 = User.create!({
   username: "king da ka",
@@ -60,6 +66,9 @@ user3 = User.create!({
   about: "I like anime",
   country: "United States"
 })
+profilepic3 = open("https://rem32-seeds.s3.amazonaws.com/chibi8.webp")
+user3.profilepic.attach(io: profilepic3 , filename: 'chibi8.webp')
+user3.save!
 
 user4 = User.create!({
   username: "Spence",
@@ -71,6 +80,9 @@ user4 = User.create!({
   country: "United States",
   website: "http://spenceriascone.com/"
 })
+profilepic4 = open("https://rem32-seeds.s3.amazonaws.com/chibi7.jpg")
+user4.profilepic.attach(io: profilepic4 , filename: 'chibi7.jpg')
+user4.save!
 
 user5 = User.create!({
   username: "Ayce in Space",
@@ -81,6 +93,9 @@ user5 = User.create!({
   about: "I appreciate how drastically technology has improved the quality of life.",
   country: "United States",
 })
+profilepic5 = open("https://rem32-seeds.s3.amazonaws.com/chibi6.jpeg")
+user5.profilepic.attach(io: profilepic5 , filename: 'chibi6.jpg')
+user5.save!
 
 user6 = User.create!({
   username: "JWong",
@@ -91,6 +106,9 @@ user6 = User.create!({
   about: "Hi! My name is Jonathan Wong, and I am a Full-Stack developer.",
   country: "United States"
 })
+profilepic6 = open("https://rem32-seeds.s3.amazonaws.com/chibi3.jpeg")
+user6.profilepic.attach(io: profilepic6 , filename: 'chibi3.jpg')
+user6.save!
 
 user7 = User.create!({
   username: "VH",
@@ -102,6 +120,9 @@ user7 = User.create!({
   country: "United States",
   website: "https://victorhedev.github.io/portfolio/"
 })
+profilepic7 = open("https://rem32-seeds.s3.amazonaws.com/chibi4.jpeg")
+user7.profilepic.attach(io: profilepic7 , filename: 'chibi4.jpeg')
+user7.save!
 
 user8 = User.create!({
   username: "cumbersomecete",
@@ -111,16 +132,22 @@ user8 = User.create!({
   country: "United States",
   facebook: "www.facebook.com/ken"
 })
+profilepic8 = open("https://rem32-seeds.s3.amazonaws.com/chibi5.png")
+user8.profilepic.attach(io: profilepic8 , filename: 'chibi5.png')
+user8.save!
 
-user9 = User.create!({
+user9 = User.create({
   username: "boxerssubmit",
   password: "123456",
   first_name: "James",
   about: "I do not know what to say",
   country: "Italy",
 })
+profilepic9 = open("https://rem32-seeds.s3.amazonaws.com/chibi10.webp")
+user9.profilepic.attach(io: profilepic9, filename: 'chibi9.webp')
+user9.save!
 
-user10 = User.create!({
+user10 = User.create({
   username: "terrorriband",
   password: "123456",
   first_name: "Chynna",
@@ -128,7 +155,9 @@ user10 = User.create!({
   country: "Germany",
   about: "I like taking pictures"
 })
-
+profilepic10 = open('https://rem32-seeds.s3.amazonaws.com/chibi9.webp')
+user10.profilepic.attach(io: profilepic10, filename: 'chibi10.webp')
+user10.save!
 
 # IMAGES
 
