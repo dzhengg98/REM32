@@ -101,6 +101,10 @@ img {
 
 .header-icon-user, .header-icon-null {
   margin-right: 15px;
+  img {
+    height: 32px;
+    width: 32px;
+  }
 }
 
 .header-search {
