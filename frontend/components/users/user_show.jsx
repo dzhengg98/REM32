@@ -10,9 +10,13 @@ class UserShow extends React.Component {
       profilepic: '',
       profilepicUrl: '',
       id: '',
+      // coverpic: '',
+      // coverpicUrl: '',
     }
     this.handleProfilePicFile = this.handleProfilePicFile.bind(this);
     this.handleProfilePicSubmit = this.handleProfilePicSubmit.bind(this);
+    // this.handleCoverPicFile = this.handleCoverPicFile.bind(this);
+    // this.handleCoverPicSubmit = this.handleCoverPicSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -30,7 +34,7 @@ class UserShow extends React.Component {
 
     if (this.state.profilepic) {
       formData.append('user[profilepic]', this.state.profilepic);
-      formData.append('user[id]', this.state.id)
+      formData.append('user[id]', this.state.id);
     }
 
     // console.log(this)
@@ -53,6 +57,32 @@ class UserShow extends React.Component {
       fileReader.readAsDataURL(file);
     }
   }
+
+  // handleCoverPicSubmit() {
+  //   const formData = new FormData();
+  //   if (this.state.coverpic) {
+  //     formData.append('user[coverpic]', this.state.coverpic);
+  //     formData.append('user[id]', this.state.id);
+  //   }
+  //   this.props.updateUserProfilePic(formData, this.props.user.id);
+  // }
+
+  // handleCoverPicFile(e) {
+  //   e.preventDefault();
+  //   const file = e.target.files[0];
+  //   const fileReader = new FileReader();
+
+  //   fileReader.onloadend = () => {
+  //     this.setState({
+  //       coverpic: file,
+  //       coverpicUrl: fileReader.result,
+  //     }, () => this.handleCoverPicSubmit());
+  //   }
+
+  //   if (file) {
+  //     fileReader.readAsDataURL(file);
+  //   }
+  // }
 
   userProfileLocation() {
     return (this.props.user.city && this.props.user.country) ? (
@@ -159,6 +189,21 @@ class UserShow extends React.Component {
             <svg height="30" width="30" clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m9.474 5.209s-4.501 4.505-6.254 6.259c-.147.146-.22.338-.22.53s.073.384.22.53c1.752 1.754 6.252 6.257 6.252 6.257.145.145.336.217.527.217.191-.001.383-.074.53-.221.293-.293.294-.766.004-1.057l-4.976-4.976h14.692c.414 0 .75-.336.75-.75s-.336-.75-.75-.75h-14.692l4.978-4.979c.289-.289.287-.761-.006-1.054-.147-.147-.339-.221-.53-.221-.191-.001-.38.071-.525.215z" fillRule="nonzero"/></svg>
           </Link>
         </div>
+        {/* <div className="user-cover-picture-main-container">
+          {this.props.user.coverpic ? 
+            (
+              <img className="user-cover-picture-image" src={this.props.user.coverpic}/>
+            ) : (
+              <div></div>
+            )
+          }
+          <div className="user-cover-picture-input-container">
+            <label htmlFor="user-cover-picture-input" className="user-cover-picture-input-label">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path d="M5 4h-3v-1h3v1zm10.93 0l.812 1.219c.743 1.115 1.987 1.781 3.328 1.781h1.93v13h-20v-13h3.93c1.341 0 2.585-.666 3.328-1.781l.812-1.219h5.86zm1.07-2h-8l-1.406 2.109c-.371.557-.995.891-1.664.891h-5.93v17h24v-17h-3.93c-.669 0-1.293-.334-1.664-.891l-1.406-2.109zm-11 8c0-.552-.447-1-1-1s-1 .448-1 1 .447 1 1 1 1-.448 1-1zm7 0c1.654 0 3 1.346 3 3s-1.346 3-3 3-3-1.346-3-3 1.346-3 3-3zm0-2c-2.761 0-5 2.239-5 5s2.239 5 5 5 5-2.239 5-5-2.239-5-5-5z"/></svg>
+            </label>
+            <input type="file" id="user-cover-picture-input" onInput={this.handleCoverPicFile}/>
+          </div>
+        </div> */}
         <div className="user-profile-main-container">
           <div className="user-profile-picture-image">
             {this.userProfilePic()}
