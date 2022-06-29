@@ -1,0 +1,516 @@
+@import "../../variables.scss";
+.user-update-container {
+  padding-bottom: 100px;
+  background-color: rgb(255, 255, 255);
+}
+.user-update-profile-title-container {
+  width: 100%;
+  height: 64px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  position: sticky;
+  top: 76px;
+  z-index: 3;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 10px 1px 10px #aaaaaa;
+  .user-update-profile-title-arrow-icon {
+    margin-left: 15px;
+  }
+  .user-update-profile-title {
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-transform: none;
+    color: rgb(34, 34, 34);
+    font-weight: bold;
+    font-family: "Helvetica Neue", HelveticaNeue, Helvetica, FreeSans, Arial, sans-serif;
+  }
+}
+
+.user-update-profile-main-outer-container {
+  padding-top: 24px;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: Helvetica;
+  color: rgba(0, 0, 0, .65);
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: rgb(255, 255, 255);
+  .user-update-profile-main-container {
+    border: 2px solid rgb(238, 239, 242);
+    width: 100%;
+    max-width: 560px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+    .user-update-photos-container {
+      word-break: break-word;
+      max-width: 100%;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      display: flex;
+      position: relative;
+      .user-update-cover-photo-container {
+        height: 167px;
+        background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(https://wallpaperaccess.com/full/38119.jpg);
+        background-position: center center;
+        position: relative;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-bottom: 0px;
+        color: rgb(255, 255, 255);
+        width: 100%;
+        background-color: rgb(34, 34, 34);
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .user-update-cover-photo-button {
+          width: auto;
+          min-width: 124px;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 16px;
+          line-height: 20px;
+          font-weight: bold;
+          margin: 0px;
+          border-width: 2px;
+          border-radius: 28px;
+          border-style: solid;
+          cursor: not-allowed;
+          text-align: center;
+          max-height: 48px;
+          padding: 12px 22px;
+          background-color: rgb(255, 255, 255);
+          border-color: rgb(8, 112, 209);
+          color: rgb(8, 112, 209);
+          outline: none;
+          text-transform: none;
+          overflow: visible;
+          svg {
+            margin-right: 8px;
+            height: 16px;
+            width: 16px;
+            fill: rgb(8, 112, 209);
+            overflow: hidden;
+          }
+          .user-update-cover-photo-button-text {
+            flex: 1 1 auto;
+            box-sizing: border-box;
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: bold;
+            cursor: not-allowed;
+            text-align: center;
+            color: rgb(8, 112, 209);
+            text-transform: none;
+            position: relative;
+            top: 7px;
+          }
+        }
+      }
+      .user-update-profile-photo-container {
+        word-break: break-word;
+        max-width: 96px;
+        max-height: 96px;
+        min-height: 80px;
+        min-width: 80px;
+        border-radius: 50%;
+        background-color: rgb(255, 255, 255);
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        position: relative;
+        cursor: not-allowed;
+        top: -50px;
+        img {
+          border-radius: 50px;
+          border: 2px solid(255, 255, 255);
+          width: 100%;
+          height: 100%;
+          vertical-align: middle;
+          position: relative;
+        }
+        .user-update-profile-photo-svg-container {
+          border-radius: 50%;
+          background-color: rgb(255, 255, 255);
+          position: absolute;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 8px;
+          box-shadow: rgba(0, 0, 0, 8%) 0px 0px 4px, rgba(0, 0, 0, 16%) 0px 4px 12px;
+          cursor: not-allowed;
+          right: -8px;
+          bottom: 10px;
+        }
+      }
+    }  
+  }
+}
+
+.user-update-form-container {
+  position: relative;
+  padding: 0px 24px;
+  width: 100%;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, .65);
+  font-size: 14px;
+  line-height: 1.5;
+  top: -40px;
+  background-color: rgb(255, 255, 255);
+  .user-update-full-name-container {
+    flex-direction: row;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-rendering: optimizeLegibility;
+    margin-bottom: 40px;
+    .user-update-first-name-container,
+    .user-update-last-name-container {
+      display: flex;
+      flex-direction: column;
+      flex: 0 0 auto;
+      position: relative;
+      box-sizing: border-box;
+      width: 248px;
+      height: 44px;
+      .update-user-first-name,
+      .update-user-last-name {
+        font-size: 14px;
+        line-height: 20px;
+        display: flex;
+        align-items: center;
+        color: rgb(109, 115, 120);
+        margin-bottom: 4px;
+        font-family: Helvetica;
+        font-weight: 400;
+      }
+      .user-update-first-name-field,
+      .user-update-last-name-field {
+        touch-action: manipulation;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(215, 216, 219);
+        border-radius: 4px;
+        height: 40px;
+        font-size: 16px;
+        flex: 0 0 auto;
+        color: rgb(34, 34, 34);
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+  }
+  .user-update-location-container {
+    flex-direction: row;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-rendering: optimizeLegibility;
+    margin-bottom: 40px;
+    .user-update-city-container,
+    .user-update-country-container {
+      display: flex;
+      flex-direction: column;
+      flex: 0 0 auto;
+      position: relative;
+      box-sizing: border-box;
+      width: 248px;
+      height: 44px;
+      .update-user-city,
+      .update-user-country {
+        font-size: 14px;
+        line-height: 20px;
+        display: flex;
+        align-items: center;
+        color: rgb(109, 115, 120);
+        margin-bottom: 4px;
+        font-family: Helvetica;
+        font-weight: 400;
+      }
+      .user-update-city-field,
+      .user-update-country-field {
+        touch-action: manipulation;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(215, 216, 219);
+        border-radius: 4px;
+        height: 40px;
+        font-size: 16px;
+        flex: 0 0 auto;
+        color: rgb(34, 34, 34);
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+  }
+  .user-update-about-container {
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+    flex: 0 0 auto;
+    position: relative;
+    text-rendering: optimizeLegibility;
+    margin-bottom: 30px;
+    .update-user-about {
+      font-size: 14px;
+      line-height: 20px;
+      display: flex;
+      align-items: center;
+      color: rgb(109, 115, 120);
+      margin-bottom: 4px;
+      font-family: Helvetica;
+      font-weight: 400;
+    }
+    .user-update-about-field {
+      background-color: rgb(255, 255, 255);
+      border: 1px solid rgb(215, 216, 219);
+      border-radius: 4px;
+      flex: 0 0 auto;
+      padding: 12px 16px;
+      height: 72px;
+      resize: none;
+      font-size: 14px;
+      color: rgb(34, 34, 34);
+      line-height: 1.5;
+      font-family: Helvetica;
+    }
+  }
+  .user-update-social-media-1-container {
+    flex-direction: row;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-rendering: optimizeLegibility;
+    margin-bottom: 40px;
+    .user-update-website-container,
+    .user-update-instagram-container {
+      display: flex;
+      flex-direction: column;
+      flex: 0 0 auto;
+      position: relative;
+      box-sizing: border-box;
+      width: 248px;
+      height: 44px;
+      .update-user-website,
+      .update-user-instagram {
+        font-size: 14px;
+        line-height: 20px;
+        display: flex;
+        align-items: center;
+        color: rgb(109, 115, 120);
+        margin-bottom: 4px;
+        font-family: Helvetica;
+        font-weight: 400;
+      }
+      .user-update-website-field,
+      .user-update-instagram-field {
+        touch-action: manipulation;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(215, 216, 219);
+        border-radius: 4px;
+        height: 40px;
+        font-size: 16px;
+        flex: 0 0 auto;
+        color: rgb(34, 34, 34);
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+  }
+  .user-update-social-media-2-container {
+    flex-direction: row;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-rendering: optimizeLegibility;
+    margin-bottom: 40px;
+    .user-update-facebook-container,
+    .user-update-twitter-container {
+      display: flex;
+      flex-direction: column;
+      flex: 0 0 auto;
+      position: relative;
+      box-sizing: border-box;
+      width: 248px;
+      height: 44px;
+      .update-user-facebook,
+      .update-user-twitter {
+        font-size: 14px;
+        line-height: 20px;
+        display: flex;
+        align-items: center;
+        color: rgb(109, 115, 120);
+        margin-bottom: 4px;
+        font-family: Helvetica;
+        font-weight: 400;
+      }
+      .user-update-facebook-field,
+      .user-update-twitter-field {
+        touch-action: manipulation;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(215, 216, 219);
+        border-radius: 4px;
+        height: 40px;
+        font-size: 16px;
+        flex: 0 0 auto;
+        color: rgb(34, 34, 34);
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+  }
+  .user-update-buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    font-family: Helvetica;
+    text-rendering: optimizeLegibility;
+    color: rgba(0, 0, 0, .65);
+    font-size: 14px;
+    line-height: 1.5;
+    .user-update-cancel-button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Helvetica;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: bold;
+      margin: 0;
+      border-width: 2px;
+      border-style: solid;
+      cursor: pointer;
+      text-align: center;
+      padding: 12px 14px;
+      border-radius: 0px;
+      background-color: transparent;
+      border-color: transparent;
+      color: rgb(8, 112, 209);
+    }
+    .user-update-save-changes-button {
+      width: 160px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Helvetica;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: bold;
+      margin: 0px;
+      border-width: 2px;
+      border-radius: 28px;
+      border-style: solid;
+      cursor: pointer;
+      text-align: center;
+      max-height: 48px;
+      padding: 12px 22px;
+      background-color: rgb(8, 112, 209);
+      border-color: rgb(8, 112, 209);
+      color: rgb(255, 255, 255);
+      touch-action: manipulation;
+      outline: none;
+      text-transform: none;
+      overflow: visible;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .user-update-profile-main-container {
+    max-width: 440px;
+    .user-update-full-name-container {
+      flex-direction: column;
+      margin-bottom: 0px;
+      .user-update-first-name-container,
+      .user-update-last-name-container {
+        margin-bottom: 50px;
+        width: 448px;
+      }
+    }
+    .user-update-location-container {
+      flex-direction: column;
+      margin-bottom: 0px;
+      .user-update-city-container,
+      .user-update-country-container {
+        margin-bottom: 50px;
+        width: 448px;
+      }
+    }
+    .user-update-about-main-container {
+      flex-direction: column;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-rendering: optimizeLegibility;
+      margin-bottom: 80px;
+      .user-update-about-container{
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 auto;
+        position: relative;
+        box-sizing: border-box;
+        width: 448px;
+        height: 44px;
+        .update-user-about {
+          font-size: 14px;
+          line-height: 20px;
+          display: flex;
+          align-items: center;
+          color: rgb(109, 115, 120);
+          margin-bottom: 4px;
+          font-family: Helvetica;
+          font-weight: 400;
+        }
+        .user-update-about-field {
+          touch-action: manipulation;
+          background-color: rgb(255, 255, 255);
+          border: 1px solid rgb(215, 216, 219);
+          border-radius: 4px;
+          height: 74px;
+          font-size: 16px;
+          flex: 0 0 auto;
+          color: rgb(34, 34, 34);
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+      }
+    }  
+    .user-update-social-media-1-container {
+      flex-direction: column;
+      margin-bottom: 0px;
+      .user-update-website-container,
+      .user-update-instagram-container {
+        margin-bottom: 50px;
+        width: 448px;
+      }
+    }
+    .user-update-social-media-2-container {
+      flex-direction: column;
+      margin-bottom: 0px;
+      .user-update-facebook-container,
+      .user-update-twitter-container {
+        margin-bottom: 50px;
+        width: 448px;
+      }
+    }
+  }
+}
+
+
