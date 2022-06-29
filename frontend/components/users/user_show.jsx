@@ -6,15 +6,52 @@ import { Link } from 'react-router-dom';
 class userShow extends React.Component {
   constructor(props) {
     super(props);
+    // this.state = {
+    //   profile_pic: '',
+    //   profilePicUrl: '',
+    //   id: '',
+    // }
+    this.handleProfilePicFile = this.handleProfilePicFile.bind(this);
+    this.handleProfilePicSubmit = this.handleProfilePicSubmit.bind(this);
   }
 
   componentDidMount() {
     // debugger
     this.props.fetchImages();
     this.props.fetchUsers();
+    // this.setState({id: this.props.user.id})
     // this.props.fetchUser();
     // debugger
   }
+
+  // handleProfilePicSubmit() {
+  //   const formData = new FormData();
+
+  //   if (this.state.profile_pic) {
+  //     formData.append('user[profile_pic]', this.state.profile_pic);
+  //     formData.append('user[id]', this.state.id)
+  //   }
+
+  //   // console.log(this)
+  //   this.props.updateUserProfilePic(formData, this.props.user.id);
+  // }
+
+  // handleProfilePicFile(e) {
+  //   e.preventDefault();
+  //   const file = e.target.files[0];
+  //   const fileReader = new FileReader();
+
+  //   fileReader.onloadend = () => {
+  //     this.setState({
+  //       profile_pic: file,
+  //       profilePicUrl: fileReader.result,
+  //     }, () => this.handleProfilePicSubmit());
+  //   }
+
+  //   if (file) {
+  //     fileReader.readAsDataURL(file);
+  //   }
+  // }
 
   userProfileLocation() {
     return (this.props.user.city && this.props.user.country) ? (
@@ -126,6 +163,10 @@ class userShow extends React.Component {
             {this.userProfilePic()}
           </div>
         </div>
+        {/* <div>
+          <label htmlFor="user-profile-picture-input" className="user-profile-picture-input-label">Change Profile Pic</label>
+          <input type="file" id="user-profile-picture-input" onInput={this.handleProfilePicFile}/>
+        </div> */}
         <div className="user-profile-main-icons">
           <div className="user-profile-edit-icon">
             <Link to={`/users/${this.props.currentUser.id}/edit`}>

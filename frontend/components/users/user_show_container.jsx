@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import userShow from './user_show';
 import { fetchImages, fetchImage } from '../../actions/image_actions';
-import { fetchUsers } from '../../actions/user_actions'; //, updateUser, updateUserProfilePic
+import { fetchUsers, updateUserProfilePic } from '../../actions/user_actions'; //, updateUser, updateUserProfilePic
 
 const mSTP = (state, ownProps) => {
   // debugger

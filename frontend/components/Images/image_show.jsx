@@ -42,7 +42,7 @@ class ImageShow extends React.Component {
   }
 
   render() {
-    debugger
+    // debugger
     // const uploaderId = this.props.image.uploaderId
 
     if (!this.props.image) return <ErrorPage />
