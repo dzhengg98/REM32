@@ -12,7 +12,7 @@ class UserShow extends React.Component {
       id: '',
       coverpic: '',
       coverpicUrl: '',
-      component: ''
+      nav: ''
     }
     this.handleProfilePicFile = this.handleProfilePicFile.bind(this);
     this.handleProfilePicSubmit = this.handleProfilePicSubmit.bind(this);
@@ -331,43 +331,67 @@ class UserShow extends React.Component {
     )
   }
 
+  changeNavToPhotos() {
+    this.setState({ nav: "photos" })
+  }
+
+  changeNavToGalleries() {
+    this.setState({ nav: "galleries"})
+  }
+
+  changeNavToGroups() {
+    this.setState({ nav: "groups"})
+  }
+
+  changeNavToLicensing() {
+    this.setState({ nav: "licensing"})
+  }
+
+  changeNavToResources() {
+    this.setState({ nav: "resources"})
+  }
+
+  changeNavToResume() {
+    this.setState({ nav: "resume"})
+  }
+
   // PROFILE NAVBAR 
 
   userNavBar() {
     return this.props.currentUser.id === this.props.user.id ? (
       <div className="user-profile-nav-bar-container">
         <div className="user-profile-nav-bar-link-main">
-          <button>Photos <span>{this.props.user.images.length}</span> </button> 
+          <button onClick={() => this.changeNavToPhotos()}>Photos <span>{this.props.user.images.length}</span></button> 
         </div>
         <div className="user-profile-nav-bar-link">
-          <button>Galleries</button>
+          <button onClick={() => this.changeNavToGalleries()}>Galleries</button>
         </div>
         <div className="user-profile-nav-bar-link">
-          <button>Groups</button>
+          <button onClick={() => this.changeNavToGroups()}>Groups</button>
         </div>
         <div className="user-profile-nav-bar-link">
-          <button>Licensing</button>
+          <button onClick={() => this.changeNavToLicensing()}>Licensing</button>
         </div>
         <div className="user-profile-nav-bar-link">
-          <button>Resources</button>
+          <button onClick={() => this.changeNavToResources()}>Resources</button>
         </div>
         <div className="user-profile-nav-bar-link">
-          <button>Resume</button>
+          <button onClick={() => this.changeNavToResume()}>Resume</button>
         </div>
       </div>
     ) : (
       <div className="other-user-profile-nav-bar-container">
         <div className="other-user-profile-nav-bar-link-main">
-          <button>Photos <span>{this.props.user.images.length}</span></button>
+          <button onClick={() => this.changeNavToPhotos()}>Photos <span>{this.props.user.images.length}</span></button>
         </div>
         <div className="other-user-profile-nav-bar-link">
-          <button>Galleries</button>
+          <button onClick={() => this.changeNavToGalleries()}>Galleries</button>
         </div>
         <div className="other-user-profile-nav-bar-link">
-          <button>Groups</button>
+          <button onClick={() => this.changeNavToGroups()}>Groups</button>
         </div>
         <div className="other-user-profile-nav-bar-link">
-          <button>Licensing</button>
+          <button onClick={() => this.changeNavToLicensing()}>Licensing</button>
         </div>
       </div>
     )
@@ -433,6 +457,7 @@ class UserShow extends React.Component {
   }
 
   render() {
+    debugger
     const images = this.props.images.filter((image) => image.uploaderId === Number(this.props.match.params.userId))
     if (!Object.keys(this.props.users).includes(this.props.match.params.userId)) return <ErrorPage/>
     return (
