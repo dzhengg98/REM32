@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 class userShow extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   profile_pic: '',
-    //   profilePicUrl: '',
-    //   id: '',
-    // }
+    this.state = {
+      profilepic: '',
+      profilepicUrl: '',
+      id: '',
+    }
     this.handleProfilePicFile = this.handleProfilePicFile.bind(this);
     this.handleProfilePicSubmit = this.handleProfilePicSubmit.bind(this);
   }
@@ -19,39 +19,39 @@ class userShow extends React.Component {
     // debugger
     this.props.fetchImages();
     this.props.fetchUsers();
-    // this.setState({id: this.props.user.id})
+    this.setState({id: this.props.user.id})
     // this.props.fetchUser();
     // debugger
   }
 
-  // handleProfilePicSubmit() {
-  //   const formData = new FormData();
+  handleProfilePicSubmit() {
+    const formData = new FormData();
 
-  //   if (this.state.profile_pic) {
-  //     formData.append('user[profile_pic]', this.state.profile_pic);
-  //     formData.append('user[id]', this.state.id)
-  //   }
+    if (this.state.profilepic) {
+      formData.append('user[profilepic]', this.state.profilepic);
+      formData.append('user[id]', this.state.id)
+    }
 
-  //   // console.log(this)
-  //   this.props.updateUserProfilePic(formData, this.props.user.id);
-  // }
+    // console.log(this)
+    this.props.updateUserProfilePic(formData, this.props.user.id);
+  }
 
-  // handleProfilePicFile(e) {
-  //   e.preventDefault();
-  //   const file = e.target.files[0];
-  //   const fileReader = new FileReader();
+  handleProfilePicFile(e) {
+    e.preventDefault();
+    const file = e.target.files[0];
+    const fileReader = new FileReader();
 
-  //   fileReader.onloadend = () => {
-  //     this.setState({
-  //       profile_pic: file,
-  //       profilePicUrl: fileReader.result,
-  //     }, () => this.handleProfilePicSubmit());
-  //   }
+    fileReader.onloadend = () => {
+      this.setState({
+        profilepic: file,
+        profilepicUrl: fileReader.result,
+      }, () => this.handleProfilePicSubmit());
+    }
 
-  //   if (file) {
-  //     fileReader.readAsDataURL(file);
-  //   }
-  // }
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
 
   userProfileLocation() {
     return (this.props.user.city && this.props.user.country) ? (
@@ -142,8 +142,8 @@ class userShow extends React.Component {
   }
 
   userProfilePic() {
-    return this.props.user.profile_pic ? (
-      <img src={this.props.user.profile_pic}/>
+    return this.props.user.profilepic ? (
+      <img className="circular" src={this.props.user.profilepic}/>
     ) : (
       <img src={window.userIcon}/>
     )
@@ -161,28 +161,38 @@ class userShow extends React.Component {
         <div className="user-profile-main-container">
           <div className="user-profile-picture-image">
             {this.userProfilePic()}
+            <div className="user-profile-picture-input-container">
+              <label htmlFor="user-profile-picture-input" className="user-profile-picture-input-label">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path d="M5 4h-3v-1h3v1zm10.93 0l.812 1.219c.743 1.115 1.987 1.781 3.328 1.781h1.93v13h-20v-13h3.93c1.341 0 2.585-.666 3.328-1.781l.812-1.219h5.86zm1.07-2h-8l-1.406 2.109c-.371.557-.995.891-1.664.891h-5.93v17h24v-17h-3.93c-.669 0-1.293-.334-1.664-.891l-1.406-2.109zm-11 8c0-.552-.447-1-1-1s-1 .448-1 1 .447 1 1 1 1-.448 1-1zm7 0c1.654 0 3 1.346 3 3s-1.346 3-3 3-3-1.346-3-3 1.346-3 3-3zm0-2c-2.761 0-5 2.239-5 5s2.239 5 5 5 5-2.239 5-5-2.239-5-5-5z"/></svg>
+              </label>
+              <input type="file" id="user-profile-picture-input" onInput={this.handleProfilePicFile}/>
+            </div>
           </div>
         </div>
-        {/* <div>
-          <label htmlFor="user-profile-picture-input" className="user-profile-picture-input-label">Change Profile Pic</label>
-          <input type="file" id="user-profile-picture-input" onInput={this.handleProfilePicFile}/>
-        </div> */}
         <div className="user-profile-main-icons">
-          <div className="user-profile-edit-icon">
-            <Link to={`/users/${this.props.currentUser.id}/edit`}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18.363 8.464l1.433 1.431-12.67 12.669-7.125 1.436 1.439-7.127 12.665-12.668 1.431 1.431-12.255 12.224-.726 3.584 3.584-.723 12.224-12.257zm-.056-8.464l-2.815 2.817 5.691 5.692 2.817-2.821-5.693-5.688zm-12.318 18.718l11.313-11.316-.705-.707-11.313 11.314.705.709z"/></svg>
-            </Link>
+          <div className="user-profile-edit-icon-container">
+            <div className="user-profile-edit-icon">
+              <Link to={`/users/${this.props.currentUser.id}/edit`}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18.363 8.464l1.433 1.431-12.67 12.669-7.125 1.436 1.439-7.127 12.665-12.668 1.431 1.431-12.255 12.224-.726 3.584 3.584-.723 12.224-12.257zm-.056-8.464l-2.815 2.817 5.691 5.692 2.817-2.821-5.693-5.688zm-12.318 18.718l11.313-11.316-.705-.707-11.313 11.314.705.709z"/></svg>
+              </Link>
+            </div>
           </div>
-          <div className="user-profile-share-icon">
-            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M16.272 5.451c-.176-.45-.272-.939-.272-1.451 0-2.208 1.792-4 4-4s4 1.792 4 4-1.792 4-4 4c-1.339 0-2.525-.659-3.251-1.67l-7.131 3.751c.246.591.382 1.239.382 1.919 0 .681-.136 1.33-.384 1.922l7.131 3.751c.726-1.013 1.913-1.673 3.253-1.673 2.208 0 4 1.792 4 4s-1.792 4-4 4-4-1.792-4-4c0-.51.096-.999.27-1.447l-7.129-3.751c-.9 1.326-2.419 2.198-4.141 2.198-2.76 0-5-2.24-5-5s2.24-5 5-5c1.723 0 3.243.873 4.143 2.201l7.129-3.75zm3.728 11.549c1.656 0 3 1.344 3 3s-1.344 3-3 3-3-1.344-3-3 1.344-3 3-3zm-15-9c2.208 0 4 1.792 4 4s-1.792 4-4 4-4-1.792-4-4 1.792-4 4-4zm15-7c1.656 0 3 1.344 3 3s-1.344 3-3 3-3-1.344-3-3 1.344-3 3-3z"/></svg>
+          <div className="user-profile-share-icon-container">
+            <div className="user-profile-share-icon">
+              <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M16.272 5.451c-.176-.45-.272-.939-.272-1.451 0-2.208 1.792-4 4-4s4 1.792 4 4-1.792 4-4 4c-1.339 0-2.525-.659-3.251-1.67l-7.131 3.751c.246.591.382 1.239.382 1.919 0 .681-.136 1.33-.384 1.922l7.131 3.751c.726-1.013 1.913-1.673 3.253-1.673 2.208 0 4 1.792 4 4s-1.792 4-4 4-4-1.792-4-4c0-.51.096-.999.27-1.447l-7.129-3.751c-.9 1.326-2.419 2.198-4.141 2.198-2.76 0-5-2.24-5-5s2.24-5 5-5c1.723 0 3.243.873 4.143 2.201l7.129-3.75zm3.728 11.549c1.656 0 3 1.344 3 3s-1.344 3-3 3-3-1.344-3-3 1.344-3 3-3zm-15-9c2.208 0 4 1.792 4 4s-1.792 4-4 4-4-1.792-4-4 1.792-4 4-4zm15-7c1.656 0 3 1.344 3 3s-1.344 3-3 3-3-1.344-3-3 1.344-3 3-3z"/></svg>
+            </div>
           </div>
-          <div className="user-profile-portfolio-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 7v15h24v-15h-24zm22 13h-20v-6h6v-2h-6v-3h20v3h-6v2h6v6zm-13-15.5c0-.276.224-.5.5-.5h5c.276 0 .5.224.5.5v1.5h2v-2c0-1.104-.896-2-2-2h-6c-1.104 0-2 .896-2 2v2h2v-1.5zm5 6.5h-4v4h4v-4z"/></svg>
+          <div className="user-profile-portfolio-icon-container">
+            <div className="user-profile-portfolio-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 7v15h24v-15h-24zm22 13h-20v-6h6v-2h-6v-3h20v3h-6v2h6v6zm-13-15.5c0-.276.224-.5.5-.5h5c.276 0 .5.224.5.5v1.5h2v-2c0-1.104-.896-2-2-2h-6c-1.104 0-2 .896-2 2v2h2v-1.5zm5 6.5h-4v4h4v-4z"/></svg>
+            </div>
           </div>
           <div className="user-profile-more-icon-container">
-            <svg width="24" height="24" clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m16.5 11.995c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25z"/></svg>
-            {/* <div className="user-profile-manage-photos-icon">photos</div>
-            <div className="user-profile-settings-icon">cog</div> */}
+            <div className="user-profile-more-icon">
+              <svg width="24" height="24" clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m16.5 11.995c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25z"/></svg>
+              {/* <div className="user-profile-manage-photos-icon">photos</div>
+              <div className="user-profile-settings-icon">cog</div> */}
+            </div>
           </div>
         </div>
         <div className="user-profile-full-name">

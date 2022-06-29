@@ -8,8 +8,8 @@ const Header = props => {
   }
 
   const userProfilePic = () => {
-    return props.currentUser.profile_pic ? (
-      <img src={props.currentUser.profile_pic}/>
+    return props.currentUser.profilepic ? (
+      <img className="circular" src={props.currentUser.profilepic}/>
     ) : (
       <img src={window.userIcon}/>
     )

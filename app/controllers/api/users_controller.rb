@@ -47,7 +47,7 @@ class Api::UsersController < ApplicationController
             :instagram, 
             :facebook, 
             :twitter, 
-            :profile_pic, 
-            :cover_pic)
+            :profilepic, 
+            :coverpic)
   end
 end

@@ -1,11 +1,11 @@
 json.extract! user, :id, :username, :first_name, :last_name, :city, :country, :about, :website, :instagram, :facebook, :twitter
 
-if user.profile_pic.attached?
-  json.profile_pic url_for(user.profile_pic)
+if user.profilepic.attached?
+  json.profilepic url_for(user.profilepic)
 end
 
-if user.cover_pic.attached?
-  json.cover_pic url_for(user.cover_pic)
+if user.coverpic.attached?
+  json.coverpic url_for(user.coverpic)
 end
 
 json.images user.images, :id, :title, :description, :uploader_id, :created_at, :updated_at

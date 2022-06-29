@@ -34,8 +34,8 @@ class ImageShow extends React.Component {
   }
 
   userProfilePic() {
-    return this.props.users[this.props.image.uploaderId]['profile_pic'] ? (
-      <img src={this.props.users[this.props.image.uploaderId]['profile_pic']}/>
+    return this.props.users[this.props.image.uploaderId]['profilepic'] ? (
+      <img className="circular" src={this.props.users[this.props.image.uploaderId]['profilepic']}/>
     ) : (
       <img src={window.userIcon}/>
     )

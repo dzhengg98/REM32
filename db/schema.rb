@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_28_181628) do
+ActiveRecord::Schema.define(version: 2022_06_29_131434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 2022_06_28_181628) do
     t.string "instagram", default: ""
     t.string "facebook", default: ""
     t.string "twitter", default: ""
-    t.string "profile_pic"
-    t.string "cover_pic"
+    t.string "profilepic"
+    t.string "coverpic"
     t.string "country", default: ""
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
