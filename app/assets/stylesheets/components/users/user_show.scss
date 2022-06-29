@@ -24,6 +24,7 @@
     height: 94px;
     width: 94px;
   }
+  cursor: pointer;
 }
 
 .user-profile-main-icons {
@@ -51,7 +52,18 @@
   }
 }
 
-.user-profile-username {
+// .user-profile-username {
+//   display: flex;
+//   justify-content: center;
+//   font-size: 24px;
+//   line-height: 28px;
+//   font-weight: bold;
+//   text-transform: none;
+//   color: rgb(34, 34, 34);
+//   // margin-top: 30px;
+// }
+
+.user-profile-full-name {
   display: flex;
   justify-content: center;
   font-size: 24px;
@@ -60,6 +72,9 @@
   text-transform: none;
   color: rgb(34, 34, 34);
   // margin-top: 30px;
+  .user-profile-first-name {
+    margin-right: 6px;
+  }
 }
 
 .user-profile-location-container {
@@ -234,7 +249,17 @@
   }
 }
 
-.other-user-profile-username {
+// .other-user-profile-username {
+//   display: flex;
+//   justify-content: center;
+//   font-size: 24px;
+//   line-height: 28px;
+//   font-weight: bold;
+//   text-transform: none;
+//   color: rgb(34, 34, 34);
+// }
+
+.other-user-profile-full-name {
   display: flex;
   justify-content: center;
   font-size: 24px;
@@ -242,6 +267,9 @@
   font-weight: bold;
   text-transform: none;
   color: rgb(34, 34, 34);
+  .other-user-profile-first-name {
+    margin-right: 6px;
+  }
 }
 
 .other-user-profile-location-container {

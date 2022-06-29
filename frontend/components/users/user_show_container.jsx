@@ -20,7 +20,7 @@ const mDTP = dispatch => {
     fetchImage: (imageId) => dispatch(fetchImage(imageId)),
     fetchUsers: () => dispatch(fetchUsers()),
     // updateUser: (user) => dispatch(updateUser(user)),
-    // updateUserProfilePic: (image, userId) => dispatch(updateUserProfilePic(image, userId))
+    updateUserProfilePic: (image, userId) => dispatch(updateUserProfilePic(image, userId))
   }
 };
 

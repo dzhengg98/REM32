@@ -17,7 +17,7 @@ const mDTP = (dispatch) => {
   return {
     fetchUser: (userId) => dispatch(fetchUser(userId)),
     updateUser: (user) => dispatch(updateUser(user)),
-    updateUserProfilePic: (image, userId) => dispatch(updateUserProfilePic(image, userId)),
+    // updateUserProfilePic: (image, userId) => dispatch(updateUserProfilePic(image, userId)),
   }
 }
 
