@@ -20,13 +20,9 @@ class UserShow extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
     this.props.fetchImages();
     this.props.fetchUsers();
-
     this.props.user ? this.setState({id: this.props.user.id}) : this.setState({id: Number(this.props.match.params.userId)})
-    // this.props.fetchUser();
-    // debugger
   }
 
   handleProfilePicSubmit() {
@@ -37,7 +33,6 @@ class UserShow extends React.Component {
       formData.append('user[id]', this.state.id);
     }
 
-    // console.log(this)
     this.props.updateUserProfilePic(formData, this.props.user.id);
   }
 
@@ -181,7 +176,6 @@ class UserShow extends React.Component {
   }
 
   userProfileInfo() {
-    // debugger
     return this.props.currentUser.id === Number(this.props.match.params.userId) ? (
       <div className="user-profile-information">
         <div className="user-profile-arrow">
@@ -236,8 +230,6 @@ class UserShow extends React.Component {
           <div className="user-profile-more-icon-container">
             <div className="user-profile-more-icon">
               <svg width="24" height="24" clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m16.5 11.995c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25z"/></svg>
-              {/* <div className="user-profile-manage-photos-icon">photos</div>
-              <div className="user-profile-settings-icon">cog</div> */}
             </div>
           </div>
         </div>
@@ -355,11 +347,8 @@ class UserShow extends React.Component {
   }
 
   render() {
-    // debugger
     const images = this.props.images.filter((image) => image.uploaderId === Number(this.props.match.params.userId))
-
     if (!Object.keys(this.props.users).includes(this.props.match.params.userId)) return <ErrorPage/>
-
     return (
       <div>
         <div className="block-space"></div>
