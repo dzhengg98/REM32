@@ -166,6 +166,16 @@ class UserShow extends React.Component {
     )
   }
 
+  // PROFILE NAME
+  userProfileName() {
+    return(
+      <div className="user-profile-full-name">
+        <span className="user-profile-first-name">{this.props.user.firstName}</span>
+        <span className="user-profile-last-name">{this.props.user.lastName}</span>
+      </div>
+    )
+  }
+
   // PROFILE LOCATION
 
   userProfileLocation() {
@@ -200,6 +210,18 @@ class UserShow extends React.Component {
     )
   }
 
+  // OTHER USER PROFILE FOLLOW
+
+  otheruserFollowButton() {
+    return (
+      <div className="other-user-profile-follow-button-container">
+        <button className="other-user-profile-follow-button">
+          Follow
+        </button>
+    </div>
+    )
+  }
+
   // PROFILE ABOUT
 
   userProfileAbout() {
@@ -207,6 +229,48 @@ class UserShow extends React.Component {
       <div className={`${this.props.currentUser.id === this.props.user.id ? ("user-profile-about") : ("other-user-about")}`}>{this.props.user.about}</div>
     ) : (
       <div></div>
+    )
+  }
+
+  // PROFILE LIKES IMPRESSIONS
+
+  userProfileLikesImpressions() {
+    return this.props.currentUser.id === this.props.user.id ? (
+      <div className="user-profile-likes-impressions-container">
+        <div className="user-profile-likes">
+          <span className="user-profile-likes-number">0</span>
+          <span>Photo Likes</span>
+        </div>
+        <div className="user-profile-impressions">
+          <span className="user-profile-impressions-number">0</span>
+          <span>Photo impressions</span>
+        </div>
+        <div className="user-profile-impressions-info">
+          <svg width="16" height="16" clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 1.5c-4.69 0-8.497 3.807-8.497 8.497s3.807 8.498 8.497 8.498 8.498-3.808 8.498-8.498-3.808-8.497-8.498-8.497zm0 6.5c-.414 0-.75.336-.75.75v5.5c0 .414.336.75.75.75s.75-.336.75-.75v-5.5c0-.414-.336-.75-.75-.75zm-.002-3c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1z" fillRule="nonzero"/></svg>
+        </div>
+      </div>
+    ) : (
+      <div className="other-user-profile-likes-impressions-container">
+        <div className="other-user-profile-followers">
+          <span className="other-user-profile-followers-number">0</span>
+          <span className="other-user-profile-followers-word">Followers</span>
+        </div>
+        <div className="other-user-profile-followings">
+          <span className="other-user-profile-followings-number">0</span>
+          <span className="other-user-profile-followings-word">Following</span>
+        </div>
+        <div className="other-user-profile-likes">
+          <span className="other-user-profile-likes-number">0</span>
+          <span className="other-user-profile-likes-word">Photo Likes</span>
+        </div>
+        <div className="other-user-profile-impressions">
+          <span className="other-user-profile-impressions-number">0</span>
+          <span className="other-user-profile-impressions-word">Photo impressions</span>
+        </div>
+        <div className="other-user-profile-impressions-info">
+          <svg width="16" height="16" clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 1.5c-4.69 0-8.497 3.807-8.497 8.497s3.807 8.498 8.497 8.498 8.498-3.808 8.498-8.498-3.808-8.497-8.498-8.497zm0 6.5c-.414 0-.75.336-.75.75v5.5c0 .414.336.75.75.75s.75-.336.75-.75v-5.5c0-.414-.336-.75-.75-.75zm-.002-3c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1z" fillRule="nonzero"/></svg>
+        </div>
+      </div>
     )
   }
 
@@ -287,25 +351,10 @@ class UserShow extends React.Component {
           </div>
         </div>
         {this.userProfileIcons()}
-        <div className="user-profile-full-name">
-          <span className="user-profile-first-name">{this.props.user.firstName}</span>
-          <span className="user-profile-last-name">{this.props.user.lastName}</span>
-        </div>
+        {this.userProfileName()}
         {this.userProfileLocation()}
         {this.userProfileAbout()}
-        <div className="user-profile-likes-impressions-container">
-          <div className="user-profile-likes">
-            <span className="user-profile-likes-number">0</span>
-            <span>Photo Likes</span>
-          </div>
-          <div className="user-profile-impressions">
-            <span className="user-profile-impressions-number">0</span>
-            <span>Photo impressions</span>
-          </div>
-          <div className="user-profile-impressions-info">
-            <svg width="16" height="16" clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 1.5c-4.69 0-8.497 3.807-8.497 8.497s3.807 8.498 8.497 8.498 8.498-3.808 8.498-8.498-3.808-8.497-8.498-8.497zm0 6.5c-.414 0-.75.336-.75.75v5.5c0 .414.336.75.75.75s.75-.336.75-.75v-5.5c0-.414-.336-.75-.75-.75zm-.002-3c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1z" fillRule="nonzero"/></svg>
-          </div>
-        </div>
+        {this.userProfileLikesImpressions()}
         <div className="user-profile-links-container">
           {this.userTwitterLink()}
           {this.userInstagramLink()}
@@ -343,38 +392,11 @@ class UserShow extends React.Component {
           </div>
         </div>
         {this.userProfileIcons()}
-        <div className="other-user-profile-full-name">
-          <span className="other-user-profile-first-name">{this.props.user.firstName}</span>
-          <span className="other-user-profile-last-name">{this.props.user.lastName}</span>
-        </div>
+        {this.userProfileName()}
         {this.userProfileLocation()}
-        <div className="other-user-profile-follow-button-container">
-          <button className="other-user-profile-follow-button">
-            Follow
-          </button>
-        </div>
+        {this.otheruserFollowButton()}
         {this.userProfileAbout()}
-        <div className="other-user-profile-likes-impressions-container">
-          <div className="other-user-profile-followers">
-            <span className="other-user-profile-followers-number">0</span>
-            <span className="other-user-profile-followers-word">Followers</span>
-          </div>
-          <div className="other-user-profile-followings">
-            <span className="other-user-profile-followings-number">0</span>
-            <span className="other-user-profile-followings-word">Following</span>
-          </div>
-          <div className="other-user-profile-likes">
-            <span className="other-user-profile-likes-number">0</span>
-            <span className="other-user-profile-likes-word">Photo Likes</span>
-          </div>
-          <div className="other-user-profile-impressions">
-            <span className="other-user-profile-impressions-number">0</span>
-            <span className="other-user-profile-impressions-word">Photo impressions</span>
-          </div>
-          <div className="other-user-profile-impressions-info">
-            <svg width="16" height="16" clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 1.5c-4.69 0-8.497 3.807-8.497 8.497s3.807 8.498 8.497 8.498 8.498-3.808 8.498-8.498-3.808-8.497-8.498-8.497zm0 6.5c-.414 0-.75.336-.75.75v5.5c0 .414.336.75.75.75s.75-.336.75-.75v-5.5c0-.414-.336-.75-.75-.75zm-.002-3c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1z" fillRule="nonzero"/></svg>
-          </div>
-        </div>
+        {this.userProfileLikesImpressions()}
         <div className="other-user-profile-links-container">
           {this.userTwitterLink()}
           {this.userInstagramLink()}
@@ -392,7 +414,6 @@ class UserShow extends React.Component {
   }
 
   render() {
-    debugger
     const images = this.props.images.filter((image) => image.uploaderId === Number(this.props.match.params.userId))
     if (!Object.keys(this.props.users).includes(this.props.match.params.userId)) return <ErrorPage/>
     return (
