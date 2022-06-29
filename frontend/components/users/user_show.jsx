@@ -12,6 +12,7 @@ class UserShow extends React.Component {
       id: '',
       coverpic: '',
       coverpicUrl: '',
+      component: ''
     }
     this.handleProfilePicFile = this.handleProfilePicFile.bind(this);
     this.handleProfilePicSubmit = this.handleProfilePicSubmit.bind(this);
@@ -336,30 +337,38 @@ class UserShow extends React.Component {
     return this.props.currentUser.id === this.props.user.id ? (
       <div className="user-profile-nav-bar-container">
         <div className="user-profile-nav-bar-link-main">
-          <span>Photos</span> {this.props.user.images.length}
+          <button>Photos <span>{this.props.user.images.length}</span> </button> 
         </div>
         <div className="user-profile-nav-bar-link">
-          <span>Galleries</span>
+          <button>Galleries</button>
         </div>
         <div className="user-profile-nav-bar-link">
-          <span>Groups</span>
+          <button>Groups</button>
         </div>
         <div className="user-profile-nav-bar-link">
-          <span>Licensing</span>
+          <button>Licensing</button>
         </div>
         <div className="user-profile-nav-bar-link">
-          <span>Resources</span>
+          <button>Resources</button>
         </div>
         <div className="user-profile-nav-bar-link">
-          <span>Resume</span>
+          <button>Resume</button>
         </div>
       </div>
     ) : (
       <div className="other-user-profile-nav-bar-container">
-        <div className="other-user-profile-nav-bar-link-main">Photos {this.props.user.images.length}</div>
-        <div className="other-user-profile-nav-bar-link">Galleries</div>
-        <div className="other-user-profile-nav-bar-link">Groups</div>
-        <div className="other-user-profile-nav-bar-link">Licensing</div>
+        <div className="other-user-profile-nav-bar-link-main">
+          <button>Photos <span>{this.props.user.images.length}</span></button>
+        </div>
+        <div className="other-user-profile-nav-bar-link">
+          <button>Galleries</button>
+        </div>
+        <div className="other-user-profile-nav-bar-link">
+          <button>Groups</button>
+        </div>
+        <div className="other-user-profile-nav-bar-link">
+          <button>Licensing</button>
+        </div>
       </div>
     )
   }
