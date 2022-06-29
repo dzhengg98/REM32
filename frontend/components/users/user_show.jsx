@@ -472,34 +472,73 @@ class UserShow extends React.Component {
       case 'galleries':
         return (
           this.props.currentUser.id === this.props.user.id ? (
-            <h1>users galleries</h1>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24-4v20h2v-18h18v-2h-20zm18 13h-3v-3h-2v3h-3v2h3v3h2v-3h3v-2z"/></svg>              <h1>Curate photos using Galleries</h1>
+              <p>Build a Gallery to show off your style or to keep track of what inspires you!</p>
+              <button>Create a new Gallery</button>
+            </div>
           ) : (
-            <h1>other users galleries</h1>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24-4v20h2v-18h18v-2h-20zm18 13h-3v-3h-2v3h-3v2h3v3h2v-3h3v-2z"/></svg>
+              <h1>Work in progress</h1>
+              <p>{this.props.user.firstName + " " + this.props.user.lastName} hasn't created any Galleries yet. Check back soon.</p>
+            </div>
           )
         )
       case 'groups':
         return (
           this.props.currentUser.id === this.props.user.id ? (
-            <h1>users groups</h1>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M.002 20h6.001c-.028-6.542 2.995-3.697 2.995-8.901 0-2.009-1.311-3.099-2.998-3.099-2.492 0-4.226 2.383-1.866 6.839.775 1.464-.825 1.812-2.545 2.209-1.49.344-1.589 1.072-1.589 2.333l.002.619zm20.498-7c-1.932 0-3.5 1.567-3.5 3.5s1.568 3.5 3.5 3.5 3.5-1.567 3.5-3.5-1.568-3.5-3.5-3.5zm1.5 4h-1v1h-1v-1h-1v-1h1v-1h1v1h1v1zm-4.814 3h-9.183l-.003-.829c0-1.679.133-2.649 2.118-3.107 2.243-.518 4.458-.981 3.394-2.945-3.156-5.82-.901-9.119 2.488-9.119 4.06 0 4.857 4.119 3.085 7.903-1.972.609-3.419 2.428-3.419 4.597 0 1.38.589 2.619 1.52 3.5z"/></svg>
+              <h1>You haven't joined any Groups</h1>
+              <p>Join Groups to meet like-minded REM32 members and participate in lively discussions around creative topics</p>
+              <button>Discover Groups</button>
+            </div>
           ) : (
-            <h1>other users groups</h1>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M.002 20h6.001c-.028-6.542 2.995-3.697 2.995-8.901 0-2.009-1.311-3.099-2.998-3.099-2.492 0-4.226 2.383-1.866 6.839.775 1.464-.825 1.812-2.545 2.209-1.49.344-1.589 1.072-1.589 2.333l.002.619zm20.498-7c-1.932 0-3.5 1.567-3.5 3.5s1.568 3.5 3.5 3.5 3.5-1.567 3.5-3.5-1.568-3.5-3.5-3.5zm1.5 4h-1v1h-1v-1h-1v-1h1v-1h1v1h1v1zm-4.814 3h-9.183l-.003-.829c0-1.679.133-2.649 2.118-3.107 2.243-.518 4.458-.981 3.394-2.945-3.156-5.82-.901-9.119 2.488-9.119 4.06 0 4.857 4.119 3.085 7.903-1.972.609-3.419 2.428-3.419 4.597 0 1.38.589 2.619 1.52 3.5z"/></svg>
+              <h1>Work in progress</h1>
+              <p>{this.props.user.firstName + " " + this.props.user.lastName} hasn't joined any Groups yet. Check back soon.</p>
+            </div>
           )
         )
       case 'licensing':
         return (
           this.props.currentUser.id === this.props.user.id ? (
-            <h1>users licensing</h1>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.896 10l-4.896-8-4.896 8-7.104-4 3 11v5h18v-5l3-11-7.104 4zm-11.896 10v-2h14v2h-14zm14.2-4h-14.4l-1.612-5.909 4.615 2.598 4.197-6.857 4.197 6.857 4.615-2.598-1.612 5.909z"/></svg>
+              <h1>Add Licensing photos</h1>
+              <p>Submit your work to REM32 Licensing and get paid for your work through our exclusive distribution partners. Your accepted photos will appear here!</p>
+              <button>Upload photos</button>
+              <button>Choose from Photo Manager</button>
+            </div>
           ) : (
-            <h1>other users licensing</h1>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.896 10l-4.896-8-4.896 8-7.104-4 3 11v5h18v-5l3-11-7.104 4zm-11.896 10v-2h14v2h-14zm14.2-4h-14.4l-1.612-5.909 4.615 2.598 4.197-6.857 4.197 6.857 4.615-2.598-1.612 5.909z"/></svg>
+              <h1>Work in progress</h1>
+              <p>{this.props.user.firstName + " " + this.props.user.lastName} hasn't Licensed any photos yet. Check back soon.</p>
+            </div>
           )
         )
       case 'resources':
         return (
-          <h1>users resources</h1>
+          <div>
+            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M7.902 14c-1.722-1.39-2.902-3.968-2.902-6.037 0-3.094 2.158-4.89 4.187-4.961.841-.013 1.729.199 2.394.57-.175-1.278-.747-2.259-1.344-2.958l1.367-.614c.283.407.572 1.129.761 1.979.383-.695.848-1.262 1.475-1.628.669-.391 1.778-.412 2.518-.272-.187.658-.577 1.513-1.491 2.075-.562.345-1.467.522-2.384.453.042.283.073.574.087.867.682-.364 1.44-.484 2.243-.472 2.029.071 4.187 1.867 4.187 4.961 0 2.069-1.18 4.647-2.902 6.037h6.902v2h-19.5c-.276 0-.5.224-.5.5s.224.5.5.5h19.5v2h-18.5c-.828 0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5h18.5v2h-18.5c-1.932 0-3.5-1.568-3.5-3.5 0-.83.29-1.593.773-2.193-.476-.455-.773-1.097-.773-1.807 0-1.38 1.12-2.5 2.5-2.5h4.402zm15.098 7h-18v-1h18v1zm-12.624-15.6c-1.643 1.229-2.035 3.45-.42 6.6-.755-.402-2.37-2.047-2.352-3.945.016-1.676 1.413-2.73 2.772-2.655z"/></svg>
+            <h1>Add a Resource</h1>
+            <p>Share your educational tools, videos, webinars, workshops, and more</p>
+            <p>Resources are published to the Resource Hub, Activity Feeds and all your photo pages.</p>
+            <button>Add a Resource</button>
+            <p>Need ideas? <a href="#">View the Resource Hub</a></p>
+          </div>
         )
       case 'resume':
         return (
-          <h1>users resume</h1>
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 1c-.438 1.438-1.563 2.562-3 3 1.437.438 2.562 1.563 3 3 .438-1.437 1.563-2.561 3-3-1.437-.438-2.562-1.562-3-3zm-19.001 2c-.292.957-1.042 1.708-1.999 2 .959.293 1.707 1.042 2.001 2 .292-.958 1.042-1.708 1.999-2-.957-.292-1.707-1.042-2.001-2zm18.5 16c-.365 1.196-1.303 2.134-2.499 2.5 1.199.366 2.134 1.303 2.501 2.5.365-1.197 1.303-2.134 2.499-2.5-1.196-.364-2.134-1.303-2.501-2.5zm-9.499-19c-.292.958-1.042 1.708-2 2 .959.293 1.708 1.042 2.002 2 .292-.958 1.042-1.708 1.998-2-.956-.292-1.706-1.042-2-2zm-8.001 18c-.435 1.436-1.563 2.561-2.999 3 1.439.439 2.564 1.564 3 3 .439-1.436 1.564-2.561 2.999-3-1.435-.437-2.56-1.564-3-3zm14.063-12h-10.054l-5.008 5.625 10 12.375 10-12.305-4.938-5.695zm-9.394 6l3.039 7.218-5.832-7.218h2.793zm7.579 0l-3.247 7.711-3.247-7.711h6.494zm-6.04-1l2.793-2.793 2.793 2.793h-5.586zm7.125 1h2.843l-5.899 7.259 3.056-7.259zm2.418-1h-2.543l-3-3h2.942l2.601 3zm-10.846-3h2.889l-3 3h-2.559l2.67-3z"/></svg>
+            <h1>Add Resume</h1>
+            <p>Show you're available for hire. List your years of experience, client testimonials, and specialties.</p>
+            <button>Add a Resume</button>
+          </div>
         )
       default:
         return (
