@@ -15,14 +15,6 @@ class ImageShow extends React.Component {
     // this.getAuthor();
   }
 
-  // getAuthor() {
-  //   const users = this.props.users
-  //   const author = users[this.props.image.uploaderId]['username']
-  //   return (
-  //     author
-  //   )
-  // }
-
   editable() {
     return this.props.image.uploaderId === this.props.currentUserId ? (
       <Link to={`/images/${this.props.image.id}/edit`}>
@@ -41,8 +33,16 @@ class ImageShow extends React.Component {
     )
   }
 
+  userProfilePic() {
+    return this.props.users[this.props.image.uploaderId]['profile_pic'] ? (
+      <img src={this.props.users[this.props.image.uploaderId]['profile_pic']}/>
+    ) : (
+      <img src={window.userIcon}/>
+    )
+  }
+
   render() {
-    // debugger
+    debugger
     // const uploaderId = this.props.image.uploaderId
 
     if (!this.props.image) return <ErrorPage />
@@ -116,7 +116,7 @@ class ImageShow extends React.Component {
                 </div>
               </div>
               <div className="image-show-uploader-info-container">
-                <img src={window.userIcon}/>
+                {this.userProfilePic()}
                 <div className="image-show-information-container">
                 <h2 className="image-show-title">{this.props.image.title}</h2>
                 <p className="image-show-author-info-container">

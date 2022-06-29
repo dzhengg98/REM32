@@ -104,6 +104,14 @@ class userShow extends React.Component {
     )
   }
 
+  userProfilePic() {
+    return this.props.user.profile_pic ? (
+      <img src={this.props.user.profile_pic}/>
+    ) : (
+      <img src={window.userIcon}/>
+    )
+  }
+
   userProfileInfo() {
     // debugger
     return this.props.currentUser.id === Number(this.props.match.params.userId) ? (
@@ -115,7 +123,7 @@ class userShow extends React.Component {
         </div>
         <div className="user-profile-main-container">
           <div className="user-profile-picture-image">
-            <img src={window.userIcon}/>
+            {this.userProfilePic()}
           </div>
         </div>
         <div className="user-profile-main-icons">
@@ -187,7 +195,7 @@ class userShow extends React.Component {
         <div className="other-user-profile-space"></div>
         <div className="other-user-profile-main-container">
           <div className="other-user-profile-picture-image">
-            <img className="other-user-profile-image" src={window.userIcon}/>
+            {this.userProfilePic()}
           </div>
         </div>
         <div className="other-user-profile-picture-icon">
