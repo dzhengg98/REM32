@@ -10,13 +10,13 @@ class UserShow extends React.Component {
       profilepic: '',
       profilepicUrl: '',
       id: '',
-      // coverpic: '',
-      // coverpicUrl: '',
+      coverpic: '',
+      coverpicUrl: '',
     }
     this.handleProfilePicFile = this.handleProfilePicFile.bind(this);
     this.handleProfilePicSubmit = this.handleProfilePicSubmit.bind(this);
-    // this.handleCoverPicFile = this.handleCoverPicFile.bind(this);
-    // this.handleCoverPicSubmit = this.handleCoverPicSubmit.bind(this);
+    this.handleCoverPicFile = this.handleCoverPicFile.bind(this);
+    this.handleCoverPicSubmit = this.handleCoverPicSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -58,31 +58,31 @@ class UserShow extends React.Component {
     }
   }
 
-  // handleCoverPicSubmit() {
-  //   const formData = new FormData();
-  //   if (this.state.coverpic) {
-  //     formData.append('user[coverpic]', this.state.coverpic);
-  //     formData.append('user[id]', this.state.id);
-  //   }
-  //   this.props.updateUserProfilePic(formData, this.props.user.id);
-  // }
+  handleCoverPicSubmit() {
+    const formData = new FormData();
+    if (this.state.coverpic) {
+      formData.append('user[coverpic]', this.state.coverpic);
+      formData.append('user[id]', this.state.id);
+    }
+    this.props.updateUserProfilePic(formData, this.props.user.id);
+  }
 
-  // handleCoverPicFile(e) {
-  //   e.preventDefault();
-  //   const file = e.target.files[0];
-  //   const fileReader = new FileReader();
+  handleCoverPicFile(e) {
+    e.preventDefault();
+    const file = e.target.files[0];
+    const fileReader = new FileReader();
 
-  //   fileReader.onloadend = () => {
-  //     this.setState({
-  //       coverpic: file,
-  //       coverpicUrl: fileReader.result,
-  //     }, () => this.handleCoverPicSubmit());
-  //   }
+    fileReader.onloadend = () => {
+      this.setState({
+        coverpic: file,
+        coverpicUrl: fileReader.result,
+      }, () => this.handleCoverPicSubmit());
+    }
 
-  //   if (file) {
-  //     fileReader.readAsDataURL(file);
-  //   }
-  // }
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
 
   userProfileLocation() {
     return (this.props.user.city && this.props.user.country) ? (
@@ -189,7 +189,7 @@ class UserShow extends React.Component {
             <svg height="30" width="30" clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m9.474 5.209s-4.501 4.505-6.254 6.259c-.147.146-.22.338-.22.53s.073.384.22.53c1.752 1.754 6.252 6.257 6.252 6.257.145.145.336.217.527.217.191-.001.383-.074.53-.221.293-.293.294-.766.004-1.057l-4.976-4.976h14.692c.414 0 .75-.336.75-.75s-.336-.75-.75-.75h-14.692l4.978-4.979c.289-.289.287-.761-.006-1.054-.147-.147-.339-.221-.53-.221-.191-.001-.38.071-.525.215z" fillRule="nonzero"/></svg>
           </Link>
         </div>
-        {/* <div className="user-cover-picture-main-container">
+        <div className="user-cover-picture-main-container">
           {this.props.user.coverpic ? 
             (
               <img className="user-cover-picture-image" src={this.props.user.coverpic}/>
@@ -203,7 +203,7 @@ class UserShow extends React.Component {
             </label>
             <input type="file" id="user-cover-picture-input" onInput={this.handleCoverPicFile}/>
           </div>
-        </div> */}
+        </div>
         <div className="user-profile-main-container">
           <div className="user-profile-picture-image">
             {this.userProfilePic()}

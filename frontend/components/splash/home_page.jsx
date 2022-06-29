@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ImageIndexContainer from '../Images/image_index_container';
+import Footer from '../footer/footer';
 
 const Home = (props) => {
   return (
@@ -10,6 +11,7 @@ const Home = (props) => {
         <p className="home-description">See photos and published Galleries from people you follow.</p>
       </div>
       <ImageIndexContainer />
+      <Footer/>
     </div>
   );
 };
