@@ -330,33 +330,9 @@ class UserShow extends React.Component {
       <div></div>
     )
   }
-
-  changeNavToPhotos() {
-    this.setState({ nav: "photos" })
-  }
-
-  changeNavToGalleries() {
-    this.setState({ nav: "galleries"})
-  }
-
-  changeNavToGroups() {
-    this.setState({ nav: "groups"})
-  }
-
-  changeNavToLicensing() {
-    this.setState({ nav: "licensing"})
-  }
-
-  changeNavToResources() {
-    this.setState({ nav: "resources"})
-  }
-
-  changeNavToResume() {
-    this.setState({ nav: "resume"})
-  }
-
+  
   // PROFILE NAVBAR 
-
+  
   userNavBar() {
     return this.props.currentUser.id === this.props.user.id ? (
       <div className="user-profile-nav-bar-container">
@@ -395,6 +371,30 @@ class UserShow extends React.Component {
         </div>
       </div>
     )
+  }
+  
+  changeNavToPhotos() {
+    this.setState({ nav: "photos" })
+  }
+
+  changeNavToGalleries() {
+    this.setState({ nav: "galleries"})
+  }
+
+  changeNavToGroups() {
+    this.setState({ nav: "groups"})
+  }
+
+  changeNavToLicensing() {
+    this.setState({ nav: "licensing"})
+  }
+
+  changeNavToResources() {
+    this.setState({ nav: "resources"})
+  }
+
+  changeNavToResume() {
+    this.setState({ nav: "resume"})
   }
 
   // PROFILE ALL INFO
@@ -456,19 +456,71 @@ class UserShow extends React.Component {
     )
   }
 
-  render() {
-    debugger
+  // PROFILE OTHER INFO
+
+  userProfileOtherInfo(navBar) {
     const images = this.props.images.filter((image) => image.uploaderId === Number(this.props.match.params.userId))
+    switch (navBar) {
+      case 'photos':
+        return (
+          <div className="user-image-gallery-container">
+            {
+              images.reverse().map((image) => <UserShowImageItem key={image.id} image={image} />)
+            }
+          </div>
+        )
+      case 'galleries':
+        return (
+          this.props.currentUser.id === this.props.user.id ? (
+            <h1>users galleries</h1>
+          ) : (
+            <h1>other users galleries</h1>
+          )
+        )
+      case 'groups':
+        return (
+          this.props.currentUser.id === this.props.user.id ? (
+            <h1>users groups</h1>
+          ) : (
+            <h1>other users groups</h1>
+          )
+        )
+      case 'licensing':
+        return (
+          this.props.currentUser.id === this.props.user.id ? (
+            <h1>users licensing</h1>
+          ) : (
+            <h1>other users licensing</h1>
+          )
+        )
+      case 'resources':
+        return (
+          <h1>users resources</h1>
+        )
+      case 'resume':
+        return (
+          <h1>users resume</h1>
+        )
+      default:
+        return (
+          <div className="user-image-gallery-container">
+            {
+              images.reverse().map((image) => <UserShowImageItem key={image.id} image={image} />)
+            }
+          </div>
+        )
+    }
+  }
+
+  render() {
+    const navBar = this.state.nav;
+    // debugger
     if (!Object.keys(this.props.users).includes(this.props.match.params.userId)) return <ErrorPage/>
     return (
       <div>
         <div className="block-space"></div>
         {this.userProfileInfo()}
-        <div className="user-image-gallery-container">
-          {
-            images.reverse().map((image) => <UserShowImageItem key={image.id} image={image} />)
-          }
-        </div>
+        {this.userProfileOtherInfo(navBar)}
       </div>
     )
   }
