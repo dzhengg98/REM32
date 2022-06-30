@@ -1,5 +1,6 @@
 import React from 'react';
 import { formatDate } from '../../util/date_util';
+import { Link } from 'react-router-dom';
 
 class CommentsForm extends React.Component {
   constructor(props) {
@@ -40,20 +41,40 @@ class CommentsForm extends React.Component {
       <div className="comments-add-container">
         {
           this.props.currentUser.profilepic ? (
-            <img src={this.props.currentUser.profilepic}/>
+            <div className="comments-profile-picture-container">
+              <div className="comments-profile-picture-inner-container">
+                <Link className="comments-profile-link" to={`/users/${this.props.currentUser.id}`}>
+                  <img className="comment-profile-image" src={this.props.currentUser.profilepic}/>
+                </Link>
+              </div>
+            </div>
           ) : (
-            <img src={window.userIcon}/>
+            <div className="comments-profile-picture-container">
+              <div className="comments-profile-picture-inner-container">
+                <Link className="comments-profile-link" to={`/users/${this.props.currentUser.id}`}>
+                  <img className="comment-profile-image" src={window.userIcon}/>
+                </Link>
+              </div>
+            </div>
           )
         }
-        <div>
-          <input 
-            type="text" 
-            value={this.state.body} 
-            placeholder="Add a comment"
-            onChange={this.update}
-          />
+        <div className="comments-input-container">
+          <div className="comments-inner-input-container">
+            <label id="create-comment-label"></label>
+            <textarea
+              htmlFor="create-comment-label"
+              className="comments-input-area"
+              value={this.state.body} 
+              placeholder="Add a comment"
+              onChange={this.update}
+            />
+            <div className="submit-button-container">
+              <button className="submit-comments-button" onClick={this.handleCommentSubmit}>
+                <span>Post</span>
+              </button>
+            </div>
+          </div>
         </div>
-        <button onClick={this.handleCommentSubmit}>Post</button>
       </div>
     )
   }
@@ -63,45 +84,64 @@ class CommentsForm extends React.Component {
     // debugger
 
     return (
-      <div>
-        {this.makeComment()}
-        <div className="comments-show-container">
-          <div className="comments-show-amount">
-            <p>{currentImageComments.length}</p>
-            <p>{currentImageComments.length > 1 || currentImageComments.length === 0 ? (
-              'comments'
+      <div className="comments-main-container">
+        <div className="image-comments-container">
+          {this.makeComment()}
+          <div className="comments-show-container">
+            <p className="comments-show-amount">{currentImageComments.length}{" "}
+            {currentImageComments.length > 1 || currentImageComments.length === 0 ? (
+              <span>comments</span>
             ): (
-              'comment'
-            )}</p>
-          </div>
-          <div className="comments-show-comments">
-              { currentImageComments.length ? (
-                <div>
-                  {
-                    currentImageComments.map((comment, i) => 
-                    <div key={i}>
-                      {
-                        this.props.users[comment.userId].profilepic ? (
-                          <img src={this.props.users[comment.userId].profilepic}/>
-                          ) : (
-                          <img src={window.userIcon}/>
-                        )
-                      }
-                      <p>{comment.user.fullname}</p>
-                      <p>{formatDate(comment.createdAt)}</p>
-                      <p>{comment.body}</p>
-                    </div>
-                  )
-                  }
-                </div>
-              ) : (
-                <div>
-                  <div>
-                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M12 1c-6.338 0-12 4.226-12 10.007 0 2.05.739 4.063 2.047 5.625l-1.993 6.368 6.946-3c1.705.439 3.334.641 4.864.641 7.174 0 12.136-4.439 12.136-9.634 0-5.812-5.701-10.007-12-10.007m0 1c6.065 0 11 4.041 11 9.007 0 4.922-4.787 8.634-11.136 8.634-1.881 0-3.401-.299-4.946-.695l-5.258 2.271 1.505-4.808c-1.308-1.564-2.165-3.128-2.165-5.402 0-4.966 4.935-9.007 11-9.007"/></svg>
+              <span>comment</span>
+            )}
+            </p>
+            <div className="show-comments-container">
+                { currentImageComments.length ? (
+                  <div className="show-comments-inner-container">
+                    {
+                      currentImageComments.map((comment, i) => 
+                      <div className="comment-container" key={i}>
+                        {
+                          this.props.users[comment.userId].profilepic ? (
+                            <div className="commenter-profile-pic-container">
+                              <div className="commenter-profile-pic">
+                                <Link to={`/users/${comment.userId}`}>
+                                  <img src={this.props.users[comment.userId].profilepic}/>
+                                </Link>
+                              </div>
+                            </div>
+                            ) : (
+                            <div className="commenter-profile-pic-container">
+                              <div className="commenter-profile-pic">
+                                <Link to={`/users/${comment.userId}`}>
+                                <img src={window.userIcon}/>
+                                </Link>
+                              </div>
+                            </div>
+                          )
+                        }
+                        <div className="commenter-comment-container">
+                          <div className="commenter-name-date-container">
+                            <Link to={`/users/${comment.userId}`}>{comment.user.fullname}</Link>
+                            <p className="commenter-date">{formatDate(comment.createdAt)}</p>
+                          </div>
+                          <div className="commenter-comment-body-container">
+                            <p className="commenter-comment-body">{comment.body}</p>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                    }
                   </div>
-                  <div>No comments yet</div>
-                </div>
-              )}
+                ) : (
+                  <div className="no-comments-container">
+                    <div className="no-comments-svg-container">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M12 1c-6.338 0-12 4.226-12 10.007 0 2.05.739 4.063 2.047 5.625.055 1.83-1.023 4.456-1.993 6.368 2.602-.47 6.301-1.508 7.978-2.536 9.236 2.247 15.968-3.405 15.968-9.457 0-5.812-5.701-10.007-12-10.007zm-5 11.5c-.829 0-1.5-.671-1.5-1.5s.671-1.5 1.5-1.5 1.5.671 1.5 1.5-.671 1.5-1.5 1.5zm5 0c-.829 0-1.5-.671-1.5-1.5s.671-1.5 1.5-1.5 1.5.671 1.5 1.5-.671 1.5-1.5 1.5zm5 0c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5z"/></svg>
+                    </div>
+                    <p className="no-comments-text"><span>No comments yet</span></p>
+                  </div>
+                )}
+            </div>
           </div>
         </div>
       </div>
