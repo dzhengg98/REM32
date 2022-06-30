@@ -141,12 +141,41 @@ class ImageShow extends React.Component {
                 </div>
                 <p className="image-show-description">{this.props.image.description}</p>
                 <div className="image-show-popularity-container">
-                  <div className="image-show-popularity-pulse"></div>
-                  <div className="image-show-popularity-impressions"></div>
-                  <div className="image-show-popularity-popular"></div>
+                  <div className="image-show-popularity-pulse">
+                    <div className="pulse">Pulse</div> 
+                    <h3 className="pulse-number">99</h3>
+                  </div>
+                  <div className="image-show-popularity-impressions">
+                    <div className="impressions">Impression</div> 
+                    <h3 className="impressions-number">99</h3>
+                  </div>
+                  <div className="image-show-popularity-popular">
+                    <div className="popular">Popular</div> 
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M8.625 0c.61 7.189-5.625 9.664-5.625 15.996 0 4.301 3.069 7.972 9 8.004 5.931.032 9-4.414 9-8.956 0-4.141-2.062-8.046-5.952-10.474.924 2.607-.306 4.988-1.501 5.808.07-3.337-1.125-8.289-4.922-10.378zm4.711 13c3.755 3.989 1.449 9-1.567 9-1.835 0-2.779-1.265-2.769-2.577.019-2.433 2.737-2.435 4.336-6.423z"/></svg>
+                  </div>
                 </div>
-                {/* likes */}
-                {/* categories */}
+                <div className="image-show-like-counter-container">
+                  <span className="image-show-like-counter-hover-effect">
+                    <span>0 people liked this</span>
+                  </span>
+                </div>
+                <div className="image-show-category">
+                  <p className="image-show-info-category-title">
+                    <span>Category:</span>
+                  </p>
+                </div>
+                <div className="image-show-galleries">
+                  <div className="image-show-info-galleries-title">
+                    <span>Featured in these Galleries</span>
+                  </div>
+                  <div className="image-show-info-galleries-show">
+                    <div className="image-show-galleries-svg-container">
+                      <svg clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m20 20h-15.25c-.414 0-.75.336-.75.75s.336.75.75.75h15.75c.53 0 1-.47 1-1v-15.75c0-.414-.336-.75-.75-.75s-.75.336-.75.75zm-1-17c0-.478-.379-1-1-1h-15c-.62 0-1 .519-1 1v15c0 .621.52 1 1 1h15c.478 0 1-.379 1-1zm-9.25 6.75v-3c0-.414.336-.75.75-.75s.75.336.75.75v3h3c.414 0 .75.336.75.75s-.336.75-.75.75h-3v3c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-3h-3c-.414 0-.75-.336-.75-.75s.336-.75.75-.75z" fillRule="nonzero"/></svg>
+                      <p className="galleries-info-text"></p>
+                      <button className="galleries-button">Add to Gallery</button>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="image-comment-container">
                 <CommentsFormContainer image = {this.props.image} />
