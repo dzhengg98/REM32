@@ -10,10 +10,12 @@ class Api::CommentsController < ApplicationController
 
   def show
     @comment = Comment.find_by(id: params[:id])
+    render :show
   end
 
   def index
-    @comment = Comment.all
+    @comments = Comment.all
+    render :index
   end
 
   private

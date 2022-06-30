@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ErrorPage from '../404/404_page';
 import { formatDate } from '../../util/date_util';
+import CommentsFormContainer from '../comments/comments_form_container';
 import Footer from '../footer/footer';
 
 class ImageShow extends React.Component {
@@ -11,8 +12,8 @@ class ImageShow extends React.Component {
 
   componentDidMount() {
     // debugger
-    this.props.fetchUsers().then(() => this.props.fetchImage());
-    this.props.fetchImages();
+    this.props.fetchUsers().then(() => this.props.fetchImages().then(() => this.props.fetchImage()));
+    this.props.fetchComments();
   }
 
   editable() {
@@ -144,7 +145,7 @@ class ImageShow extends React.Component {
                 {/* categories */}
               </div>
               <div className="image-comment-container">
-                test
+                <CommentsFormContainer image = {this.props.image} />
               </div>
             </div>
           </div>

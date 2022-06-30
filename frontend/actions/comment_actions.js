@@ -25,9 +25,9 @@ export const fetchComments = () => {
   }
 };
 
-export const fetchComment = () => {
+export const fetchComment = (comment) => {
   return (dispatch) => {
-    return commentAPIUtil.fetchComment().then(comment =>
+    return commentAPIUtil.fetchComment(comment).then(comment =>
       dispatch(receiveComment(comment))
     )
   }
