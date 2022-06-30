@@ -873,3 +873,325 @@ imagepost66.save!
 # image67 = open("")
 # imagepost67.image.attach(io: image67, filename: "")
 # imagepost67.save!
+
+# COMMENTS
+
+comment1 = Comment.create({
+  user_id: user1.id,
+  image_id: imagepost1.id,
+  body: "HELLO"
+})
+
+comment1.save!
+
+comment2 = Comment.create({
+  user_id: user2.id,
+  image_id: imagepost1.id,
+  body: "RED"
+})
+
+comment2.save!
+
+comment3 = Comment.create({
+  user_id: user3.id,
+  image_id: imagepost1.id,
+  body: "GREEN"
+})
+
+comment3.save!
+
+comment4 = Comment.create({
+  user_id: user4.id,
+  image_id: imagepost1.id,
+  body: "ORANGE"
+})
+
+comment4.save!
+
+comment5 = Comment.create({
+  user_id: user5.id,
+  image_id: imagepost1.id,
+  body: "SMART"
+})
+
+comment5.save!
+
+comment6 = Comment.create({
+  user_id: user6.id,
+  image_id: imagepost2.id,
+  body: "HELLO"
+})
+
+comment6.save!
+
+comment7 = Comment.create({
+  user_id: user7.id,
+  image_id: imagepost2.id,
+  body: "RED"
+})
+
+comment7.save!
+
+comment8 = Comment.create({
+  user_id: user8.id,
+  image_id: imagepost2.id,
+  body: "GREEN"
+})
+
+comment8.save!
+
+comment9 = Comment.create({
+  user_id: user9.id,
+  image_id: imagepost2.id,
+  body: "ORANGE"
+})
+
+comment9.save!
+
+comment10 = Comment.create({
+  user_id: user10.id,
+  image_id: imagepost2.id,
+  body: "SMART"
+})
+
+comment10.save!
+
+comment11 = Comment.create({
+  user_id: user1.id,
+  image_id: imagepost3.id,
+  body: "HELLO"
+})
+
+comment11.save!
+
+comment12 = Comment.create({
+  user_id: user2.id,
+  image_id: imagepost3.id,
+  body: "RED"
+})
+
+comment12.save!
+
+comment13 = Comment.create({
+  user_id: user3.id,
+  image_id: imagepost3.id,
+  body: "GREEN"
+})
+
+comment13.save!
+
+comment14 = Comment.create({
+  user_id: user4.id,
+  image_id: imagepost3.id,
+  body: "ORANGE"
+})
+
+comment14.save!
+
+comment15 = Comment.create({
+  user_id: user5.id,
+  image_id: imagepost3.id,
+  body: "SMART"
+})
+
+comment15.save!
+
+comment16 = Comment.create({
+  user_id: user6.id,
+  image_id: imagepost4.id,
+  body: "HELLO"
+})
+
+comment16.save!
+
+comment17 = Comment.create({
+  user_id: user7.id,
+  image_id: imagepost4.id,
+  body: "RED"
+})
+
+comment17.save!
+
+comment18 = Comment.create({
+  user_id: user8.id,
+  image_id: imagepost4.id,
+  body: "GREEN"
+})
+
+comment18.save!
+
+comment19 = Comment.create({
+  user_id: user9.id,
+  image_id: imagepost4.id,
+  body: "ORANGE"
+})
+
+comment19.save!
+
+comment20 = Comment.create({
+  user_id: user10.id,
+  image_id: imagepost4.id,
+  body: "SMART"
+})
+
+comment20.save!
+
+comment21 = Comment.create({
+  user_id: user1.id,
+  image_id: imagepost5.id,
+  body: "HELLO"
+})
+
+comment21.save!
+
+comment22 = Comment.create({
+  user_id: user2.id,
+  image_id: imagepost5.id,
+  body: "ARE"
+})
+
+comment22.save!
+
+comment23 = Comment.create({
+  user_id: user3.id,
+  image_id: imagepost6.id,
+  body: "GREEN"
+})
+
+comment23.save!
+
+comment24 = Comment.create({
+  user_id: user4.id,
+  image_id: imagepost7.id,
+  body: "THE"
+})
+
+comment24.save!
+
+comment25 = Comment.create({
+  user_id: user5.id,
+  image_id: imagepost8.id,
+  body: "SMART"
+})
+
+comment25.save!
+
+comment26 = Comment.create({
+  user_id: user6.id,
+  image_id: imagepost9.id,
+  body: "HELLO"
+})
+
+comment26.save!
+
+comment27 = Comment.create({
+  user_id: user7.id,
+  image_id: imagepost10.id,
+  body: "ARE"
+})
+
+comment27.save!
+
+comment28 = Comment.create({
+  user_id: user8.id,
+  image_id: imagepost11.id,
+  body: "FOR"
+})
+
+comment28.save!
+
+comment29 = Comment.create({
+  user_id: user9.id,
+  image_id: imagepost12.id,
+  body: "BLUE"
+})
+
+comment29.save!
+
+comment30 = Comment.create({
+  user_id: user10.id,
+  image_id: imagepost13.id,
+  body: "SMART"
+})
+
+comment30.save!
+
+comment31 = Comment.create({
+  user_id: user1.id,
+  image_id: imagepost14.id,
+  body: "SMART"
+})
+
+comment31.save!
+
+comment32 = Comment.create({
+  user_id: user2.id,
+  image_id: imagepost15.id,
+  body: "SMART"
+})
+
+comment32.save!
+
+comment33 = Comment.create({
+  user_id: user3.id,
+  image_id: imagepost16.id,
+  body: "SMART"
+})
+
+comment33.save!
+
+comment34 = Comment.create({
+  user_id: user10.id,
+  image_id: imagepost17.id,
+  body: "SMART"
+})
+
+comment34.save!
+
+comment35 = Comment.create({
+  user_id: user4.id,
+  image_id: imagepost18.id,
+  body: "SMART"
+})
+
+comment35.save!
+
+comment36 = Comment.create({
+  user_id: user5.id,
+  image_id: imagepost19.id,
+  body: "SMART"
+})
+
+comment36.save!
+
+comment37 = Comment.create({
+  user_id: user6.id,
+  image_id: imagepost20.id,
+  body: "SMART"
+})
+
+comment37.save!
+
+comment38 = Comment.create({
+  user_id: user7.id,
+  image_id: imagepost21.id,
+  body: "SMART"
+})
+
+comment38.save!
+
+comment39 = Comment.create({
+  user_id: user8.id,
+  image_id: imagepost22.id,
+  body: "SMART"
+})
+
+comment39.save!
+
+comment40 = Comment.create({
+  user_id: user9.id,
+  image_id: imagepost23.id,
+  body: "SMART"
+})
+
+comment40.save!
