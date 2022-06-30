@@ -6,27 +6,56 @@ class CommentsForm extends React.Component {
     super(props);
     this.state = {
       body: "",
-      id: "",
     }
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+    this.update = this.update.bind(this);
   }
 
-  componentDidMount() {
-    debugger
-    if (this.state.id === "") {
-      this.setState({
-        id: this.props.currentUser.id
-      })
-    }
-  }
-
-  update(field) {
-    return e => {this.setState({[field]: e.target.value})}
+  update(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    this.setState({
+      body: e.target.value
+    })
   }
 
   handleCommentSubmit(e) {
     e.preventDefault();
-    this.props.createComment(this.state)
+    e.stopPropagation();
+
+    const newComment = {
+      image_id: this.props.image.id,
+      user_id: this.props.currentUser.id,
+      body: this.state.body,
+    }
+
+    this.setState({
+      body: ""
+    })
+    this.props.createComment(newComment)
+  }
+
+  makeComment() {
+    return (
+      <div className="comments-add-container">
+        {
+          this.props.currentUser.profilepic ? (
+            <img src={this.props.currentUser.profilepic}/>
+          ) : (
+            <img src={window.userIcon}/>
+          )
+        }
+        <div>
+          <input 
+            type="text" 
+            value={this.state.body} 
+            placeholder="Add a comment"
+            onChange={this.update}
+          />
+        </div>
+        <button onClick={this.handleCommentSubmit}>Post</button>
+      </div>
+    )
   }
 
   render() {
@@ -35,24 +64,7 @@ class CommentsForm extends React.Component {
 
     return (
       <div>
-        <div className="comments-add-container">
-          {
-            this.props.currentUser.profilepic ? (
-              <img src={this.props.currentUser.profilepic}/>
-            ) : (
-              <img src={window.userIcon}/>
-            )
-          }
-          <div>
-            <input 
-              type="text" 
-              value={this.state.body} 
-              placeholder="Add a comment"
-              onChange={this.update('body')}
-            />
-          </div>
-          <button onClick={this.handleCommentSubmit}>Post</button>
-        </div>
+        {this.makeComment()}
         <div className="comments-show-container">
           <div className="comments-show-amount">
             <p>{currentImageComments.length}</p>

@@ -10,7 +10,7 @@ import { fetchUsers } from '../../actions/user_actions';
 // need fetchComments, fetchComment, createComment, fetchImage, fetchUsers
 
 const mSTP = (state) => {
-  debugger
+  // debugger
   return {
     currentUser: state.entities.users[state.session.id],
     images: state.entities.images,
