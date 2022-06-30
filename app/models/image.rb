@@ -15,4 +15,9 @@ class Image < ApplicationRecord
   foreign_key: :uploader_id,
   class_name: :User
 
+  has_many :comments,
+  foreign_key: :image_id,
+  class_name: :Comment,
+  dependent: :destroy
+
 end
