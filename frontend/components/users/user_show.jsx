@@ -363,59 +363,159 @@ class UserShow extends React.Component {
   userNavBar() {
     return this.props.currentUser.id === this.props.user.id ? (
       <div className="user-profile-nav-bar-container">
-        <button className='user-profile-nav-bar-link-1' onClick={() => this.changeNavToPhotos()}>
-          <p>
-            <span>Photos <span>{this.props.user.images.length}</span></span>
-          </p>
-        </button> 
-        <button className="user-profile-nav-bar-link-2" onClick={() => this.changeNavToGalleries()}>
-          <p>
-            <span>Galleries</span>
-          </p>
-        </button>
-        <button className="user-profile-nav-bar-link-3" onClick={() => this.changeNavToGroups()}>
-          <p>
-            <span>Groups</span>
-          </p>
-        </button>
-        <button className="user-profile-nav-bar-link-4" onClick={() => this.changeNavToLicensing()}>
-          <p>
-            <span>Licensing</span>
-          </p>
-        </button>
-        <button className="user-profile-nav-bar-link-5" onClick={() => this.changeNavToResources()}>
-          <p>
-            <span>Resources</span>
-          </p>
-        </button>
-        <button className="user-profile-nav-bar-link-6" onClick={() => this.changeNavToResume()}>
-          <p>
-            <span>Resume</span>
-          </p>
-        </button>
+        {
+          this.state.nav === "" || this.state.nav === "photos" ? (
+          <button className='user-profile-nav-bar-link-1-highlighted' onClick={() => this.changeNavToPhotos()}>
+            <p>
+              <span>Photos <span>{this.props.user.images.length}</span></span>
+            </p>
+          </button> 
+          ) : (
+          <button className='user-profile-nav-bar-link-1' onClick={() => this.changeNavToPhotos()}>
+            <p>
+              <span>Photos <span>{this.props.user.images.length}</span></span>
+            </p>
+          </button> 
+          )
+        }
+        {
+          this.state.nav === "galleries" ? (
+          <button className="user-profile-nav-bar-link-2-highlighted" onClick={() => this.changeNavToGalleries()}>
+            <p>
+              <span>Galleries</span>
+            </p>
+          </button>
+          ) : (
+          <button className="user-profile-nav-bar-link-2" onClick={() => this.changeNavToGalleries()}>
+            <p>
+              <span>Galleries</span>
+            </p>
+          </button>
+          )
+        }
+        {
+          this.state.nav === "groups" ? (
+          <button className="user-profile-nav-bar-link-3-highlighted" onClick={() => this.changeNavToGroups()}>
+            <p>
+              <span>Groups</span>
+            </p>
+          </button>
+          ) : (
+          <button className="user-profile-nav-bar-link-3" onClick={() => this.changeNavToGroups()}>
+            <p>
+              <span>Groups</span>
+            </p>
+          </button>
+          )
+        }
+        {
+          this.state.nav === "licensing" ? (
+          <button className="user-profile-nav-bar-link-4-highlighted" onClick={() => this.changeNavToLicensing()}>
+            <p>
+              <span>Licensing</span>
+            </p>
+          </button>
+          ) : (
+          <button className="user-profile-nav-bar-link-4" onClick={() => this.changeNavToLicensing()}>
+            <p>
+              <span>Licensing</span>
+            </p>
+          </button>
+          )
+        }
+        {
+          this.state.nav === "resources" ? (
+          <button className="user-profile-nav-bar-link-5-highlighted" onClick={() => this.changeNavToResources()}>
+            <p>
+              <span>Resources</span>
+            </p>
+          </button>
+          ) : (
+          <button className="user-profile-nav-bar-link-5" onClick={() => this.changeNavToResources()}>
+            <p>
+              <span>Resources</span>
+            </p>
+          </button>
+          )
+        }
+        {
+          this.state.nav === "resume" ? (
+          <button className="user-profile-nav-bar-link-6-highlighted" onClick={() => this.changeNavToResume()}>
+            <p>
+              <span>Resume</span>
+            </p>
+          </button>
+          ) : (
+          <button className="user-profile-nav-bar-link-6" onClick={() => this.changeNavToResume()}>
+            <p>
+              <span>Resume</span>
+            </p>
+          </button>
+          )
+        }
       </div>
     ) : (
       <div className="other-user-profile-nav-bar-container">
-        <button className="user-profile-nav-bar-link-1" onClick={() => this.changeNavToPhotos()}>
-          <p>
-            <span>Photos <span>{this.props.user.images.length}</span></span>
-          </p>
-        </button>
-        <button className="user-profile-nav-bar-link-2" onClick={() => this.changeNavToGalleries()}>
-          <p>
-            <span>Galleries</span>
-          </p>
-        </button>
-        <button className="user-profile-nav-bar-link-3" onClick={() => this.changeNavToGroups()}>
-          <p>
-            <span>Licensing</span>
-          </p>
-        </button>
-        <button className="user-profile-nav-bar-link-6" onClick={() => this.changeNavToLicensing()}>
-          <p>
-            <span>Licensing</span>
-          </p>
-        </button>
+        {
+          this.state.nav === "" || this.state.nav === "photos" ? (
+          <button className="user-profile-nav-bar-link-1-highlighted" onClick={() => this.changeNavToPhotos()}>
+            <p>
+              <span>Photos <span>{this.props.user.images.length}</span></span>
+            </p>
+          </button>
+          ) : (
+          <button className="user-profile-nav-bar-link-1" onClick={() => this.changeNavToPhotos()}>
+            <p>
+              <span>Photos <span>{this.props.user.images.length}</span></span>
+            </p>
+          </button>
+          )
+        }
+        {
+          this.state.nav === "galleries" ? (
+          <button className="user-profile-nav-bar-link-2-highlighted" onClick={() => this.changeNavToGalleries()}>
+            <p>
+              <span>Galleries</span>
+            </p>
+          </button>
+          ) : (
+          <button className="user-profile-nav-bar-link-2" onClick={() => this.changeNavToGalleries()}>
+            <p>
+              <span>Galleries</span>
+            </p>
+          </button>
+          )
+        }
+        {
+          this.state.nav === "groups" ? (
+          <button className="user-profile-nav-bar-link-3-highlighted" onClick={() => this.changeNavToGroups()}>
+            <p>
+              <span>Groups</span>
+            </p>
+          </button>
+          ) : (
+          <button className="user-profile-nav-bar-link-3" onClick={() => this.changeNavToGroups()}>
+            <p>
+              <span>Groups</span>
+            </p>
+          </button>
+          )
+        }
+        {
+          this.state.nav === "licensing" ? (
+          <button className="user-profile-nav-bar-link-6-highlighted" onClick={() => this.changeNavToLicensing()}>
+            <p>
+              <span>Licensing</span>
+            </p>
+          </button>
+          ) : (
+          <button className="user-profile-nav-bar-link-6" onClick={() => this.changeNavToLicensing()}>
+            <p>
+              <span>Licensing</span>
+            </p>
+          </button>
+          )
+        }
       </div>
     )
   }
