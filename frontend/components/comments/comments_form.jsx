@@ -80,7 +80,12 @@ class CommentsForm extends React.Component {
   }
 
   render() {
-    const currentImageComments = this.props.comments.filter((comment) => comment.imageId === this.props.image.id).reverse();
+    const currentImageComments = this.props.comments.filter((comment) => comment.imageId === this.props.image.id && comment.parentId === null).reverse();
+    // const currentImageReplies = this.props.comments.filter((comment) => comment.imageId === this.props.image.id && comment.parentId)
+    
+    // console.log(... currentImageReplies);
+    // const obj = Object.assign({}, currentImageReplies)
+    // console.log(obj)
     // debugger
 
     return (
@@ -99,8 +104,8 @@ class CommentsForm extends React.Component {
                 { currentImageComments.length ? (
                   <div className="show-comments-inner-container">
                     {
-                      currentImageComments.map((comment, i) => 
-                      <div className="comment-container" key={i}>
+                      currentImageComments.map((comment) => 
+                      <div className="comment-container" key={comment.id}>
                         {
                           this.props.users[comment.userId].profilepic ? (
                             <div className="commenter-profile-pic-container">

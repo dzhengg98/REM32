@@ -286,6 +286,9 @@
   color: rgb(34, 34, 34);
   display: inline-flex;
   align-items: center;
+  svg {
+    margin-right: 10px;
+  }
 }
 
 .image-show-like-counter-hover-effect:hover {
@@ -303,6 +306,10 @@
     font-weight: bold;
     font-family: Helvetica;
   }
+}
+
+.other-user-profile-impressions-info {
+  cursor: pointer;
 }
 
 .image-show-info-galleries-show {
