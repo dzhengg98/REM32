@@ -190,6 +190,11 @@
   bottom: 320px;
   padding: 8px;
   box-shadow: rgba(0, 0, 0, 8%) 0px 0px 4px, rgba(0, 0, 0, 16%) 0px 4px 12px;
+  cursor: pointer;
+}
+
+.user-cover-picture-input-label {
+  cursor: pointer;
 }
 
 @media(max-width: 768px) {
@@ -209,6 +214,11 @@
   box-shadow: rgba(0, 0, 0, 8%) 0px 0px 4px, rgba(0, 0, 0, 16%) 0px 4px 12px;
   right: -35px;
   bottom: -10px;
+  cursor: pointer;
+}
+
+.user-profile-picture-input-label {
+  cursor: pointer;
 }
 
 .user-main-info-container-outer,
@@ -467,7 +477,6 @@
   font-size: 24px;
   line-height: 28px;
   font-weight: bold;
-  text-transform: none;
   margin: 0px;
   color: rgb(34, 34, 34);
   text-align: center;
@@ -578,7 +587,6 @@
     p {
       font-size: 14px;
       line-height: 20px;
-      letter-spacing: 0px;
       margin: 0px;
       color: rgb(34, 34, 34);
       font-family: Helvetica;
@@ -593,8 +601,7 @@
     p {
       font-size: 14px;
       line-height: 20px;
-      letter-spacing: 0px;
-      margin: 0px;
+      margin: 0px 10px 0px 0px;
       color: rgb(34, 34, 34);
       font-family: Helvetica;
     }
@@ -624,7 +631,6 @@
     p:first-child {
       font-size: 14px;
       line-height: 20px;
-      letter-spacing: 0px;
       margin: 0px;
       color: rgb(34, 34, 34);
       font-family: Helvetica;
@@ -632,7 +638,6 @@
     p:last-child {
       font-size: 14px;
       line-height: 20px;
-      letter-spacing: 0px;
       margin: 0px;
       color: rgb(34, 34, 34);
       font-weight: bold;
@@ -646,7 +651,6 @@
     p:first-child {
       font-size: 14px;
       line-height: 20px;
-      letter-spacing: 0px;
       margin: 0px;
       color: rgb(34, 34, 34);
       font-family: Helvetica;
@@ -654,7 +658,6 @@
     p:last-child {
       font-size: 14px;
       line-height: 20px;
-      letter-spacing: 0px;
       margin: 0px;
       color: rgb(34, 34, 34);
       font-weight: bold;
@@ -668,7 +671,6 @@
     p {
       font-size: 14px;
       line-height: 20px;
-      letter-spacing: 0px;
       margin: 0px;
       color: rgb(34, 34, 34);
       font-family: Helvetica;
@@ -683,8 +685,7 @@
     p {
       font-size: 14px;
       line-height: 20px;
-      letter-spacing: 0px;
-      margin: 0px;
+      margin: 0px 10px 0px 0px;
       color: rgb(34, 34, 34);
       font-family: Helvetica;
     }
@@ -778,7 +779,6 @@
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0px;
-    text-transform: none;
     margin: 0px;
     font-family: Helvetica;
     cursor: pointer;
@@ -808,7 +808,6 @@
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0px;
-    text-transform: none;
     margin: 0px;
     font-family: Helvetica;
     cursor: pointer;
@@ -838,7 +837,6 @@
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0px;
-    text-transform: none;
     margin: 0px;
     font-family: Helvetica;
     cursor: pointer;
@@ -868,7 +866,6 @@
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0px;
-    text-transform: none;
     margin: 0px;
     font-family: Helvetica;
     cursor: pointer;
@@ -898,7 +895,6 @@
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0px;
-    text-transform: none;
     margin: 0px;
     font-family: Helvetica;
     cursor: pointer;
@@ -929,7 +925,6 @@
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0px;
-    text-transform: none;
     margin: 0px;
     font-family: Helvetica;
     cursor: pointer;
@@ -1027,7 +1022,6 @@
   font-size: 21px;
   line-height: 24px;
   font-weight: bold;
-  text-transform: none;
   margin-top: 16px;
   color: rgb(34, 34, 34);
   font-family: Helvetica;
@@ -1044,7 +1038,6 @@
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0px;
-    text-transform: none;
     color: rgb(34, 34, 34);
     text-align: center;
     font-family: Helvetica;

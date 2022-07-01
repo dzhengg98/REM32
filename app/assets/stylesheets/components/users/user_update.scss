@@ -23,7 +23,6 @@
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0px;
-    text-transform: none;
     color: rgb(34, 34, 34);
     font-weight: bold;
     font-family: Helvetica;
@@ -52,112 +51,6 @@
     box-sizing: border-box;
     text-rendering: optimizeLegibility;
     height: 600px;
-    // .user-update-photos-container {
-    //   word-break: break-word;
-    //   max-width: 100%;
-    //   width: 100%;
-    //   align-items: center;
-    //   justify-content: center;
-    //   flex-direction: column;
-    //   display: flex;
-    //   position: relative;
-    //   .user-update-cover-photo-container {
-    //     height: 167px;
-    //     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(https://wallpaperaccess.com/full/38119.jpg);
-    //     background-position: center center;
-    //     position: relative;
-    //     background-repeat: no-repeat;
-    //     background-size: cover;
-    //     margin-bottom: 0px;
-    //     color: rgb(255, 255, 255);
-    //     width: 100%;
-    //     background-color: rgb(34, 34, 34);
-    //     box-sizing: border-box;
-    //     display: flex;
-    //     justify-content: center;
-    //     align-items: center;
-    //     .user-update-cover-photo-button {
-    //       width: auto;
-    //       min-width: 124px;
-    //       display: inline-flex;
-    //       justify-content: center;
-    //       align-items: center;
-    //       font-size: 16px;
-    //       line-height: 20px;
-    //       font-weight: bold;
-    //       margin: 0px;
-    //       border-width: 2px;
-    //       border-radius: 28px;
-    //       border-style: solid;
-    //       cursor: pointer;
-    //       text-align: center;
-    //       max-height: 48px;
-    //       padding: 12px 22px;
-    //       background-color: rgb(255, 255, 255);
-    //       border-color: rgb(8, 112, 209);
-    //       color: rgb(8, 112, 209);
-    //       outline: none;
-    //       text-transform: none;
-    //       overflow: visible;
-    //       svg {
-    //         margin-right: 8px;
-    //         height: 16px;
-    //         width: 16px;
-    //         fill: rgb(8, 112, 209);
-    //         overflow: hidden;
-    //       }
-    //       .user-update-cover-photo-button-text {
-    //         flex: 1 1 auto;
-    //         box-sizing: border-box;
-    //         font-size: 16px;
-    //         line-height: 20px;
-    //         font-weight: bold;
-    //         cursor: pointer;
-    //         text-align: center;
-    //         color: rgb(8, 112, 209);
-    //         text-transform: none;
-    //         position: relative;
-    //         top: 7px;
-    //       }
-    //     }
-    //   }
-    //   .user-update-profile-photo-container {
-    //     word-break: break-word;
-    //     max-width: 96px;
-    //     max-height: 96px;
-    //     min-height: 80px;
-    //     min-width: 80px;
-    //     border-radius: 50%;
-    //     background-color: rgb(255, 255, 255);
-    //     align-items: center;
-    //     justify-content: center;
-    //     display: flex;
-    //     position: relative;
-    //     cursor: pointer;
-    //     top: -50px;
-    //     img {
-    //       border-radius: 50px;
-    //       border: 2px solid(255, 255, 255);
-    //       width: 100%;
-    //       height: 100%;
-    //       vertical-align: middle;
-    //       position: relative;
-    //     }
-    //     .user-update-profile-photo-svg-container {
-    //       border-radius: 50%;
-    //       background-color: rgb(255, 255, 255);
-    //       position: absolute;
-    //       display: flex;
-    //       align-items: center;
-    //       justify-content: center;
-    //       padding: 8px;
-    //       box-shadow: rgba(0, 0, 0, 8%) 0px 0px 4px, rgba(0, 0, 0, 16%) 0px 4px 12px;
-    //       cursor: pointer;
-    //       right: -8px;
-    //       bottom: 10px;
-    //     }
-    //   }
-    // }  
   }
 }
 
@@ -426,7 +319,6 @@
       color: rgb(255, 255, 255);
       touch-action: manipulation;
       outline: none;
-      text-transform: none;
       overflow: visible;
     }
   }
