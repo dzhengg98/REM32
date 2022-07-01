@@ -1,8 +1,6 @@
-@import "../variables.scss";
-
 header {
   display: flex;
-  background-color: $white;
+  background-color: #ffffff;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -42,12 +40,12 @@ header > div > .user-auth-buttons li:last-child {
 }
 
 header > div > .user-auth-buttons li a {
-  font-weight: $boldFontWeight;
+  font-weight: bold;
 }
 
 .sign-up-button {
   border-radius: 20px;
-  border: 2px solid $black;
+  border: 2px solid #111111;
   padding: 6px 16px;
 }
 
@@ -56,7 +54,7 @@ header > div > .user-auth-buttons li a {
   line-height: 24px;
   font-weight: bold;
   margin: 0px;
-  border: 2px solid $black;
+  border: 2px solid #111111;
   border-radius: 28px;
   cursor: pointer;
   text-align: center;

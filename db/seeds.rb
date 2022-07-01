@@ -28,9 +28,6 @@ demo_user = User.create({
   twitter: "www.twitter.com/",
   country: "United States",
 })
-coverpic1 = open("https://rem32-seeds.s3.amazonaws.com/4263807.jpg")
-demo_user.coverpic.attach(io: coverpic1, filename: '4263807.jpg')
-demo_user.save!
 
 user1 = User.create!({ 
   username: "dzhengg98", 
@@ -879,319 +876,527 @@ imagepost66.save!
 comment1 = Comment.create({
   user_id: user1.id,
   image_id: imagepost1.id,
-  body: "HELLO"
+  body: "You are the shuckiest shuck faced shuck in the world!"
 })
 
 comment1.save!
 
 comment2 = Comment.create({
   user_id: user2.id,
-  image_id: imagepost1.id,
-  body: "RED"
+  image_id: imagepost2.id,
+  body: "I'm unpredictable"
 })
 
 comment2.save!
 
 comment3 = Comment.create({
   user_id: user3.id,
-  image_id: imagepost1.id,
-  body: "GREEN"
+  image_id: imagepost3.id,
+  body: "I never know where I'm going"
 })
 
 comment3.save!
 
 comment4 = Comment.create({
   user_id: user4.id,
-  image_id: imagepost1.id,
-  body: "ORANGE"
+  image_id: imagepost4.id,
+  body: "I'm so random"
 })
 
 comment4.save!
 
 comment5 = Comment.create({
   user_id: user5.id,
-  image_id: imagepost1.id,
-  body: "SMART"
+  image_id: imagepost5.id,
+  body: "I'm always growing, learning, changing"
 })
 
 comment5.save!
 
 comment6 = Comment.create({
   user_id: user6.id,
-  image_id: imagepost2.id,
-  body: "HELLO"
+  image_id: imagepost6.id,
+  body: "I'm never the same person twice"
 })
 
 comment6.save!
 
 comment7 = Comment.create({
   user_id: user7.id,
-  image_id: imagepost2.id,
-  body: "RED"
+  image_id: imagepost7.id,
+  body: "I will always do exactly what I want to do."
 })
 
 comment7.save!
 
 comment8 = Comment.create({
   user_id: user8.id,
-  image_id: imagepost2.id,
-  body: "GREEN"
+  image_id: imagepost8.id,
+  body: "That proves you are unusual"
 })
 
 comment8.save!
 
 comment9 = Comment.create({
   user_id: user9.id,
-  image_id: imagepost2.id,
-  body: "ORANGE"
+  image_id: imagepost9.id,
+  body: "The only people worthy of consideration in this world are the unusual ones"
 })
 
 comment9.save!
 
 comment10 = Comment.create({
   user_id: user10.id,
-  image_id: imagepost2.id,
-  body: "SMART"
+  image_id: imagepost10.id,
+  body: "the common folks are like the leaves of a tree"
 })
 
 comment10.save!
 
 comment11 = Comment.create({
   user_id: user1.id,
-  image_id: imagepost3.id,
-  body: "HELLO"
+  image_id: imagepost11.id,
+  body: "and live and die unnoticed"
 })
 
 comment11.save!
 
 comment12 = Comment.create({
   user_id: user2.id,
-  image_id: imagepost3.id,
-  body: "RED"
+  image_id: imagepost12.id,
+  body: "But that was life"
 })
 
 comment12.save!
 
 comment13 = Comment.create({
   user_id: user3.id,
-  image_id: imagepost3.id,
-  body: "GREEN"
+  image_id: imagepost13.id,
+  body: "Nobody got a guided tour to their own theme park"
 })
 
 comment13.save!
 
 comment14 = Comment.create({
   user_id: user4.id,
-  image_id: imagepost3.id,
-  body: "ORANGE"
+  image_id: imagepost14.id,
+  body: "You had to hop on the rides as they presented themselves"
 })
 
 comment14.save!
 
 comment15 = Comment.create({
   user_id: user5.id,
-  image_id: imagepost3.id,
-  body: "SMART"
+  image_id: imagepost15.id,
+  body: "never knowing whether you would like the one you were in line for"
 })
 
 comment15.save!
 
 comment16 = Comment.create({
   user_id: user6.id,
-  image_id: imagepost4.id,
-  body: "HELLO"
+  image_id: imagepost16.id,
+  body: "the bastard was going to make you throw up your corn dog and your cotton candy all over the place"
 })
 
 comment16.save!
 
 comment17 = Comment.create({
   user_id: user7.id,
-  image_id: imagepost4.id,
-  body: "RED"
+  image_id: imagepost17.id,
+  body: "Her name badge read"
 })
 
 comment17.save!
 
 comment18 = Comment.create({
   user_id: user8.id,
-  image_id: imagepost4.id,
-  body: "GREEN"
+  image_id: imagepost18.id,
+  body: "Hello! My name is DIE, DEMIGOD SCUM!"
 })
 
 comment18.save!
 
 comment19 = Comment.create({
   user_id: user9.id,
-  image_id: imagepost4.id,
-  body: "ORANGE"
+  image_id: imagepost19.id,
+  body: "Insane"
 })
 
 comment19.save!
 
 comment20 = Comment.create({
   user_id: user10.id,
-  image_id: imagepost4.id,
-  body: "SMART"
+  image_id: imagepost20.id,
+  body: "fewer cameras!"
 })
 
 comment20.save!
 
 comment21 = Comment.create({
   user_id: user1.id,
-  image_id: imagepost5.id,
-  body: "HELLO"
+  image_id: imagepost21.id,
+  body: "A musician must make music"
 })
 
 comment21.save!
 
 comment22 = Comment.create({
   user_id: user2.id,
-  image_id: imagepost5.id,
-  body: "ARE"
+  image_id: imagepost22.id,
+  body: "an artist must paint"
 })
 
 comment22.save!
 
 comment23 = Comment.create({
   user_id: user3.id,
-  image_id: imagepost6.id,
-  body: "GREEN"
+  image_id: imagepost23.id,
+  body: "a poet must write"
 })
 
 comment23.save!
 
 comment24 = Comment.create({
   user_id: user4.id,
-  image_id: imagepost7.id,
-  body: "THE"
+  image_id: imagepost24.id,
+  body: "if he is to be ultimately at peace with himself"
 })
 
 comment24.save!
 
 comment25 = Comment.create({
   user_id: user5.id,
-  image_id: imagepost8.id,
-  body: "SMART"
+  image_id: imagepost25.id,
+  body: "What a man can be, he must be"
 })
 
 comment25.save!
 
 comment26 = Comment.create({
   user_id: user6.id,
-  image_id: imagepost9.id,
-  body: "HELLO"
+  image_id: imagepost26.id,
+  body: "Frankly, my dea, I don't give a damn"
 })
 
 comment26.save!
 
 comment27 = Comment.create({
   user_id: user7.id,
-  image_id: imagepost10.id,
-  body: "ARE"
+  image_id: imagepost27.id,
+  body: "I'm gonna make him an offer he can't refuse"
 })
 
 comment27.save!
 
 comment28 = Comment.create({
   user_id: user8.id,
-  image_id: imagepost11.id,
-  body: "FOR"
+  image_id: imagepost28.id,
+  body: "You don't understand! I coulda had class. I couda been a contender."
 })
 
 comment28.save!
 
 comment29 = Comment.create({
   user_id: user9.id,
-  image_id: imagepost12.id,
-  body: "BLUE"
+  image_id: imagepost29.id,
+  body: "I could've been somebody, instead of a bum, which is what I am"
 })
 
 comment29.save!
 
 comment30 = Comment.create({
   user_id: user10.id,
-  image_id: imagepost13.id,
-  body: "SMART"
+  image_id: imagepost30.id,
+  body: "Toto, I've a feeling we're not in Kansas anymore"
 })
 
 comment30.save!
 
 comment31 = Comment.create({
   user_id: user1.id,
-  image_id: imagepost14.id,
-  body: "SMART"
+  image_id: imagepost31.id,
+  body: "Here's looking at you, kid."
 })
 
 comment31.save!
 
 comment32 = Comment.create({
   user_id: user2.id,
-  image_id: imagepost15.id,
-  body: "SMART"
+  image_id: imagepost32.id,
+  body: "Go ahead, make my day"
 })
 
 comment32.save!
 
 comment33 = Comment.create({
   user_id: user3.id,
-  image_id: imagepost16.id,
-  body: "SMART"
+  image_id: imagepost33.id,
+  body: "All right, Mr. DeMille, I'm ready for my close-up"
 })
 
 comment33.save!
 
 comment34 = Comment.create({
   user_id: user10.id,
-  image_id: imagepost17.id,
-  body: "SMART"
+  image_id: imagepost34.id,
+  body: "Fasten your seatbelts. It's going to be a dumpy night."
 })
 
 comment34.save!
 
 comment35 = Comment.create({
   user_id: user4.id,
-  image_id: imagepost18.id,
-  body: "SMART"
+  image_id: imagepost35.id,
+  body: "You talking to me?"
 })
 
 comment35.save!
 
 comment36 = Comment.create({
   user_id: user5.id,
-  image_id: imagepost19.id,
-  body: "SMART"
+  image_id: imagepost36.id,
+  body: "What we've got here is a failure to communicate"
 })
 
 comment36.save!
 
 comment37 = Comment.create({
   user_id: user6.id,
-  image_id: imagepost20.id,
-  body: "SMART"
+  image_id: imagepost37.id,
+  body: "I love the smell of napalm in the morning"
 })
 
 comment37.save!
 
 comment38 = Comment.create({
   user_id: user7.id,
-  image_id: imagepost21.id,
-  body: "SMART"
+  image_id: imagepost38.id,
+  body: "Love means never having to say you're sorry"
 })
 
 comment38.save!
 
 comment39 = Comment.create({
   user_id: user8.id,
-  image_id: imagepost22.id,
-  body: "SMART"
+  image_id: imagepost39.id,
+  body: "E.T.phone home"
 })
 
 comment39.save!
 
 comment40 = Comment.create({
   user_id: user9.id,
-  image_id: imagepost23.id,
-  body: "SMART"
+  image_id: imagepost40.id,
+  body: "They call me Mister Tibbs!"
 })
 
 comment40.save!
+
+comment41 = Comment.create({
+  user_id: user10.id,
+  image_id: imagepost41.id,
+  body: "Rosebud"
+})
+
+comment41.save!
+
+comment42 = Comment.create({
+  user_id: user1.id,
+  image_id: imagepost42.id,
+  body: "Made it, Ma! Top of the world!"
+})
+
+comment42.save!
+
+comment43 = Comment.create({
+  user_id: user1.id,
+  image_id: imagepost43.id,
+  body: "I'm as mad as hell, and I'm not going to take this anymore!"
+})
+
+comment43.save!
+
+comment44 = Comment.create({
+  user_id: user2.id,
+  image_id: imagepost44.id,
+  body: "Louis, I think this is the beginning of a beautiful friendship."
+})
+
+comment44.save!
+
+comment45 = Comment.create({
+  user_id: user3.id,
+  image_id: imagepost45.id,
+  body: "Bond. James Bond."
+})
+
+comment45.save!
+
+comment46 = Comment.create({
+  user_id: user4.id,
+  image_id: imagepost46.id,
+  body: "There's no place like home."
+})
+
+comment46.save!
+
+comment47 = Comment.create({
+  user_id: user5.id,
+  image_id: imagepost47.id,
+  body: "I am big! It's the pictures that got small."
+})
+
+comment47.save!
+
+comment48 = Comment.create({
+  user_id: user6.id,
+  image_id: imagepost48.id,
+  body: "Show me the money!"
+})
+
+comment48.save!
+
+comment49 = Comment.create({
+  user_id: user7.id,
+  image_id: imagepost49.id,
+  body: "Why don't you come up sometime and see me?"
+})
+
+comment49.save!
+
+comment50 = Comment.create({
+  user_id: user8.id,
+  image_id: imagepost50.id,
+  body: "I'm walking here! I'm walking here!"
+})
+
+comment50.save!
+
+comment51 = Comment.create({
+  user_id: user9.id,
+  image_id: imagepost51.id,
+  body: "Play it, Sam. Play 'As Time goes By.'"
+})
+
+comment51.save!
+
+comment52 = Comment.create({
+  user_id: user10.id,
+  image_id: imagepost52.id,
+  body: "You can't handle the truth!'"
+})
+
+comment52.save!
+
+comment53 = Comment.create({
+  user_id: user1.id,
+  image_id: imagepost53.id,
+  body: "I want to be alone"
+})
+
+comment53.save!
+
+comment54 = Comment.create({
+  user_id: user2.id,
+  image_id: imagepost54.id,
+  body: "After all, tomorrow is another day!"
+})
+
+comment54.save!
+
+comment55 = Comment.create({
+  user_id: user3.id,
+  image_id: imagepost55.id,
+  body: "Round up the usual suspects."
+})
+
+comment55.save!
+
+comment56 = Comment.create({
+  user_id: user4.id,
+  image_id: imagepost56.id,
+  body: "I'll have what she's having."
+})
+
+comment56.save!
+
+comment57 = Comment.create({
+  user_id: user5.id,
+  image_id: imagepost57.id,
+  body: "You know how to whistle, don't you Steve?"
+})
+
+comment57.save!
+
+comment58 = Comment.create({
+  user_id: user6.id,
+  image_id: imagepost58.id,
+  body: "Badges?"
+})
+
+comment58.save!
+
+comment59 = Comment.create({
+  user_id: user7.id,
+  image_id: imagepost59.id,
+  body: "We ain't got no badges!'"
+})
+
+comment59.save!
+
+comment60 = Comment.create({
+  user_id: user8.id,
+  image_id: imagepost60.id,
+  body: "We don't need no badges! I don't have to show you any stinking badges!"
+})
+
+comment60.save!
+
+comment61 = Comment.create({
+  user_id: user9.id,
+  image_id: imagepost61.id,
+  body: "I'll be back"
+})
+
+comment61.save!
+
+comment62 = Comment.create({
+  user_id: user10.id,
+  image_id: imagepost62.id,
+  body: "Today, I consider myself the luckiest man on the face of the earth."
+})
+
+comment62.save!
+
+comment63 = Comment.create({
+  user_id: user1.id,
+  image_id: imagepost63.id,
+  body: "If you build it, he will come."
+})
+
+comment63.save!
+
+comment64 = Comment.create({
+  user_id: user2.id,
+  image_id: imagepost64.id,
+  body: "We rob banks"
+})
+
+comment64.save!
+
+comment65 = Comment.create({
+  user_id: user3.id,
+  image_id: imagepost65.id,
+  body: "Plastics"
+})
+
+comment65.save!
+
+comment66 = Comment.create({
+  user_id: user4.id,
+  image_id: imagepost66.id,
+  body: "We'll always have Paris"
+})
+
+comment66.save!

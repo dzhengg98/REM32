@@ -1,0 +1,177 @@
+.message-board {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica;
+
+  .message-section .leaf-set div:nth-child(1) {
+    left: 8%;
+    animation: animate 17s linear infinite;
+    animation-delay: -5s;
+  }
+
+  .message-section .leaf-set div:nth-child(2) {
+    left: 16%;
+    animation: animate 7s linear infinite;
+    animation-delay: -7s;
+  }
+
+  .message-section .leaf-set div:nth-child(3) {
+    left: 24%;
+    animation: animate 4s linear infinite;
+    animation-delay: -10s;
+  }
+
+  .message-section .leaf-set div:nth-child(4) {
+    left: 32%;
+    animation: animate 16s linear infinite;
+    animation-delay: -3s;
+  }
+
+  .message-section .leaf-set div:nth-child(5) {
+    left: 40%;
+    animation: animate 5s linear infinite;
+    animation-delay: -6s;
+  }
+
+  .message-section .leaf-set div:nth-child(6) {
+    left: 48%;
+    animation: animate 7s linear infinite;
+    animation-delay: -3s;
+  }
+
+  .message-section .leaf-set div:nth-child(7) {
+    left: 56%;
+    animation: animate 17s linear infinite;
+    animation-delay: -8s;
+  }
+
+  .message-section .leaf-set div:nth-child(7) {
+    left: 64%;
+    animation: animate 19s linear infinite;
+    animation-delay: -11s;
+  }
+
+  .message-section .leaf-set div:nth-child(8) {
+    left: 72%;
+    animation: animate 16s linear infinite;
+    animation-delay: -5s;
+  }
+
+  .message-section .leaf-set div:nth-child(9) {
+    left: 80%;
+    animation: animate 9s linear infinite;
+    animation-delay: -6s;
+  }
+
+  .message-section .leaf-set div:nth-child(10) {
+    left: 88%;
+    animation: animate 7s linear infinite;
+    animation-delay: -10s;
+  }
+
+  .message-section .leaf-set div:nth-child(11) {
+    left: 96%;
+    animation: animate 18s linear infinite;
+    animation-delay: -11s;
+  }
+
+  .message-section .leaf-set div:nth-child(12) {
+    left: 1%;
+    animation: animate 17s linear infinite;
+    animation-delay: -4s;
+  }
+}
+
+.message-section {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  background: radial-gradient(#ff9a9e, #fad0c4);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.message-board-header {
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 70px;
+}
+
+.message-board-paragraph {
+  color: #ffffff;
+  font-size: 20px;
+  a {
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+  }
+}
+
+.message-section .leaf-set {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.message-section .leaf-set div {
+  position: absolute;
+  display: block;
+}
+
+@keyframes animate {
+  0%{
+    opacity: 0;
+    top: -10%;
+    transform: translateX(20px) rotate(0deg);
+  }
+  10%{
+    opacity: 1;
+  }
+  20%{
+    transform: translateX(-20px) rotate(45deg);
+  }
+  40%{
+    transform: translateX(-20px) rotate(90deg);
+  }
+  60%{
+    transform: translateX(20px) rotate(180deg);
+  }
+  80%{
+    transform: translateX(-20px) rotate(180deg);
+  }
+  100%{
+    top: 100%;
+    transform: translateX(-20px) rotate(225deg);
+  }
+}
+
+.leaf-1 {
+  fill: rgb(230, 88, 88);
+}
+
+.leaf-2 {
+  fill: rgb(234, 193, 116);
+}
+
+.leaf-3 {
+  fill: rgb(250, 250, 156);
+}
+
+.leaf-4 {
+  fill: rgb(232, 98, 98);
+}
+
+.leaf-5 {
+  fill: #ba441d
+}
+
+.leaf-6 {
+  fill: #841014
+}

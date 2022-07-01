@@ -14,7 +14,6 @@
  */
 
 @import "./reset.scss";
-@import "./variables.scss";
 @import "./components/header.scss";
 @import "./components/session_form.scss";
 @import "./components/splash.scss";
@@ -28,6 +27,7 @@
 @import "./components//users/user_update.scss";
 @import "./components/footer.scss";
 @import "./components/comments/comments_form.scss";
+@import "./components/developer_message.scss";
 
 html {
   box-sizing: border-box;
@@ -35,33 +35,33 @@ html {
 }
 
 body {
-  background-color: $lighterGrey;
-  font-family: $primaryFont;
-  color: $black;
-  font-weight: $lightFontWeight;
+  background-color: #f7f8fa;
+  font-family: Helvetica;
+  color: #111111;
+  font-weight: 300;
   font-size: 16px;
 }
 
 a {
-  color: $black;
+  color: #111111;
   text-decoration: none;
-  font-weight: $mediumFontWeight;
+  font-weight: 400;
   cursor: pointer;
 }
 
 a:hover {
-  color: $primaryBlueHover;
+  color: #2986f7;
 }
 
 .button {
   border-radius: 20px;
   padding: 6px 16px;
-  background-color: $primaryBlue;
-  color: $white;
+  background-color: #0870d1;
+  color: #ffffff;
 }
 
 .button:hover {
-  background-color: $primaryBlueHover;
+  background-color: #2986f7;
 }
 
 .block-space {

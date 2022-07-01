@@ -1,7 +1,5 @@
-@import "../variables.scss";
-
 .splash-page {
-  background-color: $white;
+  background-color: #ffffff;
   margin-top: 70px;
 }
 
@@ -34,12 +32,12 @@
 
 .splash-title, .splash-description {
   padding-bottom: 10px;
-  color: $black;
+  color: #111111;
   margin-left: 100px;
 }
 
 .splash-title {
-  font-weight: $boldFontWeight;
+  font-weight: bold;
   font-size: 42px;
   margin-bottom: 20px;
   max-width: 518px;
@@ -53,8 +51,8 @@
   position: relative;
   left: 15%;
   top: 15%;
-  background-color: $white;
-  color: $black;
+  background-color: #ffffff;
+  color: #111111;
   border-radius: 25px;
   margin: 16px 0 0;
   padding: 0 32px;
@@ -64,13 +62,13 @@
 }
 
 .splash-sign-up-button:hover {
-  background-color: $grey;
+  background-color: #d7d8db;
 }
 
 .splash-sign-up-button > a > span {
   font-size: 24px;
-  font-weight: $boldFontWeight;
-  color: $black;
+  font-weight: bold;
+  color: #111111;
 }
 
 .splash-about-title {
