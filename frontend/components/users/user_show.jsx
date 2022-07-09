@@ -192,11 +192,19 @@ class UserShow extends React.Component {
           </h1>
         </div>
       ) : (
+        this.props.user.lastName? (
         <div className="user-profile-full-name-container">
           <h1 className="user-profile-full-name">
           {this.props.user.lastName}
           </h1>
         </div>
+      ) : (
+          <div className="user-profile-full-name-container">
+            <h1 className="user-profile-full-name">
+              {this.props.user.username}
+            </h1>
+          </div>
+        )
       )
     )
   }

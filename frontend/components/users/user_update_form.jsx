@@ -7,8 +7,8 @@ class UserUpdateForm extends React.Component {
     super(props);
     // debugger
     this.state = {
-      fname: "",
-      lname: "",
+      first_name: "",
+      last_name: "",
       city: "",
       country: "",
       about: "",
@@ -29,8 +29,8 @@ class UserUpdateForm extends React.Component {
   componentDidUpdate() {
     if (this.props.user && this.state.id.length === 0) {
       this.setState({
-        fname: this.props.user.firstName,
-        lname: this.props.user.lastName,
+        first_name: this.props.user.firstName,
+        last_name: this.props.user.lastName,
         city: this.props.user.city,
         country: this.props.user.country,
         about: this.props.user.about,
@@ -78,9 +78,9 @@ class UserUpdateForm extends React.Component {
                     id="user-update-first-name"
                     className="user-update-first-name-field"
                     type="text"
-                    value={this.state.fname}
+                    value={this.state.first_name}
                     placeholder="First Name"
-                    onChange={this.update('fname')}
+                    onChange={this.update('first_name')}
                   />
                 </div>
                 <div className="user-update-last-name-container">
@@ -91,9 +91,9 @@ class UserUpdateForm extends React.Component {
                     id="user-update-last-name"
                     className="user-update-last-name-field"
                     type="text"
-                    value={this.state.lname}
+                    value={this.state.last_name}
                     placeholder="Last Name"
-                    onChange={this.update('lname')}
+                    onChange={this.update('last_name')}
                   />
                 </div>
               </div>

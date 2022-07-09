@@ -49,6 +49,10 @@ header > div > .user-auth-buttons li a {
   padding: 6px 16px;
 }
 
+.no-blue:hover {
+  color: black;
+}
+
 .upload-button {
   font-size: 16px;
   line-height: 24px;
@@ -69,7 +73,7 @@ header > div > .user-auth-buttons li a {
     position: relative;
     left: -5px;
   }
-  a {
+  span {
     position: relative;
     top: -6px;
   }

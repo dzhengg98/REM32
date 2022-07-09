@@ -86,7 +86,7 @@ class CommentsForm extends React.Component {
     // console.log(... currentImageReplies);
     // const obj = Object.assign({}, currentImageReplies)
     // console.log(obj)
-    // debugger
+    debugger
 
     return (
       <div className="comments-main-container">
@@ -127,7 +127,7 @@ class CommentsForm extends React.Component {
                         }
                         <div className="commenter-comment-container">
                           <div className="commenter-name-date-container">
-                            <Link to={`/users/${comment.userId}`}>{comment.user.fullname}</Link>
+                            <Link to={`/users/${comment.userId}`}>{comment.user.fullname.trim() ? comment.user.fullname : comment.user.username}</Link>
                             <p className="commenter-date">{formatDate(comment.createdAt)}</p>
                           </div>
                           <div className="commenter-comment-body-container">
