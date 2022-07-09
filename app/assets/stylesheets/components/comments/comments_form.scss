@@ -313,6 +313,7 @@
     margin: 0px;
     color: rgb(34, 34, 34);
     font-family: Helvetica;
+    width: 200px;
   }
   .comment-actions-container {
     display: flex;
@@ -332,6 +333,24 @@
     .edit-comment-button:hover {
       color:rgb(41, 134, 247);
     }
+  }
+}
+
+@media (max-width: 800px) {
+  .commenter-comment-body-container > .commenter-comment-body {
+    width: 440px;
+  }
+}
+
+@media (max-width: 600px) {
+  .commenter-comment-body-container > .commenter-comment-body {
+    width: 320px;
+  }
+}
+
+@media (max-width: 500px) {
+  .commenter-comment-body-container > .commenter-comment-body {
+    width: 280px;
   }
 }
 
