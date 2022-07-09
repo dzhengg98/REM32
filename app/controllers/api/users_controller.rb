@@ -1,11 +1,8 @@
 class Api::UsersController < ApplicationController
-
-  skip_before_action :verify_authenticity_token
-  # before_action :require_logged_in, only: [:show, :update]
+  before_action :require_logged_in, only: [:show, :update]
 
   def show
     @user = User.find_by(id: params[:id])
-    # @images = @user.images.order(created_at: :desc)
     render :show
   end
 

@@ -1,6 +1,4 @@
 class Api::ImagesController < ApplicationController
-
-  skip_before_action :verify_authenticity_token
   before_action :require_logged_in, only: [:create, :update, :destroy]
 
   def index

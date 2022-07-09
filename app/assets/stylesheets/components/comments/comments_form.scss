@@ -88,7 +88,7 @@
 }
 
 .comments-input-area {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 24px;
   resize: none;
   overflow: hidden;
@@ -96,12 +96,13 @@
   padding: 10px 16px 10px 40px;
   background-image: url(https://500px.com/staticV2/media/comment_grey.330155a0.svg);
   background-repeat: no-repeat;
-  background-position: 16px 14px;
+  background-position: 8px 14px;
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(215, 216, 219);
   border-radius: 4px;
   flex: 0 0 auto;
   color: rgb(34, 34, 34);
+  width: 240px;
 }
 
 @media (max-width: 900px) {

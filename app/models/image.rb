@@ -20,4 +20,7 @@ class Image < ApplicationRecord
   class_name: :Comment,
   dependent: :destroy
 
+  has_many :likes,
+  foreign_key: :image_id,
+  class_name: :Like
 end

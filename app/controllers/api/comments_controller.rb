@@ -1,11 +1,9 @@
 class Api::CommentsController < ApplicationController
-  def create
-    @comment = Comment.new(comment_params)
-    if @comment.save
-      render :show
-    else
-      render json: @comment.errors.full_messages, status: 422
-    end
+  before_action :require_logged_in, only: [:create, :show, :index, :update, :destroy]
+
+  def index
+    @comments = Comment.all
+    render :index
   end
 
   def show
@@ -13,9 +11,13 @@ class Api::CommentsController < ApplicationController
     render :show
   end
 
-  def index
-    @comments = Comment.all
-    render :index
+  def create
+    @comment = Comment.new(comment_params)
+    if @comment.save
+      render :show
+    else
+      render json: @comment.errors.full_messages, status: 422
+    end
   end
 
   def update
