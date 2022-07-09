@@ -246,6 +246,7 @@
   display: flex;
   box-sizing: border-box;
   min-height: 51px;
+  margin-bottom: 25px;
 }
 
 .commenter-profile-pic-container {
@@ -253,6 +254,7 @@
   margin-right: 8px;
   box-sizing: border-box;
   display: block;
+  margin-left: 10px;
 }
 
 .commenter-profile-pic {
@@ -278,6 +280,7 @@
   justify-content: space-between;
   align-items: center;
   display: flex;
+  margin: 0px 30px 0px 0px;
   a {
     position: relative;
     text-decoration: none;
@@ -295,16 +298,71 @@
     color: rgb(109, 115, 120);
     white-space: nowrap;
     font-family: Helvetica;
+
   }
-  .commenter-comment-body-container {
-    max-width: 100%;
-    width: 100%;
-    .commenter-comment-body {
-      font-size: 16px;
-      line-height: 20px;
-      margin: 0px;
+}
+
+.commenter-comment-body-container {
+  max-width: 100%;
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  .commenter-comment-body {
+    font-size: 16px;
+    line-height: 20px;
+    margin: 0px;
+    color: rgb(34, 34, 34);
+    font-family: Helvetica;
+  }
+  .comment-actions-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 32px 0px 0px;
+    .delete-comment-button,
+    .edit-comment-button {
+      border: none;
+      cursor: pointer;
+      background-color: rgb(255, 255, 255);
       color: rgb(34, 34, 34);
       font-family: Helvetica;
+      padding: 0;
+      text-align: end;
     }
+    .delete-comment-button:hover,
+    .edit-comment-button:hover {
+      color:rgb(41, 134, 247);
+    }
+  }
+}
+
+.comment-edit-body {
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .comment-edit-area {
+    width: 250px;
+    height: 40px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color:rgb(34, 34, 34);
+    font-family: Helvetica;
+    line-height: 18px;
+    padding: 10px 10px  10px 10px;
+    background-color: white;
+    border: 1px solid #d7d8db;
+    border-radius: 4px;
+    resize: none;
+  }
+  .comment-save-button {
+    border: none;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    color: rgb(34, 34, 34);
+    font-family: Helvetica;
+    text-align: end;
+  }
+  .comment-save-button:hover {
+    color:rgb(41, 134, 247);
   }
 }

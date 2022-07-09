@@ -1,6 +1,7 @@
 import React from 'react';
-import { formatDate } from '../../util/date_util';
+// import { formatDate } from '../../util/date_util';
 import { Link } from 'react-router-dom';
+import CommentIndexItem from './comment_index_item';
 
 class CommentsForm extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class CommentsForm extends React.Component {
     }
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
     this.update = this.update.bind(this);
+    // this.removeComment = this.removeComment.bind(this);
   }
 
   update(e) {
@@ -79,6 +81,11 @@ class CommentsForm extends React.Component {
     )
   }
 
+  // removeComment(e) {
+  //   e.preventDefault();
+  //   this.props.deleteComment(comment.id)
+  // }
+
   render() {
     const currentImageComments = this.props.comments.filter((comment) => comment.imageId === this.props.image.id && comment.parentId === null).reverse();
     // const currentImageReplies = this.props.comments.filter((comment) => comment.imageId === this.props.image.id && comment.parentId)
@@ -86,7 +93,7 @@ class CommentsForm extends React.Component {
     // console.log(... currentImageReplies);
     // const obj = Object.assign({}, currentImageReplies)
     // console.log(obj)
-    debugger
+    // debugger
 
     return (
       <div className="comments-main-container">
@@ -105,36 +112,45 @@ class CommentsForm extends React.Component {
                   <div className="show-comments-inner-container">
                     {
                       currentImageComments.map((comment) => 
-                      <div className="comment-container" key={comment.id}>
-                        {
-                          this.props.users[comment.userId].profilepic ? (
-                            <div className="commenter-profile-pic-container">
-                              <div className="commenter-profile-pic">
-                                <Link to={`/users/${comment.userId}`}>
-                                  <img src={this.props.users[comment.userId].profilepic}/>
-                                </Link>
-                              </div>
-                            </div>
-                            ) : (
-                            <div className="commenter-profile-pic-container">
-                              <div className="commenter-profile-pic">
-                                <Link to={`/users/${comment.userId}`}>
-                                <img src={window.userIcon}/>
-                                </Link>
-                              </div>
-                            </div>
-                          )
-                        }
-                        <div className="commenter-comment-container">
-                          <div className="commenter-name-date-container">
-                            <Link to={`/users/${comment.userId}`}>{comment.user.fullname.trim() ? comment.user.fullname : comment.user.username}</Link>
-                            <p className="commenter-date">{formatDate(comment.createdAt)}</p>
-                          </div>
-                          <div className="commenter-comment-body-container">
-                            <p className="commenter-comment-body">{comment.body}</p>
-                          </div>
-                        </div>
-                      </div>
+                        <CommentIndexItem 
+                          key={comment.id} 
+                          comment={comment} 
+                          users={this.props.users} 
+                          deleteComment={this.props.deleteComment} 
+                          currentUser={this.props.currentUser}
+                          updateComment={this.props.updateComment} 
+                        />
+                      // <div className="comment-container" key={comment.id}>
+                      //   {
+                      //     this.props.users[comment.userId].profilepic ? (
+                      //       <div className="commenter-profile-pic-container">
+                      //         <div className="commenter-profile-pic">
+                      //           <Link to={`/users/${comment.userId}`}>
+                      //             <img src={this.props.users[comment.userId].profilepic}/>
+                      //           </Link>
+                      //         </div>
+                      //       </div>
+                      //       ) : (
+                      //       <div className="commenter-profile-pic-container">
+                      //         <div className="commenter-profile-pic">
+                      //           <Link to={`/users/${comment.userId}`}>
+                      //             <img src={window.userIcon}/>
+                      //           </Link>
+                      //         </div>
+                      //       </div>
+                      //     )
+                      //   }
+                      //   <div className="commenter-comment-container">
+                      //     <div className="commenter-name-date-container">
+                      //       <Link to={`/users/${comment.userId}`}>{comment.user.fullname.trim() ? comment.user.fullname : comment.user.username}</Link>
+                      //       <p className="commenter-date">{formatDate(comment.createdAt)}</p>
+                      //     </div>
+                      //     <div className="commenter-comment-body-container">
+                      //       <p className="commenter-comment-body">{comment.body}</p>
+                      //       {this.props.currentUser.id === comment.userId ? <button onClick={this.removeComment}>Delete</button> : <div></div>}
+                      //     </div>
+                      //   </div>
+                      // </div>
                     )
                     }
                   </div>

@@ -23,7 +23,8 @@ class UserShow extends React.Component {
   componentDidMount() {
     this.props.fetchImages();
     this.props.fetchUsers();
-    this.props.user ? this.setState({id: this.props.user.id}) : this.setState({id: Number(this.props.match.params.userId)})
+    this.props.user ? this.setState({id: this.props.user.id}) : this.setState({id: Number(this.props.match.params.userId)});
+    window.scrollTo(0, 0);
   }
 
   // COVER PIC
@@ -663,7 +664,9 @@ class UserShow extends React.Component {
                   </p>
                 </div>
                 <div className="user-galleries-button-container">
-                  <button className="user-galleries-button">Create a new Gallery</button>
+                  <Link to='/'>
+                    <button className="user-galleries-button">Create a new Gallery</button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -702,7 +705,9 @@ class UserShow extends React.Component {
                   </p>
                 </div>
                 <div className="user-groups-button-container">
-                  <button className="user-groups-button">Discover Groups</button>
+                  <Link to='/'>
+                    <button className="user-groups-button">Discover Groups</button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -741,10 +746,14 @@ class UserShow extends React.Component {
                   </p>
                 </div>
                 <div className="user-licensing-upload-button-container">
-                  <button className="user-licensing-upload-button">Upload Photos</button>
+                  <Link to='/images/new'>
+                    <button className="user-licensing-upload-button">Upload Photos</button>
+                  </Link>
                 </div>
                 <div className="user-licensing-choose-button-container">
-                  <button className="user-licensing-choose-button">Choose from Photo Manager</button>
+                  <Link to='/'>
+                    <button className="user-licensing-choose-button">Choose from Photo Manager</button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -785,7 +794,9 @@ class UserShow extends React.Component {
                   </p>
                 </div>
                 <div className="user-resources-button-container">
-                  <button className="user-resources-button">Add a Resource</button>
+                  <Link to='/'>
+                    <button className="user-resources-button">Add a Resource</button>
+                  </Link>
                 </div>
                 <div className="user-resources-text">
                   <p>
@@ -808,7 +819,9 @@ class UserShow extends React.Component {
                   <span>Add Resume</span>
                 </h4>
                 <p className="user-resume-text">Show you're available for hire. List your years of experience, client testimonials, and specialties.</p>
-                <button className="user-resume-button">Add a Resume</button>
+                <Link to='/'>
+                  <button className="user-resume-button">Add a Resume</button>
+                </Link>
               </div>
             </div>
           </div>

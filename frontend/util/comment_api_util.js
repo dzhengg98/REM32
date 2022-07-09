@@ -14,7 +14,7 @@ export const fetchComment = (commentId) => {
       url: `/api/comments/${commentId}`,
     })
   )
-}
+};
 
 export const createComment = (comment) => {
   return (
@@ -24,4 +24,23 @@ export const createComment = (comment) => {
       data: { comment }
     })
   )
+};
+
+export const updateComment = (comment) => {
+  return (
+    $.ajax({
+      method: 'PATCH',
+      url: `/api/comments/${comment.id}`,
+      data: { comment }
+    })
+  )
 }
+
+export const deleteComment = (commentId) => {
+  return (
+    $.ajax({
+      method: 'DELETE',
+      url: `/api/comments/${commentId}`,
+    })
+  )
+};

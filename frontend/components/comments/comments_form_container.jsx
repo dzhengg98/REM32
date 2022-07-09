@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import CommentsForm from './comments_form';
-import { fetchComments, fetchComment, createComment } from '../../actions/comment_actions';
+import { fetchComments, fetchComment, createComment, deleteComment, updateComment } from '../../actions/comment_actions';
 import { fetchImage } from '../../actions/image_actions';
 import { fetchUsers } from '../../actions/user_actions';
 
@@ -21,6 +21,8 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
   return {
+    updateComment: (comment) => dispatch(updateComment(comment)),
+    deleteComment: (commentId) => dispatch(deleteComment(commentId)),
     fetchComments: () => dispatch(fetchComments()),
     fetchComment: (commentId) => dispatch(fetchComment(commentId)),
     createComment: (comment) => dispatch(createComment(comment)),

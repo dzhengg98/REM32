@@ -1,4 +1,4 @@
-import { RECEIVE_COMMENT, RECEIVE_COMMENTS } from '../actions/comment_actions';
+import { RECEIVE_COMMENT, RECEIVE_COMMENTS, REMOVE_COMMENT } from '../actions/comment_actions';
 
 const commentsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -8,7 +8,10 @@ const commentsReducer = (state = {}, action) => {
     case RECEIVE_COMMENTS:
       return Object.assign({}, newState, action.comments);
     case RECEIVE_COMMENT:
-      return Object.assign({}, newState, {[action.comment.id]: action.comment})
+      return Object.assign({}, newState, {[action.comment.id]: action.comment});
+    case REMOVE_COMMENT:
+      delete newState[action.comment.id];
+      return newState;
     default:
       return state;
   }
