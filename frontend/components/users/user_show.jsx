@@ -24,6 +24,7 @@ class UserShow extends React.Component {
     this.props.fetchImages();
     this.props.fetchUsers();
     this.props.user ? this.setState({id: this.props.user.id}) : this.setState({id: Number(this.props.match.params.userId)});
+    this.props.fetchLikes();
     window.scrollTo(0, 0);
   }
 
@@ -275,13 +276,18 @@ class UserShow extends React.Component {
   // PROFILE LIKES IMPRESSIONS
 
   userProfileLikesImpressions() {
+    let a = []
+    let b = []
+    this.props.images.filter(image => image.uploaderId === this.props.user.id).forEach(image => a.push(image.id));
+    a.forEach(n => (b.push(this.props.likes.filter(like => like.imageId === n))));
+
     return this.props.currentUser.id === this.props.user.id ? (
       <div className="user-profile-likes-impressions-container">
         <div className="user-profile-likes">
-          <p><span className="user-profile-likes-number">0 Photo Likes</span></p>
+          <p><span className="user-profile-likes-number">{b.length} Photo Likes</span></p>
         </div>
         <div className="user-profile-impressions">
-          <p><span className="user-profile-impressions-number">0 Photo Impressions</span></p>
+          <p><span className="user-profile-impressions-number">{a.length*b.length} Photo Impressions</span></p>
           <div className="user-profile-impressions-info">
             {/* <div>Info</div> */}
             <svg width="16" height="16" clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 8c-.414 0-.75.336-.75.75v5.5c0 .414.336.75.75.75s.75-.336.75-.75v-5.5c0-.414-.336-.75-.75-.75zm-.002-3c-.552 0-1 .448-1 1s.448 1 1 1 1-.448 1-1-.448-1-1-1z" fillRule="nonzero"/></svg>          </div>
@@ -298,10 +304,10 @@ class UserShow extends React.Component {
           <p>Following</p>
         </div>
         <div className="other-user-profile-likes">
-          <p><span className="other-user-profile-likes-number">0 Photo Likes</span></p>
+          <p><span className="other-user-profile-likes-number">{b.length} Photo Likes</span></p>
         </div>
         <div className="other-user-profile-impressions">
-          <p><span className="other-user-profile-impressions-number">0 Photo Impressions</span></p>
+          <p><span className="other-user-profile-impressions-number">{a.length*b.length+12} Photo Impressions</span></p>
           <div className="other-user-profile-impressions-info">
             {/* <div>Info</div> */}
             <svg width="16" height="16" clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 8c-.414 0-.75.336-.75.75v5.5c0 .414.336.75.75.75s.75-.336.75-.75v-5.5c0-.414-.336-.75-.75-.75zm-.002-3c-.552 0-1 .448-1 1s.448 1 1 1 1-.448 1-1-.448-1-1-1z" fillRule="nonzero"/></svg>
@@ -839,7 +845,7 @@ class UserShow extends React.Component {
 
   render() {
     const navBar = this.state.nav;
-    // debugger
+    debugger
     if (!Object.keys(this.props.users).includes(this.props.match.params.userId)) return <ErrorPage/>
     return (
       <div>

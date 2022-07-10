@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const ImageIndexItem = (props) => {
   // debugger
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+  
   return (
     <div className="image-display-main">
       <Link to={`/images/${props.image.id}`} className="image-link">

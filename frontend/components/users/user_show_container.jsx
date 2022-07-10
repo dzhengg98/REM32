@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import UserShow from './user_show';
 import { fetchImages, fetchImage } from '../../actions/image_actions';
 import { fetchUsers, updateUserProfilePic } from '../../actions/user_actions'; //, updateUser, updateUserProfilePic
+import { fetchLikes } from '../../actions/like_actions';
 
 const mSTP = (state, ownProps) => {
   // debugger
@@ -9,7 +10,8 @@ const mSTP = (state, ownProps) => {
     user: state.entities.users[ownProps.match.params.userId],
     currentUser: state.entities.users[state.session.id],
     images: Object.values(state.entities.images),
-    users: state.entities.users
+    users: state.entities.users,
+    likes: Object.values(state.entities.likes),
   }
   // debugger
 };
@@ -20,6 +22,7 @@ const mDTP = dispatch => {
     fetchImage: (imageId) => dispatch(fetchImage(imageId)),
     fetchUsers: () => dispatch(fetchUsers()),
     // updateUser: (user) => dispatch(updateUser(user)),
+    fetchLikes: () => dispatch(fetchLikes()),
     updateUserProfilePic: (image, userId) => dispatch(updateUserProfilePic(image, userId))
   }
 };

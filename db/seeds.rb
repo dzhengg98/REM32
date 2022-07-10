@@ -1400,3 +1400,24 @@ comment66 = Comment.create({
 })
 
 comment66.save!
+
+like1 = Like.create({
+  liker_id: 1,
+  image_id: 66
+})
+
+like1.save!
+
+like2 = Like.create({ 
+  liker_id: 1, 
+  image_id: 65 
+})
+
+like2.save!
+
+like3 = Like.create({ 
+  liker_id: 2, 
+  image_id: 65 
+})
+
+like3.save!

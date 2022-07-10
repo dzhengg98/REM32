@@ -8,12 +8,16 @@ import Footer from '../footer/footer';
 class ImageShow extends React.Component {
   constructor(props) {
     super(props);
+    this.addLike = this.addLike.bind(this);
+    this.removeLike = this.removeLike.bind(this);
   }
 
   componentDidMount() {
-    // debugger
-    this.props.fetchUsers().then(() => this.props.fetchImages().then(() => this.props.fetchImage()));
-    this.props.fetchComments();
+    const { fetchUsers, fetchImages, fetchImage, fetchComments, fetchLikes } = this.props;
+
+    fetchUsers().then(() => fetchImages().then(() => fetchImage()));
+    fetchComments();
+    fetchLikes();
     window.scrollTo(0, 0);
   }
 
@@ -24,6 +28,37 @@ class ImageShow extends React.Component {
       </Link>
     ):(
       <div></div>
+    )
+  }
+
+  addLike(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    const like = {
+      liker_id: this.props.currentUserId,
+      image_id: this.props.image.id
+    }
+
+    this.props.createLike(like);
+  }
+
+  removeLike(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const likeId = this.props.likes.filter(like => like.imageId === this.props.image.id).filter(like => like.likerId === this.props.currentUserId)[0].id
+
+    this.props.deleteLike(likeId);
+  }
+
+  likeable() {
+    const currentUserLike = this.props.likes.filter(like => like.imageId === this.props.image.id).filter(like => like.likerId === this.props.currentUserId).length
+    return (
+      <div onClick={ currentUserLike ? this.removeLike : this.addLike } className="svg-like-icon">
+        <div className={ currentUserLike ? 'image-show-like-icon-blue' : "image-show-like-icon"}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.308 11.794c.418.056.63.328.63.61 0 .323-.277.66-.844.705-.348.027-.434.312-.016.406.351.08.549.326.549.591 0 .314-.279.654-.913.771-.383.07-.421.445-.016.477.344.026.479.146.479.312 0 .466-.826 1.333-2.426 1.333-2.501.001-3.407-1.499-6.751-1.499v-4.964c1.766-.271 3.484-.817 4.344-3.802.239-.831.39-1.734 1.187-1.734 1.188 0 1.297 2.562.844 4.391.656.344 1.875.468 2.489.442.886-.036 1.136.409 1.136.745 0 .505-.416.675-.677.755-.304.094-.444.404-.015.461z"/></svg>
+        </div>
+      </div>
     )
   }
 
@@ -39,17 +74,24 @@ class ImageShow extends React.Component {
     )
   }
 
+  likeAmount() {
+    const likesAmount = this.props.likes.filter(like => like.imageId === this.props.image.id).length
+    
+    return likesAmount === 0 ? (
+      <span>0 people liked this</span>
+    ) : (
+      likesAmount === 1 ? (
+        <span>1 person liked this</span>
+      ) : (
+        <span>{likesAmount} people liked this</span>
+      )
+    )
+  }
+
   render() {
     // debugger
-    // const uploaderId = this.props.image.uploaderId
-
     if (!this.props.image) return <ErrorPage />
-    // console.log(this.props.image.createdAt)
-    // console.log(formatDate(this.props.image.createdAt))
-    // console.log(this.props.image.uploaderId);
-    // console.log(this.props.users)
-    // console.log(this.props.users[this.props.image.uploaderId])
-    // console.log(this.props.users[this.props.image.uploaderId]['username'])
+    if (!this.props.likes) return <ErrorPage />
 
     return (
       <div>
@@ -68,11 +110,7 @@ class ImageShow extends React.Component {
             <div className="inner-info-comment-container">
               <div className="image-info-container">
                 <div className="icons">
-                  <div className="svg-icon">
-                    <div className="image-show-like-icon">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.308 11.794c.418.056.63.328.63.61 0 .323-.277.66-.844.705-.348.027-.434.312-.016.406.351.08.549.326.549.591 0 .314-.279.654-.913.771-.383.07-.421.445-.016.477.344.026.479.146.479.312 0 .466-.826 1.333-2.426 1.333-2.501.001-3.407-1.499-6.751-1.499v-4.964c1.766-.271 3.484-.817 4.344-3.802.239-.831.39-1.734 1.187-1.734 1.188 0 1.297 2.562.844 4.391.656.344 1.875.468 2.489.442.886-.036 1.136.409 1.136.745 0 .505-.416.675-.677.755-.304.094-.444.404-.015.461z"/></svg>
-                    </div>
-                  </div>
+                  {this.likeable()}
                   <div className="svg-icon">
                     <div className="image-show-gallery-icon">
                       <svg width="36" height="36" clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m20 20h-15.25c-.414 0-.75.336-.75.75s.336.75.75.75h15.75c.53 0 1-.47 1-1v-15.75c0-.414-.336-.75-.75-.75s-.75.336-.75.75zm-1-17c0-.478-.379-1-1-1h-15c-.62 0-1 .519-1 1v15c0 .621.52 1 1 1h15c.478 0 1-.379 1-1zm-9.25 6.75v-3c0-.414.336-.75.75-.75s.75.336.75.75v3h3c.414 0 .75.336.75.75s-.336.75-.75.75h-3v3c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-3h-3c-.414 0-.75-.336-.75-.75s.336-.75.75-.75z" fillRule="nonzero"/></svg>
@@ -123,7 +161,7 @@ class ImageShow extends React.Component {
                 <div className="image-show-like-counter-container">
                   <span className="image-show-like-counter-hover-effect">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.308 11.794c.418.056.63.328.63.61 0 .323-.277.66-.844.705-.348.027-.434.312-.016.406.351.08.549.326.549.591 0 .314-.279.654-.913.771-.383.07-.421.445-.016.477.344.026.479.146.479.312 0 .466-.826 1.333-2.426 1.333-2.501.001-3.407-1.499-6.751-1.499v-4.964c1.766-.271 3.484-.817 4.344-3.802.239-.831.39-1.734 1.187-1.734 1.188 0 1.297 2.562.844 4.391.656.344 1.875.468 2.489.442.886-.036 1.136.409 1.136.745 0 .505-.416.675-.677.755-.304.094-.444.404-.015.461z"/></svg>
-                    <span>0 people liked this</span>
+                    {this.likeAmount()}
                   </span>
                 </div>
                 <div className="image-show-category">

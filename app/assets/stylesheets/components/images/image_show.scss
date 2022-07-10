@@ -53,9 +53,14 @@
   padding: 20px;
 }
 
-.svg-icon {
+.svg-icon, 
+.svg-like-icon {
   margin-right: 30px;
   cursor: pointer;
+}
+
+.image-show-like-icon-blue {
+  fill: rgb(8, 112, 209);
 }
 
 .image-show-uploader-info-container {
@@ -293,6 +298,7 @@
 
 .image-show-like-counter-hover-effect:hover {
   color: rgb(8, 112, 209);
+  fill: rgb(8, 112, 209);
 }
 
 .image-show-info-category-title,
