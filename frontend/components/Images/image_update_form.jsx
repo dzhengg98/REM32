@@ -15,29 +15,31 @@ class ImageUpdateForm extends React.Component {
   }
 
   componentWillUnmount() {
-    if (this.props.errors.length) {
-      this.props.clearImageErrors();
-    }
+    const { errors, clearImageErrors } = this.props;
+    if (errors.length) { clearImageErrors(); }
   }
 
   componentDidMount() {
-    this.props.fetchImage(this.props.imageId)
+    const { fetchImage, imageId } = this.props;
+    fetchImage(imageId);
   }
 
   componentDidUpdate() {
-    if (this.props.image && this.state.id !== this.props.image.id) {
+    const { image } = this.props;
+    if (image && this.state.id !== image.id) {
       this.setState({
-        title: this.props.image.title,
-        description: this.props.image.description,
-        imageUrl: this.props.image.imageUrl,
-        id: this.props.image.id
+        title: image.title,
+        description: image.description,
+        imageUrl: image.imageUrl,
+        id: image.id
       })
     }
   }
 
   handleSubmit(e) {
+    const { editImage, history, image } = this.props;
     e.preventDefault();
-    this.props.editImage(this.state).then(() => {this.props.history.push(`/images/${this.props.image.id}`);})
+    editImage(this.state).then(() => {history.push(`/images/${image.id}`);})
   }
 
   update(field) {
@@ -45,12 +47,14 @@ class ImageUpdateForm extends React.Component {
   }
 
   delete() {
-    this.props.deleteImage(this.props.imageId).then(() => {this.props.history.push(`/`);})
+    const { deleteImage, imageId, history } = this.props;
+    deleteImage(imageId).then(() => {history.push(`/`);})
   }
 
   hasAccess() {
-    // debugger
-    return this.props.image.uploaderId === this.props.currentUserId ? (
+    const { image, currentUserId, errors } = this.props;
+    const { imageUrl, title, description } = this.state;
+    return image.uploaderId === currentUserId ? (
       <div className="image-update-container">
         <div className="block-space"></div>
         <div className="photo-manager-text"><span>Photo manager</span></div>
@@ -86,7 +90,7 @@ class ImageUpdateForm extends React.Component {
             <div className="image-update-status-description">Accessible everywhere, including on Profile</div>
             <img 
               className="image-update-preview-image" 
-              src={this.state.imageUrl} 
+              src={imageUrl} 
             />
           </div>
 
@@ -102,7 +106,7 @@ class ImageUpdateForm extends React.Component {
                 id="image-update-title"
                 className="image-update-title-field"
                 type="text"
-                value={this.state.title}
+                value={title}
                 placeholder="Title"
                 onChange={this.update('title')}
                 required
@@ -116,31 +120,23 @@ class ImageUpdateForm extends React.Component {
                 id="image-update-description"
                 className="image-update-description-field"
                 type="text"
-                value={this.state.description}
+                value={description}
                 placeholder="e.g. Low angle view of young African man surfing in the ocean with a clear blue sky"
                 onChange={this.update('description')}
                 required
               />
             </div>
             <div>
-              {this.props.errors.length ? (this.props.errors.map((error, i) => (
+              {errors.length ? (errors.map((error, i) => (
                 <p key={i} className="image-update-errors">{error}</p>
               ))) : (<div></div>)}
             </div>
             <div className="update-image-buttons-container">
               <div className="delete-image-button-container">
-                <button
-                  className="delete-image-button"
-                  onClick={this.delete}
-                >Delete photo
-                </button>
+                <button className="delete-image-button" onClick={this.delete}> Delete photo </button>
               </div>
               <div className="update-image-button-container">
-                <button
-                  className="update-image-button"
-                  onClick={this.handleSubmit}
-                >Save changes
-                </button>
+                <button className="update-image-button" onClick={this.handleSubmit}> Save changes </button>
               </div>
             </div>
           </div>          

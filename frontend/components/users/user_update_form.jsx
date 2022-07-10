@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 class UserUpdateForm extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
     this.state = {
       first_name: "",
       last_name: "",
@@ -19,7 +18,6 @@ class UserUpdateForm extends React.Component {
       id: ""
     }
     this.handleSubmit = this.handleSubmit.bind(this);
-    // debugger
   }
 
   componentDidMount() {
@@ -27,25 +25,27 @@ class UserUpdateForm extends React.Component {
   }
 
   componentDidUpdate() {
-    if (this.props.user && this.state.id.length === 0) {
+    const { user } = this.props;
+    if (user && this.state.id.length === 0) {
       this.setState({
-        first_name: this.props.user.firstName,
-        last_name: this.props.user.lastName,
-        city: this.props.user.city,
-        country: this.props.user.country,
-        about: this.props.user.about,
-        website: this.props.user.website,
-        instagram: this.props.user.instagram,
-        facebook: this.props.user.facebook,
-        twitter: this.props.user.twitter,
-        id: this.props.user.id
+        first_name: user.firstName,
+        last_name: user.lastName,
+        city: user.city,
+        country: user.country,
+        about: user.about,
+        website: user.website,
+        instagram: user.instagram,
+        facebook: user.facebook,
+        twitter: user.twitter,
+        id: user.id
       })
     }
   }
 
   handleSubmit(e) {
+    const { updateUser, history, currentUserId } = this.props;
     e.preventDefault();
-    this.props.updateUser(this.state).then(() => {this.props.history.push(`/users/${this.props.currentUserId}`)})
+    updateUser(this.state).then(() => {history.push(`/users/${currentUserId}`)})
   }
 
   update(field) {
@@ -53,13 +53,14 @@ class UserUpdateForm extends React.Component {
   }
 
   hasAccess() {
-    // debugger
-    return Number(this.props.userId) === this.props.currentUserId ? (
+    const { userId, currentUserId } = this.props;
+    const {first_name, last_name, city, country, about, website, instagram, facebook, twitter } = this.state;
+    return Number(userId) === currentUserId ? (
       <div className="user-update-container">
         <div className="block-space"></div>
         <div className="user-update-profile-title-container">
           <div className="user-update-profile-title-arrow-icon">
-            <Link to={`/users/${this.props.currentUserId}`} >
+            <Link to={`/users/${currentUserId}`} >
               <svg height="24" weight="24" clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m9.474 5.209s-4.501 4.505-6.254 6.259c-.147.146-.22.338-.22.53s.073.384.22.53c1.752 1.754 6.252 6.257 6.252 6.257.145.145.336.217.527.217.191-.001.383-.074.53-.221.293-.293.294-.766.004-1.057l-4.976-4.976h14.692c.414 0 .75-.336.75-.75s-.336-.75-.75-.75h-14.692l4.978-4.979c.289-.289.287-.761-.006-1.054-.147-.147-.339-.221-.53-.221-.191-.001-.38.071-.525.215z" fillRule="nonzero"/></svg>
             </Link>
           </div>
@@ -78,7 +79,7 @@ class UserUpdateForm extends React.Component {
                     id="user-update-first-name"
                     className="user-update-first-name-field"
                     type="text"
-                    value={this.state.first_name}
+                    value={first_name}
                     placeholder="First Name"
                     onChange={this.update('first_name')}
                   />
@@ -91,7 +92,7 @@ class UserUpdateForm extends React.Component {
                     id="user-update-last-name"
                     className="user-update-last-name-field"
                     type="text"
-                    value={this.state.last_name}
+                    value={last_name}
                     placeholder="Last Name"
                     onChange={this.update('last_name')}
                   />
@@ -106,7 +107,7 @@ class UserUpdateForm extends React.Component {
                     id="user-update-city"
                     className="user-update-city-field"
                     type="text"
-                    value={this.state.city}
+                    value={city}
                     placeholder="City"
                     onChange={this.update('city')}
                   />
@@ -119,7 +120,7 @@ class UserUpdateForm extends React.Component {
                     id="user-update-country"
                     className="user-update-country-field"
                     type="text"
-                    value={this.state.country}
+                    value={country}
                     placeholder="country"
                     onChange={this.update('country')}
                   />
@@ -134,7 +135,7 @@ class UserUpdateForm extends React.Component {
                     id="user-update-about"
                     className="user-update-about-field"
                     type="text"
-                    value={this.state.about}
+                    value={about}
                     placeholder="Write a about page"
                     onChange={this.update('about')}
                   />
@@ -150,7 +151,7 @@ class UserUpdateForm extends React.Component {
                     id="user-update-website"
                     className="user-update-website-field"
                     type="text"
-                    value={this.state.website}
+                    value={website}
                     placeholder="website"
                     onChange={this.update('website')}
                   />
@@ -163,7 +164,7 @@ class UserUpdateForm extends React.Component {
                     id="user-update-instagram"
                     className="user-update-instagram-field"
                     type="text"
-                    value={this.state.instagram}
+                    value={instagram}
                     placeholder="instagram"
                     onChange={this.update('instagram')}
                   />
@@ -178,7 +179,7 @@ class UserUpdateForm extends React.Component {
                     id="user-update-facebook"
                     className="user-update-facebook-field"
                     type="text"
-                    value={this.state.facebook}
+                    value={facebook}
                     placeholder="facebook"
                     onChange={this.update('facebook')}
                   />
@@ -191,7 +192,7 @@ class UserUpdateForm extends React.Component {
                     id="user-update-twitter"
                     className="user-update-twitter-field"
                     type="text"
-                    value={this.state.twitter}
+                    value={twitter}
                     placeholder="twitter"
                     onChange={this.update('twitter')}
                   />
@@ -199,7 +200,7 @@ class UserUpdateForm extends React.Component {
               </div>
               <div className="user-update-buttons-container">
                 <div className="user-update-cancel-button-container">
-                  <Link to={`/users/${this.props.currentUserId}`}>
+                  <Link to={`/users/${currentUserId}`}>
                     <button className="user-update-cancel-button">Cancel</button>
                   </Link>
                 </div>
@@ -215,8 +216,6 @@ class UserUpdateForm extends React.Component {
   }
 
   render() {
-    // debugger
-    
     return (
       <div className="user-update-main-container">
         {this.hasAccess()}

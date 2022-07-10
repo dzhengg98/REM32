@@ -4,7 +4,7 @@ import ImageIndexContainer from '../Images/image_index_container';
 import Footer from '../footer/footer';
 import DeveloperMessage from './developer_message';
 
-const Home = (props) => {
+const Home = () => {
   return (
     <div className="home-page">
       <div className="home-wrapper">

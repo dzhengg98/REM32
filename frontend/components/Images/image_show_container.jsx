@@ -6,14 +6,12 @@ import { fetchComments } from '../../actions/comment_actions';
 import { fetchLikes, createLike, deleteLike } from '../../actions/like_actions';
 
 const mSTP = (state, ownProps) => {
-  // debugger
   return {
     image: state.entities.images[ownProps.match.params.imageId],
     currentUserId: state.session.id,
     users: state.entities.users,
     likes: Object.values(state.entities.likes),
   }
-  // debugger
 }
 
 const mDTP = (dispatch, ownProps) => {

@@ -4,13 +4,7 @@ import { fetchComments, fetchComment, createComment, deleteComment, updateCommen
 import { fetchImage } from '../../actions/image_actions';
 import { fetchUsers } from '../../actions/user_actions';
 
-// currentUser = state.entities.users[state.session.id]
-
-// need image we are referencing
-// need fetchComments, fetchComment, createComment, fetchImage, fetchUsers
-
 const mSTP = (state) => {
-  // debugger
   return {
     currentUser: state.entities.users[state.session.id],
     images: state.entities.images,

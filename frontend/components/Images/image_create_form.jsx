@@ -2,39 +2,32 @@ import React from 'react';
 
 class ImageCreateForm extends React.Component {
   constructor(props) {
-    //debugger
     super(props);
-    //debugger
     this.state = {
       title: "",
       description: "",
       imageFile: null,
       imageUrl: null,
     }
-    //debugger
     this.handleImageSubmit = this.handleImageSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
   }
 
   componentWillUnmount() {
-    if (this.props.errors.length) {
-      this.props.clearImageErrors();
-    }
+    const { errors, clearImageErrors } = this.props;
+    if (errors.length) { clearImageErrors(); }
   }
 
   update(field) {
-    //debugger
     return e => {this.setState({[field]: e.target.value})}
   }
 
   handleFile(e) {
-    //debugger
     e.preventDefault();
     const fileReader = new FileReader();
     const file = e.currentTarget.files[0];
 
     fileReader.onloadend = () => {
-      //debugger
       this.setState({
         imageFile: file,
         imageUrl: fileReader.result,
@@ -42,39 +35,30 @@ class ImageCreateForm extends React.Component {
     }
 
     if (file) {
-      //debugger
       fileReader.readAsDataURL(file);
     } else {
-      //debugger
       this.setState({
         imageFile: null,
         imageUrl: null,
       })
-      //debugger
     }
   }
 
   handleImageSubmit(e) {
-    //debugger
+    const { createImage, history } = this.props;
     e.preventDefault();
     const formData = new FormData();
     if (this.state.imageFile) {
       formData.append('image[title]', this.state.title);
       formData.append('image[description]', this.state.description);
       formData.append('image[image]', this.state.imageFile);
-      //debugger
     }
-    // debugger
-    this.props.createImage(formData).then(() => {this.props.history.push(`/`);})
-    //debugger
+    createImage(formData).then(() => {history.push(`/`);})
   }
 
   preview() {
     return this.state.imageUrl ? (
-      <img 
-        className="image-preview-img"
-        src={this.state.imageUrl}
-      />
+      <img className="image-preview-img" src={this.state.imageUrl} />
     ) : (
       null
     )

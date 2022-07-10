@@ -21,30 +21,33 @@ class UserShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchImages();
-    this.props.fetchUsers();
-    this.props.user ? this.setState({id: this.props.user.id}) : this.setState({id: Number(this.props.match.params.userId)});
-    this.props.fetchLikes();
+    const { fetchImages, fetchUsers, user, match, fetchLikes } = this.props;
+    fetchImages();
+    fetchUsers();
+    user ? this.setState({id: user.id}) : this.setState({id: Number(match.params.userId)});
+    fetchLikes();
     window.scrollTo(0, 0);
   }
 
   // COVER PIC
 
   userCoverPic() {
-    return this.props.user.coverpic ? (
-      <img className="user-cover-picture-image" src={this.props.user.coverpic}/>
+    const { user } = this.props;
+    return user.coverpic ? (
+      <img className="user-cover-picture-image" src={user.coverpic}/>
     ) : (
       <div></div>
     )
   }
 
   handleCoverPicSubmit() {
+    const { updateUserProfilePic, user } = this.props;
     const formData = new FormData();
     if (this.state.coverpic) {
       formData.append('user[coverpic]', this.state.coverpic);
       formData.append('user[id]', this.state.id);
     }
-    this.props.updateUserProfilePic(formData, this.props.user.id);
+    updateUserProfilePic(formData, user.id);
   }
 
   handleCoverPicFile(e) {
@@ -63,8 +66,6 @@ class UserShow extends React.Component {
       fileReader.readAsDataURL(file);
     }
   }
-
-  // COVER EDIT
   
   userCoverEdit() {
     return (
@@ -77,9 +78,8 @@ class UserShow extends React.Component {
     )
   }
 
-  // PROFILE PIC
-
   handleProfilePicSubmit() {
+    const { updateUserProfilePic, user } = this.props;
     const formData = new FormData();
 
     if (this.state.profilepic) {
@@ -87,12 +87,13 @@ class UserShow extends React.Component {
       formData.append('user[id]', this.state.id);
     }
 
-    this.props.updateUserProfilePic(formData, this.props.user.id);
+    updateUserProfilePic(formData, user.id);
   }
 
   userProfilePic() {
-    return this.props.user.profilepic ? (
-      <img className="circular profile-image" src={this.props.user.profilepic}/>
+    const { user } = this.props;
+    return user.profilepic ? (
+      <img className="circular profile-image" src={user.profilepic}/>
     ) : (
       <img className="circular profile-image" src={window.userIcon}/>
     )
@@ -115,7 +116,6 @@ class UserShow extends React.Component {
     }
   }
 
-  // PROFILE EDIT
   userProfileEdit() {
     return (
       <div className="user-profile-picture-input-container">
@@ -127,13 +127,13 @@ class UserShow extends React.Component {
     )
   }
 
-  // PROFILE ICONS
   userProfileIcons() {
-    return this.props.currentUser.id === this.props.user.id ? (
+    const { currentUser, user } = this.props;
+    return currentUser.id === user.id ? (
       <div className="user-profile-main-icons">
         <div className="user-profile-icon-container">
           <div className="user-profile-edit-icon">
-            <Link to={`/users/${this.props.currentUser.id}/edit`}>
+            <Link to={`/users/${currentUser.id}/edit`}>
             </Link>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.424 12.282l4.402 4.399-5.826 1.319 1.424-5.718zm15.576-6.748l-9.689 9.804-4.536-4.536 9.689-9.802 4.536 4.534zm-6 8.916v6.55h-16v-12h6.743l1.978-2h-10.721v16h20v-10.573l-2 2.023z"/></svg>          </div>
         </div>
@@ -178,32 +178,32 @@ class UserShow extends React.Component {
     )
   }
 
-  // PROFILE NAME
   userProfileName() {
-    return this.props.user.firstName && this.props.user.lastName ? (
+    const { user } = this.props;
+    return user.firstName && user.lastName ? (
       <div className="user-profile-full-name-container">
         <h1 className="user-profile-full-name">
-        {this.props.user.firstName} {this.props.user.lastName}
+          {user.firstName} {user.lastName}
         </h1>
       </div>
     ) : (
-      this.props.user.firstName ? (
+      user.firstName ? (
         <div className="user-profile-full-name-container">
           <h1 className="user-profile-full-name">
-          {this.props.user.firstName}
+            {user.firstName}
           </h1>
         </div>
       ) : (
-        this.props.user.lastName? (
+        user.lastName? (
         <div className="user-profile-full-name-container">
           <h1 className="user-profile-full-name">
-          {this.props.user.lastName}
+            {user.lastName}
           </h1>
         </div>
       ) : (
           <div className="user-profile-full-name-container">
             <h1 className="user-profile-full-name">
-              {this.props.user.username}
+              {user.username}
             </h1>
           </div>
         )
@@ -211,35 +211,34 @@ class UserShow extends React.Component {
     )
   }
 
-  // PROFILE LOCATION
-
   userProfileLocation() {
-    return (this.props.user.city && this.props.user.country) ? (
-      <div className={`${this.props.currentUser.id === this.props.user.id ? ('user-profile-location-container') : ('other-user-profile-location-container')}`}>
-        <div className={`${this.props.currentUser.id === this.props.user.id ? ('user-profile-location-icon') : ('other-user-profile-location-icon')}`}>
+    const { user, currentUser } = this.props;
+    return (user.city && user.country) ? (
+      <div className={`${currentUser.id === user.id ? ('user-profile-location-container') : ('other-user-profile-location-container')}`}>
+        <div className={`${currentUser.id === user.id ? ('user-profile-location-icon') : ('other-user-profile-location-icon')}`}>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13.144 8.171c-.035-.066.342-.102.409-.102.074.009-.196.452-.409.102zm-.461 15.795c-.228.013-.453.034-.683.034-6.628 0-12-5.373-12-12s5.372-12 12-12c6.627 0 12 5.373 12 12 0 .23-.021.455-.034.682-.582-.652-1.266-1.209-2.031-1.643-.064-.679-.182-1.293-.306-1.671-.058-.174-.189-.312-.359-.378-.256-.1-1.337.597-1.5.254-.107-.229-.324.146-.572.008-.12-.066-.454-.515-.605-.46-.309.111.474.964.688 1.076.201-.152.852-.465.992-.038.056.166.047.335.009.504-.725-.215-1.489-.334-2.282-.334-2.885 0-5.69 1.602-7.103 4.328-.126.058-.25.121-.381.161-.346.104-.7-.082-1.042-.125-1.407-.178-1.866-1.786-1.499-2.946.037-.19-.114-.542-.048-.689.158-.352.48-.747.762-1.014.158-.15.361-.112.547-.229.287-.181.291-.553.572-.781.4-.325.946-.318 1.468-.388.278-.037 1.336-.266 1.503-.06 0 .038.191.604-.019.572.433.023 1.05.749 1.461.579.211-.088.134-.736.567-.423.262.188 1.436.272 1.68.069.15-.124.234-.93.052-1.021.116.115-.611.124-.679.098-.12-.044-.232.114-.425.025.116.055-.646-.354-.218-.667-.179.131-.346-.037-.539.107-.133.108.062.18-.128.274-.302.153-.53-.525-.644-.602-.116-.076-1.014-.706-.77-.295l.789.785c-.039.025-.207-.286-.207-.059.053-.135.02.579-.104.347-.055-.089.09-.139.006-.268 0-.085-.228-.168-.272-.226-.125-.155-.457-.497-.637-.579-.05-.023-.764.087-.824.11-.07.098-.13.201-.179.311-.148.055-.287.126-.419.214l-.157.353c-.068.061-.765.291-.769.3.029-.075-.487-.171-.453-.321.038-.165.213-.68.168-.868-.048-.197 1.074.284 1.146-.235.029-.225.046-.487-.313-.525.068.008.695-.246.799-.36.146-.168.481-.442.724-.442.284 0 .223-.413.354-.615.131.053-.07.376.087.507-.01-.103.445.057.489.033.105-.055.685-.023.595-.295-.1-.277.051-.195.181-.253-.02.008.245-.454.359-.452-.103-.088-.395.111-.51.102-.305-.024-.176-.52-.061-.665.089-.115-.243-.256-.247-.036-.006.329-.312.627-.241 1.064.108.659-.735-.159-.809-.114-.28.17-.509-.214-.364-.444.148-.235.505-.224.652-.476.104-.178.225-.385.385-.52.535-.449.683-.09 1.216-.041.521.048.176.124.104.324-.069.19.286.258.409.099.07-.092.229-.323.298-.494.089-.222.901-.197.334-.536-.374-.223-2.004-.672-3.096-.672-.236 0-.401.263-.581.412-.356.295-1.268.874-1.775.698-.519-.179-1.63.66-1.808.666-.065.004.004-.634.358-.681-.153.023 1.247-.707 1.209-.859-.046-.18-2.799.822-2.676 1.023.059.092.299.092-.016.294-.18.109-.372.801-.541.801-.505.221-.537-.435-1.099.409l-.894.36c-1.328 1.411-2.247 3.198-2.58 5.183-.013.079.334.226.379.28.112.134.112.712.167.901.138.478.479.744.74 1.179.154.259.41.914.329 1.186.108-.178 1.07.815 1.246 1.022.414.487.733 1.077.061 1.559-.217.156.33 1.129.048 1.368l-.361.093c-.356.219-.195.756.021.982 1.611 1.686 3.809 2.804 6.265 3.037.434.764.989 1.446 1.641 2.027zm3.007-17.337c-.006-.146-.19-.284-.382-.031-.135.174-.111.439-.184.557-.104.175.567.339.567.174.025-.277.732-.063.87-.025.248.069.643-.226.211-.381-.355-.13-.542-.269-.574-.523 0 0 .188-.176.106-.166-.218.027-.614.786-.614.395zm-5.299-1.089c-.084.085.003.14.089.103.125-.055.293-.053.311-.22.015-.148.044-.046.08-.1.035-.053-.067-.138-.11-.146-.064-.014-.108.069-.149.104l-.072.019-.068.087.008.048-.089.105zm.475.344c.096.136.824-.195.708-.176.225-.113.029-.125-.097-.19-.043-.215-.079-.547-.213-.68l.088-.102c-.207-.299-.36.362-.36.362l.108-.031c.064.055-.072.095-.051.136.086.155.021.248.008.332-.014.085-.104.048-.149.093-.053.066.258.075.262.085.011.033-.375.089-.304.171zm13.134 12.116c0 3.313-2.687 6-6 6s-6-2.687-6-6 2.687-6 6-6 6 2.687 6 6zm-3.5-2.5l-6 2.25 3 .75.754 3 2.246-6z"/></svg>        </div>
-        <div className={`${this.props.currentUser.id === this.props.user.id ? ("user-profile-location-city-country") : ("other-user-profile-location-city-country")}`}>
-          <p>{this.props.user.city.concat(',')} {this.props.user.country}</p>
+        <div className={`${currentUser.id === user.id ? ("user-profile-location-city-country") : ("other-user-profile-location-city-country")}`}>
+          <p>{user.city.concat(',')} {user.country}</p>
         </div>
       </div>
     ) : (
-      (this.props.user.city) ? (
-        <div className={`${this.props.currentUser.id === this.props.user.id ? ("user-profile-location-container") : ("other-user-profile-location-container")}`}>
-          <div className={`${this.props.currentUser.id === this.props.user.id ? ("user-profile-location-icon") : ("other-user-profile-location-icon")}`}>
+      (user.city) ? (
+        <div className={`${currentUser.id === user.id ? ("user-profile-location-container") : ("other-user-profile-location-container")}`}>
+          <div className={`${currentUser.id === user.id ? ("user-profile-location-icon") : ("other-user-profile-location-icon")}`}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13.144 8.171c-.035-.066.342-.102.409-.102.074.009-.196.452-.409.102zm-.461 15.795c-.228.013-.453.034-.683.034-6.628 0-12-5.373-12-12s5.372-12 12-12c6.627 0 12 5.373 12 12 0 .23-.021.455-.034.682-.582-.652-1.266-1.209-2.031-1.643-.064-.679-.182-1.293-.306-1.671-.058-.174-.189-.312-.359-.378-.256-.1-1.337.597-1.5.254-.107-.229-.324.146-.572.008-.12-.066-.454-.515-.605-.46-.309.111.474.964.688 1.076.201-.152.852-.465.992-.038.056.166.047.335.009.504-.725-.215-1.489-.334-2.282-.334-2.885 0-5.69 1.602-7.103 4.328-.126.058-.25.121-.381.161-.346.104-.7-.082-1.042-.125-1.407-.178-1.866-1.786-1.499-2.946.037-.19-.114-.542-.048-.689.158-.352.48-.747.762-1.014.158-.15.361-.112.547-.229.287-.181.291-.553.572-.781.4-.325.946-.318 1.468-.388.278-.037 1.336-.266 1.503-.06 0 .038.191.604-.019.572.433.023 1.05.749 1.461.579.211-.088.134-.736.567-.423.262.188 1.436.272 1.68.069.15-.124.234-.93.052-1.021.116.115-.611.124-.679.098-.12-.044-.232.114-.425.025.116.055-.646-.354-.218-.667-.179.131-.346-.037-.539.107-.133.108.062.18-.128.274-.302.153-.53-.525-.644-.602-.116-.076-1.014-.706-.77-.295l.789.785c-.039.025-.207-.286-.207-.059.053-.135.02.579-.104.347-.055-.089.09-.139.006-.268 0-.085-.228-.168-.272-.226-.125-.155-.457-.497-.637-.579-.05-.023-.764.087-.824.11-.07.098-.13.201-.179.311-.148.055-.287.126-.419.214l-.157.353c-.068.061-.765.291-.769.3.029-.075-.487-.171-.453-.321.038-.165.213-.68.168-.868-.048-.197 1.074.284 1.146-.235.029-.225.046-.487-.313-.525.068.008.695-.246.799-.36.146-.168.481-.442.724-.442.284 0 .223-.413.354-.615.131.053-.07.376.087.507-.01-.103.445.057.489.033.105-.055.685-.023.595-.295-.1-.277.051-.195.181-.253-.02.008.245-.454.359-.452-.103-.088-.395.111-.51.102-.305-.024-.176-.52-.061-.665.089-.115-.243-.256-.247-.036-.006.329-.312.627-.241 1.064.108.659-.735-.159-.809-.114-.28.17-.509-.214-.364-.444.148-.235.505-.224.652-.476.104-.178.225-.385.385-.52.535-.449.683-.09 1.216-.041.521.048.176.124.104.324-.069.19.286.258.409.099.07-.092.229-.323.298-.494.089-.222.901-.197.334-.536-.374-.223-2.004-.672-3.096-.672-.236 0-.401.263-.581.412-.356.295-1.268.874-1.775.698-.519-.179-1.63.66-1.808.666-.065.004.004-.634.358-.681-.153.023 1.247-.707 1.209-.859-.046-.18-2.799.822-2.676 1.023.059.092.299.092-.016.294-.18.109-.372.801-.541.801-.505.221-.537-.435-1.099.409l-.894.36c-1.328 1.411-2.247 3.198-2.58 5.183-.013.079.334.226.379.28.112.134.112.712.167.901.138.478.479.744.74 1.179.154.259.41.914.329 1.186.108-.178 1.07.815 1.246 1.022.414.487.733 1.077.061 1.559-.217.156.33 1.129.048 1.368l-.361.093c-.356.219-.195.756.021.982 1.611 1.686 3.809 2.804 6.265 3.037.434.764.989 1.446 1.641 2.027zm3.007-17.337c-.006-.146-.19-.284-.382-.031-.135.174-.111.439-.184.557-.104.175.567.339.567.174.025-.277.732-.063.87-.025.248.069.643-.226.211-.381-.355-.13-.542-.269-.574-.523 0 0 .188-.176.106-.166-.218.027-.614.786-.614.395zm-5.299-1.089c-.084.085.003.14.089.103.125-.055.293-.053.311-.22.015-.148.044-.046.08-.1.035-.053-.067-.138-.11-.146-.064-.014-.108.069-.149.104l-.072.019-.068.087.008.048-.089.105zm.475.344c.096.136.824-.195.708-.176.225-.113.029-.125-.097-.19-.043-.215-.079-.547-.213-.68l.088-.102c-.207-.299-.36.362-.36.362l.108-.031c.064.055-.072.095-.051.136.086.155.021.248.008.332-.014.085-.104.048-.149.093-.053.066.258.075.262.085.011.033-.375.089-.304.171zm13.134 12.116c0 3.313-2.687 6-6 6s-6-2.687-6-6 2.687-6 6-6 6 2.687 6 6zm-3.5-2.5l-6 2.25 3 .75.754 3 2.246-6z"/></svg>
           </div>
-          <div className={`${this.props.currentUser.id === this.props.user.id ? ("user-profile-location-city") : ("other-user-profile-location-city")}`}>
-            <p>{this.props.user.city}</p>
+          <div className={`${currentUser.id === user.id ? ("user-profile-location-city") : ("other-user-profile-location-city")}`}>
+            <p>{user.city}</p>
           </div>
         </div>
       ) : (
-        (this.props.user.country) ? (
-          <div className={`${this.props.currentUser.id === this.props.user.id ? ("user-profile-location-container") : ("other-user-profile-location-container")}`}>
-            <div className={`${this.props.currentUser.id === this.props.user.id ? ("user-profile-location-icon") : ("other-user-profile-location-icon")}`}>
+        (user.country) ? (
+          <div className={`${currentUser.id === user.id ? ("user-profile-location-container") : ("other-user-profile-location-container")}`}>
+            <div className={`${currentUser.id === user.id ? ("user-profile-location-icon") : ("other-user-profile-location-icon")}`}>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13.144 8.171c-.035-.066.342-.102.409-.102.074.009-.196.452-.409.102zm-.461 15.795c-.228.013-.453.034-.683.034-6.628 0-12-5.373-12-12s5.372-12 12-12c6.627 0 12 5.373 12 12 0 .23-.021.455-.034.682-.582-.652-1.266-1.209-2.031-1.643-.064-.679-.182-1.293-.306-1.671-.058-.174-.189-.312-.359-.378-.256-.1-1.337.597-1.5.254-.107-.229-.324.146-.572.008-.12-.066-.454-.515-.605-.46-.309.111.474.964.688 1.076.201-.152.852-.465.992-.038.056.166.047.335.009.504-.725-.215-1.489-.334-2.282-.334-2.885 0-5.69 1.602-7.103 4.328-.126.058-.25.121-.381.161-.346.104-.7-.082-1.042-.125-1.407-.178-1.866-1.786-1.499-2.946.037-.19-.114-.542-.048-.689.158-.352.48-.747.762-1.014.158-.15.361-.112.547-.229.287-.181.291-.553.572-.781.4-.325.946-.318 1.468-.388.278-.037 1.336-.266 1.503-.06 0 .038.191.604-.019.572.433.023 1.05.749 1.461.579.211-.088.134-.736.567-.423.262.188 1.436.272 1.68.069.15-.124.234-.93.052-1.021.116.115-.611.124-.679.098-.12-.044-.232.114-.425.025.116.055-.646-.354-.218-.667-.179.131-.346-.037-.539.107-.133.108.062.18-.128.274-.302.153-.53-.525-.644-.602-.116-.076-1.014-.706-.77-.295l.789.785c-.039.025-.207-.286-.207-.059.053-.135.02.579-.104.347-.055-.089.09-.139.006-.268 0-.085-.228-.168-.272-.226-.125-.155-.457-.497-.637-.579-.05-.023-.764.087-.824.11-.07.098-.13.201-.179.311-.148.055-.287.126-.419.214l-.157.353c-.068.061-.765.291-.769.3.029-.075-.487-.171-.453-.321.038-.165.213-.68.168-.868-.048-.197 1.074.284 1.146-.235.029-.225.046-.487-.313-.525.068.008.695-.246.799-.36.146-.168.481-.442.724-.442.284 0 .223-.413.354-.615.131.053-.07.376.087.507-.01-.103.445.057.489.033.105-.055.685-.023.595-.295-.1-.277.051-.195.181-.253-.02.008.245-.454.359-.452-.103-.088-.395.111-.51.102-.305-.024-.176-.52-.061-.665.089-.115-.243-.256-.247-.036-.006.329-.312.627-.241 1.064.108.659-.735-.159-.809-.114-.28.17-.509-.214-.364-.444.148-.235.505-.224.652-.476.104-.178.225-.385.385-.52.535-.449.683-.09 1.216-.041.521.048.176.124.104.324-.069.19.286.258.409.099.07-.092.229-.323.298-.494.089-.222.901-.197.334-.536-.374-.223-2.004-.672-3.096-.672-.236 0-.401.263-.581.412-.356.295-1.268.874-1.775.698-.519-.179-1.63.66-1.808.666-.065.004.004-.634.358-.681-.153.023 1.247-.707 1.209-.859-.046-.18-2.799.822-2.676 1.023.059.092.299.092-.016.294-.18.109-.372.801-.541.801-.505.221-.537-.435-1.099.409l-.894.36c-1.328 1.411-2.247 3.198-2.58 5.183-.013.079.334.226.379.28.112.134.112.712.167.901.138.478.479.744.74 1.179.154.259.41.914.329 1.186.108-.178 1.07.815 1.246 1.022.414.487.733 1.077.061 1.559-.217.156.33 1.129.048 1.368l-.361.093c-.356.219-.195.756.021.982 1.611 1.686 3.809 2.804 6.265 3.037.434.764.989 1.446 1.641 2.027zm3.007-17.337c-.006-.146-.19-.284-.382-.031-.135.174-.111.439-.184.557-.104.175.567.339.567.174.025-.277.732-.063.87-.025.248.069.643-.226.211-.381-.355-.13-.542-.269-.574-.523 0 0 .188-.176.106-.166-.218.027-.614.786-.614.395zm-5.299-1.089c-.084.085.003.14.089.103.125-.055.293-.053.311-.22.015-.148.044-.046.08-.1.035-.053-.067-.138-.11-.146-.064-.014-.108.069-.149.104l-.072.019-.068.087.008.048-.089.105zm.475.344c.096.136.824-.195.708-.176.225-.113.029-.125-.097-.19-.043-.215-.079-.547-.213-.68l.088-.102c-.207-.299-.36.362-.36.362l.108-.031c.064.055-.072.095-.051.136.086.155.021.248.008.332-.014.085-.104.048-.149.093-.053.066.258.075.262.085.011.033-.375.089-.304.171zm13.134 12.116c0 3.313-2.687 6-6 6s-6-2.687-6-6 2.687-6 6-6 6 2.687 6 6zm-3.5-2.5l-6 2.25 3 .75.754 3 2.246-6z"/></svg>
             </div>
-            <div className={`${this.props.currentUser.id === this.props.user.id ? ("user-profile-location-country") : ("other-user-profile-location-country")}`}>
-              <p>{this.props.user.country}</p>
+            <div className={`${currentUser.id === user.id ? ("user-profile-location-country") : ("other-user-profile-location-country")}`}>
+              <p>{user.country}</p>
             </div>
           </div>
         ) : (
@@ -248,8 +247,6 @@ class UserShow extends React.Component {
       )
     )
   }
-
-  // OTHER USER PROFILE FOLLOW
 
   otheruserFollowButton() {
     return (
@@ -261,12 +258,11 @@ class UserShow extends React.Component {
     )
   }
 
-  // PROFILE ABOUT
-
   userProfileAbout() {
-    return this.props.user.about ? (
-      <div className={`${this.props.currentUser.id === this.props.user.id ? ("user-profile-about") : ("other-user-about")}`}>
-        <p>{this.props.user.about}</p>
+    const { user, currentUser } = this.props;
+    return user.about ? (
+      <div className={`${currentUser.id === user.id ? ("user-profile-about") : ("other-user-about")}`}>
+        <p>{user.about}</p>
       </div>
     ) : (
       <div></div>
@@ -276,20 +272,21 @@ class UserShow extends React.Component {
   // PROFILE LIKES IMPRESSIONS
 
   userProfileLikesImpressions() {
+    const { images, user, likes, currentUser } = this.props;
+
     let a = []
     let b = []
-    this.props.images.filter(image => image.uploaderId === this.props.user.id).forEach(image => a.push(image.id));
-    a.forEach(n => (b.push(this.props.likes.filter(like => like.imageId === n))));
+    images.filter(image => image.uploaderId === user.id).forEach(image => a.push(image.id));
+    a.forEach(n => (b.push(likes.filter(like => like.imageId === n))));
 
-    return this.props.currentUser.id === this.props.user.id ? (
+    return currentUser.id === user.id ? (
       <div className="user-profile-likes-impressions-container">
         <div className="user-profile-likes">
           <p><span className="user-profile-likes-number">{b.length} Photo Likes</span></p>
         </div>
         <div className="user-profile-impressions">
-          <p><span className="user-profile-impressions-number">{a.length*b.length} Photo Impressions</span></p>
+          <p><span className="user-profile-impressions-number">{a.length*b.length+12} Photo Impressions</span></p>
           <div className="user-profile-impressions-info">
-            {/* <div>Info</div> */}
             <svg width="16" height="16" clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 8c-.414 0-.75.336-.75.75v5.5c0 .414.336.75.75.75s.75-.336.75-.75v-5.5c0-.414-.336-.75-.75-.75zm-.002-3c-.552 0-1 .448-1 1s.448 1 1 1 1-.448 1-1-.448-1-1-1z" fillRule="nonzero"/></svg>          </div>
         </div>
       </div>
@@ -309,7 +306,6 @@ class UserShow extends React.Component {
         <div className="other-user-profile-impressions">
           <p><span className="other-user-profile-impressions-number">{a.length*b.length+12} Photo Impressions</span></p>
           <div className="other-user-profile-impressions-info">
-            {/* <div>Info</div> */}
             <svg width="16" height="16" clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 8c-.414 0-.75.336-.75.75v5.5c0 .414.336.75.75.75s.75-.336.75-.75v-5.5c0-.414-.336-.75-.75-.75zm-.002-3c-.552 0-1 .448-1 1s.448 1 1 1 1-.448 1-1-.448-1-1-1z" fillRule="nonzero"/></svg>
           </div>
           </div>
@@ -317,12 +313,11 @@ class UserShow extends React.Component {
     )
   }
 
-  // PROFILE TWITTER LINK
-
   userTwitterLink() {
-    return this.props.user.twitter ? (
-      <div className={`${this.props.currentUser.id === this.props.user.id ? ("user-profile-twitter-link") : ("other-user-profile-twitter-link")}`}>
-        <a href={`//${this.props.user.twitter}`} target="_blank" rel="noopener noreferrer">
+    const { user, currentUser } = this.props;
+    return user.twitter ? (
+      <div className={`${currentUser.id === user.id ? ("user-profile-twitter-link") : ("other-user-profile-twitter-link")}`}>
+        <a href={`//${user.twitter}`} target="_blank" rel="noopener noreferrer">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"/></svg>
         </a>
       </div>
@@ -331,12 +326,11 @@ class UserShow extends React.Component {
     )
   }
 
-  // PROFILE INSTAGRAM LINK
-
   userInstagramLink() {
-    return this.props.user.instagram ? (
-      <div className={`${this.props.currentUser.id === this.props.user.id ? ("user-profile-instagram-link") : ("other-user-profile-instagram-link")}`}>
-        <a href={`//${this.props.user.instagram}`} target="_blank" rel="noopener noreferrer">
+    const { user, currentUser } = this.props;
+    return user.instagram ? (
+      <div className={`${currentUser.id === user.id ? ("user-profile-instagram-link") : ("other-user-profile-instagram-link")}`}>
+        <a href={`//${user.instagram}`} target="_blank" rel="noopener noreferrer">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.829 6.302c-.738-.034-.96-.04-2.829-.04s-2.09.007-2.828.04c-1.899.087-2.783.986-2.87 2.87-.033.738-.041.959-.041 2.828s.008 2.09.041 2.829c.087 1.879.967 2.783 2.87 2.87.737.033.959.041 2.828.041 1.87 0 2.091-.007 2.829-.041 1.899-.086 2.782-.988 2.87-2.87.033-.738.04-.96.04-2.829s-.007-2.09-.04-2.828c-.088-1.883-.973-2.783-2.87-2.87zm-2.829 9.293c-1.985 0-3.595-1.609-3.595-3.595 0-1.985 1.61-3.594 3.595-3.594s3.595 1.609 3.595 3.594c0 1.985-1.61 3.595-3.595 3.595zm3.737-6.491c-.464 0-.84-.376-.84-.84 0-.464.376-.84.84-.84.464 0 .84.376.84.84 0 .463-.376.84-.84.84zm-1.404 2.896c0 1.289-1.045 2.333-2.333 2.333s-2.333-1.044-2.333-2.333c0-1.289 1.045-2.333 2.333-2.333s2.333 1.044 2.333 2.333zm-2.333-12c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.958 14.886c-.115 2.545-1.532 3.955-4.071 4.072-.747.034-.986.042-2.887.042s-2.139-.008-2.886-.042c-2.544-.117-3.955-1.529-4.072-4.072-.034-.746-.042-.985-.042-2.886 0-1.901.008-2.139.042-2.886.117-2.544 1.529-3.955 4.072-4.071.747-.035.985-.043 2.886-.043s2.14.008 2.887.043c2.545.117 3.957 1.532 4.071 4.071.034.747.042.985.042 2.886 0 1.901-.008 2.14-.042 2.886z"/></svg>
         </a>
       </div>
@@ -345,12 +339,11 @@ class UserShow extends React.Component {
     )
   }
 
-  // PROFILE FACEBOOK LINK
-
   userFacebookLink() {
-    return this.props.user.facebook ? (
-      <div className={`${this.props.currentUser.id === this.props.user.id ? ("user-profile-facebook-link") : ("other-user-profile-facebook-link")}`}>
-        <a href={`//${this.props.user.facebook}`} target="_blank" rel="noopener noreferrer">
+    const { user, currentUser } = this.props;
+    return user.facebook ? (
+      <div className={`${currentUser.id === user.id ? ("user-profile-facebook-link") : ("other-user-profile-facebook-link")}`}>
+        <a href={`//${user.facebook}`} target="_blank" rel="noopener noreferrer">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/></svg>
         </a>
       </div>
@@ -359,12 +352,11 @@ class UserShow extends React.Component {
     )
   }
 
-  // PROFILE WEBSITE LINK
-
   userWebsiteLink() {
-    return this.props.user.website ? (
-      <div className={`${this.props.currentUser.id === this.props.user.id ? ("user-profile-website-link") : ("other-user-profile-website-link")}`}>
-        <a href={`//${this.props.user.website}`} target="_blank" rel="noopener noreferrer">
+    const { user, currentUser } = this.props;
+    return user.website ? (
+      <div className={`${currentUser.id === user.id ? ("user-profile-website-link") : ("other-user-profile-website-link")}`}>
+        <a href={`//${user.website}`} target="_blank" rel="noopener noreferrer">
           <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M15.246 17c-.927 3.701-2.547 6-3.246 7-.699-1-2.32-3.298-3.246-7h6.492zm7.664 0c-1.558 3.391-4.65 5.933-8.386 6.733 1.315-2.068 2.242-4.362 2.777-6.733h5.609zm-21.82 0h5.609c.539 2.386 1.47 4.678 2.777 6.733-3.736-.8-6.828-3.342-8.386-6.733zm14.55-2h-7.28c-.29-1.985-.29-4.014 0-6h7.281c.288 1.986.288 4.015-.001 6zm-9.299 0h-5.962c-.248-.958-.379-1.964-.379-3s.131-2.041.379-3h5.962c-.263 1.988-.263 4.012 0 6zm17.28 0h-5.963c.265-1.988.265-4.012.001-6h5.962c.247.959.379 1.964.379 3s-.132 2.042-.379 3zm-8.375-8h-6.492c.925-3.702 2.546-6 3.246-7 1.194 1.708 2.444 3.799 3.246 7zm-8.548-.001h-5.609c1.559-3.39 4.651-5.932 8.387-6.733-1.237 1.94-2.214 4.237-2.778 6.733zm16.212 0h-5.609c-.557-2.462-1.513-4.75-2.778-6.733 3.736.801 6.829 3.343 8.387 6.733z"/></svg>
         </a>
       </div>
@@ -373,22 +365,21 @@ class UserShow extends React.Component {
     )
   }
   
-  // PROFILE NAVBAR 
-  
   userNavBar() {
-    return this.props.currentUser.id === this.props.user.id ? (
+    const { currentUser, user } = this.props;
+    return currentUser.id === user.id ? (
       <div className="user-profile-nav-bar-container">
         {
           this.state.nav === "" || this.state.nav === "photos" ? (
           <button className='user-profile-nav-bar-link-1-highlighted' onClick={() => this.changeNavToPhotos()}>
             <p>
-              <span>Photos <span>{this.props.user.images.length}</span></span>
+              <span>Photos <span>{user.images.length}</span></span>
             </p>
           </button> 
           ) : (
           <button className='user-profile-nav-bar-link-1' onClick={() => this.changeNavToPhotos()}>
             <p>
-              <span>Photos <span>{this.props.user.images.length}</span></span>
+              <span>Photos <span>{user.images.length}</span></span>
             </p>
           </button> 
           )
@@ -475,13 +466,13 @@ class UserShow extends React.Component {
           this.state.nav === "" || this.state.nav === "photos" ? (
           <button className="user-profile-nav-bar-link-1-highlighted" onClick={() => this.changeNavToPhotos()}>
             <p>
-              <span>Photos <span>{this.props.user.images.length}</span></span>
+              <span>Photos <span>{user.images.length}</span></span>
             </p>
           </button>
           ) : (
           <button className="user-profile-nav-bar-link-1" onClick={() => this.changeNavToPhotos()}>
             <p>
-              <span>Photos <span>{this.props.user.images.length}</span></span>
+              <span>Photos <span>{user.images.length}</span></span>
             </p>
           </button>
           )
@@ -559,10 +550,9 @@ class UserShow extends React.Component {
     this.setState({ nav: "resume"})
   }
 
-  // PROFILE ALL INFO
-
   userProfileInfo() {
-    return this.props.currentUser.id === Number(this.props.match.params.userId) ? (
+    const { currentUser, match } = this.props;
+    return currentUser.id === Number(match.params.userId) ? (
       <div className="user-profile-information">
         <div className="user-profile-information-top-container">
           <div className="user-cover-pic-container">
@@ -640,22 +630,21 @@ class UserShow extends React.Component {
     )
   }
 
-  // PROFILE OTHER INFO
-
   userProfileOtherInfo(navBar) {
-    const images = this.props.images.filter((image) => image.uploaderId === Number(this.props.match.params.userId))
+    const { images, match, currentUser, user } = this.props;
+    const images2 = images.filter((image) => image.uploaderId === Number(match.params.userId))
     switch (navBar) {
       case 'photos':
         return (
           <div className="user-image-gallery-container">
             {
-              images.reverse().map((image) => <UserShowImageItem key={image.id} image={image} />)
+              images2.reverse().map((image) => <UserShowImageItem key={image.id} image={image} />)
             }
           </div>
         )
       case 'galleries':
         return (
-          this.props.currentUser.id === this.props.user.id ? (
+          currentUser.id === user.id ? (
             <div className="user-galleries-container">
               <div className="user-galleries-inner-container">
                 <div className="user-galleries-svg-container">
@@ -687,7 +676,7 @@ class UserShow extends React.Component {
                 </h4>
                 <div className="user-galleries-text">
                   <p>
-                    <span>{this.props.user.firstName + " " + this.props.user.lastName} hasn't created any Galleries yet. Check back soon.</span>
+                    <span>{user.firstName + " " + user.lastName} hasn't created any Galleries yet. Check back soon.</span>
                   </p>
                 </div>
               </div>
@@ -696,7 +685,7 @@ class UserShow extends React.Component {
         )
       case 'groups':
         return (
-          this.props.currentUser.id === this.props.user.id ? (
+          currentUser.id === user.id ? (
             <div className="user-groups-container">
               <div className="user-groups-inner-container">
                 <div className="user-groups-svg-container">
@@ -728,7 +717,7 @@ class UserShow extends React.Component {
                 </h4>
                 <div className="user-groups-text">
                   <p>
-                    <span>{this.props.user.firstName + " " + this.props.user.lastName} hasn't joined any Groups yet. Check back soon.</span>
+                    <span>{user.firstName + " " + user.lastName} hasn't joined any Groups yet. Check back soon.</span>
                   </p>
                 </div>
               </div>
@@ -737,7 +726,7 @@ class UserShow extends React.Component {
         )
       case 'licensing':
         return (
-          this.props.currentUser.id === this.props.user.id ? (
+          currentUser.id === user.id ? (
             <div className="user-licensing-container">
               <div className="user-licensing-inner-container">
                 <div className="user-licensing-svg-container">
@@ -774,7 +763,7 @@ class UserShow extends React.Component {
                 </h4>
                 <div className="user-licensing-text">
                   <p>
-                    <span>{this.props.user.firstName + " " + this.props.user.lastName} hasn't Licensed any photos yet. Check back soon.</span>
+                    <span>{user.firstName + " " + user.lastName} hasn't Licensed any photos yet. Check back soon.</span>
                   </p>
                 </div>
               </div>
@@ -844,9 +833,10 @@ class UserShow extends React.Component {
   }
 
   render() {
+    const { users, match } = this.props;
     const navBar = this.state.nav;
     debugger
-    if (!Object.keys(this.props.users).includes(this.props.match.params.userId)) return <ErrorPage/>
+    if (!Object.keys(users).includes(match.params.userId)) return <ErrorPage/>
     return (
       <div>
         <div className="block-space"></div>

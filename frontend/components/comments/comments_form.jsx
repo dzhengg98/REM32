@@ -11,7 +11,6 @@ class CommentsForm extends React.Component {
     }
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
     this.update = this.update.bind(this);
-    // this.removeComment = this.removeComment.bind(this);
   }
 
   update(e) {
@@ -23,37 +22,40 @@ class CommentsForm extends React.Component {
   }
 
   handleCommentSubmit(e) {
+    const { image, currentUser, createComment } = this.props;
+    const { body } = this.state;
+
     e.preventDefault();
     e.stopPropagation();
 
     const newComment = {
-      image_id: this.props.image.id,
-      user_id: this.props.currentUser.id,
-      body: this.state.body,
+      image_id: image.id,
+      user_id: currentUser.id,
+      body: body,
     }
 
-    this.setState({
-      body: ""
-    })
-    this.props.createComment(newComment)
+    this.setState({ body: "" })
+    createComment(newComment)
   }
 
   makeComment() {
+    const { currentUser } = this.props;
+    const { body } = this.state;
     return (
       <div className="comments-add-container">
         {
-          this.props.currentUser.profilepic ? (
+          currentUser.profilepic ? (
             <div className="comments-profile-picture-container">
               <div className="comments-profile-picture-inner-container">
-                <Link className="comments-profile-link" to={`/users/${this.props.currentUser.id}`}>
-                  <img className="comment-profile-image" src={this.props.currentUser.profilepic}/>
+                <Link className="comments-profile-link" to={`/users/${currentUser.id}`}>
+                  <img className="comment-profile-image" src={currentUser.profilepic}/>
                 </Link>
               </div>
             </div>
           ) : (
             <div className="comments-profile-picture-container">
               <div className="comments-profile-picture-inner-container">
-                <Link className="comments-profile-link" to={`/users/${this.props.currentUser.id}`}>
+                <Link className="comments-profile-link" to={`/users/${currentUser.id}`}>
                   <img className="comment-profile-image" src={window.userIcon}/>
                 </Link>
               </div>
@@ -66,7 +68,7 @@ class CommentsForm extends React.Component {
             <textarea
               htmlFor="create-comment-label"
               className="comments-input-area"
-              value={this.state.body} 
+              value={body} 
               placeholder="Add a comment"
               onChange={this.update}
             />
@@ -81,19 +83,9 @@ class CommentsForm extends React.Component {
     )
   }
 
-  // removeComment(e) {
-  //   e.preventDefault();
-  //   this.props.deleteComment(comment.id)
-  // }
-
   render() {
-    const currentImageComments = this.props.comments.filter((comment) => comment.imageId === this.props.image.id && comment.parentId === null).reverse();
-    // const currentImageReplies = this.props.comments.filter((comment) => comment.imageId === this.props.image.id && comment.parentId)
-    
-    // console.log(... currentImageReplies);
-    // const obj = Object.assign({}, currentImageReplies)
-    // console.log(obj)
-    // debugger
+    const { comments, image, users, deleteComment, currentUser, updateComment } = this.props
+    const currentImageComments = comments.filter((comment) => comment.imageId === image.id && comment.parentId === null).reverse();
 
     return (
       <div className="comments-main-container">
@@ -115,42 +107,11 @@ class CommentsForm extends React.Component {
                         <CommentIndexItem 
                           key={comment.id} 
                           comment={comment} 
-                          users={this.props.users} 
-                          deleteComment={this.props.deleteComment} 
-                          currentUser={this.props.currentUser}
-                          updateComment={this.props.updateComment} 
+                          users={users} 
+                          deleteComment={deleteComment} 
+                          currentUser={currentUser}
+                          updateComment={updateComment} 
                         />
-                      // <div className="comment-container" key={comment.id}>
-                      //   {
-                      //     this.props.users[comment.userId].profilepic ? (
-                      //       <div className="commenter-profile-pic-container">
-                      //         <div className="commenter-profile-pic">
-                      //           <Link to={`/users/${comment.userId}`}>
-                      //             <img src={this.props.users[comment.userId].profilepic}/>
-                      //           </Link>
-                      //         </div>
-                      //       </div>
-                      //       ) : (
-                      //       <div className="commenter-profile-pic-container">
-                      //         <div className="commenter-profile-pic">
-                      //           <Link to={`/users/${comment.userId}`}>
-                      //             <img src={window.userIcon}/>
-                      //           </Link>
-                      //         </div>
-                      //       </div>
-                      //     )
-                      //   }
-                      //   <div className="commenter-comment-container">
-                      //     <div className="commenter-name-date-container">
-                      //       <Link to={`/users/${comment.userId}`}>{comment.user.fullname.trim() ? comment.user.fullname : comment.user.username}</Link>
-                      //       <p className="commenter-date">{formatDate(comment.createdAt)}</p>
-                      //     </div>
-                      //     <div className="commenter-comment-body-container">
-                      //       <p className="commenter-comment-body">{comment.body}</p>
-                      //       {this.props.currentUser.id === comment.userId ? <button onClick={this.removeComment}>Delete</button> : <div></div>}
-                      //     </div>
-                      //   </div>
-                      // </div>
                     )
                     }
                   </div>

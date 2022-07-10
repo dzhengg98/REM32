@@ -14,28 +14,33 @@ class CommentEditForm extends React.Component {
   }
 
   saveEdit(e) {
+    const { comment, updateComment, editComment } = this.props;
+    const { body } = this.state;
+
     e.preventDefault();
-    let comment = {
-      id: this.props.comment.id,
-      userId: this.props.comment.userId,
-      imageId: this.props.comment.imageId,
-      parentId: this.props.comment.parentId,
-      body: this.state.body,
+
+    let comment1 = {
+      id: comment.id,
+      userId: comment.userId,
+      imageId: comment.imageId,
+      parentId: comment.parentId,
+      body: body,
     }
-    this.props.updateComment(comment);
-    this.setState({
-      body: comment.body
-    });
-    this.props.editComment();
+
+    updateComment(comment1);
+
+    this.setState({ body: comment1.body });
+
+    editComment();
   }
 
   render() {
-    // debugger
+    const { body } = this.state;
     return (
       <div>
         <div className="comment-edit-body">
           <textarea 
-            value={this.state.body} 
+            value={body} 
             onChange={this.update('body')} 
             placeholder="write your comment here"
             className="comment-edit-area"

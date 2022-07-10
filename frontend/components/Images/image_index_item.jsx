@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const ImageIndexItem = (props) => {
-  // debugger
 
   useEffect(() => {
     window.scrollTo(0, 0)

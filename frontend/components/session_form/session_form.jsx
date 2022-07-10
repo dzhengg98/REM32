@@ -69,6 +69,7 @@ class SessionForm extends React.Component {
   }
 
   render(){
+    const { errors, formType } = this.props;
     return (
       <div className="session_form">
         <form onSubmit={this.handleSubmit}>
@@ -81,7 +82,6 @@ class SessionForm extends React.Component {
               type="text"
               value={this.state.username}
               onChange={this.update("username")}
-              // required
               />
           </label>
 
@@ -91,12 +91,11 @@ class SessionForm extends React.Component {
               type="password"
               value={this.state.password}
               onChange={this.update("password")}
-              // required
               />
           </label>
 
           <div>
-            {this.props.errors.length ? (this.props.errors.map((error, i) => (
+            {errors.length ? (errors.map((error, i) => (
               <p className="errors" key={i}>{error}</p>
             ))) : (<div></div>)}
           </div>
@@ -104,10 +103,10 @@ class SessionForm extends React.Component {
           <input
             type="submit"
             className = "button"
-            value={this.props.formType === "login" ? "Log in" : "Sign up"}
+            value={formType === "login" ? "Log in" : "Sign up"}
           />
           
-          {this.props.formType === "login" ? this.renderDemoLogin() : " "}
+          {formType === "login" ? this.renderDemoLogin() : " "}
           {this.renderLink()}
         </form>
       </div>

@@ -1403,21 +1403,65 @@ comment66.save!
 
 like1 = Like.create({
   liker_id: 1,
-  image_id: 66
+  image_id: 55
 })
-
-like1.save!
 
 like2 = Like.create({ 
   liker_id: 1, 
-  image_id: 65 
+  image_id: 35 
 })
-
-like2.save!
 
 like3 = Like.create({ 
-  liker_id: 2, 
-  image_id: 65 
+  liker_id: 3, 
+  image_id: 25
 })
 
-like3.save!
+like4 = Like.create({ 
+  liker_id: 2, 
+  image_id: 1 
+})
+
+like5 = Like.create({ 
+  liker_id: 2, 
+  image_id: 2
+})
+
+like6 = Like.create({ 
+  liker_id: 2, 
+  image_id: 3
+})
+
+like7 = Like.create({ 
+  liker_id: 2, 
+  image_id: 4
+})
+
+like8 = Like.create({ 
+  liker_id: 2, 
+  image_id: 5
+})
+
+like9 = Like.create({ 
+  liker_id: 2, 
+  image_id: 6
+})
+
+like10 = Like.create({ 
+  liker_id: 2, 
+  image_id: 7
+})
+
+like11 = Like.create({ 
+  liker_id: 3, 
+  image_id: 11
+})
+
+like12 = Like.create({ 
+  liker_id: 4, 
+  image_id: 14
+})
+
+like13 = Like.create({ 
+  liker_id: 6, 
+  image_id: 32
+})

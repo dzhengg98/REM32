@@ -4,7 +4,6 @@ import { fetchImages } from '../../actions/image_actions';
 import { fetchUsers } from '../../actions/user_actions';
 
 const mSTP = (state) => {
-  // debugger
   return {
     images: Object.values(state.entities.images),
     users: state.entities.users

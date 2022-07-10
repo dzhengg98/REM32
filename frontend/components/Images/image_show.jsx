@@ -22,8 +22,9 @@ class ImageShow extends React.Component {
   }
 
   editable() {
-    return this.props.image.uploaderId === this.props.currentUserId ? (
-      <Link to={`/images/${this.props.image.id}/edit`}>
+    const { image, currentUserId } = this.props;
+    return image.uploaderId === currentUserId ? (
+      <Link to={`/images/${image.id}/edit`}>
         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path d="M8.424 12.282l4.402 4.399-5.826 1.319 1.424-5.718zm15.576-6.748l-9.689 9.804-4.536-4.536 9.689-9.802 4.536 4.534zm-6 8.916v6.55h-16v-12h6.743l1.978-2h-10.721v16h20v-10.573l-2 2.023z"/></svg>
       </Link>
     ):(
@@ -32,27 +33,34 @@ class ImageShow extends React.Component {
   }
 
   addLike(e) {
+    const { image, currentUserId, createLike } = this.props;
+
     e.preventDefault();
     e.stopPropagation();
+
     const like = {
-      liker_id: this.props.currentUserId,
-      image_id: this.props.image.id
+      liker_id: currentUserId,
+      image_id: image.id
     }
 
-    this.props.createLike(like);
+    createLike(like);
   }
 
   removeLike(e) {
+    const { likes, image, currentUserId, deleteLike } = this.props;
+
     e.preventDefault();
     e.stopPropagation();
 
-    const likeId = this.props.likes.filter(like => like.imageId === this.props.image.id).filter(like => like.likerId === this.props.currentUserId)[0].id
+    const likeId = likes.filter(like => like.imageId === image.id).filter(like => like.likerId === currentUserId)[0].id
 
-    this.props.deleteLike(likeId);
+    deleteLike(likeId);
   }
 
   likeable() {
-    const currentUserLike = this.props.likes.filter(like => like.imageId === this.props.image.id).filter(like => like.likerId === this.props.currentUserId).length
+    const { likes, image, currentUserId } = this.props;
+
+    const currentUserLike = likes.filter(like => like.imageId === image.id).filter(like => like.likerId === currentUserId).length
     return (
       <div onClick={ currentUserLike ? this.removeLike : this.addLike } className="svg-like-icon">
         <div className={ currentUserLike ? 'image-show-like-icon-blue' : "image-show-like-icon"}>
@@ -63,19 +71,22 @@ class ImageShow extends React.Component {
   }
 
   userProfilePic() {
-    return this.props.users[this.props.image.uploaderId]['profilepic'] ? (
-      <Link to={`/users/${this.props.image.uploaderId}`}>
-        <img className="circular" src={this.props.users[this.props.image.uploaderId]['profilepic']}/>
+    const { users, image } = this.props;
+
+    return users[image.uploaderId]['profilepic'] ? (
+      <Link to={`/users/${image.uploaderId}`}>
+        <img className="circular" src={users[image.uploaderId]['profilepic']}/>
       </Link>
     ) : (
-      <Link to={`/users/${this.props.image.uploaderId}`}>
+      <Link to={`/users/${image.uploaderId}`}>
         <img src={window.userIcon}/>
       </Link>
     )
   }
 
   likeAmount() {
-    const likesAmount = this.props.likes.filter(like => like.imageId === this.props.image.id).length
+    const { likes, image } = this.props;
+    const likesAmount = likes.filter(like => like.imageId === image.id).length
     
     return likesAmount === 0 ? (
       <span>0 people liked this</span>
@@ -89,9 +100,9 @@ class ImageShow extends React.Component {
   }
 
   render() {
-    // debugger
-    if (!this.props.image) return <ErrorPage />
-    if (!this.props.likes) return <ErrorPage />
+    const { image, likes, users } = this.props;
+    if (!image) return <ErrorPage />
+    if (!likes) return <ErrorPage />
 
     return (
       <div>
@@ -103,7 +114,7 @@ class ImageShow extends React.Component {
                 <svg clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m10.978 14.999v3.251c0 .412-.335.75-.752.75-.188 0-.375-.071-.518-.206-1.775-1.685-4.945-4.692-6.396-6.069-.2-.189-.312-.452-.312-.725 0-.274.112-.536.312-.725 1.451-1.377 4.621-4.385 6.396-6.068.143-.136.33-.207.518-.207.417 0 .752.337.752.75v3.251h9.02c.531 0 1.002.47 1.002 1v3.998c0 .53-.471 1-1.002 1zm-1.5-7.506-4.751 4.507 4.751 4.507v-3.008h10.022v-2.998h-10.022z" fillRule="nonzero"/></svg>
               </Link>
             </div>
-            <img className="show-image" src={this.props.image.imageUrl}/>
+            <img className="show-image" src={image.imageUrl}/>
           </div>
 
           <div className="outer-info-comment-container">
@@ -128,12 +139,12 @@ class ImageShow extends React.Component {
                 <div className="image-show-uploader-info-container">
                   {this.userProfilePic()}
                   <div className="image-show-information-container">
-                  <h2 className="image-show-title">{this.props.image.title}</h2>
+                  <h2 className="image-show-title">{image.title}</h2>
                   <p className="image-show-author-info-container">
                     <span className="image-show-author-info-text">by</span>
-                    <Link to={`/users/${this.props.image.uploaderId}`}>
-                      <span className="image-show-author-first-name">{this.props.users[this.props.image.uploaderId]['firstName']}</span>
-                      <span className="image-show-author-last-name">{this.props.users[this.props.image.uploaderId]['lastName']}</span>
+                    <Link to={`/users/${image.uploaderId}`}>
+                      <span className="image-show-author-first-name">{users[image.uploaderId]['firstName']}</span>
+                      <span className="image-show-author-last-name">{users[image.uploaderId]['lastName']}</span>
                     </Link>
                     <svg height="16" viewBox="0 0 1792 1792" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M1171 960q0 13-10 23l-466 466q-10 10-23 10t-23-10l-50-50q-10-10-10-23t10-23l393-393-393-393q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l466 466q10 10 10 23z"/></svg>
                   </p>
@@ -141,9 +152,9 @@ class ImageShow extends React.Component {
                 </div>
                 <div className="image-uploaded-date-container">
                   <span className="image-show-uploaded-date-info-text">Uploaded:</span>
-                  <span className="image-show-uploaded-date-info">{formatDate(this.props.image.createdAt)}</span>
+                  <span className="image-show-uploaded-date-info">{formatDate(image.createdAt)}</span>
                 </div>
-                <p className="image-show-description">{this.props.image.description}</p>
+                <p className="image-show-description">{image.description}</p>
                 <div className="image-show-popularity-container">
                   <div className="image-show-popularity-pulse">
                     <div className="pulse">Pulse</div> 
@@ -185,7 +196,7 @@ class ImageShow extends React.Component {
                 </div>
               </div>
               <div className="image-comment-container">
-                <CommentsFormContainer image = {this.props.image} />
+                <CommentsFormContainer image = {image} />
               </div>
             </div>
           </div>
