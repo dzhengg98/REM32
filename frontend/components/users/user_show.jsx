@@ -813,7 +813,7 @@ class UserShow extends React.Component {
 
   render() {
     const navBar = this.state.nav;
-    debugger
+    // debugger
     if (!Object.keys(this.props.users).includes(this.props.match.params.userId)) return <ErrorPage/>
     return (
       <div>

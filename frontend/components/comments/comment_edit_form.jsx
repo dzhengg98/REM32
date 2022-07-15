@@ -1,22 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-class CommentEditForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      body: this.props.comment.body
-    }
-    this.saveEdit = this.saveEdit.bind(this);
+const CommentEditForm = (props) => {
+
+  const { comment, updateComment, editComment } = props;
+
+  const [state, setState] = useState({
+    body: comment.body
+  })
+
+  const update = (field) => {
+    return e => setState({[field]: e.target.value})
   }
 
-  update(field) {
-    return e => {this.setState({[field]: e.target.value})}
-  }
-
-  saveEdit(e) {
-    const { comment, updateComment, editComment } = this.props;
-    const { body } = this.state;
-
+  const saveEdit = (e) => {
     e.preventDefault();
 
     let comment1 = {
@@ -24,32 +20,28 @@ class CommentEditForm extends React.Component {
       userId: comment.userId,
       imageId: comment.imageId,
       parentId: comment.parentId,
-      body: body,
+      body: state.body
     }
 
     updateComment(comment1);
-
-    this.setState({ body: comment1.body });
-
+    setState({ body: comment.body})
     editComment();
   }
 
-  render() {
-    const { body } = this.state;
-    return (
-      <div>
-        <div className="comment-edit-body">
-          <textarea 
-            value={body} 
-            onChange={this.update('body')} 
-            placeholder="write your comment here"
-            className="comment-edit-area"
-          />
-          <button className="comment-save-button" onClick={this.saveEdit}>Save</button>
-        </div>
+  return(
+    <div>
+      <div className="comment-edit-body">
+        <textarea 
+          value={state.body} 
+          onChange={update('body')} 
+          placeholder="write your comment here"
+          className="comment-edit-area"
+        />
+        <button className="comment-save-button" onClick={saveEdit}>Save</button>
       </div>
-    )
-  }
+    </div>
+  )
+
 }
 
 export default CommentEditForm;
