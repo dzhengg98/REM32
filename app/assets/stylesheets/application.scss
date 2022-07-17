@@ -32,6 +32,11 @@
 html {
   box-sizing: border-box;
   font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 body {
