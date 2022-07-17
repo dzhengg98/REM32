@@ -3,15 +3,17 @@ import ImageIndexItem from './image_index_item';
 
 const ImageIndex = (props) => {
 
+  const { fetchImages, fetchUsers, images } = props;
+
   useEffect(() => {
-    props.fetchImages();
-    props.fetchUsers();
+    fetchImages();
+    fetchUsers();
   }, []);
 
   return (
     <div className="images-gallery-container">
       {
-        props.images.reverse().map((image) => <ImageIndexItem key={image.id} image={image} />)
+        images.reverse().map((image) => <ImageIndexItem key={image.id} image={image} />)
       }
     </div>
   )
