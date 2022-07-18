@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ErrorPage from '../404/404_page';
 import { formatDate } from '../../util/date_util';

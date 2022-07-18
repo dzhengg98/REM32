@@ -1,145 +1,142 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
-class SessionForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: "",
-      password: "",
+const SessionForm = (props) => {
+
+  const { 
+    errors,
+    clearErrors,
+    processForm,
+    formType,
+    demoUserLogin,
+  } = props;
+
+  const [state, setState] = useState({
+    username: '',
+    password: '',
+  })
+
+  useEffect(() => {
+    if (errors.length) {
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.demoLogin = this.demoLogin.bind(this);
+    return () => {
+      clearErrors();
+    }
+  }, [])
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    processForm(state);
   }
 
-  componentWillUnmount() {
-    if (this.props.errors.length) {
-      this.props.clearErrors();
+  const update = (field) => {
+    return (e) => {
+      setState({ ...state, [field]: e.currentTarget.value });
     }
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.processForm(this.state);
-  }
-
-  update(field) {
-    return (e) => {
-      this.setState({ [field]: e.currentTarget.value });
-    };
-  }
-
-  showHeader() {
-    return this.props.formType === "login" ? (
+  const showHeader = () => {
+    return formType === "login" ? (
       <h2 className="auth-header">Log in to REM32</h2>
     ) : (
       <div>
         <h2 className="auth-header">Join REM32</h2>
-        <p className="auth-description">Discover and share incredible photos, gain global exposure, and get paid for your work.</p>
+        <p className="auth-description">Discover and share incredible photos, gain exposure, and get paid for your work.</p>
       </div>
     );
   }
 
-  renderLink() {
-    return this.props.formType === "login" ? (
+  const renderLink = () => {
+    return formType === "login" ? (
       <p className="form-statement">Don't have an account? <Link to="/signup">Sign Up</Link></p>
     ) : (
-      <p className="form-statement">Already have an account? <Link to="/login">Log in</Link></p>
-    );
+      <p className="form-statement">Already have an account? <Link to="/login">Log In</Link></p>
+    )
   }
 
-  demoLogin(e) {
+  const demoLogin = (e) => {
     e.preventDefault();
-    // this.props.demoUserLogin(demoUser);    
-    this.displayUsername();
+    displayUsername();
   }
-  
-  displayUsername() {
+
+  const displayUsername = () => {
     let i = 0;
-    const demousername = "demoUser"
+    const demousername = "demoUser";
 
     const username = setInterval(() => {
-      this.setState({ username: demousername.slice(0, i + 1)})
+      setState({ username: demousername.slice(0, i+1)})
 
       if (i >= demousername.length - 1) {
-        clearInterval(username);
-        this.displayPassword();
+        clearInterval(username)
+        displayPassword();
       }
       i++;
     }, 150);
   }
 
-  displayPassword() {
+  const displayPassword = () => {
     let j = 0;
-    const demopassword = "demouser"
+    const demopassword = "demouser";
 
     const password = setInterval(() => {
-      this.setState({ password: demopassword.slice(0, j + 1)})
-      
+      setState({ password: demopassword.slice(0, j+1)})
+
       if (j >= demopassword.length - 1) {
         clearInterval(password);
-        this.props.demoUserLogin({ username: "demoUser", password: "demouser" })
-          .then(() => { this.setState({ username: "", password: "" })}
-        )
+        demoUserLogin({ username: "demoUser", password: "demouser"})
+          .then(() => { setState({ username: "", password: "" })})
       }
       j++;
     }, 150);
   }
 
-  renderDemoLogin() {
+  const renderDemoLogin = () => {
     return (
-      <input 
-        type="submit"
-        className="button"
-        onClick={this.demoLogin}
-        value="Demo User"
-      />
+      <input type="submit" className="button" onClick={demoLogin} value="Demo User"/>
     )
   }
 
-  render(){
-    const { errors, formType } = this.props;
-    return (
-      <div className="session_form">
-        <form onSubmit={this.handleSubmit}>
-          {this.showHeader()}
+  return (
+    <div className="session_form">
+      <form onSubmit={handleSubmit}>
+        {showHeader()}
 
 
-          <label className="auth-label">Username 
-            <input
-              className="auth-input"
-              type="text"
-              value={this.state.username}
-              onChange={this.update("username")}
-              />
-          </label>
-
-          <label className="auth-label">Password 
-            <input
-              className="auth-input"
-              type="password"
-              value={this.state.password}
-              onChange={this.update("password")}
-              />
-          </label>
-
-          <div>
-            {errors.length ? (errors.map((error, i) => (
-              <p className="errors" key={i}>{error}</p>
-            ))) : (<div></div>)}
-          </div>
-
+        <label className="auth-label">Username 
           <input
-            type="submit"
-            className = "button"
-            value={formType === "login" ? "Log in" : "Sign up"}
-          />
-          
-          {formType === "login" ? this.renderDemoLogin() : " "}
-          {this.renderLink()}
-        </form>
-      </div>
-    );
-  }
+            className="auth-input"
+            type="text"
+            value={state.username ?? "demoUser"}
+            onChange={update("username")}
+            />
+        </label>
+
+        <label className="auth-label">Password 
+          <input
+            className="auth-input"
+            type="password"
+            value={state.password ?? ""} 
+            onChange={update("password")}
+            />
+        </label>
+
+        <div>
+          {(errors.map((error, i) => (
+            <p className="errors" key={i}>{error}</p>
+          )))}
+        </div>
+
+        <input
+          type="submit"
+          className = "button"
+          value={formType === "login" ? "Log in" : "Sign up"}
+        />
+        
+        {formType === "login" ? renderDemoLogin() : " "}
+        {renderLink()}
+      </form>
+    </div>    
+  )
 }
+
 export default SessionForm; 
