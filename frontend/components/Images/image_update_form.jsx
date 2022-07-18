@@ -1,59 +1,61 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
+import ErrorPage from '../404/404_page';
 
-class ImageUpdateForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: "",
-      description: "",
-      imageUrl: "",
-      id: "",
-    }
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.delete = this.delete.bind(this);
+const ImageUpdateForm = props => {
+  const { 
+    errors, 
+    clearImageErrors,
+    fetchImage,
+    editImage,
+    deleteImage,
+    history,
+    imageId,
+    image,
+    currentUserId
+  } = props;
+
+  const [state, setState] = useState({
+    title: "",
+    description: "",
+    imageUrl: "",
+    id: "",
+  })
+
+  if (image && state.id !== image.id ) {
+    setState({
+      title: image.title,
+      description: image.description,
+      imageUrl: image.imageUrl,
+      id: image.id,
+    })
   }
 
-  componentWillUnmount() {
-    const { errors, clearImageErrors } = this.props;
-    if (errors.length) { clearImageErrors(); }
-  }
-
-  componentDidMount() {
-    const { fetchImage, imageId } = this.props;
+  useEffect(() => {
+    if (errors.length) {
+    };
     fetchImage(imageId);
-  }
-
-  componentDidUpdate() {
-    const { image } = this.props;
-    if (image && this.state.id !== image.id) {
-      this.setState({
-        title: image.title,
-        description: image.description,
-        imageUrl: image.imageUrl,
-        id: image.id
-      })
+    return () => {
+      clearImageErrors();
     }
-  }
+  }, [])
 
-  handleSubmit(e) {
-    const { editImage, history, image } = this.props;
+  if (!props.image) return <ErrorPage/>
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    editImage(this.state).then(() => {history.push(`/images/${image.id}`);})
+    editImage(state).then(() => {history.push(`/images/${image.id}`);})
   }
 
-  update(field) {
-    return e => {this.setState({[field]: e.target.value})};
+  const update = (field) => {
+    return e => { setState({ ...state, [field]: e.target.value }) };
   }
 
-  delete() {
-    const { deleteImage, imageId, history } = this.props;
+  const deleted = () => {
     deleteImage(imageId).then(() => {history.push(`/`);})
   }
 
-  hasAccess() {
-    const { image, currentUserId, errors } = this.props;
-    const { imageUrl, title, description } = this.state;
+  const hasAccess = () => {
     return image.uploaderId === currentUserId ? (
       <div className="image-update-container">
         <div className="block-space"></div>
@@ -90,7 +92,7 @@ class ImageUpdateForm extends React.Component {
             <div className="image-update-status-description">Accessible everywhere, including on Profile</div>
             <img 
               className="image-update-preview-image" 
-              src={imageUrl} 
+              src={state.imageUrl} 
             />
           </div>
 
@@ -106,9 +108,9 @@ class ImageUpdateForm extends React.Component {
                 id="image-update-title"
                 className="image-update-title-field"
                 type="text"
-                value={title}
+                value={state.title}
                 placeholder="Title"
-                onChange={this.update('title')}
+                onChange={update('title')}
                 required
               />
             </div>
@@ -120,23 +122,23 @@ class ImageUpdateForm extends React.Component {
                 id="image-update-description"
                 className="image-update-description-field"
                 type="text"
-                value={description}
+                value={state.description}
                 placeholder="e.g. Low angle view of young African man surfing in the ocean with a clear blue sky"
-                onChange={this.update('description')}
+                onChange={update('description')}
                 required
               />
             </div>
             <div>
-              {errors.length ? (errors.map((error, i) => (
+              {(errors.map((error, i) => (
                 <p key={i} className="image-update-errors">{error}</p>
-              ))) : (<div></div>)}
+              )))}
             </div>
             <div className="update-image-buttons-container">
               <div className="delete-image-button-container">
-                <button className="delete-image-button" onClick={this.delete}> Delete photo </button>
+                <button className="delete-image-button" onClick={deleted}> Delete photo </button>
               </div>
               <div className="update-image-button-container">
-                <button className="update-image-button" onClick={this.handleSubmit}> Save changes </button>
+                <button className="update-image-button" onClick={handleSubmit}> Save changes </button>
               </div>
             </div>
           </div>          
@@ -147,15 +149,11 @@ class ImageUpdateForm extends React.Component {
     )
   }
 
-  render() {
-    if (!this.props.image) return <Redirect to="/" />
-
-    return (
-      <div>
-        {this.hasAccess()}
-      </div>
-    )
-  }
+  return (
+    <div>
+      {hasAccess()}
+    </div>
+  )
 }
 
 export default ImageUpdateForm;

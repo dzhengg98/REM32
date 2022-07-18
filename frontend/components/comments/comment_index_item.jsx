@@ -20,6 +20,8 @@ const CommentIndexItem = (props) => {
     setState({ editing: !state.editing })
   }
 
+  if (!comment) return null;
+
   return (
     <div className="comment-container">
       {
