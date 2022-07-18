@@ -231,7 +231,8 @@
 .show-comments-container {
   max-width: 100%;
   box-sizing: border-box;
-  overflow-y:scroll;
+  overflow: auto;
+  height: 600px;
 }
 
 .show-comments-inner-contaienr {
