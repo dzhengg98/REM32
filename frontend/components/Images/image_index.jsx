@@ -11,7 +11,7 @@ const ImageIndex = (props) => {
     const getImages = async () => {
       setIsLoading(true);
       const res = await fetchImages();
-      await sleep(1200);
+      await sleep(500);
       setIsLoading(false);
     }
     getImages();

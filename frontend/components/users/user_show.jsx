@@ -17,8 +17,6 @@ const UserShow = (props) => {
     users,
   } = props;
 
-  if (!Object.keys(users).includes(match.params.userId)) return <ErrorPage/>
-
   const [state, setState] = useState({
     profilepic: '',
     profilepicUrl: '',
@@ -33,18 +31,28 @@ const UserShow = (props) => {
     fetchUsers();
     
     if (user) {
-      setState({
-        id: user.id
-      })
+      setState({id: user.id})
     } else {
-      setState({
-        id: Number(match.params.userId)
-      })
+      setState({id: Number(match.params.userId)})
     }
 
     fetchLikes();
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    if (state.profilepic && state.profilepicUrl) {
+      handleProfilePicSubmit()}
+    }, [state.profilepic, state.profilepicUrl]
+  )
+
+  useEffect(() => {
+    if (state.coverpic && state.coverpicUrl) {
+      handleCoverPicSubmit()}
+    }, [state.coverpic, state.coverpicUrl]
+  )
+
+  if (!Object.keys(users).includes(match.params.userId)) return <ErrorPage/>
 
   const userCoverPic = () => {
     return user.coverpic ? (
@@ -79,12 +87,6 @@ const UserShow = (props) => {
       fileReader.readAsDataURL(file);
     }    
   }
-
-  useEffect(() => {
-    if (state.coverpic && state.coverpicUrl) {
-      handleCoverPicSubmit()}
-    }, [state.coverpic, state.coverpicUrl]
-  )
 
   const userCoverEdit = () => {
     return (
@@ -132,12 +134,6 @@ const UserShow = (props) => {
       fileReader.readAsDataURL(file);
     }
   }
-
-  useEffect(() => {
-    if (state.profilepic && state.profilepicUrl) {
-      handleProfilePicSubmit()}
-    }, [state.profilepic, state.profilepicUrl]
-  )
 
   const userProfileEdit = () => {
     return (
@@ -381,18 +377,22 @@ const UserShow = (props) => {
     ) 
   }
 
+  const changeNav = (navState) => {
+    setState({ nav: navState })
+  }
+
   const userNavBar = () => {
     return currentUser.id === user.id ? (
       <div className="user-profile-nav-bar-container">
         {
-          state.nav === "" || state.nav === "photos" ? (
-          <button className='user-profile-nav-bar-link-1-highlighted' onClick={() => changeNavToPhotos()}>
+          state.nav === undefined || state.nav === "photos" ? (
+          <button className='user-profile-nav-bar-link-1-highlighted' onClick={() => changeNav('photos')}>
             <p>
               <span>Photos <span>{user.images.length}</span></span>
             </p>
           </button> 
           ) : (
-          <button className='user-profile-nav-bar-link-1' onClick={() => changeNavToPhotos()}>
+          <button className='user-profile-nav-bar-link-1' onClick={() => changeNav('photos')}>
             <p>
               <span>Photos <span>{user.images.length}</span></span>
             </p>
@@ -401,13 +401,13 @@ const UserShow = (props) => {
         }
         {
           state.nav === "galleries" ? (
-          <button className="user-profile-nav-bar-link-2-highlighted" onClick={() => changeNavToGalleries()}>
+          <button className="user-profile-nav-bar-link-2-highlighted" onClick={() => changeNav('galleries')}>
             <p>
               <span>Galleries</span>
             </p>
           </button>
           ) : (
-          <button className="user-profile-nav-bar-link-2" onClick={() => changeNavToGalleries()}>
+          <button className="user-profile-nav-bar-link-2" onClick={() => changeNav('galleries')}>
             <p>
               <span>Galleries</span>
             </p>
@@ -416,13 +416,13 @@ const UserShow = (props) => {
         }
         {
           state.nav === "groups" ? (
-          <button className="user-profile-nav-bar-link-3-highlighted" onClick={() => changeNavToGroups()}>
+          <button className="user-profile-nav-bar-link-3-highlighted" onClick={() => changeNav('groups')}>
             <p>
               <span>Groups</span>
             </p>
           </button>
           ) : (
-          <button className="user-profile-nav-bar-link-3" onClick={() => changeNavToGroups()}>
+          <button className="user-profile-nav-bar-link-3" onClick={() => changeNav('groups')}>
             <p>
               <span>Groups</span>
             </p>
@@ -431,13 +431,13 @@ const UserShow = (props) => {
         }
         {
           state.nav === "licensing" ? (
-          <button className="user-profile-nav-bar-link-4-highlighted" onClick={() => changeNavToLicensing()}>
+          <button className="user-profile-nav-bar-link-4-highlighted" onClick={() => changeNav('licensing')}>
             <p>
               <span>Licensing</span>
             </p>
           </button>
           ) : (
-          <button className="user-profile-nav-bar-link-4" onClick={() => changeNavToLicensing()}>
+          <button className="user-profile-nav-bar-link-4" onClick={() => changeNav('licensing')}>
             <p>
               <span>Licensing</span>
             </p>
@@ -446,13 +446,13 @@ const UserShow = (props) => {
         }
         {
           state.nav === "resources" ? (
-          <button className="user-profile-nav-bar-link-5-highlighted" onClick={() => changeNavToResources()}>
+          <button className="user-profile-nav-bar-link-5-highlighted" onClick={() => changeNav('resources')}>
             <p>
               <span>Resources</span>
             </p>
           </button>
           ) : (
-          <button className="user-profile-nav-bar-link-5" onClick={() => changeNavToResources()}>
+          <button className="user-profile-nav-bar-link-5" onClick={() => changeNav('resources')}>
             <p>
               <span>Resources</span>
             </p>
@@ -461,13 +461,13 @@ const UserShow = (props) => {
         }
         {
           state.nav === "resume" ? (
-          <button className="user-profile-nav-bar-link-6-highlighted" onClick={() => changeNavToResume()}>
+          <button className="user-profile-nav-bar-link-6-highlighted" onClick={() => changeNav('resume')}>
             <p>
               <span>Resume</span>
             </p>
           </button>
           ) : (
-          <button className="user-profile-nav-bar-link-6" onClick={() => changeNavToResume()}>
+          <button className="user-profile-nav-bar-link-6" onClick={() => changeNav('resume')}>
             <p>
               <span>Resume</span>
             </p>
@@ -478,14 +478,14 @@ const UserShow = (props) => {
     ) : (
       <div className="other-user-profile-nav-bar-container">
         {
-          state.nav === "" || state.nav === "photos" ? (
-          <button className="user-profile-nav-bar-link-1-highlighted" onClick={() => changeNavToPhotos()}>
+          state.nav === undefined || state.nav === "photos" ? (
+          <button className="user-profile-nav-bar-link-1-highlighted" onClick={() => changeNav('photos')}>
             <p>
               <span>Photos <span>{user.images.length}</span></span>
             </p>
           </button>
           ) : (
-          <button className="user-profile-nav-bar-link-1" onClick={() => changeNavToPhotos()}>
+          <button className="user-profile-nav-bar-link-1" onClick={() => changeNav('photos')}>
             <p>
               <span>Photos <span>{user.images.length}</span></span>
             </p>
@@ -494,13 +494,13 @@ const UserShow = (props) => {
         }
         {
           state.nav === "galleries" ? (
-          <button className="user-profile-nav-bar-link-2-highlighted" onClick={() => changeNavToGalleries()}>
+          <button className="user-profile-nav-bar-link-2-highlighted" onClick={() => changeNav('galleries')}>
             <p>
               <span>Galleries</span>
             </p>
           </button>
           ) : (
-          <button className="user-profile-nav-bar-link-2" onClick={() => changeNavToGalleries()}>
+          <button className="user-profile-nav-bar-link-2" onClick={() => changeNav('galleries')}>
             <p>
               <span>Galleries</span>
             </p>
@@ -509,13 +509,13 @@ const UserShow = (props) => {
         }
         {
           state.nav === "groups" ? (
-          <button className="user-profile-nav-bar-link-3-highlighted" onClick={() => changeNavToGroups()}>
+          <button className="user-profile-nav-bar-link-3-highlighted" onClick={() => changeNav('groups')}>
             <p>
               <span>Groups</span>
             </p>
           </button>
           ) : (
-          <button className="user-profile-nav-bar-link-3" onClick={() => changeNavToGroups()}>
+          <button className="user-profile-nav-bar-link-3" onClick={() => changeNav('groups')}>
             <p>
               <span>Groups</span>
             </p>
@@ -524,13 +524,13 @@ const UserShow = (props) => {
         }
         {
           state.nav === "licensing" ? (
-          <button className="user-profile-nav-bar-link-6-highlighted" onClick={() => changeNavToLicensing()}>
+          <button className="user-profile-nav-bar-link-6-highlighted" onClick={() => changeNav('licensing')}>
             <p>
               <span>Licensing</span>
             </p>
           </button>
           ) : (
-          <button className="user-profile-nav-bar-link-6" onClick={() => changeNavToLicensing()}>
+          <button className="user-profile-nav-bar-link-6" onClick={() => changeNav('licensing')}>
             <p>
               <span>Licensing</span>
             </p>
@@ -539,30 +539,6 @@ const UserShow = (props) => {
         }
       </div>
     )
-  }
-
-  const changeNavToPhotos = () => {
-    setState({ nav: "photos" })
-  }
-
-  const changeNavToGalleries = () => {
-    setState({ nav: "galleries" })
-  }
-
-  const changeNavToGroups = () => {
-    setState({ nav: "groups" })
-  }
-
-  const changeNavToLicensing = () => {
-    setState({ nav: "licensing" })
-  }
-
-  const changeNavToResources = () => {
-    setState({ nav: "resources" })
-  }
-
-  const changeNavToResume = () => {
-    setState({ nav: "resume" })
   }
 
   const userProfileInfo = () => {
