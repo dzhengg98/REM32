@@ -1487,3 +1487,27 @@
     color: rgb(255, 255, 255);
   }
 }
+
+.user-show-load-indicator {
+  position: relative;
+  top: 100px;
+  left: 160%;
+}
+
+@media (max-width: 1230px) {
+  .user-show-load-indicator {
+    left: 105%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .user-show-load-indicator {
+    left: 55%;
+  }
+}
+
+@media (max-width: 600px) {
+  .user-show-load-indicator {
+    left: 10%;
+  }
+}

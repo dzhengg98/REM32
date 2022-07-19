@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ErrorPage from '../404/404_page';
 import UserShowImageItem from './user_show_image_item';
 import { Link } from 'react-router-dom';
+import sleep from '../../util/sleep';
 
 const UserShow = (props) => {
   const { 
@@ -26,8 +27,16 @@ const UserShow = (props) => {
     nav: '',
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
-    fetchImages();
+    const getImages = async () => {
+      setIsLoading(true);
+      const res = await fetchImages();
+      await sleep(500);
+      setIsLoading(false);
+    }
+    getImages();
     fetchUsers();
     
     if (user) {
@@ -626,8 +635,15 @@ const UserShow = (props) => {
       case 'photos':
         return (
           <div className="user-image-gallery-container">
-            {
+            {isLoading ? (
+              <div className="user-show-load-indicator">
+                <svg className="spinner" viewBox="0 0 50 50">
+                  <circle className="path" cx="25" cy="25" r="20" fill="none" strokeWidth="5"></circle>
+                </svg>
+              </div>
+            ) : (
               userImages.reverse().map((image) => <UserShowImageItem key={image.id} image={image} />)
+            )
             }
           </div>
         )
@@ -813,8 +829,15 @@ const UserShow = (props) => {
       default:
         return (
           <div className="user-image-gallery-container">
-            {
+            {isLoading ? (
+              <div className="user-show-load-indicator">
+                <svg className="spinner" viewBox="0 0 50 50">
+                  <circle className="path" cx="25" cy="25" r="20" fill="none" strokeWidth="5"></circle>
+                </svg>
+              </div>
+            ) : (
               userImages.reverse().map((image) => <UserShowImageItem key={image.id} image={image} />)
+            )
             }
           </div>
         )
