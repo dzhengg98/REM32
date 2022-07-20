@@ -59,13 +59,14 @@
   width: 216px;
   height: 56px;
   border: none;
+  cursor: pointer;
 }
 
 .splash-sign-up-button:hover {
   background-color: #d7d8db;
 }
 
-.splash-sign-up-button > a > span {
+.splash-sign-up-button > span {
   font-size: 24px;
   font-weight: bold;
   color: #111111;

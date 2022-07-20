@@ -10,7 +10,11 @@ const Splash = () => {
           <div className="splash-text">
             <h1 className="splash-title">Discover and share the world's best photos</h1>
             <p className="splash-description">Get inspired with incredible photos from diverse styles and genres around the world. We're not guided by fads-just great photography.</p>
-            <button className="splash-sign-up-button"><Link to="/signup"><span>Sign up</span></Link></button>
+            <Link to="/signup">
+              <button className="splash-sign-up-button">
+                <span>Sign up</span>
+              </button>
+            </Link>
           </div>
           <div className="splash-shape-divider-bottom">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
