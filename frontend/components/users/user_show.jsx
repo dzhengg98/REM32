@@ -12,7 +12,13 @@ const UserShow = (props) => {
     currentUser,
     images,
     fetchLikes,
+    fetchFollows,
+    createFollow,
+    deleteFollow,
     updateUserProfilePic,
+    followers,
+    userFollowings,
+    userFollowers,
     match,
     likes,
     users,
@@ -29,6 +35,7 @@ const UserShow = (props) => {
 
   const [isLoading, setIsLoading] = useState(false);
   // console.log(state.nav);
+
   useEffect(() => {
     const getImages = async () => {
       setIsLoading(true);
@@ -46,6 +53,7 @@ const UserShow = (props) => {
     }
 
     fetchLikes();
+    fetchFollows();
     window.scrollTo(0, 0);
   }, []);
 
@@ -282,12 +290,37 @@ const UserShow = (props) => {
     )
   }
 
+  const addFollow = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const follow = {
+      follower_id: currentUser.id,
+      followee_id: user.id
+    }
+
+    createFollow(follow);
+  }
+
+  const removeFollow = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const followId = followers.filter(follower => follower.followerId === currentUser.id).filter(follower => follower.followeeId === user.id)[0].id
+
+    deleteFollow(followId);
+  }
+
   const otheruserFollowButton = () => {
     return (
-      <div className="other-user-profile-follow-button-container">
-        <button className="other-user-profile-follow-button">
-          <span>Follow</span>
-        </button>
+      <div className="other-user-profile-follow-button-container">        
+        {
+          userFollowers.filter(follower => follower.followerId === currentUser.id).length === 1 ? (
+            <button className="other-user-profile-follow-button" onClick={removeFollow}>Following</button>
+          ) : (
+            <button className="other-user-profile-follow-button" onClick={addFollow}>Follow</button>
+          )
+        }
       </div>
     )
   }
@@ -324,12 +357,20 @@ const UserShow = (props) => {
       </div>
     ) : (
       <div className="other-user-profile-likes-impressions-container">
-        <div className="other-user-profile-followers">
-          <p>0&nbsp;</p>
-          <p>Followers</p>
-        </div>
+        {userFollowers.length === 1 ? (
+            <div className="other-user-profile-followers">
+              <p>{userFollowers.length}&nbsp;</p>
+              <p>Follower</p>
+            </div>
+          ): (
+            <div className="other-user-profile-followers">
+              <p>{userFollowers.length}&nbsp;</p>
+              <p>Followers</p>
+            </div>
+          )
+        }
         <div className="other-user-profile-followings">
-          <p>0&nbsp;</p>
+          <p>{userFollowings.length}&nbsp;</p>
           <p>Following</p>
         </div>
         <div className="other-user-profile-likes">
@@ -850,7 +891,6 @@ const UserShow = (props) => {
         )
     }
   }
-
   return (
     <div>
       <div className="block-space"></div>

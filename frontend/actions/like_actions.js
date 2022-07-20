@@ -49,9 +49,9 @@ export const createLike = (like) => {
   }
 };
 
-export const deleteLike = (like) => {
+export const deleteLike = (likeId) => {
   return (dispatch) => {
-    return likeAPIUtil.deletelike(like).then(like =>
+    return likeAPIUtil.deletelike(likeId).then(like =>
       dispatch(removeLike(like))
     )
   }
