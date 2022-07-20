@@ -2,31 +2,31 @@
   height: 59px;
   line-height: 59px;
   font-size: 24px;
-  color: #222222;
+  color: var(--color-light-black);
   font-weight: 700;
-  background-color: #ffffff;
+  background-color: var(--color-white);
   padding-left: 50px;
-  font-family: Helvetica;
+  font-family: var(--main-font-family);
   box-sizing: border-box;
 }
 
 .image-update-bar {
   display: flex;
   padding-left: 50px;
-  background-color: #ffffff;
+  background-color: var(--color-white);
   box-sizing: border-box;
   padding-bottom: 5px;
 }
 
 .image-update-bar-all-photos {
   margin-right: 25px;
-  color: #2986f7;
+  color: var(--color-light-darker-blue);
   display: inline-block;
   height: 36px;
   line-height: 36px;
   font-size: 16px;
   font-weight: 700px;
-  border-bottom: 2px solid #2986f7;
+  border-bottom: 2px solid var(--color-light-darker-blue);
   cursor: pointer;
   svg {
     margin-right: 10px;
@@ -36,12 +36,12 @@
 }
 
 .image-update-bar-all-photos:hover, .image-update-bar-licensing:hover {
-  color: #0870d1 ;
-  border-bottom: 2px solid #2986f7;
+  color: var(--color-light-dark-blue) ;
+  border-bottom: 2px solid var(--color-light-darker-blue);
 }
 
 .image-update-bar-licensing {
-  color: #222222;
+  color: var(--color-light-black);
   display: inline-block;
   height: 36px;
   line-height: 36px;
@@ -68,7 +68,7 @@
 .image-update-amount {
   font-size: 21px;
   line-height: 24px;
-  color: #222222;
+  color: var(--color-light-black);
   font-weight: 700;
   box-sizing: border-box;
   display: block;
@@ -78,7 +78,7 @@
 .image-update-status {
   font-size: 16px;
   line-height: 20px;
-  color: #000;
+  color: var(--color-black);
   font-weight: 700;
   box-sizing: border-box;
   display: block;
@@ -89,13 +89,13 @@
   margin: 4px 0 16px;
   font-size: 14px;
   line-height: 20px;
-  color: #222;
+  color: var(--color-light-black);
   box-sizing: border-box;
   display: block;
 }
 
 .image-update-preview-image {
-  border: 2px solid #0870d1;
+  border: 2px solid var(--color-light-dark-blue);
   padding: 2px;
   height: 120px;
   width: 160px;
@@ -112,8 +112,8 @@
   height: 100%;
   width: 325px;
   overflow-y: auto;
-  border: 1px solid #eeeff2;
-  background: #ffffff;
+  border: 1px solid var(--color-dark-white);
+  background: var(--color-white);
   margin-top: 25px;
   margin-right: 60px;
   padding: 0px 30px;
@@ -147,7 +147,7 @@
   line-height: 20px;
   display: flex;
   align-items: center;
-  color: rgb(109, 115, 120);
+  color: var(--color-gray);
   margin-bottom: 4px;
 }
 
@@ -158,30 +158,30 @@
 .image-update-title-field {
   outline: none;
   touch-action: manipulation;
-  background-color: rgb(255, 255, 255);
-  border: 1px solid rgb(215, 216, 219);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-darker-white);
   border-radius: 4px;
   height: 44px;
   font-size: 16px;
   padding: 0px 12px;
   flex: 0 0 auto;
-  color: rgb(34, 34, 34);
+  color: var(--color-light-black);
   width: initial;
   overflow: visible;
 }
 
 .image-update-description-field {
   outline: none;
-  background-color: rgb(255, 255, 255);
-  border: 1px solid rgb(215, 216, 219);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-darker-white);
   border-radius: 4px;
   flex: 0 0 auto;
   padding: 16px 16px 0px 16px;
   height: 84px;
-  color: rgb(34, 34, 34);
+  color: var(--color-light-black);
   resize: none;
   overflow: auto;
-  font-family: Helvetica;
+  font-family: var(--main-font-family);
   font-size: 14px;
 }
 
@@ -195,11 +195,11 @@
   min-width: 140px;
   height: 48px;
   line-height: 48px;
-  background: #0870d1;
+  background: var(--color-light-dark-blue);
   border-radius: 28px;
   border: none;
   text-align: center;
-  color: #fff;
+  color: var(--color-white);
   font-size: 16px;
   font-weight: 700;
   margin-left: 24px;
@@ -207,7 +207,7 @@
   padding: 0px 24px;
   box-sizing: border-box;
   display: block;
-  font-family: Helvetica;
+  font-family: var(--main-font-family);
 }
 
 .delete-image-button {
@@ -216,7 +216,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-family: Helvetica;
+  font-family: var(--main-font-family);
   font-size: 16px;
   line-height: 20px;
   font-weight: bold;
@@ -225,19 +225,19 @@
   border-style: solid;
   cursor: pointer;
   text-align: center;
-  background-color: rgb(255, 255, 255);
-  border-color: rgb(219, 56, 56);
-  color: rgb(219, 56, 56);
+  background-color: var(--color-white);
+  border-color: var(--color-red);
+  color: var(--color-red);
 }
 
 .delete-image-button:hover {
-  background-color: #d7d8db;
+  background-color: var(--color-darker-white);
 }
 
 .image-update-errors {
   margin-top: 10px;
   font-size: 14px;
-  color: #DB3838;
+  color: var(--color-red);
   line-height: 20px;
 }
 

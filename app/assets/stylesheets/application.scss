@@ -35,38 +35,61 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --color-white: rgb(255, 255, 255);
+  --color-light-white: rgb(247, 248, 250);
+  --color-dark-white: rgb(238, 239, 242);
+  --color-dark-white2: rgb(233, 233, 233);
+  --color-darker-white: rgb(215, 216, 219);
+
+  --color-gray: rgb(109, 115, 120);
+
+  --color-light-black: rgb(34, 34, 34);
+  --color-light-black-opacity: rgba(34, 34, 34, 0.1);
+  --color-dark-black: rgb(17, 17, 17);
+  --color-black: rgb(0, 0, 0);
+
+  --color-light-dark-blue: rgb(8, 112, 209);
+  --color-light-darker-blue: rgb(41, 134, 247);
+  --color-stroke-blue: rgb(147, 191, 236);
+
+  --color-red: rgb(219, 56, 56);
+
+  --main-font-family: Helvetica;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
 
 body {
-  background-color: #f7f8fa;
-  font-family: Helvetica;
-  color: #111111;
+  background-color: var(--color-light-white);
+  font-family: var(--main-font-family);
+  color: var(--color-dark-black);
   font-weight: 300;
   font-size: 16px;
 }
 
 a {
-  color: #111111;
+  color: var(--color-dark-black);
   text-decoration: none;
   font-weight: 400;
   cursor: pointer;
 }
 
 a:hover {
-  color: #2986f7;
+  color: var(--color-light-darker-blue);
 }
 
 .button {
   border-radius: 20px;
   padding: 6px 16px;
-  background-color: #0870d1;
-  color: #ffffff;
+  background-color: var(--color-light-dark-blue);
+  color: var(--color-white);
 }
 
 .button:hover {
-  background-color: #2986f7;
+  background-color: var(--color-light-darker-blue);
 }
 
 .block-space {

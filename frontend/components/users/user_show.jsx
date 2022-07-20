@@ -28,7 +28,7 @@ const UserShow = (props) => {
   });
 
   const [isLoading, setIsLoading] = useState(false);
-
+  // console.log(state.nav);
   useEffect(() => {
     const getImages = async () => {
       setIsLoading(true);
@@ -48,6 +48,12 @@ const UserShow = (props) => {
     fetchLikes();
     window.scrollTo(0, 0);
   }, []);
+
+  // useEffect(() => {
+  //   return () => {
+  //     setState({ nav: 'photos' })
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (state.profilepic && state.profilepicUrl) {

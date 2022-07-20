@@ -2,10 +2,10 @@
   height: 56px;
   line-height: 56px;
   width: 100%;
-  background-color: #fff;
-  color: #222;
+  background-color: var(--color-white);
+  color: var(--color-light-black);
   font-size: 21px;
-  font-family: Helvetica;
+  font-family: var(--main-font-family);
   font-weight: 700;
   box-sizing: border-box;
   padding: 0 0 0 64px;
@@ -40,7 +40,7 @@
   margin-bottom: 24px;
   font-size: 21px;
   font-weight: 700;
-  color: #000;
+  color: var(--color-black);
   text-align: center;
   box-sizing: border-box;
   display: block;
@@ -51,11 +51,11 @@
   width: 153px;
   height: 48px;
   line-height: 48px;
-  background: #0870d1;
+  background: var(--color-light-dark-blue);
   border-radius: 28px;
   font-size: 16px;
   text-align: center;
-  color: #fff;
+  color: var(--color-white);
   font-weight: 700;
   padding: 14px 20px;
 }
@@ -66,7 +66,7 @@ input[type="file"] {
 
 .home-upload-text {
   margin-top: 30px;
-  color: #000;
+  color: var(--color-black);
   font-size: 16px;
   text-align: center;
 }
@@ -75,9 +75,9 @@ input[type="file"] {
   box-sizing: border-box;
   width: 390px;
   height: 198px;
-  background: #eeeff2;
+  background: var(--color-dark-white);
   margin: 30px auto 0;
-  color: #222;
+  color: var(--color-light-black);
   font-size: 16px;
 }
 
@@ -88,7 +88,7 @@ input[type="file"] {
 .photo-requirements-title, .licensing-requirements-title {
   padding-top: 20px;
   text-align: left;
-  color: #222;
+  color: var(--color-light-black);
   font-size: 16px;
   line-height: 20px;
   font-weight: 700;
@@ -102,7 +102,7 @@ input[type="file"] {
   box-sizing: border-box;
   display: block;
   text-align: left;
-  color: #222;
+  color: var(--color-light-black);
   font-size: 16px;
 }
 
@@ -112,7 +112,7 @@ input[type="file"] {
   align-items: center;
   box-sizing: border-box;
   list-style: none;
-  color: #222;
+  color: var(--color-light-black);
   font-size: 16px;
 }
 
@@ -139,7 +139,7 @@ input[type="file"] {
 .image-preview-img {
   height: auto;
   width: 285px;
-  border: 2px solid #0870d1;
+  border: 2px solid var(--color-light-dark-blue);
   padding: 1px;
   filter: brightness(100%);
 }
@@ -149,9 +149,9 @@ input[type="file"] {
 }
 
 .info-container {
-  border: 1px solid #eeeff2;
+  border: 1px solid var(--color-dark-white);
   height: 100%;
-  background: #fff;
+  background: var(--color-white);
   position: relative;
   overflow-y: hidden;
   box-sizing: border-box;
@@ -168,8 +168,8 @@ input[type="file"] {
   line-height: 52px;
   text-align: center;
   font-size: 16px;
-  color: #222;
-  font-family: Helvetica;
+  color: var(--color-light-black);
+  font-family: var(--main-font-family);
   font-weight: 700;
 }
 
@@ -188,7 +188,7 @@ input[type="file"] {
   line-height: 20px;
   display: flex;
   align-items: center;
-  color: rgb(109, 115, 120);
+  color: var(--color-gray);
   margin-bottom: 4px;
 }
 
@@ -199,27 +199,27 @@ input[type="file"] {
 .image-title-field {
   outline: none;
   touch-action: manipulation;
-  background-color: rgb(255, 255, 255);
-  border: 1px solid rgb(215, 216, 219);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-darker-white);
   border-radius: 4px;
   height: 44px;
   font-size: 16px;
   padding: 0px 12px;
   flex: 0 0 auto;
-  color: rgb(34, 34, 34);
+  color: var(--color-light-black);
   width: initial;
   overflow: visible;
 }
 
 .image-description-field {
   outline: none;
-  background-color: rgb(255, 255, 255);
-  border: 1px solid rgb(215, 216, 219);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-darker-white);
   border-radius: 4px;
   flex: 0 0 auto;
   padding: 16px 16px 0px 16px;
   height: 84px;
-  color: rgb(34, 34, 34);
+  color: var(--color-light-black);
   resize: none;
   overflow: auto;
 }
@@ -232,11 +232,11 @@ input[type="file"] {
   min-width: 140px;
   height: 48px;
   line-height: 48px;
-  background: #0870d1;
+  background: var(--color-light-dark-blue);
   border-radius: 28px;
   border: none;
   text-align: center;
-  color: #fff;
+  color: var(--color-white);
   font-size: 16px;
   font-weight: 700;
   margin-left: 24px;
@@ -244,7 +244,7 @@ input[type="file"] {
   padding: 0px 24px;
   box-sizing: border-box;
   display: block;
-  font-family: Helvetica;
+  font-family: var(--main-font-family);
   position: relative;
   left: 190px;
 }
@@ -252,7 +252,7 @@ input[type="file"] {
 .image-create-errors {
   margin-top: 10px;
   font-size: 14px;
-  color: #DB3838;
+  color: var(--color-red);
   line-height: 20px;
 }
 

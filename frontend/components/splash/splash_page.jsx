@@ -103,6 +103,14 @@ const Splash = () => {
             <img src={window.editorImage8} alt="" className="editor-image"/>
           </div>
         </div>
+
+        <div className="join-community-container">
+          <div></div>
+          <h2 className="join-community-title">Join our community today</h2>
+          <p className="join-community-para">Do you love photography? Want to constantly stay inspired and be surrounded by millions of like-minded creators? Then sign-up today and get rewarded for your love of photography.</p>
+          <Link to="/signup" className="join-community-sign-up-button"><span>Sign Up</span></Link>
+        </div>
+
       </div>
       <Footer/>
     </div>
