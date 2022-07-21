@@ -1,0 +1,156 @@
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: rgba(34, 34, 34, 0.4);
+  z-index: 12;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+  margin-left: 0px !important;
+}
+
+.modal-wrapper {
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-holder {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
+}
+
+.modal-holder-top-container {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 52px;
+  flex: 0 0 52px;
+}
+
+.exit-modal {
+  position: absolute;
+  left: 16px;
+  top: unset;
+}
+
+.close-modal {
+  max-width: 100%;
+  position: relative;
+  height: 16px;
+  width: 16px;
+}
+
+.modal-button {
+  opacity: 0;
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.modal-title {
+  text-align: center;
+  width: 100%;
+  font-size: 21px;
+  line-height: 24px;
+  font-weight: bold;
+  margin: 0px;
+  color: var(--color-light-black);
+  font-family: var(--main-font-family);
+}
+
+.following-container,
+.followees-container {
+  flex: 1 1 0%;
+  overflow: hidden overlay;
+  position: relative;
+  padding: 0px 0px 16px;
+}
+
+.following-inner,
+.followees-inner {
+  padding: 0px 16px;
+}
+
+.following-list,
+.followees-list {
+  height: auto;
+  overflow: auto;
+}
+
+.followees-user,
+.following-user {
+  max-width: 100%;
+  justify-content: left;
+  align-items: center;
+  display: flex;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.following-user-image,
+.followees-user-image {
+  border-radius: 50%;
+  height: 40px;
+  vertical-align: middle;
+}
+
+.following-user-username,
+.followees-user-username {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-light-black);
+  font-weight: bold;
+  font-family: var(--main-font-family);
+}
+
+@media (min-width: 415px) {
+  .modal-wrapper {
+    padding: 32px;
+    width: 528px;
+    height: 736px;
+  }
+  .modal-holder {
+    height: initial;
+    max-height: 100%;
+    border-radius: 4px;
+  }
+
+  .modal-holder-top-container {
+    height: 72px;
+    flex: 0 0 72px;
+  }
+
+  .exit-modal {
+    left: 24px;
+    top: unset;
+  }
+
+  .following-container,
+  .followees-container {
+    padding: 0px 0px 24px;
+  }
+
+  .following-inner,
+  .followees-inner {
+    padding: 0px 24px;
+  }
+}

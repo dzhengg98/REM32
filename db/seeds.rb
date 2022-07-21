@@ -10,9 +10,15 @@ require 'open-uri'
 
 User.destroy_all
 Image.destroy_all
+Comment.destroy_all
+Like.destroy_all
+Follow.destroy_all
 
 ApplicationRecord.connection.reset_pk_sequence!('users')
 ApplicationRecord.connection.reset_pk_sequence!('images')
+ApplicationRecord.connection.reset_pk_sequence!('comments')
+ApplicationRecord.connection.reset_pk_sequence!('likes')
+ApplicationRecord.connection.reset_pk_sequence!('follows')
 
 # USERS
 demo_user = User.create({ 
@@ -1412,56 +1418,516 @@ like2 = Like.create({
 })
 
 like3 = Like.create({ 
-  liker_id: 3, 
+  liker_id: 1, 
   image_id: 25
 })
 
 like4 = Like.create({ 
-  liker_id: 2, 
+  liker_id: 1, 
   image_id: 1 
 })
 
 like5 = Like.create({ 
-  liker_id: 2, 
+  liker_id: 1, 
   image_id: 2
 })
 
 like6 = Like.create({ 
-  liker_id: 2, 
+  liker_id: 1, 
   image_id: 3
 })
 
 like7 = Like.create({ 
-  liker_id: 2, 
+  liker_id: 1, 
   image_id: 4
 })
 
 like8 = Like.create({ 
-  liker_id: 2, 
+  liker_id: 1, 
   image_id: 5
 })
 
 like9 = Like.create({ 
-  liker_id: 2, 
+  liker_id: 1, 
   image_id: 6
 })
 
 like10 = Like.create({ 
-  liker_id: 2, 
+  liker_id: 1, 
   image_id: 7
 })
 
 like11 = Like.create({ 
-  liker_id: 3, 
+  liker_id: 1, 
   image_id: 11
 })
 
 like12 = Like.create({ 
-  liker_id: 4, 
+  liker_id: 1, 
   image_id: 14
 })
 
 like13 = Like.create({ 
-  liker_id: 6, 
+  liker_id: 1, 
   image_id: 32
+})
+
+like14 = Like.create({ 
+  liker_id: 1, 
+  image_id: 18
+})
+
+like15 = Like.create({ 
+  liker_id: 1, 
+  image_id: 19
+})
+
+like16 = Like.create({ 
+  liker_id: 2, 
+  image_id: 2
+})
+
+like17 = Like.create({ 
+  liker_id: 2, 
+  image_id: 4
+})
+
+like18 = Like.create({ 
+  liker_id: 2, 
+  image_id: 8
+})
+
+like19 = Like.create({ 
+  liker_id: 2, 
+  image_id: 11
+})
+
+like20 = Like.create({ 
+  liker_id: 2, 
+  image_id: 22
+})
+
+like21 = Like.create({ 
+  liker_id: 2, 
+  image_id: 29
+})
+
+like22 = Like.create({ 
+  liker_id: 2, 
+  image_id: 31
+})
+
+like23 = Like.create({ 
+  liker_id: 2, 
+  image_id: 33
+})
+
+like24 = Like.create({ 
+  liker_id: 2, 
+  image_id: 10
+})
+
+like25 = Like.create({ 
+  liker_id: 2, 
+  image_id: 37
+})
+
+like26 = Like.create({ 
+  liker_id: 2, 
+  image_id: 44
+})
+
+like27 = Like.create({ 
+  liker_id: 2, 
+  image_id: 51
+})
+
+like28 = Like.create({ 
+  liker_id: 2, 
+  image_id: 40
+})
+
+like29 = Like.create({ 
+  liker_id: 2, 
+  image_id: 41
+})
+
+like30 = Like.create({ 
+  liker_id: 2, 
+  image_id: 52
+})
+
+like31 = Like.create({ 
+  liker_id: 3, 
+  image_id: 1
+})
+
+like32 = Like.create({ 
+  liker_id: 3, 
+  image_id: 8
+})
+
+like33 = Like.create({ 
+  liker_id: 3, 
+  image_id: 9
+})
+
+like34 = Like.create({ 
+  liker_id: 3, 
+  image_id: 11
+})
+
+like35 = Like.create({ 
+  liker_id: 3, 
+  image_id: 16
+})
+
+like36 = Like.create({ 
+  liker_id: 3, 
+  image_id: 21
+})
+
+like37 = Like.create({ 
+  liker_id: 3, 
+  image_id: 25
+})
+
+like38 = Like.create({ 
+  liker_id: 3, 
+  image_id: 27
+})
+
+like39 = Like.create({ 
+  liker_id: 3, 
+  image_id: 29
+})
+
+like40 = Like.create({ 
+  liker_id: 3, 
+  image_id: 32
+})
+
+like41 = Like.create({ 
+  liker_id: 3, 
+  image_id: 36
+})
+
+like42 = Like.create({ 
+  liker_id: 3, 
+  image_id: 37
+})
+
+like43 = Like.create({ 
+  liker_id: 3, 
+  image_id: 39
+})
+
+like44 = Like.create({ 
+  liker_id: 3, 
+  image_id: 40
+})
+
+like45 = Like.create({ 
+  liker_id: 3, 
+  image_id: 52
+})
+
+like46 = Like.create({ 
+  liker_id: 4, 
+  image_id: 11
+})
+
+like47 = Like.create({ 
+  liker_id: 4, 
+  image_id: 19
+})
+
+like48 = Like.create({ 
+  liker_id: 4, 
+  image_id: 15
+})
+
+like49 = Like.create({ 
+  liker_id: 4, 
+  image_id: 22
+})
+
+like50 = Like.create({ 
+  liker_id: 4, 
+  image_id: 29
+})
+
+like51 = Like.create({ 
+  liker_id: 5, 
+  image_id: 12
+})
+
+like52 = Like.create({ 
+  liker_id: 5, 
+  image_id: 20
+})
+
+like53 = Like.create({ 
+  liker_id: 5, 
+  image_id: 16
+})
+
+like54 = Like.create({ 
+  liker_id: 5, 
+  image_id: 23
+})
+
+like55 = Like.create({ 
+  liker_id: 5, 
+  image_id: 30
+})
+
+like56 = Like.create({ 
+  liker_id: 6, 
+  image_id: 13
+})
+
+like57 = Like.create({ 
+  liker_id: 6, 
+  image_id: 21
+})
+
+like58 = Like.create({ 
+  liker_id: 6, 
+  image_id: 17
+})
+
+like59 = Like.create({ 
+  liker_id: 6, 
+  image_id: 24
+})
+
+like60 = Like.create({ 
+  liker_id: 6, 
+  image_id: 31
+})
+
+like61 = Like.create({ 
+  liker_id: 7, 
+  image_id: 15
+})
+
+like62 = Like.create({ 
+  liker_id: 7, 
+  image_id: 25
+})
+
+like63 = Like.create({ 
+  liker_id: 7, 
+  image_id: 36
+})
+
+like64 = Like.create({ 
+  liker_id: 7, 
+  image_id: 43
+})
+
+like65 = Like.create({ 
+  liker_id: 7, 
+  image_id: 50
+})
+
+like66 = Like.create({ 
+  liker_id: 8, 
+  image_id: 36
+})
+
+like67 = Like.create({ 
+  liker_id: 9, 
+  image_id: 43
+})
+
+like68 = Like.create({ 
+  liker_id: 10, 
+  image_id: 50
+})
+
+like69 = Like.create({ 
+  liker_id: 11, 
+  image_id: 50
+})
+
+like70 = Like.create({ 
+  liker_id: 12, 
+  image_id: 50
+})
+
+follow1 = Follow.create({
+  follower_id: 1,
+  followee_id: 2,
+})
+
+follow2 = Follow.create({
+  follower_id: 1,
+  followee_id: 3,
+})
+
+follow3 = Follow.create({
+  follower_id: 1,
+  followee_id: 4,
+})
+
+follow4 = Follow.create({
+  follower_id: 1,
+  followee_id: 5,
+})
+
+follow5 = Follow.create({
+  follower_id: 1,
+  followee_id: 6,
+})
+
+follow6 = Follow.create({
+  follower_id: 1,
+  followee_id: 7,
+})
+
+follow7 = Follow.create({
+  follower_id: 1,
+  followee_id: 8,
+})
+
+follow8 = Follow.create({
+  follower_id: 1,
+  followee_id: 9,
+})
+
+follow9 = Follow.create({
+  follower_id: 1,
+  followee_id: 10,
+})
+
+follow10 = Follow.create({
+  follower_id: 2,
+  followee_id: 3,
+})
+
+follow11 = Follow.create({
+  follower_id: 2,
+  followee_id: 5,
+})
+
+follow12 = Follow.create({
+  follower_id: 2,
+  followee_id: 6,
+})
+
+follow13 = Follow.create({
+  follower_id: 3,
+  followee_id: 4,
+})
+
+follow14 = Follow.create({
+  follower_id: 3,
+  followee_id: 6,
+})
+
+follow15 = Follow.create({
+  follower_id: 3,
+  followee_id: 7,
+})
+
+follow16 = Follow.create({
+  follower_id: 4,
+  followee_id: 5,
+})
+
+follow17 = Follow.create({
+  follower_id: 4,
+  followee_id: 7,
+})
+
+follow18 = Follow.create({
+  follower_id: 4,
+  followee_id: 8,
+})
+
+follow19 = Follow.create({
+  follower_id: 5,
+  followee_id: 11,
+})
+
+follow20 = Follow.create({
+  follower_id: 5,
+  followee_id: 8,
+})
+
+follow21 = Follow.create({
+  follower_id: 5,
+  followee_id: 9,
+})
+
+follow22 = Follow.create({
+  follower_id: 6,
+  followee_id: 1,
+})
+
+follow23 = Follow.create({
+  follower_id: 6,
+  followee_id: 2,
+})
+
+follow24 = Follow.create({
+  follower_id: 6,
+  followee_id: 3,
+})
+
+follow25 = Follow.create({
+  follower_id: 7,
+  followee_id: 4,
+})
+
+follow26 = Follow.create({
+  follower_id: 7,
+  followee_id: 6,
+})
+
+follow27 = Follow.create({
+  follower_id: 7,
+  followee_id: 7,
+})
+
+follow28 = Follow.create({
+  follower_id: 8,
+  followee_id: 4,
+})
+
+follow29 = Follow.create({
+  follower_id: 9,
+  followee_id: 6,
+})
+
+follow30 = Follow.create({
+  follower_id: 10,
+  followee_id: 7,
+})
+
+follow31 = Follow.create({
+  follower_id: 11,
+  followee_id: 4,
+})
+
+follow32 = Follow.create({
+  follower_id: 11,
+  followee_id: 6,
+})
+
+follow33 = Follow.create({
+  follower_id: 11,
+  followee_id: 7,
+})
+
+follow34 = Follow.create({
+  follower_id: 11,
+  followee_id: 8,
+})
+
+follow34 = Follow.create({
+  follower_id: 11,
+  followee_id: 1,
 })

@@ -3,6 +3,7 @@ import ErrorPage from '../404/404_page';
 import UserShowImageItem from './user_show_image_item';
 import { Link } from 'react-router-dom';
 import sleep from '../../util/sleep';
+import ModalContainer from '../modal/modal_container';
 
 const UserShow = (props) => {
   const { 
@@ -358,18 +359,18 @@ const UserShow = (props) => {
     ) : (
       <div className="other-user-profile-likes-impressions-container">
         {userFollowers.length === 1 ? (
-            <div className="other-user-profile-followers">
+            <div className="other-user-profile-followers" onClick={() => props.openModal('followees')}>
               <p>{userFollowers.length}&nbsp;</p>
               <p>Follower</p>
             </div>
           ): (
-            <div className="other-user-profile-followers">
+            <div className="other-user-profile-followers" onClick={() => props.openModal('followees')}>
               <p>{userFollowers.length}&nbsp;</p>
               <p>Followers</p>
             </div>
           )
         }
-        <div className="other-user-profile-followings">
+        <div className="other-user-profile-followings" onClick={() => props.openModal('following')}>
           <p>{userFollowings.length}&nbsp;</p>
           <p>Following</p>
         </div>
@@ -895,6 +896,18 @@ const UserShow = (props) => {
     <div>
       <div className="block-space"></div>
       {userProfileInfo()}
+      <ModalContainer 
+        fetchUsers={fetchUsers}
+        user={user}
+        currentUser={currentUser}
+        fetchFollows={fetchFollows}
+        createFollow={createFollow}
+        deleteFollow={deleteFollow}
+        followers={followers}
+        userFollowings={userFollowings}
+        userFollowers={userFollowers}
+        users={users}
+      />
       {userProfileOtherInfo(state.nav)}
     </div>
   )
