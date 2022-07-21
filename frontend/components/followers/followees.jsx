@@ -5,7 +5,7 @@ const followees = (props) => {
   const a = [];
   props.userFollowers.forEach(follower => a.push(follower.followerId));
   const allUserFollowers = Object.values(props.users).filter(user => a.indexOf(user.id) !== -1);
-  console.log(allUserFollowers)
+  console.log(props);
   return (
     <div className="modal" onClick={props.closeModal}>
       <div className="modal-wrapper" onClick={(e) => e.stopPropagation()}>
