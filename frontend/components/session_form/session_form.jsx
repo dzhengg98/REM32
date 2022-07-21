@@ -71,7 +71,7 @@ const SessionForm = (props) => {
         displayPassword();
       }
       i++;
-    }, 150);
+    }, 100);
   }
 
   const displayPassword = () => {
@@ -87,7 +87,7 @@ const SessionForm = (props) => {
           .then(() => { setState({ username: "", password: "" })})
       }
       j++;
-    }, 150);
+    }, 100);
   }
 
   const renderDemoLogin = () => {
