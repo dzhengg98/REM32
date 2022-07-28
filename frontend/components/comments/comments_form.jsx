@@ -39,7 +39,7 @@ const CommentsForm = (props) => {
             <div className="comments-profile-picture-container">
               <div className="commments=profile-picture-inner-container">
                 <Link className="comments-profile-link" to={`/users/${currentUser.id}`}>
-                  <img className="comment-profile-image" src={currentUser.profilepic}/>
+                  <img className="comment-profile-image" src={currentUser.profilepic} alt="profile image" draggable="false"/>
                 </Link>
               </div>
             </div>
@@ -47,7 +47,7 @@ const CommentsForm = (props) => {
             <div className="comments-profile-picture-container">
               <div className="comments-profile-picture-inner-container">
                 <Link className="comments-profile-link" to={`/users/${currentUser.id}`}>
-                  <img className="comment-profile-image" src={window.userIcon}/>
+                  <img className="comment-profile-image" src={window.userIcon} alt="profile image" draggable="false"/>
                 </Link>
               </div>
             </div>

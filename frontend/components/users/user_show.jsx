@@ -80,7 +80,7 @@ const UserShow = (props) => {
 
   const userCoverPic = () => {
     return user.coverpic ? (
-      <img className="user-cover-picture-image" src={user.coverpic}/>
+      <img className="user-cover-picture-image" src={user.coverpic} alt="cover-pic" draggable="false"/>
     ) : (
       <div></div>
     )
@@ -136,9 +136,9 @@ const UserShow = (props) => {
 
   const userProfilePic = () => {
     return user.profilepic ? (
-      <img className="circular profile-image" src={user.profilepic}/>
+      <img className="circular profile-image" src={user.profilepic} alt="profile pic" draggable="false"/>
     ) : (
-      <img className="circular profile-image" src={window.userIcon}/>
+      <img className="circular profile-image" src={window.userIcon} alt="profile pic" draggable="false"/>
     )
   }
 
@@ -182,19 +182,19 @@ const UserShow = (props) => {
         </div>
         <div className="user-profile-icon-container">
           <div className="user-profile-share-icon">
-            <a href="#" target="_blank" rel="noopener noreferrer"></a>
+            <a href="#"></a>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 7c2.761 0 5 2.239 5 5s-2.239 5-5 5-5-2.239-5-5 2.239-5 5-5zm11.122 12.065c-.073.301-.122.611-.122.935 0 2.209 1.791 4 4 4s4-1.791 4-4-1.791-4-4-4c-1.165 0-2.204.506-2.935 1.301l-5.488-2.927c-.23.636-.549 1.229-.943 1.764l5.488 2.927zm7.878-15.065c0-2.209-1.791-4-4-4s-4 1.791-4 4c0 .324.049.634.122.935l-5.488 2.927c.395.535.713 1.127.943 1.764l5.488-2.927c.731.795 1.77 1.301 2.935 1.301 2.209 0 4-1.791 4-4z"/></svg>
           </div>
         </div>
         <div className="user-profile-icon-container">
           <div className="user-profile-portfolio-icon">
-            <a href="#" target="_blank" rel="noopener noreferrer"></a>
+            <a href="#"></a>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 6h-2v-2c0-1.104.896-2 2-2h6c1.104 0 2 .896 2 2v2h-2v-1.5c0-.276-.224-.5-.5-.5h-5c-.276 0-.5.224-.5.5v1.5zm12 1v6l-1.5-1.5-1.5 1.5v-6h-18v15h24v-15h-3z"/></svg>
           </div>
         </div>
         <div className="user-profile-icon-container">
           <div className="user-profile-more-icon">
-            <a href="#" target="_blank" rel="noopener noreferrer"></a>
+            <a href="#"></a>
             <svg width="24" height="24" clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m16.5 11.995c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25z"/></svg>
           </div>
         </div>
@@ -203,19 +203,19 @@ const UserShow = (props) => {
       <div className="other-user-profile-main-icons">
         <div className="other-user-profile-icon-container">
           <div className="other-user-profile-airplane-icon">
-            <a href="#" target="_blank" rel="noopener noreferrer"></a>
+            <a href="#"></a>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 0l-6 22-8.129-7.239 7.802-8.234-10.458 7.227-7.215-1.754 24-12zm-15 16.668v7.332l3.258-4.431-3.258-2.901z"/></svg>
           </div>
         </div>
         <div className="other-user-profile-icon-container">
           <div className="other-user-profile-share-icon">
-            <a href="#" target="_blank" rel="noopener noreferrer"></a>
+            <a href="#"></a>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 7c2.761 0 5 2.239 5 5s-2.239 5-5 5-5-2.239-5-5 2.239-5 5-5zm11.122 12.065c-.073.301-.122.611-.122.935 0 2.209 1.791 4 4 4s4-1.791 4-4-1.791-4-4-4c-1.165 0-2.204.506-2.935 1.301l-5.488-2.927c-.23.636-.549 1.229-.943 1.764l5.488 2.927zm7.878-15.065c0-2.209-1.791-4-4-4s-4 1.791-4 4c0 .324.049.634.122.935l-5.488 2.927c.395.535.713 1.127.943 1.764l5.488-2.927c.731.795 1.77 1.301 2.935 1.301 2.209 0 4-1.791 4-4z"/></svg>
           </div>
         </div>
         <div className="other-user-profile-icon-container">
           <div className="other-user-profile-report-icon">
-            <a href="#" target="_blank" rel="noopener noreferrer"></a>
+            <a href="#"></a>
             <svg width="24" height="24" clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m16.5 11.995c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25z"/></svg>
           </div>
         </div>

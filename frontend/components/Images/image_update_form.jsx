@@ -92,7 +92,9 @@ const ImageUpdateForm = props => {
             <div className="image-update-status-description">Accessible everywhere, including on Profile</div>
             <img 
               className="image-update-preview-image" 
-              src={state.imageUrl} 
+              src={state.imageUrl}
+              alt="image preview"
+              draggable="false"
             />
           </div>
 

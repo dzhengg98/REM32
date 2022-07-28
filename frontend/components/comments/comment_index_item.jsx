@@ -29,7 +29,7 @@ const CommentIndexItem = (props) => {
           <div className="commenter-profile-pic-container">
             <div className="commenter-profile-pic">
               <Link to={`/users/${comment.userId}`}>
-                <img src={users[comment.userId].profilepic}/>
+                <img src={users[comment.userId].profilepic} alt="profile pic" draggable="false"/>
               </Link>
             </div>
           </div>
@@ -37,7 +37,7 @@ const CommentIndexItem = (props) => {
           <div className="commenter-profile-pic-container">
             <div className="commenter-profile-pic">
               <Link to={`/users/${comment.userId}`}>
-                <img src={window.userIcon}/>
+                <img src={window.userIcon} alt="profile pic" draggable="false"/>
               </Link>
             </div>
           </div>

@@ -5,7 +5,7 @@ const UserShowImageItem = (props) => {
   return (
     <div className="user-show-image-container">
       <Link to={`/images/${props.image.id}`}>
-        <img src={props.image.imageUrl} className="user-show-image"/>
+        <img src={props.image.imageUrl} className="user-show-image" draggable="false"/>
       </Link>
     </div>
   )

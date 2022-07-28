@@ -58,7 +58,7 @@ const ImageCreateForm = (props) => {
 
   const preview = () => {
     return state.imageUrl ? (
-      <img className="image-preview-img" src={state.imageUrl} alt="Image Preview" />
+      <img className="image-preview-img" src={state.imageUrl} alt="Image Preview" draggable="false" />
     ) : (
       null
     )
@@ -130,7 +130,7 @@ const ImageCreateForm = (props) => {
               <div className="upload-image-display">
 
                 <div className="home-upload-image-main">
-                  <img className="home-upload-image-icon" src={uploadIcon} />
+                  <img className="home-upload-image-icon" src={uploadIcon} draggable="false" alt="upload icon" />
                   <div className="home-upload-main-text">Upload photos</div>
                   <label className="image-photo-button" htmlFor="image-file-upload">
                     Select Photos
@@ -155,6 +155,8 @@ const ImageCreateForm = (props) => {
                           <img
                             className="photo-requirements-icon" 
                             src={infoIcon}
+                            draggable="false"
+                            alt="photo requirements icon"
                           />
                         </span>
                       </li>
@@ -170,6 +172,8 @@ const ImageCreateForm = (props) => {
                           <img
                             className="photo-requirements-icon" 
                             src={infoIcon}
+                            draggable="false"
+                            alt="photo requirements icon"
                           />
                         </span>
                       </li>

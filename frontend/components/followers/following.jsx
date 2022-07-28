@@ -29,8 +29,8 @@ const following = (props) => {
                         <div className="following-user-image-container">
                           <Link to={`/users/${following.id}`} onClick={props.closeModal}>
                             {following.profilepic ? 
-                              <img className="following-user-image" src={following.profilepic} alt="followingprofilepic" /> :
-                              <img className="following-user-image" src={window.userIcon} alt="followingprofilepic"/>
+                              <img className="following-user-image" src={following.profilepic} alt="followingprofilepic" draggable="false" /> :
+                              <img className="following-user-image" src={window.userIcon} alt="followingprofilepic" draggable="false" />
                             }
                           </Link>
                         </div>

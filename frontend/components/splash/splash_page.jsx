@@ -26,22 +26,22 @@ const Splash = () => {
           <h2 className="splash-about-title">What makes us different</h2>
           <div className="splash-about-contents">
             <div className="splash-about-content">
-              <img className="splash-about-icons" src={leafIcon} />
+              <img className="splash-about-icons" src={leafIcon} draggable="false" alt="leaf icon" />
               <h3 className="splash-about-content-titles">Grow as a photographer</h3>
               <p className="splash-about-content-descriptions splash-about-content-description-one">Get immediate exposure with your first upload. Our Pulse algorithm surfaces new photographs and photographers, ensuring your photos are seen by the community so you receive valuable feedback on day one.</p>
             </div>
             <div className="splash-about-content">
-              <img className="splash-about-icons" src={pencilIcon} />
+              <img className="splash-about-icons" src={pencilIcon} draggable="false" alt="pencil icon" />
               <h3 className="splash-about-content-titles">Build your career</h3>
               <p className="splash-about-content-descriptions splash-about-content-description-two">Market yourself as a professional photographer. Show that you’re available for hire on your Profile and get discovered in Search results, showcase your articles, presents, videos, and more with Resources, and create a Portfolio website to showcase your work.</p>
             </div>
             <div className="splash-about-content">
-              <img className="splash-about-icons" src={barIcon} />
+              <img className="splash-about-icons" src={barIcon} draggable="false" alt="bar icon" />
               <h3 className="splash-about-content-titles">See how you're performing</h3>
               <p className="splash-about-content-descriptions splash-about-content-description-three">With Statistics and Pulse you get valuable insights into how your photos are performing and how you rank in comparison to other photographers in the community.</p>
             </div>
             <div className="splash-about-content">
-              <img className="splash-about-icons" src={crownIcon} />
+              <img className="splash-about-icons" src={crownIcon} draggable="false" alt="crown icon" />
               <h3 className="splash-about-content-titles">Sell your work</h3>
               <p className="splash-about-content-descriptions splash-about-content-description-four">Earn one of the highest royalty rates in the industry when you distribute your photography through 500px to a global marketplace, where buyers can view and purchase your work for commercial usage.</p>
             </div>
@@ -52,11 +52,11 @@ const Splash = () => {
           <div className="splash-app-left">
             <h2 className="splash-app-title">Get the app</h2>
             <p className="splash-app-description">Join our community of over 16 million like-minded photographers. Download the REM32 app for Android and iOS today!</p>
-            <a href="#"><img src={appStoreIcon} className="splash-app-image" alt="Download on the App Store"/></a>
-            <a href="#"><img src={googlePlayIcon} className="splash-app-image" alt="Get it on Google Play"/></a>
+            <a href="#"><img src={appStoreIcon} className="splash-app-image" alt="Download on the App Store" draggable="false" /></a>
+            <a href="#"><img src={googlePlayIcon} className="splash-app-image" alt="Get it on Google Play" draggable="false" /></a>
           </div>
           <div className="splash-app-right">
-            <a href="#"><img src={devicesImg} className="devices-image" alt="devices image"/></a>
+            <a href="#"><img src={devicesImg} className="devices-image" alt="devices image" draggable="false" /></a>
           </div>
         </div>
         
@@ -83,28 +83,28 @@ const Splash = () => {
 
         <div className="editor-images-container">
           <div className="editor-image-container">
-            <img src={window.editorImage1} alt="" className="editor-image"/>
+            <img src={window.editorImage1} alt="image1" className="editor-image" draggable="false"/>
           </div>
           <div className="editor-image-container">
-            <img src={window.editorImage2} alt="" className="editor-image"/>
+            <img src={window.editorImage2} alt="image2" className="editor-image" draggable="false"/>
           </div>
           <div className="editor-image-container">
-            <img src={window.editorImage3} alt="" className="editor-image"/>
+            <img src={window.editorImage3} alt="image3" className="editor-image" draggable="false"/>
           </div>
           <div className="editor-image-container">
-            <img src={window.editorImage4} alt="" className="editor-image"/>
+            <img src={window.editorImage4} alt="image4" className="editor-image" draggable="false"/>
           </div>
           <div className="editor-image-container">
-            <img src={window.editorImage5} alt="" className="editor-image"/>
+            <img src={window.editorImage5} alt="image5" className="editor-image" draggable="false"/>
           </div>
           <div className="editor-image-container">
-            <img src={window.editorImage6} alt="" className="editor-image"/>
+            <img src={window.editorImage6} alt="image6" className="editor-image" draggable="false"/>
           </div>
           <div className="editor-image-container">
-            <img src={window.editorImage7} alt="" className="editor-image"/>
+            <img src={window.editorImage7} alt="image7" className="editor-image" draggable="false"/>
           </div>
           <div className="editor-image-container">
-            <img src={window.editorImage8} alt="" className="editor-image"/>
+            <img src={window.editorImage8} alt="image8" className="editor-image" draggable="false"/>
           </div>
         </div>
 
