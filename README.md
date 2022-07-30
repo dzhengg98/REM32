@@ -35,15 +35,118 @@ Welcome to the REM32!, an <a href="https://www.500px.com/" target="_blank" rel="
 
 ### User Authentication
 
+![](./app/assets/images/user-auth.gif)
+
 New Users can sign up with a new account or try the demo user, returning users can log in. The Demo User Sign in uses a set timeout function to visualize a user login and displays both the user and password signup as if a user was actually signning in.
 
-![](./app/assets/images/user-auth.gif)
+<details>
+  <summary>Check out the User Authentication Code </summary>
+
+```javascript
+const demoLogin = (e) => {
+  e.preventDefault();
+  displayUsername();
+};
+
+const displayUsername = () => {
+  let i = 0;
+  const demousername = "demoUser";
+
+  const username = setInterval(() => {
+    setState({ username: demousername.slice(0, i + 1) });
+
+    if (i >= demousername.length - 1) {
+      clearInterval(username);
+      displayPassword();
+    }
+    i++;
+  }, 100);
+};
+
+const displayPassword = () => {
+  let j = 0;
+  const demopassword = "demouser";
+
+  const password = setInterval(() => {
+    setState({ password: demopassword.slice(0, j + 1) });
+
+    if (j >= demopassword.length - 1) {
+      clearInterval(password);
+      demoUserLogin({ username: "demoUser", password: "demouser" }).then(() => {
+        setState({ username: "", password: "" });
+      });
+    }
+    j++;
+  }, 100);
+};
+
+const renderDemoLogin = () => {
+  return (
+    <input
+      type="submit"
+      className="button"
+      onClick={demoLogin}
+      value="Demo User"
+    />
+  );
+};
+```
+
+</details>
+
+</br>
+</br>
 
 ### Image Uploading
 
+![](./app/assets/images/Image-Uploading.gif)
+
 Logged in Users can upload images to the site where the images are hosted through AWS. They can give the images a title and description and on the Image Show page they can view the image along with additional contents. The images are also filtered and organized to ensure the lastest upload appears first on the home page.
 
-![](./app/assets/images/Image-Uploading.gif)
+<details>
+  <summary>Checkout the image uploading code</summary>
+
+```javascript
+const handleFile = (e) => {
+  e.preventDefault();
+  const fileReader = new FileReader();
+  const file = e.currentTarget.files[0];
+
+  fileReader.onloadend = () => {
+    setState((prevState) => {
+      return { ...prevState, imageFile: file };
+    });
+    setState((prevState) => {
+      return { ...prevState, imageUrl: fileReader.result };
+    });
+  };
+
+  if (file) {
+    fileReader.readAsDataURL(file);
+  } else {
+    setState({ ...state }, { imageFile: null });
+    setState({ ...state }, { imageUrl: null });
+  }
+};
+
+const handleImageSubmit = (e) => {
+  e.preventDefault();
+  const formData = new FormData();
+  if (state.imageFile) {
+    formData.append("image[title]", state.title);
+    formData.append("image[description]", state.description);
+    formData.append("image[image]", state.imageFile);
+  }
+  createImage(formData).then(() => {
+    history.push(`/`);
+  });
+};
+```
+
+</details>
+
+</br>
+</br>
 
 ### Comments/Likes
 
