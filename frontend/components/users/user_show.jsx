@@ -35,7 +35,6 @@ const UserShow = (props) => {
   });
 
   const [isLoading, setIsLoading] = useState(false);
-  // console.log(state.nav);
 
   useEffect(() => {
     const getImages = async () => {
