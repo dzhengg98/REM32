@@ -27,7 +27,7 @@ demo_user = User.create({
   first_name: "Demo",
   last_name: "User",
   city: "New York City",
-  about: "This is the demoUser don't mess with him!",
+  about: "This is the demoUser don't mess with him",
   website: "www.google.com",
   instagram: "www.instagram.com/",
   facebook: "www.facebook.com/",
